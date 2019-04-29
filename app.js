@@ -4,7 +4,7 @@
 let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
 // let domain = "http://106.81.228.64/eapp-corp";
 
-//test git
+//test git,回复
 
 let url = domain + '/login.php'; 
 
