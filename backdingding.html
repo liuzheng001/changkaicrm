@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回钉钉</title>
+    <script type="text/javascript" src="https://appx/web-view.min.js"></script>
+    // 如该H5页面需要同时在非钉钉客户端内使用，为避免该请求404，可参考以下写法
+    // 请尽量在html头部执行以下脚本
+    <script>
+    /*    if (navigator.userAgent.toLowerCase().indexOf('dingtalk') > -1) { 
+            document.writeln('<script src="https://appx/web-view.min.js"' + '>' + '<' + '/' + 'script>');
+        }*/
+
+        // javascript
+        dd.navigateTo({url: '/Pages/index/index'}); 
+ 
+        // 网页向E应用 postMessage 消息
+        dd.postMessage({name:"测试web-view"});  
+
+        // 接收来自E应用的消息。
+        dd.onMessage = function(e) {
+            console.log(e); //{'sendToWebView': '1'}
+        }
+ 
+    </script>
+</head>
+<body>
+<!-- html -->
+
+</body>
+</html>

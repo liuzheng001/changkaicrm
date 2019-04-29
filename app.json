@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "page/index/index",
+    "page/logs/logs",
+    "page/test/test",
+    "page/componentPage/componentPage",
+		"page/grid/index"
+  ],
+  "window": {
+    "defaultTitle": "E应用测试",
+    "backgroundColor": "#545232",
+    "pullRefresh": false,
+    "allowsBounceVertical": "NO"
+  },
+  "tabBar": {
+    "textColor": "#dddddd",
+    "selectedColor": "#49a9ee",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "page/index/index",
+        "name": "首页"
+      },
+			{
+        "pagePath": "page/grid/index",
+        "name": "calendar"
+      },
+      {
+        "pagePath": "page/test/test",
+        "name": "测试"
+      }
+    ]
+  },
+  "debug": true
+}

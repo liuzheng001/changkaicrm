@@ -1,0 +1,23 @@
+<template  name = "templateTest">
+        <view >first {{first}} sec {{second}}</view>
+</template>
+     
+<view>
+    <button type="primary" size="" onTap="loginSystem"> 点击登录 </button>
+    <view class="row">CorpId:{{corpId}}</view>
+    <view>
+    <view a:for="{{items}}"> {{item}} </view>
+    <view a:for="{{names}}"> 
+      <template is="templateTest" data = "{{...item}}"/>
+    </view>
+    <button type="primary" onTap="changeTar">转到新页面测试!!!</button>
+    <view >
+        <view class="row">AuthCode:{{authCode}}</view>
+        <view class="row">userId:{{userId}}</view>
+        <view class="row">name:{{userName}}</view>
+        <view>hello {{name}}!</view>
+    </view>
+            <button type="default" onTap="changeName">修改</button>
+            <button type="default" onTap="openMap">地图</button>
+
+</view>

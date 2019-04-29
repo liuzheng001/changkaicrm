@@ -1,0 +1,34 @@
+<template name="List"> 
+    <scroll-view scroll-y="{{true}}" style="height:400rpx" >
+        <view >
+            <view class="a-list">
+                <block a:if={{header}}>
+                    <view class="a-list-header">{{header}}</view>
+                </block>
+                <view a:if={{data}} class="a-list-items">
+                    <block a:for={{data}}>
+                        <view a:if="{{year==item.year&&month==item.month&&date==item.day}}" 
+                            class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"
+                            hover-class="a-list-item-hover"
+                            onTap="{{onItemTap}}"
+                            data-year={{item.year}}
+														data-month={{item.month}}
+														data-day ={{item.day}}
+                        >
+                            <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+                                <text class="a-list-item-content">{{item.title}}</text>
+                                <view a:if={{item.date}} class="a-list-item-extra" >{{item.date}}</view>
+                                <!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
+                                <text class="a-list-item-address-content">{{item.address}}</text>
+														</view>
+														<view class="a-list-item-img">
+																	<image style="width:100%;height:100%" a:if={{item.thumb}}  src="{{item.thumb}}" mode="scaleToFill" />
+														</view>
+
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</template>

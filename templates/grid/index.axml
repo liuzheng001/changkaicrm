@@ -1,0 +1,17 @@
+<template name="Grid">
+        <block a:for="{{list}}">
+            <view
+            class="grid-item" onTap="handleItemTap"
+            data-date={{item.text}}
+						data-index={{index}}>
+                <!-- <view class="grid-item-wrapper"> -->
+                    <!-- <image src="{{item.icon}}" class="grid-icon" mode="aspectFit" /> -->
+										<text  a:if = "{{item.text > 15 && index < 15 || item.text < 15 && index > 20 }}" class="grid-text" style="color:rgba(0,0,0,.25)" >{{item.text}} </text>
+    	              <text  a:elif = "{{todayDate==item.text}}" class="grid-text" style="backgroundColor:orange;textDecoration:{{item.hasEvent?'underline':''}}" >{{item.text}} </text>
+    	              <text  a:elif = "{{item.hasEvent}}" class="grid-text" style="textDecoration:underline;color:rgba(0,0,0,.65);backgroundColor:{{item.text==date?'#108ee9':''}}" >{{item.text}} </text>
+										<text a:else class="grid-text" style="color:rgba(0,0,0,.65);backgroundColor:{{item.text==date?'#108ee9':''}}" >{{item.text}} </text>										
+                <!-- </view> -->
+            </view>
+        </block>
+</template>
+

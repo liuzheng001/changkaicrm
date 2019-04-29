@@ -1,0 +1,6 @@
+<view>
+  <view>x:{{x}}</view>
+  <button onTap="handleTop">count</button>
+  <button onTap="showAlert">alert</button>
+  <button onTap="showPropsValue">显示props</button>
+</view>

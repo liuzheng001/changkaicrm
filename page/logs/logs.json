@@ -1,0 +1,5 @@
+{
+  "usingComponents":{
+    "customer":"/components/customer/customer"
+  }
+}
