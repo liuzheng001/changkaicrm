@@ -1,14 +1,16 @@
 <template name="List"> 
     <scroll-view scroll-y="{{true}}" style="height:400rpx" >
         <view >
-            <view class="a-list">
-                <block a:if={{header}}>
-                    <view class="a-list-header">{{header}}</view>
-                </block>
-                <view a:if={{data}} class="a-list-items">
+						<view class="text-view" a:if="{{hasSchedule==false}}">
+  											<text>当天无日程</text>
+											</view >
+						<view a:else>
+								<view class="a-list">
+                <view a:if={{data}} class="a-list-items">		
                     <block a:for={{data}}>
-                        <view a:if="{{year==item.year&&month==item.month&&date==item.day}}" 
-                            class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"
+                        <!-- <view a:if="{{year==item.year&&month==item.month&&date==item.day}}"  -->
+                        <view a:if="{{year==item.year&&month==item.month&&date==item.day }}" 
+                            class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} a-list-item-{{item.align || 'middle'}}"
                             hover-class="a-list-item-hover"
                             onTap="{{onItemTap}}"
                             data-year={{item.year}}
@@ -24,9 +26,9 @@
 														<view class="a-list-item-img">
 																	<image style="width:100%;height:100%" a:if={{item.thumb}}  src="{{item.thumb}}" mode="scaleToFill" />
 														</view>
-
                         </view>
                     </block>
+									</view>
                 </view>
             </view>
         </view>

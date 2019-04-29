@@ -153,3 +153,12 @@
     visibility: visible;
     transform: rotate(270deg);
 }
+.text-view{
+	    /* height: 100%; */
+  vertical-align: middle;
+    text-align: center;
+    /* padding: 30px; */
+    margin-top: 50px;
+    font-size: 0.38rem;
+}
+}

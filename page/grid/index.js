@@ -39,16 +39,36 @@ function daysInMonth(year,month,date,todayDate,t){
 
             //显示listData中的data数据
             // resolve(thisMonth);
+            
 
-                t.setData({
-                    'grid.list': thisMonth,
-                    year: year,
-                    month: month,
-                    date: date,
-                    todayDate: todayDate,
-                    'listData.data': data
+            //查找当天有无日程
+            function FindFn(item, objIndex, objs){
+                return (item.day === date && item.month === month && item.year ===year);
+            }
+            const hasSchedule =data.findIndex(FindFn);//值为1(即第1个当天日程的下标),-1为无
+            if(hasSchedule == -1){
+ 							t.setData({
+                                        'grid.list': thisMonth,
+                                        year: year,
+                                        month: month,
+                                        date: date,
+                                        todayDate: todayDate,
+                                        'listData.data': data,
+										hasSchedule:false
+                        })
+            }else{
+                                         t.setData({
+                                        'grid.list': thisMonth,
+                                        year: year,
+                                        month: month,
+                                        date: date,
+                                        todayDate: todayDate,
+                                        'listData.data': data,
+										hasSchedule:true,
                 })
 
+            }
+             
         })
         .catch(function (err) {
             	dd.alert({content:err})
@@ -113,6 +133,7 @@ Page({
 			year:0 ,
 			month:0,
 			date:0,
+			hasSchedule:false,
 			todayDate:0,//当前日期的day值,只在当前月有效,其它月份为0
 			grid: {
             	list:[],
@@ -149,7 +170,7 @@ Page({
 						//  text:"地址1",
 						// imgUrl:  item.fieldData['经度'] && item.fieldData['纬度']?'../../navigation_96px_1201170_easyicon.net.png':null,
              				date : "04/09/2019 13:35:23",
-						 long:'经度',
+						    long:'经度',
 							lat:'纬度',
 							day:19,
 							month:4,
@@ -157,22 +178,10 @@ Page({
 							eventID:'日程ID',
 
 						},
-						{thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
-						title: "内容2",
-						arrow: 'horizontal',
-						 address: "",
-						//  text:"地址1",
-						// imgUrl:  item.fieldData['经度'] && item.fieldData['纬度']?'../../navigation_96px_1201170_easyicon.net.png':null,
-             date : "04/09/2019 13:35:23",
-						 long:'经度',
-							lat:'纬度',
-							day:21,
-							month:4,
-							year:2019,
-							eventID:'日程ID',
-						},*/
+						*/
 					]
-			}
+			},
+            attendance:'出勤',
 		},//data 结束
 		handleItemTap(e) {
 					// dd.showToast({
@@ -181,14 +190,34 @@ Page({
 
 					// 	},
 					// });
-					// console.log(e.currentTarget.dataset.date)
-					if(e.currentTarget.dataset.date > 15 && e.currentTarget.dataset.index < 15 ){ //到上月
+					// console.log(e.currentTarget.dataset.date) 
+
+            const date = e.currentTarget.dataset.date,month=this.data.month,year=this.data.year;
+
+            //查找当天有无日程
+            function FindFn(item, objIndex, objs){
+                return (item.day === date && item.month === month && item.year ===year);
+            }
+
+            if(e.currentTarget.dataset.date > 15 && e.currentTarget.dataset.index < 15 ){ //到上月
 							this.preMonth();
 					}else if(e.currentTarget.dataset.date < 15 && e.currentTarget.dataset.index > 20){//到下月
 							this.nextMonth();
 					}else{//当月的
-						this.setData({date:e.currentTarget.dataset.date})
+					    //查找当天有无日程
+                        const hasSchedule = this.data.listData.data.findIndex(FindFn);//值为1(即第1个当天日程的下标),-1为无
+                        if(hasSchedule == -1){
+														this.setData({date:e.currentTarget.dataset.date,hasSchedule:false})
+                        }else{
+                        	this.setData({date:e.currentTarget.dataset.date,hasSchedule:true})
+												}
 					}
+    },
+    attendanceStatus() { //出勤状态变更
+
+    },
+    openFM(){ //打开日程fm
+
     },
 	onLoad(){ //页面加载时,计算有效日期
         const app = getApp();

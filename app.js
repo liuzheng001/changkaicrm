@@ -8,7 +8,7 @@ let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
 
 let url = domain + '/login.php'; 
 
-App({ 
+App({  
   onLaunch(options) {
     console.log('App Launch', options);
     console.log('getSystemInfoSync', dd.getSystemInfoSync());

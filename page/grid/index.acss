@@ -18,3 +18,20 @@
 	color: gray;
 	/* padding: 10rpx; */
 }
+
+.schedule{
+    display:flex;
+    flex-flow: row wrap;
+    width:100%;
+		background-color: rgb(189, 189, 189);
+		align-items: center;
+
+}
+.schedule-content{
+    flex:5;
+		padding-left: 30rpx;
+}
+.schedule-button{
+    flex:2;
+		border-radius: 0;
+}
