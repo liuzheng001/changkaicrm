@@ -6,16 +6,11 @@
 				<view class="nav-item"  style="flex:3" onTap="">{{year}}年{{month+1}}月</view>
 				<button class="nav-item"  style="flex:1;border:0px" onTap="nextMonth">>></button>
 			</view>
-    <view class="grid" style="flex:1">
+    <view class="grid" >
         <block a:for="{{calendarHead.list}}">
             <view
-							class="grid-item"  onTap="handleItemTap"
-							data-date={{item.text}}
-							data-index={{index}}>
-										<text  a:if = "{{item.text > 15 && index < 15 || item.text < 15 && index > 20 }}" class="grid-text" style="color:rgba(0,0,0,.25)" >{{item.text}} </text>
-    	              <text  a:elif = "{{todayDate==item.text}}" class="grid-text" style="backgroundColor:orange;textDecoration:{{item.hasEvent?'underline':''}}" >{{item.text}} </text>
-    	              <text  a:elif = "{{item.hasEvent}}" class="grid-text" style="textDecoration:underline;color:rgba(0,0,0,.65);backgroundColor:{{item.text==date?'#108ee9':''}}" >{{item.text}} </text>
-										<text  a:else class="grid-text" style="color:rgba(0,0,0,.65);backgroundColor:{{item.text==date?'#108ee9':''}}" >{{item.text}} </text>									
+							class="grid-item" >
+										<text  class="grid-text" style="font-size:0.28rem;padding:0;color:rgba(0,0,0,.65);backgroundColor:{{item.text==date?'#108ee9':''}}" >{{item.text}} </text>									
             </view>
         </block> 
 		</view>

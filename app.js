@@ -16,7 +16,7 @@ App({
     this.globalData.corpId = options.query.corpId;
     // this.globalData.corpId ='ding1fdec36666e1349d35c2f4657eb6378f' ;
     this.loginSystem();
-  },
+  }, 
   onShow() { 
   // dd.alert({content:'应用打开了'});
     console.log('App Show'); 
