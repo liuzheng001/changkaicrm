@@ -1,3 +1,44 @@
+//百度坐标转高德（传入经度、纬度）
+function bd_decrypt(bd_lng, bd_lat) {
+
+    var X_PI = Math.PI * 3000.0 / 180.0;
+
+    var x = bd_lng - 0.0065;
+
+    var y = bd_lat - 0.006;
+
+    var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * X_PI);
+
+    var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * X_PI);
+
+    var gg_lng = z * Math.cos(theta);
+
+    var gg_lat = z * Math.sin(theta);
+    return {lng: gg_lng, lat: gg_lat}
+}
+
+//高德坐标转百度（传入经度、纬度）
+function bd_encrypt(gg_lng, gg_lat) {
+    var X_PI = Math.PI * 3000.0 / 180.0;
+
+    var x = gg_lng, y = gg_lat;
+
+    var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * X_PI);
+
+    var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * X_PI);
+
+    var bd_lng = z * Math.cos(theta) + 0.0065;
+
+    var bd_lat = z * Math.sin(theta) + 0.006;
+
+    return {
+
+        bd_lat: bd_lat,
+
+        bd_lng: bd_lng
+
+    };
+}
 function daysInMonth(year,month,date,todayDate,t){
 		//调用getScheduleForMonth()得到listData
         //得到登录人
@@ -128,6 +169,179 @@ function daysInMonth(year,month,date,todayDate,t){
         })
     })
   }
+/**
+ *
+ * @param eventID
+ * @param OnScheduleList
+ * tripMode 自驾,公交,搭车
+ * @param date
+ * @param year
+ * @param month
+ */
+
+function signIn(eventID,OnScheduleList,tripMode,date,year,month) {
+
+    //打开地图,并修正poi
+    /* dd.biz.map.search({
+         // 29.8369399124,106.6972446442
+         latitude: 29.8369399124, // 纬度
+         longitude: 106.6972446442, // 经度
+
+         scope: 100, // 限制搜索POI的范围；设备位置为中心，scope为搜索半径
+
+     })*/
+    // const {getScheduleListforMonth} = this
+    dd.device.geolocation.get({
+        targetAccuracy: 200,
+        coordinate: 1,//高德坐标
+        withReGeocode: true,
+        useCache: true, //默认是true，如果需要频繁获取地理位置，请设置false
+        onSuccess: function (result) {
+
+            /* 高德坐标 result 结构
+             {
+             longitude : Number,
+             latitude : Number,
+             accuracy : Number,
+             address : String,
+             province : String,
+             city : String,
+             district : String,
+             road : String,
+             netType : String,
+             operatorType : String,
+             errorMessage : String,
+             errorCode : Number,
+             isWifiEnabled : Boolean,
+             isGpsEnabled : Boolean,
+             isFromMock : Boolean,
+             provider : wifi|lbs|gps,
+             accuracy : Number,
+             isMobileEnabled : Boolean
+             }
+             */
+            const lat = result.latitude;
+            const long = result.longitude;
+            //打开地图,并修正poi
+            dd.biz.map.search({
+
+                latitude: lat, // 纬度
+                longitude: long, // 经度
+
+
+                /*无poi地址测试
+                latitude: 29.8369399124, // 纬度
+                longitude: 106.6972446442, // 经度*/
+
+                scope: 100, // 限制搜索POI的范围；设备位置为中心，scope为搜索半径
+
+                onSuccess: function (poi) {
+                    /* result 结构 */
+                    /*province: 'xxx', // POI所在省会
+                        provinceCode: 'xxx', // POI所在省会编码
+                    city: 'xxx', // POI所在城市
+                    cityCode: 'xxx', // POI所在城市
+                    adName: 'xxx', // POI所在区名称
+                    adCode: 'xxx', // POI所在区编码
+                    distance: 'xxx', // POI与设备位置的距离
+                    postCode: 'xxx', // POI的邮编
+                    snippet: 'xxx', // POI的街道地址
+                    title: 'xxx', // POI的名称
+                    latitude: 39.903578, // POI的纬度
+                    longitude: 116.473565, // POI的经度*/
+
+                    const address = poi.title + "("+poi.adName + poi.snippet+')'
+                    //fm rest api 时间格式format('MM-DD-YYYY HH:mm:ss')
+                    const signTime =  moment().format('MM-DD-YYYY HH:mm:ss')
+
+                    //将高德坐标转为百度
+                    const bd_lat_lng  = bd_encrypt(poi.longitude,poi.latitude)
+
+                    DB.Schedule.updateSignIn({
+                        eventID : eventID ,
+                        signTime:signTime ,
+                        jingdu : bd_lat_lng.bd_lng ,
+                        weidu : bd_lat_lng.bd_lat,
+                        address:address,
+                        tripMode:tripMode
+                    }).then(response => {
+                        // alert(JSON.stringify(response))
+                        // dispatch(receivePosts(response));
+                        if(response.response.data === '上传成功'){
+                            // alert('ad')
+                            // this.getScheduleListforMonth(date,year,month)
+                            OnScheduleList(date,year,month)
+
+                        }
+                    })
+                        .catch(error=>{
+                                alert('后台错误'+JSON.stringify(error))
+                            }
+                        )
+
+                    /*    //写入数据库日程方案
+                        var url = "http://liuzheng750417.imwork.net:8088/v0.5.3/index.php?m=remotesign&a=submit";
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: "eventID=" + eventID + 'signTime='+"9-9-2018 10:00:00"   + "&jingdu=" + poi.latitude + "&weidu=" + poi.latitude + "&address=" + address,
+
+                            success: function (data) {
+                                if (data.status == 1) {
+                                    //有更新,更新日历
+
+                                }
+                                else {
+                                    alert("发生错误:" + data.msg);
+                                }
+                            },
+                            error: function (jqXHR) {
+                                alert("发生错误" + jqXHR.status);
+                            }
+
+                        })*/
+
+                },
+                onFail: function (err) {
+                    /*alert("微调错误:"+JSON.stringify(err));*/
+                    //未找到poi信息,则直接添加定位信息
+                    if (err.errorCode === "3") {
+                        const signTime =  moment().format('MM-DD-YYYY HH:mm:ss')
+                        //将高德坐标转为百度
+                        const bd_lat_lng  = bd_encrypt( long,lat)
+
+                        DB.Schedule.updateSignIn({
+                            eventID : eventID ,
+                            signTime:signTime ,
+                            jingdu : bd_lat_lng.bd_lng ,
+                            weidu : bd_lat_lng.bd_lat,
+                            address:"无poi",
+                            tripMode:tripMode
+                        }).then(response => {
+                            // alert(JSON.stringify(response))
+                            // dispatch(receivePosts(response));
+                            if(response.response.data === '上传成功'){
+                                // alert('ad')
+                                // this.getScheduleListforMonth(date,year,month)
+                                OnScheduleList(date,year,month)
+
+                            }
+                        })
+                            .catch(error=>{
+                                    alert('后台错误'+JSON.stringify(error))
+                                }
+                            )
+                    }
+                }
+            });
+
+        },
+        onFail: function (err) {
+            alert("定位错误:"+JSON.stringify(err));
+
+        }
+    });
+}
 Page({
     data: {
 			year:0 ,
@@ -210,8 +424,8 @@ Page({
 														this.setData({date:e.currentTarget.dataset.date,hasSchedule:false})
                         }else{
                         	this.setData({date:e.currentTarget.dataset.date,hasSchedule:true})
-												}
-					}
+                        }
+            }
     },
     attendanceStatus() { //出勤状态变更
 
@@ -235,12 +449,64 @@ Page({
 				// console.log(thisMonth);
 		},
 		handleListItemTap(e) {
-    dd.showToast({
+   /* dd.showToast({
       content: `第${e.currentTarget.dataset.index}个Item`,
       success: (res) => {
 
       },
-    });
+    });*/
+            //只有当天才能签到,而且已经签到的情况下,显示修改和查看地图
+            const day = e.currentTarget.dataset.day,month = e.currentTarget.dataset.month,year = e.currentTarget.dataset.year,lat = e.currentTarget.dataset.lat,long = e.currentTarget.dataset.long,title = e.currentTarget.dataset.title,address = e.currentTarget.dataset.address;
+            let options;
+            const today = new Date();
+            if(day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                if (lat && long) {
+                    options = ['修改-自驾', '修改-搭车','修改-公交','查看地图']
+                } else {
+                    options = ['签到-自驾', '签到-搭车','签到-公交']
+                }
+            }else{
+                if (lat && long) {
+                    options = ['已不能修改', '查看地图']
+                } else {
+                    options = ['已不能签到']
+                }
+            }
+                dd.showActionSheet({
+                    title: title,
+                    items: options,
+                    //cancelButtonText: '取消好了', //android无效
+                    success: (res) => {
+                        const index = res.index;
+                        if (options[index] === '修改-自驾' || options[index] === '修改-搭车' || options[index] === '修改-公交' ||
+                            options[index] === '签到-自驾' || options[index] === '签到-搭车' || options[index] === '签到-公交') {
+                            if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                                var tripMode = options[index].substring(3);
+                                // this.signIn(dataItem.eventID, OnScheduleList, tripMode, day, year, month)
+                            }
+
+                        } else if (options[index] === '查看地图' && lat && long) {
+                            // alert("进入地图")
+                            // alert(dataItem['lat']);
+
+                            //将百度坐标转换为高德
+                            const gd_lat_lng = bd_decrypt(long, lat)
+
+                            dd.openLocation({
+                                longitude: gd_lat_lng.lng.toString(), // 纬度
+                                latitude: gd_lat_lng.lat.toString(), // 经度
+                                name: title,
+                                address: address,
+                                /*longitude: '120.126293',
+                                latitude: '30.274653',
+                                name: '黄龙万科中心',
+                                address: '学院路77号',*/
+                            });
+                        }
+                        }
+                    });
+
+
   },
 	preMonth(){
 		let month = this.data.month,year = this.data.year,date;

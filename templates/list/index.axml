@@ -14,8 +14,12 @@
                             hover-class="a-list-item-hover"
                             onTap="{{onItemTap}}"
                             data-year={{item.year}}
-														data-month={{item.month}}
-														data-day ={{item.day}}
+                            data-month={{item.month}}
+                            data-day ={{item.day}}
+                            data-lat ={{item.lat}}
+                            data-long = {{item.long}}
+                            data-title = {{item.title}}
+                            data-address = {{item.address}}
                         >
                             <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
                                 <text class="a-list-item-content">{{item.title}}</text>

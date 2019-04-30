@@ -19,7 +19,7 @@
 	</view>
 	<view class="schedule" style="flex:1">
 		<text class="schedule-content">日程 {{month+1}} - {{date}}</text>
-		<button class="schedule-button" type="default" style="color:orange" onTap="attendanceStatus">{{attendanceStatus}}</button>
+		<button class="schedule-button" type="default" style="color:orange" onTap="attendanceStatus">{{attendance}}</button>
 		<button class="schedule-button" type="wran" style="background-color:orange;border-color:orange;color:white" onTap="openFM">日程</button>
 	</view>
 	<view  style="flex-basis:400rpx;background-color:rgb(189, 189, 189)">
