@@ -29,7 +29,8 @@
                                 <text class="a-list-item-address-content">{{item.address}}</text>
 														</view>
 														<view class="a-list-item-img">
-																	<image style="width:100%;height:100%" a:if={{item.thumb}}  src="{{item.thumb}}" mode="scaleToFill" />
+																	<!--<image style="width:100%;height:100%" a:if={{item.long && item.lat}}  src="{{item.thumb}}" mode="scaleToFill" />-->
+																	<text a:if={{item.long&&item.lat}} class="iconfont icon-daohang" style="color:blue"/>
 														</view>
                         </view>
                     </block>

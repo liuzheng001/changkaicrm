@@ -34,4 +34,5 @@
 .schedule-button{
     flex:2;
 		border-radius: 0;
+		height: 100%;
 }

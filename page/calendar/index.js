@@ -159,7 +159,7 @@ function daysInMonth(year,month,date,listData){
                     let content = {
                         title: item.fieldData.日程内容,
                         address: item.fieldData.签到地址,
-                        thumb: item.fieldData['经度'] && item.fieldData['纬度'] ? '/navigation_96px_1201170_easyicon.net.png' : null,
+                        // thumb: item.fieldData['经度'] && item.fieldData['纬度'] ? '/navigation_96px_1201170_easyicon.net.png' : null,
                         date: item.fieldData['签到时间'],
                         long: item.fieldData['经度'],
                         lat: item.fieldData['纬度'],
