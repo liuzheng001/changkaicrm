@@ -54,7 +54,7 @@ App({
                         app.globalData.userId = userId;
                         app.globalData.username = userName;
                         dd.switchTab({
-                            url: '/page/grid/index'
+                            url: '/page/calendar/index'
                         })                    },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

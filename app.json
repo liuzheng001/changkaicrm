@@ -4,7 +4,7 @@
     "page/logs/logs",
     "page/test/test",
     "page/componentPage/componentPage",
-		"page/grid/index"
+    "page/calendar/index"
   ],
   "window": {
     "defaultTitle": "E应用测试",
@@ -22,7 +22,7 @@
         "name": "首页"
       },
 			{
-        "pagePath": "page/grid/index",
+        "pagePath": "page/calendar/index",
         "name": "calendar"
       },
       {

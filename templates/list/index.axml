@@ -13,6 +13,7 @@
                             class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} a-list-item-{{item.align || 'middle'}}"
                             hover-class="a-list-item-hover"
                             onTap="{{onItemTap}}"
+														data-eventID ={{item.eventID}}
                             data-year={{item.year}}
                             data-month={{item.month}}
                             data-day ={{item.day}}

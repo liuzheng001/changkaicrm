@@ -17,14 +17,6 @@ Page({
         userId:'',
         userName:'',
         hideList: true,
-        name:'world',
-        items:['a','b','c',3,4,5],
-        names:
-        [
-            { first:"liu", second:"zheng"},
-             { first:"zhang",second:"sang"}
-        ]
-       
   },
     loginSystem() {
         dd.showLoading();

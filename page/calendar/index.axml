@@ -5,6 +5,7 @@
 				<button class="nav-item" style="flex:1;border:0px" onTap="preMonth"><<</button>
 				<view class="nav-item"  style="flex:3" onTap="">{{year}}年{{month+1}}月</view>
 				<button class="nav-item"  style="flex:1;border:0px" onTap="nextMonth">>></button>
+				<button class="nav-item"  style="flex:1;border:0px" onTap="resetCalendar">刷新</button>
 			</view>
     <view class="grid" >
         <block a:for="{{calendarHead.list}}">
@@ -19,7 +20,7 @@
 	</view>
 	<view class="schedule" style="flex:1">
 		<text class="schedule-content">日程 {{month+1}} - {{date}}</text>
-		<button class="schedule-button" type="default" style="color:orange" onTap="attendanceStatus">{{attendance}}</button>
+		<button class="schedule-button" type="primary"  onTap="attendanceSign" disabled="{{(todayDate===date)&&(attendance!=='已收工')?false:true}}">{{attendance}}</button>
 		<button class="schedule-button" type="wran" style="background-color:orange;border-color:orange;color:white" onTap="openFM">日程</button>
 	</view>
 	<view  style="flex-basis:400rpx;background-color:rgb(189, 189, 189)">

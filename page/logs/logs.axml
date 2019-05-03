@@ -2,10 +2,10 @@
   <view>
     <!-- <customer extra = "external data" onShowCounter = "onShowCounter"/>
     <customer/> -->
-    <!-- <web-view id="web-view-1" src="https://filemaker.ckkj.net.cn:8890/ding-fm-master/openfm.html?programme=日程方案&script=转到日历详情php&param=朱祥见%202018-9-6&user=&pwd=" onMessage="test"></web-view>   -->
+    <!-- <web-view id="web-view-1" src="http://liuzheng750417.imwork.net:8088/ding-fm-master/openfm.html?programme=日程方案&script=转到日历详情php&param=朱祥见%202018-9-6&user=&pwd=" onMessage="test"></web-view>   -->
     <!-- <web-view id="web-view-1" src="{{url}}" onMessage="test"></web-view>   -->
-    <!-- <web-view id="web-view-1"  src="https://filemaker.ckkj.net.cn:8890/ding-fm-master/backdingding.html" onMessage="test"></web-view>   -->
-    <!-- <web-view id="web-view-1"  src="https://filemaker.ckkj.net.cn:8890/ding-fm-master/openfm.html?programme=%E6%97%A5%E7%A8%8B%E6%96%B9%E6%A1%88&script=%E8%BD%AC%E5%88%B0%E6%97%A5%E5%8E%86%E8%AF%A6%E6%83%85php&param=%E6%9C%B1%E7%A5%A5%E8%A7%81%202018-9-6&user=&pwd=" onMessage="test"></web-view>   -->
+    <!-- <web-view id="web-view-1"  src="http://liuzheng750417.imwork.net:8088/ding-fm-master/backdingding.html" onMessage="test"></web-view>   -->
+    <!-- <web-view id="web-view-1"  src="http://liuzheng750417.imwork.net:8088/ding-fm-master/openfm.html?programme=%E6%97%A5%E7%A8%8B%E6%96%B9%E6%A1%88&script=%E8%BD%AC%E5%88%B0%E6%97%A5%E5%8E%86%E8%AF%A6%E6%83%85php&param=%E6%9C%B1%E7%A5%A5%E8%A7%81%202018-9-6&user=&pwd=" onMessage="test"></web-view>   -->
     <web-view id="web-view-1"  src="{{url}}" onMessage="test"></web-view>  
 </view>
 </view>     
