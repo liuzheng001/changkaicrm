@@ -14,14 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="-322">
+              <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -44,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.acss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.acss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/calendar/index.acss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
@@ -53,23 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="161" column="32" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iconfont.acss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/iconfont.acss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="3" column="241" lean-forward="true" selection-start-line="3" selection-start-column="241" selection-end-line="3" selection-end-column="241" />
-              <folding>
-                <element signature="e#47#1309#1" expanded="true" />
-              </folding>
+            <state relative-caret-position="362">
+              <caret line="224" column="39" lean-forward="true" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -79,15 +64,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2934">
               <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -114,7 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loginSystem</find>
       <find>setData</find>
       <find>switch</find>
       <find>onItemTap</find>
@@ -144,6 +119,7 @@
       <find>grid</find>
       <find>https://filemaker.ckkj.net.cn:8890</find>
       <find>thumb</find>
+      <find>signI</find>
     </findStrings>
     <replaceStrings>
       <replace>https://liuzheng750417.imwork.net:8890</replace>
@@ -169,9 +145,9 @@
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/app.acss" />
         <option value="$PROJECT_DIR$/page/calendar/index.axml" />
-        <option value="$PROJECT_DIR$/page/calendar/index.js" />
         <option value="$PROJECT_DIR$/templates/list/index.axml" />
         <option value="$PROJECT_DIR$/resources/iconfont.acss" />
+        <option value="$PROJECT_DIR$/page/calendar/index.js" />
       </list>
     </option>
   </component>
@@ -251,6 +227,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$" />
@@ -289,12 +268,12 @@
       <workItem from="1556191790920" duration="27098000" />
       <workItem from="1556541029497" duration="5707000" />
       <workItem from="1556610656532" duration="5003000" />
-      <workItem from="1556641716063" duration="56146000" />
+      <workItem from="1556641716063" duration="63112000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100128000" />
+    <option name="totallyTimeSpent" value="107094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2048" height="1061" extended-state="6" />
@@ -539,13 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/grid/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -581,13 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
           <caret line="106" column="12" lean-forward="true" selection-start-line="106" selection-start-column="12" selection-end-line="106" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="161" column="32" selection-start-line="161" selection-start-column="27" selection-end-line="161" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -633,6 +598,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/bmap-wx.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-322">
+          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="224" column="39" lean-forward="true" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
         </state>
       </provider>
     </entry>

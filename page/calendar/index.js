@@ -205,69 +205,120 @@ function signIn(eventID,tripMode,date,year,month) {
             type:1,//得到区县信息
             success(res) {
                 const long = res.longitude, lat = res.latitude;
-
-                const address = res.province+res.city+res.district;
-
-                // const address = poi.title + "("+poi.adName + poi.snippet+')'
-                //fm rest api 时间格式format('MM-DD-YYYY HH:mm:ss')
-                // 对Date的扩展，将 Date 转化为指定格式的String
-                // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
-                // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
-                // 例子：
-                // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
-                // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
-
-                const signTime = new Date().format('MM/dd/yyyy hh:mm:ss'); //fm接收的日期格式不能变
-
                 //将高德坐标转为百度
                 const bd_lat_lng = bd_encrypt(long, lat)
-
                 dd.showLoading();
-                const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+
+                //通过百度api得到地址信息
+                let url = 'http://api.map.baidu.com/geocoder/v2/'
+
+              /*  http://api.map.baidu.com/geocoder/v2/?location=29.501519719934816,106.38397129107597&radius=100&output=json&pois=0&extensions_town=true&latest_admin=1&ak=6YIT5WMqe5FCmUDgPaBCQdRv*/
                 dd.httpRequest({
                     url: url,
-                    method: 'POST',
+                    method: 'get',
                     data: {
-                        action: 'updateSignIn',
-                        eventID: eventID,
-                        signTime: signTime,
-                        jingdu: bd_lat_lng.bd_lng,
-                        weidu: bd_lat_lng.bd_lat,
-                        address: address,
-                        tripMode: tripMode
+                        extensions_town:true,//返回镇乡信息
+                        // location:'29.605311111297674,106.49394266743357',
+                        location:bd_lat_lng.bd_lat+','+bd_lat_lng.bd_lng,
+                        ak:'6YIT5WMqe5FCmUDgPaBCQdRv',
+                        output:'json',
+                        latest_admin:1,
+                        extensions_poi:null,//不访问poi数据
                     },
                     dataType: 'json',
-                    success: (res) => {
-                        // console.log('success----',res)
-                        // alert(JSON.stringify(res));
-                        if (res.data.content.response.data === '上传成功') {
-                            //重新渲染
-                            // OnScheduleList(date,year,month)
-                            // dd.alert({title: '上传成功'});
-                            resolve({
+                    success: (data) => {
+                        // alert(JSON.stringify(data));
+                        const information = data.data.result.addressComponent;
+                        const address =  information.city+information.district+information.town+information.street+information.street_number
+                        /*"addressComponent": {
+                            "country": "中国",
+                                "country_code": 0,
+                                "country_code_iso": "CHN",
+                                "country_code_iso2": "CN",
+                                "province": "重庆市",
+                                "city": "重庆市",
+                                "city_level": 2,
+                                "district": "渝北区",
+                                "town": "双凤桥街道",
+                                "adcode": "500112",
+                                "street": "长凯路",
+                                "street_number": "405号",
+                                "direction": "附近",
+                                "distance": "27"
+                        },*/
+
+                        // const address = poi.title + "("+poi.adName + poi.snippet+')'
+                        //fm rest api 时间格式format('MM-DD-YYYY HH:mm:ss')
+                        // 对Date的扩展，将 Date 转化为指定格式的String
+                        // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+                        // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+                        // 例子：
+                        // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+                        // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+
+                        const signTime = new Date().format('MM/dd/yyyy hh:mm:ss'); //fm接收的日期格式不能变
+
+
+
+                        url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+                        dd.httpRequest({
+                            url: url,
+                            method: 'POST',
+                            data: {
+                                action: 'updateSignIn',
+                                eventID: eventID,
                                 signTime: signTime,
-                                long: bd_lat_lng.bd_lng,
-                                lat: bd_lat_lng.bd_lat,
+                                jingdu: bd_lat_lng.bd_lng,
+                                weidu: bd_lat_lng.bd_lat,
                                 address: address,
                                 tripMode: tripMode
-                            });
+                            },
+                            dataType: 'json',
+                            success: (res) => {
+                                // console.log('success----',res)
+                                // alert(JSON.stringify(res));
+                                if (res.data.content.response.data === '上传成功') {
+                                    //重新渲染
+                                    // OnScheduleList(date,year,month)
+                                    // dd.alert({title: '上传成功'});
+                                    resolve({
+                                        signTime: signTime,
+                                        long: bd_lat_lng.bd_lng,
+                                        lat: bd_lat_lng.bd_lat,
+                                        address: address,
+                                        tripMode: tripMode
+                                    });
 
-                            } else {
-                            dd.alert({title: '上传失败'});
-                            reject();
-                        }
-                        // resolve(listData);
+                                } else {
+                                    dd.alert({title: '上传失败'});
+                                    reject();
+                                }
+                                // resolve(listData);
+                            },
+                            fail: (res) => {
+                                console.log("httpRequestFail---", res)
+                                // dd.alert({content: JSON.stringify(res)});
+                                // dd.hideLoading();
+                                // reject('failure');
+                            },
+                            complete: (res) => {
+                                dd.hideLoading();
+                            }
+                        })
+
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)
                         // dd.alert({content: JSON.stringify(res)});
-                        dd.hideLoading();
+                        // dd.hideLoading();
                         // reject('failure');
                     },
                     complete: (res) => {
                         dd.hideLoading();
                     }
                 })
+
+
             },
             fail(err) {
                 dd.alert({title: JSON.stringify(err)})
@@ -402,12 +453,10 @@ Page({
 					onItemTap: 'handleListItemTap',
 					data:[
 						/*{
-						thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
+						// thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
 						title: "内容1基莾术有专攻奈斯运营成本求其友声春树暮云东奔西走艺术硕士艺术硕士东奔西走春树暮云ad",
 						address: "地址1",
-						//  text:"地址1",
-						// imgUrl:  item.fieldData['经度'] && item.fieldData['纬度']?'../../navigation_96px_1201170_easyicon.net.png':null,
-             				date : "04/09/2019 13:35:23",
+								date : "04/09/2019 13:35:23",
 						    long:'经度',
 							lat:'纬度',
 							day:19,
@@ -459,7 +508,7 @@ Page({
                     hasSchedule = false;
                     attendance = '出勤'
                 }
-                    this.setData({date:e.currentTarget.dataset.date,attendance:attendance,scheduleId:scheduleId})
+                    this.setData({date:e.currentTarget.dataset.date,hasSchedule: hasSchedule,attendance:attendance,scheduleId:scheduleId})
             }
 
     },
