@@ -1,0 +1,10 @@
+<view>
+  <view><button type="primary" onTap="createTestWorkflow">建立流程</button></view>
+  <view><button type="primary" onTap="listTestWorkflow">流程列表</button></view>
+  <view><button type="primary" onTap="getWorkflow">流程详情</button></view>
+  <view><button type="primary" onTap="getTodoWorkflowNum">待处理流程个数</button></view>
+  <view><button type="primary" onTap="registerCallback">注册回调</button></view>
+  <view><button type="primary" onTap="callbackState">回调状态</button></view>
+  <view><button type="primary" onTap="deletecallback">删除回调</button></view>
+
+</view>

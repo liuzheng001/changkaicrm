@@ -55,5 +55,11 @@
   <view><button type="default" onTap="httpTest">http连接</button></view>  
 	
 	<view><button type="default" onTap="choosePerson">选择部门和人员</button></view>
-	
+
 		<view><button type="default" onTap="sendDing">发钉</button></view>
+    <view><button  onTap="getUserInform">个人详情</button></view>
+    <view><button  onTap="getDepartmentList">部门列表</button></view>
+    <view><button  >  <navigator url="/page/workflow/workflow?title=workflow" hover-class="navigator-hover">转到workflow</navigator>
+    </button></view>
+
+
