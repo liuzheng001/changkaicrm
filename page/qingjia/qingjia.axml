@@ -1,0 +1,58 @@
+<view>
+  <form onSubmit="formSubmit" onReset="formReset">
+  <view class="section__title">行程明细</view>
+  <view class="section">
+    <view class="section__title">出差地点(单行输入框)</view>
+    <input name="detail_address" value="北京"/>
+  </view>
+  <view class="section">
+    <view class="section__title">图片(图片)</view>
+    <input name="detail_picture" value="http://www.9669.com/uploadfile/2016/0422/20160422032911845.jpg"/>
+  </view>
+
+  <view class="line"></view>
+
+  <view class="section">
+    <view class="section__title">开始时间</view>
+    <input name="begin_time" value="2019-08-21"/>
+  </view>
+  <view class="section">
+    <view class="section__title">结束时间</view>
+    <input name="finish_time" value="2019-08-25"/>
+  </view>
+  <view class="section">
+    <picker onChange="customChange" value="-1" range="{{customList}}" range-key="name">
+      <view class="row">
+        <view class="row-title">选择用户</view>
+        <view class="row-extra">{{customList[customIndex].name}}</view>
+        <text class="iconfont icon-zuofangxiangjian"></text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="sectionV2">
+    <view class="section__title">事由</view>
+    <input name="reason" value="请假内容" />
+  </view>
+    <view class="sectionV2">
+      <view class="section__title">图片(图片)</view>
+      <input name="picture" value="{{picturePath}}"/>
+      <image src="{{picturePath}}"></image>
+
+      <button onTap="choosePicture">选择图片</button>
+    </view>
+
+  <view class="btn-area">
+    <button type="primary" formType="submit">发起审批</button>
+  </view>
+</form>
+
+  <!--<button type="primary" size="" onTap="loginSystem"> 免登并获取用户信息 </button>
+  <view class="row">CorpId:{{corpId}}</view> -->
+
+  <!--<view hidden="{{hideList}}">
+    <view class="row">AuthCode:{{authCode}}</view>
+    <view class="row">userId:{{userId}}</view>
+    <view class="row">name:{{userName}}</view>
+  </view>-->
+</view>

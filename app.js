@@ -31,7 +31,8 @@ App({
   globalData: {
     corpId:'',
     username:'',
-    userId:''
+    userId:'',
+    departments:[],
   },
   loginSystem() {
         dd.showLoading();  
@@ -53,9 +54,11 @@ App({
                         const app = getApp();
                         app.globalData.userId = userId;
                         app.globalData.username = userName;
-                        dd.switchTab({
+                        app.globalData.departments = res.data.result.departments;
+                        //调试是关闭
+                       /* dd.switchTab({
                             url: '/page/calendar/index'
-                        })                    },
+                        })    */                },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)
                         dd.alert({content: JSON.stringify(res)});
