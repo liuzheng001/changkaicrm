@@ -1,14 +1,13 @@
 {
-  "pages": [
+  "pages": [    
+		"page/schedule/schedule",
     "page/qingjia/qingjia",
-
     "page/index/index",
     "page/logs/logs",
     "page/test/test",
     "page/componentPage/componentPage",
     "page/calendar/index",
     "page/workflow/workflow"
-
   ],
   "window": {
     "defaultTitle": "E应用测试",

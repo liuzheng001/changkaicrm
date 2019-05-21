@@ -1,13 +1,11 @@
-let app = getApp();
 
 //test
 //内网穿透工具介绍:
 // https://open-doc.dingtalk.com/microapp/debug/ucof2g
 //替换成开发者后台设置的安全域名
-let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
-// let domain = "http://106.81.228.64/eapp-corp";
-
-let url = domain + '/login.php'; 
+let app = getApp();
+// let domain = "http://47.103.63.213/eapp-corp";
+let url = app.globalData.domain + '/login.php';
 
 Page({ 
   

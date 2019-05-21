@@ -187,7 +187,7 @@ Page({
     getUserInform() { //从服务器得到用户信息
         const app = getApp();
         console.log('userID'+app.globalData.userId)
-        const url = "http://r1w8478651.imwork.net:9998/eapp-corp/getOapiByName.php";
+        const url = app.globalData.domain+"/getOapiByName.php";
         dd.httpRequest({
             url: url,
             method: 'get',

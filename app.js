@@ -1,12 +1,19 @@
-//内网穿透工具介绍:
+/*//内网穿透工具介绍:
 // https://open-doc.dingtalk.com/microapp/debug/ucof2g
 //替换成开发者后台设置的安全域名
+// let domain = "http://47.103.63.213/eapp-corp";
 let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
-// let domain = "http://106.81.228.64/eapp-corp";
-
 //test git,回复
+let url = domain + '/login.php'; */
 
-let url = domain + '/login.php'; 
+let development = true; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
+let domain;
+if (development===true){
+    domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
+} else{
+    domain = "http://47.103.63.213/eapp-corp";
+}
+let url = domain + '/login.php';
 
 App({  
   onLaunch(options) {
@@ -29,14 +36,15 @@ App({
       console.log(msg);
   },
   globalData: {
+    domain:domain,
     corpId:'',
     username:'',
     userId:'',
     departments:[],
   },
   loginSystem() {
-        dd.showLoading();  
-        dd.getAuthCode({
+      dd.showLoading();
+      dd.getAuthCode({
             success: (res) => {
                 // dd.alert({content: "step1"+res.authCode});
                 dd.httpRequest({

@@ -1,0 +1,65 @@
+<view >
+	<view><button class="primary">返回
+		</button></view>
+  <view class="a-list">
+    <view a:if={{detailed}} class="a-list-items">
+    <block a:for={{detailed}}>
+    
+    <view
+          class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"
+          data-index="{{index}}"
+    >
+		<!-- <view class="a-list-header">行程({{index+1}})
+      		<button a:if={{detailed.length!=1}} class="smallbutton" catchTap="{{catchDelete}}"  size="mini" data-index="{{index}}" >删除</button>
+			</view> -->
+      <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+        <view class="form-row">
+            <!-- <view class="form-row-label">内容</view> -->
+              <view class="form-row-content">
+                <input class="input" onInput="onInput" value="{{item.event}}" placeholder="日程" />
+             </view>
+            </view>
+				<view class="form-row">
+          <view class="form-row-label">签到时间</view>
+          <view class="form-row-content">
+            <text  >{{item.signTime}}</text>
+          </view>
+        </view>
+				<view class="form-row">
+          <view class="form-row-label">签到地点</view>
+          <view class="form-row-content">
+            <text >{{item.signAddress}}</text>
+					</view>
+        </view>
+      
+      <view a:if={{item.thumbs.length<7}} class="img-thumb"  >
+      <!-- <image  style = "width:120rpx;height:120rpx" src="{{item.thumb}}" data-num="{{index}}" onTap="onAddPicture" mode="scaleToFill" /> -->
+      <text  style ="font-size:100rpx"  data-num="{{index}}" onTap="onAddPicture" class="iconfont icon-add"/>
+    </view>
+  </view>
+  <view class="a-list-item-bottom" />
+</view>
+        </block>
+<button onTap="{{onAdd}}">+增加行程</button>
+        </view>
+		</view>
+</view>
+	<view class="header">日志内容</view>
+	<view class="section">
+    <textarea  style="height:200rpx" name="dailyrecord"/>
+</view>
+	<view class="header">多媒体</view>
+	<view class="img-content">
+			<block a:for={{medias}} a:for-item="img" a:for-index="no">
+				<view class="img-thumb"  >
+					<image  style = "width:120rpx;height:120rpx" src="{{img.src}}" onTap="onPicturePreview" data-src="{{img.src}}" mode="scaleToFill" />
+						<view class="imgdelete">
+							<!-- <image style = "width:40rpx;height:40rpx"  onTap="onDeletePicture" src="{{item.thumb}}" data-num="{{index}}" data-no="{{no}}"/> -->
+							<text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"  data-num="{{index}}" data-no="{{no}}" class="iconfont icon-del2"/>
+						</view>		
+				</view>
+			</block>
+			<view a:if={{item.thumbs.length<7}} class="img-thumb"  >
+					<text  style ="font-size:100rpx"  data-num="{{index}}" onTap="onAddPicture" class="iconfont icon-add"/>
+			</view>
+</view>

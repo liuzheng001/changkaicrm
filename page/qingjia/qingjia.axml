@@ -1,4 +1,8 @@
 <view>
+  <view><button>   <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">返回主页</navigator>
+  </button></view>
+
+
   <form onSubmit="formSubmit" onReset="formReset">
   <view class="section__title">行程明细</view>
   <view class="section">
@@ -41,7 +45,8 @@
 
       <button onTap="choosePicture">选择图片</button>
     </view>
-
+  <!-- 引入自定义明细组件 -->
+  <vacation  onReturnDetailed="onReturnDetailed"/>
   <view class="btn-area">
     <button type="primary" formType="submit">发起审批</button>
   </view>

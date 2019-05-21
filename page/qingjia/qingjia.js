@@ -1,3 +1,4 @@
+let detailed = [];
 Page({
   data: {
     customList:[//客户清单
@@ -12,7 +13,7 @@ Page({
     picturePath:"",
   },
   onLoad() { //从fm中读取custom值列表
-      const url = "http://r1w8478651.imwork.net:9998/eapp-corp/getFmMessage.php";
+      const url = getApp().globalData.domain+"/getFmMessage.php";
       dd.httpRequest({
           url: url,
           method: 'get',
@@ -42,20 +43,15 @@ Page({
         });
     },
     formSubmit(e) { //发起审批
-        /* $progress_code = $_REQUEST['$progress_code'];
-         $form_values = $_REQUEST['form_values'];
- //发起人id和department
-         $originator_user_id = $_REQUEST['originator_user_id'];
-         $dept_id = $_REQUEST['dept_id'];*/
+
         const app = getApp();
         const userId = app.globalData.userId;
         const departments = app.globalData.departments;
 
         let that = this;
         let form = e.detail.value;
-        const url = "http://r1w8478651.imwork.net:9998/eapp-corp/operateWorkflow.php"
+        const url = getApp().gloablData.domain+"/operateWorkflow.php"
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
-
         dd.httpRequest({
             url: url,
             method: 'POST',
@@ -85,7 +81,12 @@ Page({
             dataType: 'json',
             traditional: true,//这里设置为true
             success: (res) => {
-                dd.alert({content: "审批实例id：" + JSON.stringify(res)});
+                if (res.data.errcode == 0){
+                    dd.alert({content: "审批已发起,id:" + res.data.process_instance_id});
+                }else{
+                    dd.alert({content: JSON.stringify(res)});
+                }
+
             },
             fail: (res) => {
                 console.log("httpRequestFail---", res)
@@ -98,17 +99,48 @@ Page({
     },
     choosePicture(){
        const t = this;
-       let imgPath;
+       let imageUrl;
+
         dd.chooseImage({
-            count: 2,
+            // count: 2,
             success: (res) => {
-                imgPath = res.filePaths[0];
-                // dd.saveImage({url:imgPath});
-                // debugger;
-                t.setData({
-                    picturePath:imgPath
-                })
+                // imgPath = res.filePaths[0];
+                const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
+                debugger;
+
+                dd.uploadFile({
+                    url:getApp().gloablData.domain+"/upload/upload.php" ,
+                    fileType: 'image',
+                    fileName: 'file',
+                    filePath: path,
+                   /* url: 'http://httpbin.org/post',
+                    fileType: 'image',
+                    fileName: 'file',
+                    filePath: path,*/
+                    success: (res) => {
+                        /*dd.alert({
+                            content: '上传成功'
+                        });*/
+                        console.log("上传成功");
+                        t.imageUrl =getApp().gloablData.domain+"/upload/"+JSON.parse(res.data).fileName;
+                        t.setData({
+                            picturePath:t.imageUrl
+                        })
+                    },
+                    fail:(res)=>{
+                        dd.alert({
+                            content: '上传失败:'+JSON.stringify(res)
+                        });
+                    },
+
+                });
+
             },
         });
     },
+    //vacation组件向page传值
+    onReturnDetailed(data){
+      console.log("父组件得到"+JSON.stringify(data));
+      detailed = data;
+    }
 });
