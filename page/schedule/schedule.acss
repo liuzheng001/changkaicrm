@@ -45,14 +45,16 @@
 
 .a-list .a-list-item .a-list-item-line {
     position: relative;
-    display: flex;
+    /* display: flex; */
     flex: 1;
     align-items: center;
+    justify-content: space-between;
     align-self: stretch;
     padding-right: 30rpx;
     min-height: 88rpx;
     overflow: hidden;
     flex-flow: wrap;
+    margin-bottom: 20rpx;
 }
 
 .a-list .a-list-item.am-list-item-top .a-list-item-line {
@@ -175,18 +177,30 @@
     position: relative;
 }
 
-.input{
+.event-input{
 
     outline-style: none ;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 14px;
+    border: 2rpx solid #ccc;
+    border-radius: 3rpx;
+    font-size: 28rpx;
+    padding-left: 8rpx;
+    flex: 8 ;
+
+    /* .input {
+      color: #000;
+      font-size: 34rpx;
+      width: 100%;
+      padding: 4rpx 0;
+      border: 0;
+      line-height: 1;
+    } */
 }
 
 
  .header {
     padding: 30rpx 30rpx 18rpx;
     font-size: 28rpx;
+    text-align: center;
     color: #888;
     display: inline-block;
     width: 100%;

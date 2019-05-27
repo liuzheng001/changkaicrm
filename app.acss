@@ -87,6 +87,31 @@ button {
 .form-row-content {
   flex: 1;
   font-size: 34rpx;
+  
+}
+
+.form-extra-row {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 60rpx;
+  align-items: center;
+}
+
+.form-extra-row-label {
+  flex:2 0 auto;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  text-align: left;
+  color: #000;
+}
+
+.form-extra-row-content {
+  flex: 8 0 75%;
+  font-size: 24rpx;
+  max-height: 80rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .form-line {
@@ -95,14 +120,7 @@ button {
   margin-left: 30rpx;
 }
 
-.input {
-  color: #000;
-  font-size: 34rpx;
-  width: 100%;
-  padding: 4rpx 0;
-  border: 0;
-  line-height: 1;
-}
+
 
 /*引入阿里图标文件*/
 @import '/resources/iconfont.acss';

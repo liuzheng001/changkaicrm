@@ -20,9 +20,14 @@ App({
     console.log('App Launch', options);
     console.log('getSystemInfoSync', dd.getSystemInfoSync());
     console.log('SDKVersion', dd.SDKVersion);
-    this.globalData.corpId = options.query.corpId;
-    // this.globalData.corpId ='ding1fdec36666e1349d35c2f4657eb6378f' ;
-    this.loginSystem();
+        
+    //调试关闭
+    // this.globalData.corpId = options.query.corpId;
+    //调试打开
+    this.globalData.corpId ='ding1fdec36666e1349d35c2f4657eb6378f' ;
+    
+    //调试关闭，不调用后台
+    // this.loginSystem();
   }, 
   onShow() { 
   // dd.alert({content:'应用打开了'});

@@ -63,7 +63,6 @@ Component({
               "detailed":list
           })
           this.props.onReturnDetailed(list);
-          debugger;
       },
       onPicturePreview(e){
           const imageUrl = e.currentTarget.dataset.src;
