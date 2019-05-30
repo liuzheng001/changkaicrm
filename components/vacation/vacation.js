@@ -77,6 +77,7 @@ Component({
           let thumbs = this.data.detailed[num].thumbs;
           dd.chooseImage({
               success: (res) => {
+                  res.forEach(item)
                   const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
                   //将数据存入,但没有上传
                   thumbs.push({

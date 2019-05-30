@@ -132,7 +132,7 @@ function daysInMonth(year,month,date,listData){
 
 }
 
-  function getScheduleForMonth(year,month,username) {
+function getScheduleForMonth(year,month,username) {
     return new Promise(function (resolve,reject) {
         if(username ==''||!username){
             reject('username 为空或不存在') 
@@ -602,8 +602,10 @@ Page({
                 })
             }
     },
-    openFM(){ //打开日程fm
-
+    editSchedule(){ //打开日程
+        dd.navigateTo({
+            url: '/page/schedule/schedule?scheduleID='+this.data.scheduleId,
+        })
     },
 	onLoad(){ //页面加载时,计算有效日期
         const app = getApp();

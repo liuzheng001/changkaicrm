@@ -100,7 +100,7 @@ Page({
     choosePicture(){
        const t = this;
        let imageUrl;
-
+			 const app = getApp()
         dd.chooseImage({
             // count: 2,
             success: (res) => {
@@ -109,7 +109,7 @@ Page({
                 debugger;
 
                 dd.uploadFile({
-                    url:getApp().gloablData.domain+"/upload/upload.php" ,
+                    url:app.globalData.domain+"/upload/upload.php" ,
                     fileType: 'image',
                     fileName: 'file',
                     filePath: path,
@@ -122,7 +122,7 @@ Page({
                             content: '上传成功'
                         });*/
                         console.log("上传成功");
-                        t.imageUrl =getApp().gloablData.domain+"/upload/"+JSON.parse(res.data).fileName;
+                        t.imageUrl =getApp().globalData.domain+"/upload/"+JSON.parse(res.data).fileName;
                         t.setData({
                             picturePath:t.imageUrl
                         })

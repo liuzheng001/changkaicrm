@@ -1,5 +1,4 @@
 <view >
-  <form onSubmit="scheduleSubmit" onReset="">
   <view class="a-list">
     <button onTap="onAddEvent">+增加行程({{detailed.length}}个)</button>
 
@@ -17,11 +16,11 @@
         <view class="form-row">
             <!-- <view class="form-row-label">内容</view> -->
               <!-- <view class="form-row-content"> -->
-                <input class="event-input" onInput="onInput" value="{{item.event}} " name="eventInput[{{index}}]" placeholder="日程" />
-                <text onTap="onDeleteEvent" class="form-row-label" style="text-align:right;flex:2">删除</text>
+                <input class="event-input"  value="{{item.event}} " data-index="{{index}}"  onInput ="onEventChange" placeholder="日程" />
+                <text onTap="onDeleteEvent" class="form-row-label" style="text-align:right;flex:2" data-index="{{index}}">删除</text>
 
              <!-- </view> -->
-            </view>
+        </view>
 				<view class="form-extra-row">
           <view class="form-extra-row-label" >签到时间</view>
           <view class="form-extra-row-content">
@@ -50,7 +49,7 @@
 <!-- </view> -->
 	<view class="header">日志内容</view>
 	<view class="section">
-    <textarea  style="height:200rpx" name="dailyrecord"/>
+    <textarea  style="height:200rpx" name="dailyrecord" onInput="onDailychange"/>
 </view>
 	<view class="header">多媒体</view>
 	<view class="img-content">
@@ -59,14 +58,15 @@
 					<image  style = "width:120rpx;height:120rpx" src="{{img.src}}" onTap="onPicturePreview" data-src="{{img.src}}" mode="scaleToFill" />
 						<view class="imgdelete">
 							<!-- <image style = "width:40rpx;height:40rpx"  onTap="onDeletePicture" src="{{item.thumb}}" data-num="{{index}}" data-no="{{no}}"/> -->
-							<text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"  data-num="{{index}}" data-no="{{no}}" class="iconfont icon-del2"/>
+							<text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"   data-no="{{no}}" class="iconfont icon-del2"/>
 						</view>		
 				</view>
 			</block>
-			<view a:if={{item.thumbs.length<7}} class="img-thumb"  >
-					<text  style ="font-size:100rpx"  data-num="{{index}}" onTap="onAddPicture" class="iconfont icon-add"/>
+			<view a:if={{medias.length<7}} class="img-thumb" >
+					<text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add"/>
 			</view>
 </view>
-<view><button type="primary" form-type="submit">提交</button></view>
-</form>
+<view><button type="primary" onTap="onPreviewPicture">预览</button></view>
+
+<view><button type="primary" onTap="onSubmit">提交</button></view>
 </view>
