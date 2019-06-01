@@ -1,18 +1,26 @@
 Page({
     data: {
+        scheduleId:0,
       detailed: [
-          {event: "去长安", signTime: '2019/5/14', signAddress: "重庆市江北区"},
-          {event: "去成都", signTime: '2019/5/14', signAddress: "重庆市渝北区"},
-          {event: "去成都", signTime: '2019/5/14', signAddress: "sffssFsafASFsafaF	QWF32F	23F2esfsaFfsFfF鞯 艺术硕士厅地莾厅地术有专攻在地愿为连理枝"},
-          {event: "去成都", signTime: '2019/5/14', signAddress: "重庆市渝北区aFfSAFasfaSFasfaSFAasfsfdafqwer3r133adfadfadsfdfafqwefqwefqwe好"},
+          // {eventID:0,event: "去长安", signTime: '2019/5/14', signAddress: "重庆市江北区",isDelete:false},
       ],
         dailyContent:"",
-      medias:[
+        scheduleDate:"", //6/23/2019
+      /*medias:[
           {src:"http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg"},
           {src:"http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg"},
-          ]
+          ]*/
     },
     onLoad(query){ //页面加载时,获取日历详情
+        let scheduleJson = JSON.parse(query.scheduleJson);
+				this.setData({
+                    "detailed": scheduleJson.listData.data,
+                    "scheduleId":scheduleJson.scheduleId,
+                    "scheduleDate":scheduleJson.scheduleDate
+                })
+
+        /*
+        //从php后端得到数据,弃用
         dd.showLoading();
         const t =this;
         // const url = 'https://filemaker.ckkj.net.cn:8890/corp_php-master/getSchdule.php'
@@ -45,17 +53,18 @@ Page({
 						complete: (res) => {
 								dd.hideLoading();
 						}
-				})
+				})*/
     },
     scheduleSubmit(e){
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     },
     onAddEvent(){
         let list = this.data.detailed
+        // eventID为0,代表新增
         list.push(
-            {event: "", signTime: '', signAddress: ""});
+            {eventID:0,event: "",  signTime: '', signAddress: "",isDelete:false});
         this.setData({
-            "detailed":list
+            "detailed":list,
         })
     },
     onDeleteEvent(e){
@@ -67,7 +76,13 @@ Page({
 								if(result.confirm === true){
                 const row = e.currentTarget.dataset.index;
                 let list = this.data.detailed;
-                list.splice(row,1);
+                // list.splice(row,1);
+                //不删除,做删除标记
+                if(list[row].eventID === 0 ){
+                    list.splice(row,1);
+                }else {
+                    list[row].isDelete = true;
+                }
                 this.setData({
                     "detailed":list
                 })
@@ -137,7 +152,55 @@ Page({
     },
     onSubmit(){ //将数据提交到后台
         console.log(this.data);
+        dd.showLoading();
+        const t =this;
+        // const url = 'https://filemaker.ckkj.net.cn:8890/corp_php-master/getSchdule.php'
+        const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+        dd.httpRequest({
+            url: url,
+            method: 'POST',
+            data: {
+                action: 'updateSchedule',
+                scheduleID: this.data.scheduleId,//为0代表新增
+                scheduleContent:this.data.dailyContent,
+                scheduleDate:this.data.scheduleDate,
+                username:getApp().globalData.username,
+                /*events: JSON.stringify([
+                            {
+                                    "eventID": 0,//为0代表新增
+                                    "event": "测试",
+                                    "signAddress": "Isee灰姑娘国际儿童艺术中心(龙湖源著校区)(江北区福泉路25号源著天街L2-12)",
+                                    "lat": 106.49402711749696,
+                                    "lang": 29.604912310755623,
+                                    "signTime": "06/01/2019 12:00:00",
+                                    'isDelete':false,
+
+                            },
+
+                        ]),*/
+                events: JSON.stringify(t.data.detailed)
+                },
+            dataType: 'json',
+            success: (res) => {
+                if (res.data.success === true) {
+                    dd.alert({content:"日历更改成功"});
+                }else{
+                    dd.alert({content:"日历更改:"+res.data.content.response.data});
+                }
+            },
+            fail: (res) => {
+                console.log("httpRequestFail---", res)
+                // dd.alert({content: JSON.stringify(res)});
+                dd.hideLoading();
+            },
+            complete: (res) => {
+								// dd.alert({content: JSON.stringify(res)});
+                dd.hideLoading();
+            }
+        })
+
     },
+    //打开php后端文件
     onPreviewPicture() {
 			const t =this;
       /*  dd.previewImage({
@@ -145,17 +208,17 @@ Page({
         });*/
 
       //转到webview
-      /*  dd.navigateTo({
+        dd.navigateTo({
             url: '/page/logs/logs?url=http://liuzheng750417.imwork.net:8088/corp_php-master/testurl.php'
-        })*/
+        })
 
       //转存到钉盘
-        dd.saveFileToDingTalk({
+       /* dd.saveFileToDingTalk({
             // url:"http://liuzheng750417.imwork.net:8088/corp_php-master/testurl.php",  // 文件在第三方服务器地址
             url:"http://liuzheng750417.imwork.net:8088/corp_php-master/upload/消泡剂质量问题归总docx",  // 文件在第三方服务器地址
             name:"test1.doc",
             success: (res) => {
-                /* data结构x
+                /!* data结构x
                  {"data":
                     [
                     {
@@ -167,7 +230,7 @@ Page({
                     }
                     ]
                  }
-                 */
+                 *!/
                 dd.alert({
                     content:'succuess:'+JSON.stringify(res)
                 })
@@ -179,15 +242,13 @@ Page({
                     fileSize: res.data[0].fileSize,
                     fileType: res.data[0].fileType
                 })
-
-
             },
             fail: (err) =>{
                 dd.alert({
                     content:'failure:'+JSON.stringify(err)
                 })
             }
-        })
+        })*/
     }
 
 });

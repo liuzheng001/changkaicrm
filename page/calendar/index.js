@@ -456,13 +456,13 @@ Page({
 						// thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
 						title: "内容1基莾术有专攻奈斯运营成本求其友声春树暮云东奔西走艺术硕士艺术硕士东奔西走春树暮云ad",
 						address: "地址1",
-								date : "04/09/2019 13:35:23",
-						    long:'经度',
-							lat:'纬度',
-							day:19,
-							month:4,
-							year:2019,
-							eventID:'日程ID',
+                        date : "04/09/2019 13:35:23",
+                        long:'经度',
+                        lat:'纬度',
+                        day:19,
+                        month:4,
+                        year:2019,
+                        eventID:'日程ID',
 
 						},
 						*/
@@ -603,8 +603,28 @@ Page({
             }
     },
     editSchedule(){ //打开日程
+        let scheduleJson ={};
+        if (typeof this.data.scheduleId === 'undefined'
+        ) {  scheduleJson.scheduleId = 0;
+        }else{
+            scheduleJson.scheduleId   = this.data.scheduleId;
+        }
+        scheduleJson.scheduleDate = (this.data.month+1)+'/'+this.data.date+'/'+this.data.year;
+
+        scheduleJson.listData = {}
+        scheduleJson.listData.data = [];
+        if(scheduleJson.scheduleId !== 0) {
+            let list = this.data.listData.data;
+            list.forEach((item, index) => {
+                    if (item.day === this.data.date && item.month === this.data.month && item.year === this.data.year) {
+                        //记录该日志内容
+                        var value = {eventID: item.eventID, event: item.title,signTime: item.date, signAddress: item.address,isDelete:false};
+                        scheduleJson.listData.data.push(value);
+                    }
+                })
+        }
         dd.navigateTo({
-            url: '/page/schedule/schedule?scheduleID='+this.data.scheduleId,
+            url: '/page/schedule/schedule?scheduleJson='+JSON.stringify(scheduleJson),
         })
     },
 	onLoad(){ //页面加载时,计算有效日期

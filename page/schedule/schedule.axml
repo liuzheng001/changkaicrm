@@ -5,7 +5,7 @@
     <view a:if={{detailed}} class="a-list-items">
     <block a:for={{detailed}}>
     
-    <view
+    <view a:if={{!item.isDelete}}
           class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"
           data-index="{{index}}"
     >
@@ -51,13 +51,13 @@
 	<view class="section">
     <textarea  style="height:200rpx" name="dailyrecord" onInput="onDailychange"/>
 </view>
-	<view class="header">多媒体</view>
+	<!--<view class="header">多媒体</view>
 	<view class="img-content">
 			<block a:for={{medias}} a:for-item="img" a:for-index="no">
 				<view class="img-thumb"  >
 					<image  style = "width:120rpx;height:120rpx" src="{{img.src}}" onTap="onPicturePreview" data-src="{{img.src}}" mode="scaleToFill" />
 						<view class="imgdelete">
-							<!-- <image style = "width:40rpx;height:40rpx"  onTap="onDeletePicture" src="{{item.thumb}}" data-num="{{index}}" data-no="{{no}}"/> -->
+							&lt;!&ndash; <image style = "width:40rpx;height:40rpx"  onTap="onDeletePicture" src="{{item.thumb}}" data-num="{{index}}" data-no="{{no}}"/> &ndash;&gt;
 							<text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"   data-no="{{no}}" class="iconfont icon-del2"/>
 						</view>		
 				</view>
@@ -65,8 +65,7 @@
 			<view a:if={{medias.length<7}} class="img-thumb" >
 					<text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add"/>
 			</view>
-</view>
-<view><button type="primary" onTap="onPreviewPicture">预览</button></view>
-
+    </view>-->
+<!--<view><button type="primary" onTap="onPreviewPicture">预览</button></view>-->
 <view><button type="primary" onTap="onSubmit">提交</button></view>
 </view>
