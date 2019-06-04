@@ -23,6 +23,7 @@ App({
         
     //调试关闭
     this.globalData.corpId = options.query.corpId;
+
     //调试打开
     // this.globalData.corpId ='ding1fdec36666e1349d35c2f4657eb6378f' ;
     
@@ -46,6 +47,8 @@ App({
     username:'',
     userId:'',
     departments:[],
+    flashScheduleFlag:false,//刷新schedule标志,只有在schedule.js提交才能更改为true
+
   },
   loginSystem() {
       dd.showLoading();
@@ -69,9 +72,9 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         //调试是关闭
-                       /* dd.switchTab({
+                        dd.switchTab({
                             url: '/page/calendar/index'
-                        })    */                },
+                        })                    },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)
                         dd.alert({content: JSON.stringify(res)});

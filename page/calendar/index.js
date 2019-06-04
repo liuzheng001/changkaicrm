@@ -609,8 +609,9 @@ Page({
         }else{
             scheduleJson.scheduleId   = this.data.scheduleId;
         }
-        scheduleJson.scheduleDate = (this.data.month+1)+'/'+this.data.date+'/'+this.data.year;
-
+        scheduleJson.year = this.data.year;
+        scheduleJson.month = this.data.month;
+        scheduleJson.date = this.data.date;
         scheduleJson.listData = {}
         scheduleJson.listData.data = [];
         if(scheduleJson.scheduleId !== 0) {
@@ -627,15 +628,55 @@ Page({
             url: '/page/schedule/schedule?scheduleJson='+JSON.stringify(scheduleJson),
         })
     },
-	onLoad(){ //页面加载时,计算有效日期
+    onLoad(){ //页面加载时,计算有效日期
         const app = getApp();
-        const username = app.globalData.username;
+        let year,month,date,todayDate;
         const today = new Date();
-        const year = today.getFullYear() ,month = today.getMonth(),date = today.getDate();
+
+
+        if(this.data.year === 0 && this.data.month === 0 && this.data.date === 0) {
+            //得到当前日期,程序首次加载
+            year = today.getFullYear(); month = today.getMonth(); date = today.getDate();
+        }else{
+            year = this.data.year ;month = this.data.month;date = this.data.date;
+
+        }
+        if(year === today.getFullYear() && month === today.getMonth()){
+            todayDate =today.getDate();
+        }else{
+            todayDate = 0;
+        }
+
+        const username = app.globalData.username;
         getScheduleForMonth(year,month,username)
             .then((listData)=>{return daysInMonth(year,month,date,listData)}
             )
             .then(res => {
+
+                this.setData({
+                    'grid.list': res.thisMonth,
+                    year: year,
+                    month: month,
+                    date: date,
+                    todayDate: todayDate,
+                    'listData.data': res.listDataValue,
+                    hasSchedule:res.hasSchedule,
+                    attendance:res.attendance,
+                    scheduleId:res.scheduleId,
+                })
+            }).catch(
+            err=>dd.alert({title:"载入日历月表失败",content:JSON.stringify(err)})
+        )
+
+
+        /*var today = new Date();
+        const year = today.getFullYear() ,month = today.getMonth(),date = today.getDate();
+        /*daysInMonth(year,month).then(function (thisMonth) {
+            t.setData({'grid.list':thisMonth,year:year,month:month,date:date,todayDate:date});
+        }).catch(function(err){alert('读取日程失败:'+err)});*/
+        /*daysInMonth(year,month,date,date)
+            .then(res => {
+                // this.setData({'grid.list':res.thisMonth,year:year,month:month,date:date,todayDate:date});
                 this.setData({
                     'grid.list': res.thisMonth,
                     year: year,
@@ -643,39 +684,103 @@ Page({
                     date: date,
                     todayDate: date,
                     'listData.data': res.listDataValue,
-                    hasSchedule:res.hasSchedule,
-                    attendance:res.attendance,
-                    scheduleId:res.scheduleId,
+                    hasSchedule:res.hasSchedule
                 })
             }).catch(
-                err=>dd.alert({title:"载入月日历失败",content:JSON.stringify(err)})
-            )
+                res=>dd.alert({title:"载入月日历失败"})
+        )*/
 
+    },
+    onShow(){ //页面显示时,每次重新执行,如果直接调用,不延时,在android上将返回错误,ios没问题,感觉是android返回后,没有来的及执行getScheduleForMonth
+        const app = getApp();
+        console.log('calendar:'+app.globalData.flashScheduleFlag)
 
-				/*var today = new Date();
-				const year = today.getFullYear() ,month = today.getMonth(),date = today.getDate();
-				/*daysInMonth(year,month).then(function (thisMonth) {
-                    t.setData({'grid.list':thisMonth,year:year,month:month,date:date,todayDate:date});
-                }).catch(function(err){alert('读取日程失败:'+err)});*/
-				/*daysInMonth(year,month,date,date)
+        if(app.globalData.flashScheduleFlag === true) {
+            app.globalData.flashScheduleFlag = false;
+            /*dd.showToast({
+                type: 'success',
+                content: '更改成功',
+                duration: 2000,
+                success: () => {
+                    let year, month, date, todayDate;
+                    const today = new Date();
+                    year = this.data.year;
+                    month = this.data.month;
+                    date = this.data.date;
+
+                    if (year === today.getFullYear() && month === today.getMonth()) {
+                        todayDate = today.getDate();
+                    } else {
+                        todayDate = 0;
+                    }
+
+                    const username = app.globalData.username;
+                    getScheduleForMonth(year, month, username)
+                        .then((listData) => {
+                                // console.log('listData:' + JSON.stringify(listData));
+                                return daysInMonth(year, month, date, listData)
+                            }
+                        )
+                        .then(res => {
+                            // console.log('res:' + JSON.stringify(res));
+                            this.setData({
+                                'grid.list': res.thisMonth,
+                                year: year,
+                                month: month,
+                                date: date,
+                                todayDate: todayDate,
+                                'listData.data': res.listDataValue,
+                                hasSchedule: res.hasSchedule,
+                                attendance: res.attendance,
+                                scheduleId: res.scheduleId,
+                            })
+                        }).catch(
+                        err => dd.alert({title: "载入日历月表失败", content: JSON.stringify(err)})
+                    )
+                }
+            });*/
+            setTimeout(() => {
+                let year, month, date, todayDate;
+                const today = new Date();
+                year = this.data.year;
+                month = this.data.month;
+                date = this.data.date;
+
+                if (year === today.getFullYear() && month === today.getMonth()) {
+                    todayDate = today.getDate();
+                } else {
+                    todayDate = 0;
+                }
+
+                const username = app.globalData.username;
+                getScheduleForMonth(year, month, username)
+                    .then((listData) => {
+                            // console.log('listData:' + JSON.stringify(listData));
+                            return daysInMonth(year, month, date, listData)
+                        }
+                    )
                     .then(res => {
-                        // this.setData({'grid.list':res.thisMonth,year:year,month:month,date:date,todayDate:date});
+                        // console.log('res:' + JSON.stringify(res));
                         this.setData({
                             'grid.list': res.thisMonth,
                             year: year,
                             month: month,
                             date: date,
-                            todayDate: date,
+                            todayDate: todayDate,
                             'listData.data': res.listDataValue,
-                            hasSchedule:res.hasSchedule
+                            hasSchedule: res.hasSchedule,
+                            attendance: res.attendance,
+                            scheduleId: res.scheduleId,
                         })
                     }).catch(
-                        res=>dd.alert({title:"载入月日历失败"})
-                )*/
-
+                    err => dd.alert({title: "载入日历月表失败", content: JSON.stringify(err)})
+                )
+            }, 500)
+        }
     },
-		handleListItemTap(e) {
-            //只有当天才能签到,而且已经签到的情况下,显示修改和查看地图
+    handleListItemTap(e) {
+            //只有当天才能签到,而且已经
+        // 签到的情况下,显示修改和查看地图
             const day = e.currentTarget.dataset.day,month = e.currentTarget.dataset.month,year = e.currentTarget.dataset.year,lat = e.currentTarget.dataset.lat,long = e.currentTarget.dataset.long,title = e.currentTarget.dataset.title,address = e.currentTarget.dataset.address,eventID =e.currentTarget.dataset.eventID;
             let options;
             const today = new Date();
@@ -765,7 +870,7 @@ Page({
                                             })
                                         })
                               .catch(
-                                            err=>dd.alert({title:"载入月日历失败",content:JSON.stringify(err)})
+                                        err=>dd.alert({title:"载入月日历失败.",content:JSON.stringify(err)})
                                     )
 
                             }
@@ -801,7 +906,7 @@ Page({
       }else {
           month--;
       }
-      var today = new Date(),todayDate = 0;
+      let today = new Date(),todayDate = 0;
       if(year === today.getFullYear() && month === today.getMonth()){
           date = today.getDate();
           todayDate = date;
@@ -848,9 +953,9 @@ Page({
     },
 	nextMonth(){
 		let month = this.data.month,year = this.data.year,date;
-					if (month === 11) {
-						month = 0;
-						year++;
+            if (month === 11) {
+                month = 0;
+                year++;
       		}else {
          		 month++;
      		 	}

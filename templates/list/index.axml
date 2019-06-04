@@ -13,7 +13,7 @@
                             class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} a-list-item-{{item.align || 'middle'}}"
                             hover-class="a-list-item-hover"
                             onTap="{{onItemTap}}"
-														data-eventID ={{item.eventID}}
+                            data-eventID ={{item.eventID}}
                             data-year={{item.year}}
                             data-month={{item.month}}
                             data-day ={{item.day}}
@@ -24,7 +24,7 @@
                         >
                             <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
                                 <text class="a-list-item-content">{{item.title}}</text>
-                                <view a:if={{item.date}} class="a-list-item-extra" >{{item.date}}</view>
+                                <view a:if={{item.date}} class="a-list-item-extra" >{{item.date.substring(item.date.indexOf(" ")+1)}}</view>
                                 <!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
                                 <text class="a-list-item-address-content">{{item.address}}</text>
 														</view>

@@ -5,7 +5,10 @@ Page({
           // {eventID:0,event: "去长安", signTime: '2019/5/14', signAddress: "重庆市江北区",isDelete:false},
       ],
         dailyContent:"",
-        scheduleDate:"", //6/23/2019
+        // scheduleDate:"", //6/23/2019
+        year:0,
+        date:0,
+        month:0,
       /*medias:[
           {src:"http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg"},
           {src:"http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg"},
@@ -16,7 +19,10 @@ Page({
 				this.setData({
                     "detailed": scheduleJson.listData.data,
                     "scheduleId":scheduleJson.scheduleId,
-                    "scheduleDate":scheduleJson.scheduleDate
+                    // "scheduleDate":scheduleJson.scheduleDate,
+                    "year":scheduleJson.year,
+                    "month":scheduleJson.month,
+                    "date":scheduleJson.date,
                 })
 
         /*
@@ -86,7 +92,7 @@ Page({
                 this.setData({
                     "detailed":list
                 })
-								}
+                }
             },
         })
 
@@ -151,8 +157,9 @@ Page({
 						})
     },
     onSubmit(){ //将数据提交到后台
+        const app = getApp();
         console.log(this.data);
-        dd.showLoading();
+        // dd.showLoading();
         const t =this;
         // const url = 'https://filemaker.ckkj.net.cn:8890/corp_php-master/getSchdule.php'
         const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
@@ -163,7 +170,7 @@ Page({
                 action: 'updateSchedule',
                 scheduleID: this.data.scheduleId,//为0代表新增
                 scheduleContent:this.data.dailyContent,
-                scheduleDate:this.data.scheduleDate,
+                scheduleDate:(this.data.month+1)+'/'+this.data.date+'/'+this.data.year,
                 username:getApp().globalData.username,
                 /*events: JSON.stringify([
                             {
@@ -183,7 +190,27 @@ Page({
             dataType: 'json',
             success: (res) => {
                 if (res.data.success === true) {
-                    dd.alert({content:"日历更改成功"});
+                    app.globalData.flashScheduleFlag = true;
+                    console.log('schedule:'+app.globalData.flashScheduleFlag)
+                    dd.alert({
+                        content:"日历更改成功",
+                        //退出日历详情,回到月日历
+                        success:()=> {
+                            dd.switchTab({
+                                url: '/page/calendar/index'
+                            })
+                        }
+                    });
+                   /* dd.showToast({
+                        type: 'success',
+                        content: '更改成功',
+                        duration: 3000,
+                        success:()=> {
+                            dd.switchTab({
+                                url: '/page/calendar/index'
+                            })
+                        }
+                    });*/
                 }else{
                     dd.alert({content:"日历更改:"+res.data.content.response.data});
                 }
@@ -191,11 +218,11 @@ Page({
             fail: (res) => {
                 console.log("httpRequestFail---", res)
                 // dd.alert({content: JSON.stringify(res)});
-                dd.hideLoading();
+                // dd.hideLoading();
             },
             complete: (res) => {
 								// dd.alert({content: JSON.stringify(res)});
-                dd.hideLoading();
+                // dd.hideLoading();
             }
         })
 
@@ -249,6 +276,19 @@ Page({
                 })
             }
         })*/
-    }
+    },
+    //返回按键,若需进一步需定制导航栏,不成功
+    /*onUnload(){
+        dd.confirm({
+            title: '提示',
+            content: '确认返回,所有修改将不保留?',
+            confirmButtonText: '确认',
+            success: (result) => {
+                if(result.confirm === false){
+                    this.onLoad();
+                }
+            },
+        })
+    }*/
 
 });
