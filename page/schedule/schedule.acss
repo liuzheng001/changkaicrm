@@ -1,7 +1,12 @@
+.rightContent{
+     display: flex;
+    justify-content: flex-end;
+    /* margin: 10px; */
+    padding: 10rpx;
+}
 .a-list {
     box-sizing: border-box;
 }
-
 
 .a-list .a-list-items .a-list-item {
     display: flex;

@@ -32,11 +32,11 @@ App({
   }, 
   onShow() { 
   // dd.alert({content:'应用打开了'});
-    console.log('App Show'); 
+  //   console.log('App Show');
   },
   onHide() {
-  dd.alert({content:'应用到后台了'});
-    console.log('App Hide');
+  /*dd.alert({content:'应用到后台了'});
+    console.log('App Hide');*/
   },
   onError(msg){
       console.log(msg);
@@ -51,7 +51,7 @@ App({
 
   },
   loginSystem() {
-      dd.showLoading();
+      // dd.showLoading();
       dd.getAuthCode({
             success: (res) => {
                 // dd.alert({content: "step1"+res.authCode});
@@ -63,7 +63,7 @@ App({
                     },
                     dataType: 'json',
                     success: (res) => {
-                        dd.alert({content: "step2"});
+                        // dd.alert({content: "step2"});
                         console.log('success----', res)
                         let userId = res.data.result.userId;
                         let userName = res.data.result.userName;
@@ -71,7 +71,7 @@ App({
                         app.globalData.userId = userId;
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
-                        //调试是关闭
+                        //调试时关闭
                         dd.switchTab({
                             url: '/page/calendar/index'
                         })                    },
@@ -80,7 +80,7 @@ App({
                         dd.alert({content: JSON.stringify(res)});
                     },
                     complete: (res) => {
-                        dd.hideLoading();
+                        // dd.hideLoading();
                     }
 
                 });

@@ -9,11 +9,16 @@ Page({
         year:0,
         date:0,
         month:0,
+        attendance:"",//出勤状态
       /*medias:[
           {src:"http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg"},
           {src:"http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg"},
           ]*/
     },
+    customData: {
+        eventCount: 0
+    },
+
     onLoad(query){ //页面加载时,获取日历详情
         let scheduleJson = JSON.parse(query.scheduleJson);
 				this.setData({
@@ -23,7 +28,9 @@ Page({
                     "year":scheduleJson.year,
                     "month":scheduleJson.month,
                     "date":scheduleJson.date,
-                })
+                    attendance:scheduleJson.attendance,
+                });
+				this.customData.eventCount = scheduleJson.listData.data.length;
 
         /*
         //从php后端得到数据,弃用
@@ -72,6 +79,8 @@ Page({
         this.setData({
             "detailed":list,
         })
+        this.customData.eventCount++;
+
     },
     onDeleteEvent(e){
         dd.confirm({
@@ -79,7 +88,7 @@ Page({
             content: '确认删除该日程',
             confirmButtonText: '删除',
             success: (result) => {	
-								if(result.confirm === true){
+            if(result.confirm === true){
                 const row = e.currentTarget.dataset.index;
                 let list = this.data.detailed;
                 // list.splice(row,1);
@@ -92,6 +101,7 @@ Page({
                 this.setData({
                     "detailed":list
                 })
+                this.customData.eventCount--;
                 }
             },
         })
@@ -157,6 +167,16 @@ Page({
 						})
     },
     onSubmit(){ //将数据提交到后台
+        let isDelSchedule = false;
+        //日历在前端是新建,而且events为0
+        if (this.data.scheduleId === 0 && this.customData.eventCount === 0) {
+            dd.switchTab({
+                url: '/page/calendar/index'
+            })
+            return;
+        }else if (this.data.scheduleId!==0 && this.customData.eventCount === 0) {
+            isDelSchedule = true;
+        }
         const app = getApp();
         console.log(this.data);
         // dd.showLoading();
@@ -172,6 +192,7 @@ Page({
                 scheduleContent:this.data.dailyContent,
                 scheduleDate:(this.data.month+1)+'/'+this.data.date+'/'+this.data.year,
                 username:getApp().globalData.username,
+                isDelSchedule:isDelSchedule, //是否删除scheduleID记录
                 /*events: JSON.stringify([
                             {
                                     "eventID": 0,//为0代表新增
@@ -290,5 +311,14 @@ Page({
             },
         })
     }*/
+    onCalculationmil(){
+        if(this.data.attendance==="已收工"){
+            dd.navigateTo({url: '/page/logs/logs?calendarID='+this.data.scheduleId});
+        }else{
+            dd.alert({content:"尚未收工不能计算行程"});
+        }
+
+
+    }
 
 });

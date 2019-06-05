@@ -614,6 +614,7 @@ Page({
         scheduleJson.date = this.data.date;
         scheduleJson.listData = {}
         scheduleJson.listData.data = [];
+        scheduleJson.attendance = this.data.attendance;
         if(scheduleJson.scheduleId !== 0) {
             let list = this.data.listData.data;
             list.forEach((item, index) => {

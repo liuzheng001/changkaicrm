@@ -10,7 +10,7 @@
     "page/calendar/index"
   ],
   "window": {
-    "defaultTitle": "E应用测试",
+    "defaultTitle": "长凯CRM",
     "backgroundColor": "#545232",
     "pullRefresh": false,
     "allowsBounceVertical": "NO"
@@ -26,11 +26,11 @@
       },
       {
         "pagePath": "page/calendar/index",
-        "name": "calendar"
+        "name": "日历"
       },
       {
         "pagePath": "page/test/test",
-        "name": "测试"
+        "name": "test"
       }
     ]
   },

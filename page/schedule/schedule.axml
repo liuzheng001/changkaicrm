@@ -1,6 +1,10 @@
 <view >
   <view class="a-list">
-    <button onTap="onAddEvent">+增加行程({{detailed.length}}个)</button>
+      <view class="rightContent">
+				<button type="primary" size="mini" style="margin-bottom:0" onTap="onCalculationmil">计算里程</button>
+        </view>
+
+      <button onTap="onAddEvent">+增加行程({{detailed.length}}个)</button>
 
     <view a:if={{detailed}} class="a-list-items">
     <block a:for={{detailed}}>

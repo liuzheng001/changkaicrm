@@ -2,22 +2,21 @@
         <view >first {{first}} sec {{second}}</view>
 </template>
      
-<view>
-    <button type="primary" size="" onTap="loginSystem"> 点击登录 </button>
-    <view class="row">CorpId:{{corpId}}</view>
-    <view>
-    <view a:for="{{items}}"> {{item}} </view>
-    <view a:for="{{names}}"> 
-      <template is="templateTest" data = "{{...item}}"/>
+<view class='whole' >
+	<view class="goldText">
+		 <!-- <text >心若不弃, 必然扬眉吐气</text> -->
+	</view>
+	<view class="commpanyText">
+		<view >
+			<image src="http://r1w8478651.imwork.net:9998/corp_demo_php-master/log.png"  style="width:40rpx;height:40rpx"/>
+		</view>
+		<view>
+		<text> <span>鼎新：</span>精益求精，创新图强
+					<span>服务：</span>客户至上，全程参与
+					<span>汇聚：</span>不断迭代，持续进步</text>
+		</view>
     </view>
-    <button type="primary" onTap="changeTar">转到新页面测试!!!</button>
-    <view >
-        <view class="row">AuthCode:{{authCode}}</view>
-        <view class="row">userId:{{userId}}</view>
-        <view class="row">name:{{userName}}</view>
-        <view>hello {{name}}!</view>
-    </view>
-            <button type="default" onTap="changeName">修改</button>
-            <button type="default" onTap="openMap">地图</button>
-
 </view>
+
+
+

@@ -81,7 +81,7 @@ Component({
                   const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
                   //将数据存入,但没有上传
                   thumbs.push({
-                      src:path
+                      src: path
                   });
                   const  target = `detailed[${num}].thumbs`;
                   t.setData({

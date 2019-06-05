@@ -1,4 +1,40 @@
-.row{
-    height: 60rpx;
-    line-height: 60rpx;
+
+.whole{
+		width: 100vw;
+    height: 100vh;
+    background-image: url(http://r1w8478651.imwork.net:9998/corp_demo_php-master/background.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.goldText{
+		width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    text-align: center;
+    /* line-height: 100px; */
+    font-size: 24px;
+    color: coral;
+}
+
+.commpanyText{
+	  width: 200px;
+    /* height: 400px; */
+    position: absolute;
+    right: 0px;
+    margin-top: -50px;
+    margin-left: -50px;
+    text-align: right;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    bottom: 0px;
+    /* border: solid red; */
+    font-size: 16px;
+    color:coral ;
 }
