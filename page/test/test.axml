@@ -50,9 +50,10 @@
     {{value}}
   </view>
 
-  <view><button type="default" onTap="uploadFile">上传</button></view>  
-  <view><button type="default" onTap="downloadFile">下载</button></view>  
-  <view><button type="default" onTap="httpTest">http连接</button></view>  
+  <view><button type="default" onTap="uploadFile">上传</button></view>
+    <view><button type="default" onTap="downloadFile">下载</button></view>
+    <view><button type="default" onTap="downloadContainerFile">下载fm container</button></view>
+    <view><button type="default" onTap="httpTest">http连接</button></view>
 	
 	<view><button type="default" onTap="choosePerson">选择部门和人员</button></view>
 

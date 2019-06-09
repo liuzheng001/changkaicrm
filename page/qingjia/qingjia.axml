@@ -42,8 +42,11 @@
       <view class="section__title">图片(图片)</view>
       <input name="picture" value="{{picturePath}}"/>
       <image src="{{picturePath}}"></image>
+      <video src="{{videoPath}}" controls= "controls">this is failure</video>
 
       <button onTap="choosePicture">选择图片</button>
+      <button onTap="downloadContainerFile">下载视频</button>
+
     </view>
   <!-- 引入自定义明细组件 -->
   <vacation  onReturnDetailed="onReturnDetailed"/>
@@ -60,4 +63,5 @@
     <view class="row">userId:{{userId}}</view>
     <view class="row">name:{{userName}}</view>
   </view>-->
+
 </view>

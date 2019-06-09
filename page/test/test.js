@@ -84,6 +84,23 @@ Page({
         },
       });
   },
+    downloadContainerFile(){
+        dd.downloadFile({
+            url: 'http://liuzheng750417.imwork.net:8088/corp_php-master/testurl.php',
+            success({ filePath }) {
+                dd.alert({content:filePath});
+                dd.previewImage({
+                    urls: [filePath,],
+                });
+            },
+            fail(res) {
+                dd.alert({
+                    content: res.errorMessage || res.error,
+                });
+            },
+        });
+    },
+
   httpTest(){ //success
     // Content-Type为application/x-www-form-urlencoded即默认的接口请求方式
     dd.httpRequest({

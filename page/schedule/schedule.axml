@@ -51,10 +51,10 @@
         </view>
 		</view>
 <!-- </view> -->
-	<view class="header">日志内容</view>
+	<!--<view class="header">日志内容</view>
 	<view class="section">
     <textarea  style="height:200rpx" name="dailyrecord" onInput="onDailychange"/>
-</view>
+</view>-->
 	<!--<view class="header">多媒体</view>
 	<view class="img-content">
 			<block a:for={{medias}} a:for-item="img" a:for-index="no">
@@ -71,5 +71,7 @@
 			</view>
     </view>-->
 <!--<view><button type="primary" onTap="onPreviewPicture">预览</button></view>-->
+<view><button  onTap="onScheduleContent">转到日志</button></view>
 <view><button type="primary" onTap="onSubmit">提交</button></view>
+<!--<view><button type="primary" onTap="onUploadFm">上传</button></view>-->
 </view>

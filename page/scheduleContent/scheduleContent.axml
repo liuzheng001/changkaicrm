@@ -1,0 +1,15 @@
+<view>
+  <view class="header">日志内容</view>
+	<view class="section">
+    <textarea  style="height:300rpx" name="dailyContent" onInput="onDailychange" value="{{dailyContent}}" data-elementName="dailyContent"/>
+	</view> 
+	<view class="header">存在问题</view>
+	<view class="section">
+    <textarea  style="height:200rpx" name="dailyQuestion" onInput="onDailychange" value="{{dailyQuestion}}" data-elementName="dailyQuestion"/>
+	</view>
+	<view class="header">回复</view>
+	<view class="section">
+    <textarea  style="height:200rpx" name="dailyReply" onInput="onDailychange" value="{{dailyReply}}" data-elementName="dailyReply"/>
+	</view>
+    <view><button type="primary" onTap="onSubmit">提交</button></view>
+</view>

@@ -11,6 +11,7 @@ Page({
      ],
     customIndex: 0,
     picturePath:"",
+      videoPath:"",
   },
   onLoad() { //从fm中读取custom值列表
       const url = getApp().globalData.domain+"/getFmMessage.php";
@@ -106,21 +107,24 @@ Page({
             success: (res) => {
                 // imgPath = res.filePaths[0];
                 const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
-                debugger;
+                dd.alert({content:path});
+                t.setData({
+                    picturePath:path,
+                })
 
-                dd.uploadFile({
+                /*dd.uploadFile({
                     url:app.globalData.domain+"/upload/upload.php" ,
                     fileType: 'image',
                     fileName: 'file',
                     filePath: path,
-                   /* url: 'http://httpbin.org/post',
+                   /!* url: 'http://httpbin.org/post',
                     fileType: 'image',
                     fileName: 'file',
-                    filePath: path,*/
+                    filePath: path,*!/
                     success: (res) => {
-                        /*dd.alert({
+                        /!*dd.alert({
                             content: '上传成功'
-                        });*/
+                        });*!/
                         console.log("上传成功");
                         t.imageUrl =getApp().globalData.domain+"/upload/"+JSON.parse(res.data).fileName;
                         t.setData({
@@ -133,8 +137,30 @@ Page({
                         });
                     },
 
-                });
+                });*/
 
+            },
+        });
+    },
+    downloadContainerFile(){
+       const t = this;
+        dd.downloadFile({
+            url: 'http://liuzheng750417.imwork.net:8088/corp_php-master/upload/wechatsight170.mp4' ,
+            success({ filePath }) {
+                dd.alert({content:filePath});
+               /* dd.previewImage({
+                    urls: [filePath,],
+                });*/
+                console.log("下载成功");
+                // t.imageUrl =getApp().globalData.domain+"/upload/"+JSON.parse(res.data).fileName;
+                t.setData({
+                    videoPath : filePath
+                })
+            },
+            fail(res) {
+                dd.alert({
+                    content: res.errorMessage || res.error,
+                });
             },
         });
     },

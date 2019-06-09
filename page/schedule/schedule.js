@@ -20,6 +20,7 @@ Page({
     },
 
     onLoad(query){ //页面加载时,获取日历详情
+        //scheduleJson.scheduleId为0,则代表新日历,尚未建立
         let scheduleJson = JSON.parse(query.scheduleJson);
 				this.setData({
                     "detailed": scheduleJson.listData.data,
@@ -117,7 +118,6 @@ Page({
 
     },
     onDailychange(e){//日志内容变更,既input内容变化时,在datailed中event记录
-
         this.setData({
             "dailyContent":e.detail.value
         })
@@ -319,6 +319,128 @@ Page({
         }
 
 
-    }
+    },
+    onUploadFm() {
+
+        const url = "http://liuzheng750417.imwork.net:8088/corp_php-master/upload/uploadContainer.php"
+        // const url = "http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php"
+       /* dd.httpRequest({
+            url: url,
+            method: 'POST',
+            data: {
+                fileName:'fileName',
+                fieldName:'fieldName',
+                layoutName:'layoutName',
+                recordID:'recordID',//scheduleId
+            },
+            dataType: 'json',
+            success: (res) => {
+                if (res.data.success === true) {
+                    dd.alert({content: "上传成功"});
+                }
+            }
+        })*/
+        /*dd.chooseImage({
+            // count: 2,
+            success: (res) => {
+                // imgPath = res.filePaths[0];
+                const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
+
+                dd.uploadFile({
+                    url:url ,
+                    fileType: 'image',
+                    fileName: 'file',
+                    filePath: path,
+                    /!* url: 'http://httpbin.org/post',
+                     fileType: 'image',
+                     fileName: 'file',
+                     filePath: path,*!/
+                    formData:{
+                        // action:"uploadToContainer",
+                        layoutName:"媒体容器详情",
+                        fieldName:"媒体容器",
+                        scheduleID:this.data.scheduleId,//scheduleId
+                        containerID:4, //容器ID,为0,则为新增
+                    },
+                    success: (res) => {
+                        const result = JSON.parse(res.data)
+                        if(result.success === true) {
+                            dd.alert({
+                                content: '上传成功'
+                            });
+                        }else{
+                            dd.alert({
+                                content: '文件上传失败'+JSON.stringify(res)
+                            });
+                        }
+                       /!* t.imageUrl =getApp().globalData.domain+"/upload/"+JSON.parse(res.data).fileName;
+                        t.setData({
+                            picturePath:t.imageUrl
+                        })*!/
+                    },
+                    fail:(res)=>{
+                        dd.alert({
+                            content: '上传失败:'+JSON.stringify(res)
+                        });
+                    },
+
+                });
+
+            },
+        });*/
+        dd.chooseVideo({
+            sourceType: ['album','camera'],
+            maxDuration: 60,
+            success:(res)=> {
+                // const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
+                const path = res.filePath;
+
+                dd.uploadFile({
+                    url: url,
+                    fileType: 'video',
+                    fileName: 'file',
+                    filePath: path,
+
+                    formData: {
+                        // action:"uploadToContainer",
+                        layoutName: "媒体容器详情",
+                        fieldName: "媒体容器",
+                        scheduleID: this.data.scheduleId,//scheduleId
+                        containerID: 4, //容器ID,为0,则为新增
+                    },
+                    success: (res) => {
+                        const result = JSON.parse(res.data)
+                        if (result.success === true) {
+                            dd.alert({
+                                content: '上传成功'
+                            });
+                        } else {
+                            dd.alert({
+                                content: '文件上传失败' + JSON.stringify(res)
+                            });
+                        }
+
+                    },
+                    fail: (res) => {
+                        dd.alert({
+                            content: '上传失败:' + JSON.stringify(res)
+                        });
+                    },
+
+                })
+            },
+            fail: (err)=> {
+                console.log(err)
+            }
+        })
+    },
+    onScheduleContent(){
+        if (this.data.scheduleId === 0) {
+            dd.alert({content:"尚未建立日历."})
+        }else {
+            dd.navigateTo({url: '/page/scheduleContent/scheduleContent?scheduleId='+this.data.scheduleId});
+        }
+    },
+
 
 });

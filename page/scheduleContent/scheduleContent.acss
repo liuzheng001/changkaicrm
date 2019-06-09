@@ -1,0 +1,9 @@
+.header {
+    padding: 30rpx 30rpx 18rpx;
+    font-size: 28rpx;
+    text-align: center;
+    color: #888;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}

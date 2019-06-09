@@ -19,13 +19,13 @@ Component({
                   second: '第二行',
                   thumbs: [],
               },
-              /* {
+               {
                    thumbs:[{src:'http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg'},{src:'http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg'},{src:'http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg'},{src:'http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg'}],
                    title: '标题图片',
                  arrow: 'horizontal',
                    thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
 
-               },*/
+               },
           ]
       // }
   },

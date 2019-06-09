@@ -7,7 +7,8 @@
     "page/componentPage/componentPage",
     "page/workflow/workflow",
     "page/schedule/schedule",
-    "page/calendar/index"
+    "page/calendar/index",
+    "page/scheduleContent/scheduleContent"
   ],
   "window": {
     "defaultTitle": "长凯CRM",
@@ -22,16 +23,15 @@
     "items": [
       {
         "pagePath": "page/index/index",
+        "icon": "resources/yemian-copy-copy.png",
         "name": "首页"
       },
       {
         "pagePath": "page/calendar/index",
+        "icon": "resources/markedcalendarp.png",
         "name": "日历"
-      },
-      {
-        "pagePath": "page/test/test",
-        "name": "test"
       }
+
     ]
   },
   "debug": true
