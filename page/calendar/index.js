@@ -139,7 +139,7 @@ function getScheduleForMonth(year,month,username) {
         }
         dd.showLoading();
         // const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
-        const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+        const url = getApp().globalData.domain+'/getSchdule.php';
         dd.httpRequest({
             url: url,
             method: 'POST',
@@ -260,7 +260,8 @@ function signIn(eventID,tripMode,date,year,month) {
 
 
 
-                        url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+                        // url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+                        url = getApp().globalData.domain+'/getSchdule.php';
                         dd.httpRequest({
                             url: url,
                             method: 'POST',
@@ -342,7 +343,8 @@ function attendanceUpdate(scheduleId,chuqiType,AttendanceMode) {
                 // alert(lat+'long'+long);
                 //将高德坐标转为百度
                 const bd_lat_lng = bd_encrypt(long, lat)
-                const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+                // const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+                const url = getApp().globalData.domain+'/getSchdule.php';
                 dd.httpRequest({
                     url: url,
                     method: 'POST',
@@ -469,6 +471,7 @@ Page({
 					]
 			},
             attendance:'出勤',
+            isRendering:false,
 		},//data 结束
 		handleItemTap(e) {
 					// dd.showToast({
@@ -508,7 +511,8 @@ Page({
                     hasSchedule = false;
                     attendance = '出勤'
                 }
-                    this.setData({date:e.currentTarget.dataset.date,hasSchedule: hasSchedule,attendance:attendance,scheduleId:scheduleId})
+								
+                this.setData({date:e.currentTarget.dataset.date,hasSchedule: hasSchedule,attendance:attendance,scheduleId:scheduleId})
             }
 
     },
@@ -653,7 +657,6 @@ Page({
             .then((listData)=>{return daysInMonth(year,month,date,listData)}
             )
             .then(res => {
-
                 this.setData({
                     'grid.list': res.thisMonth,
                     year: year,

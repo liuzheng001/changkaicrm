@@ -167,6 +167,7 @@ Page({
 						})
     },
     onSubmit(){ //将数据提交到后台
+        dd.showLoading();
         let isDelSchedule = false;
         //日历在前端是新建,而且events为0
         if (this.data.scheduleId === 0 && this.customData.eventCount === 0) {
@@ -179,10 +180,9 @@ Page({
         }
         const app = getApp();
         console.log(this.data);
-        // dd.showLoading();
         const t =this;
-        // const url = 'https://filemaker.ckkj.net.cn:8890/corp_php-master/getSchdule.php'
-        const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+        // const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+        const url = getApp().globalData.domain+'/getSchdule.php';
         dd.httpRequest({
             url: url,
             method: 'POST',
@@ -239,7 +239,7 @@ Page({
             fail: (res) => {
                 console.log("httpRequestFail---", res)
                 // dd.alert({content: JSON.stringify(res)});
-                // dd.hideLoading();
+                dd.hideLoading();
             },
             complete: (res) => {
 								// dd.alert({content: JSON.stringify(res)});
@@ -249,7 +249,7 @@ Page({
 
     },
     //打开php后端文件
-    onPreviewPicture() {
+    onPreview() {
 			const t =this;
       /*  dd.previewImage({
             urls: [t.data.medias[0].src]
@@ -321,7 +321,6 @@ Page({
 
     },
     onUploadFm() {
-
         const url = "http://liuzheng750417.imwork.net:8088/corp_php-master/upload/uploadContainer.php"
         // const url = "http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php"
        /* dd.httpRequest({
@@ -441,6 +440,7 @@ Page({
             dd.navigateTo({url: '/page/scheduleContent/scheduleContent?scheduleId='+this.data.scheduleId});
         }
     },
+
 
 
 });

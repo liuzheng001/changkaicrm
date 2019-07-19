@@ -72,9 +72,13 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         //调试时关闭
-                        dd.switchTab({
+                       /*dd.switchTab({ //日历
                             url: '/page/calendar/index'
-                        })                    },
+                        })*/
+                        dd.switchTab({ //流程模版分类
+                            url: '/page/category/category'
+                        })
+                    },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)
                         dd.alert({content: JSON.stringify(res)});
@@ -84,7 +88,10 @@ App({
                     }
 
                 });
-            }
+            },
+          fail: (err)=>{
+              dd.alert({content: JSON.stringify(err)})
+          }
         })
     },
 });

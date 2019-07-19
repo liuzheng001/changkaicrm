@@ -1,20 +1,27 @@
 {
   "pages": [
     "page/index/index",
+    "page/category/category",
+    "page/samplesapply/samplesapply",
     "page/qingjia/qingjia",
+    "page/leave/leave",
+    "page/pull-down-refresh/pull-down-refresh",
     "page/logs/logs",
     "page/test/test",
     "page/componentPage/componentPage",
     "page/workflow/workflow",
     "page/schedule/schedule",
     "page/calendar/index",
-    "page/scheduleContent/scheduleContent"
+    "page/scheduleContent/scheduleContent",
+    "page/category/workflowlist/workflowlist"
   ],
   "window": {
     "defaultTitle": "长凯CRM",
     "backgroundColor": "#545232",
     "pullRefresh": false,
-    "allowsBounceVertical": "NO"
+    "allowsBounceVertical": true,
+    "enableWK": "YES",
+    "enableDSL": true
   },
   "tabBar": {
     "textColor": "#dddddd",
@@ -30,8 +37,12 @@
         "pagePath": "page/calendar/index",
         "icon": "resources/markedcalendarp.png",
         "name": "日历"
+      },
+      {
+        "pagePath": "page/category/category",
+        "icon": "resources/yemian-copy-copy.png",
+        "name": "流程"
       }
-
     ]
   },
   "debug": true

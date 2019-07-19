@@ -1,6 +1,10 @@
 <view>
-  <view><button>   <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">返回主页</navigator>
-  </button></view>
+  <view><button>   <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">返回主页</navigator>  </button></view>
+
+  <view><button>  <navigator url="/page/workflow/workflow?" hover-class="navigator-hover" open-type="navigate">流程回调</navigator></button></view>
+  <view><button  onTap="openDingFlow">转到钉钉流程</button></view>
+  <view><button>  <navigator url="/page/workflow/workflow?title=workflow" hover-class="navigator-hover">转到workflow</navigator></button></view>
+
 
 
   <form onSubmit="formSubmit" onReset="formReset">
@@ -42,10 +46,13 @@
       <view class="section__title">图片(图片)</view>
       <input name="picture" value="{{picturePath}}"/>
       <image src="{{picturePath}}"></image>
-      <video src="{{videoPath}}" controls= "controls">this is failure</video>
+      <!--<video src="{{videoPath}}" controls= "controls">this is failure</video>不能在模拟器中显示,否则整个页面不显示,但能在真机中显示-->
 
       <button onTap="choosePicture">选择图片</button>
-      <button onTap="downloadContainerFile">下载视频</button>
+      <button onTap="uploadToDingding">上传文件到钉钉服务器</button>
+      <button onTap="openDingTalk">打开钉盘,得到spaceId</button>
+
+      <button onTap="downloadFile">下载文件到钉盘</button>
 
     </view>
   <!-- 引入自定义明细组件 -->

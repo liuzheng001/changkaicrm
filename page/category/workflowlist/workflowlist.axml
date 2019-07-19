@@ -1,0 +1,18 @@
+
+<view class="page" style="min-height:100vh">
+      <view class="a-list">
+        <view  class="a-list-items">
+					<view a:for={{listData}} class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} a-list-item-{{item.align || 'middle'}}"
+								hover-class="a-list-item-hover" >
+					<view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+						<text class="a-list-item-content">{{item.start}}</text>
+						<view  class="a-list-item-extra" >{{item.startDate}}</view>
+					<!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
+					<text class="a-list-item-address-content">{{item.currentStep}}</text>
+				</view>
+			</view>
+</view>
+	  <view class='remind' a:if="{{state==0}}">没有更多了</view>
+	  <view class='remind' a:else>上拉加载...</view>
+</view>
+</view>

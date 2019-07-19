@@ -39,7 +39,6 @@
             <!-- <input disabled="disabled" name="eventAddress[{{index}}]" value="{{item.signAddress}}" /> -->
 					</view>
         </view>
-      
       <view a:if={{item.thumbs.length<7}} class="img-thumb"  >
       <!-- <image  style = "width:120rpx;height:120rpx" src="{{item.thumb}}" data-num="{{index}}" onTap="onAddPicture" mode="scaleToFill" /> -->
       <text  style ="font-size:100rpx"  data-num="{{index}}" onTap="onAddPicture" class="iconfont icon-add"/>
@@ -70,8 +69,8 @@
 					<text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add"/>
 			</view>
     </view>-->
-<!--<view><button type="primary" onTap="onPreviewPicture">预览</button></view>-->
+<!--<view><button type="primary" onTap="onPreview">预览</button></view>
+<view><button type="primary" onTap="onUploadFm">上传</button></view>-->
 <view><button  onTap="onScheduleContent">转到日志</button></view>
 <view><button type="primary" onTap="onSubmit">提交</button></view>
-<!--<view><button type="primary" onTap="onUploadFm">上传</button></view>-->
 </view>

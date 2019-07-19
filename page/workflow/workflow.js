@@ -49,7 +49,7 @@ Page({
     },
     listTestWorkflow(){ //审批流程list progress-code:PROC-RIYJUE5W-ESNW8ITXOOCISY4HMD1T1-U6GEGBJJ-O1
         const app = getApp();
-        const url = getApp().gloablData.domain+"/getOapiByName.php";
+        const url = getApp().globalData.domain+"/getOapiByName.php";
         dd.httpRequest({
             url: url,
             method: 'post',
@@ -76,7 +76,7 @@ Page({
         /*"260401be-ee89-468e-9eb3-3c58da73c2d7","3e6c82de-d483-484f-93e0-8fbc32b33a60","37953552-2207-4938-a753-cb2e9525f38f","eb032918-44d1-47ef-acbc-e27d6568bda1","c6db2639-327e-4114-84e1-a4820710b204","9b16fcba-6163-42be-bc88-25e84f197949","dd5013f9-a791-4e88-bff8-14629bcac33a","16c2378a-5060-42cd-9484-9b8a5bf8edde","f92bc6ce-d208-4cc9-bd68-98985f199aee","935055cc-4a04-4100-b0fa-13722e*/
         // PROC-6AA9FF64-D13D-402A-82E8-4ED79BFA6FC8,请假code
         const app = getApp();
-        const url = getApp().gloablData.domain+"/getOapiByName.php";
+        const url = getApp().globalData.domain+"/getOapiByName.php";
         dd.httpRequest({
             url: url,
             method: 'post',
@@ -99,7 +99,7 @@ Page({
     },
     registerCallback(){ //注册回调函数
 
-        const url = getApp().gloablData.domain+"/getOapiByName.php";
+        const url = getApp().globalData.domain+"/getOapiByName.php";
         dd.httpRequest({
             url: url,
             method: 'post',
@@ -119,7 +119,7 @@ Page({
         })
     },
     callbackState(){
-        const url = getApp().gloablData.domain+"/getOapiByName.php";
+        const url = getApp().globalData.domain+"/getOapiByName.php";
         dd.httpRequest({
             url: url,
             method: 'post',
@@ -139,7 +139,7 @@ Page({
         })
     },
     deletecallback(){
-        const url = getApp().gloablData.domain+"/getOapiByName.php";
+        const url = getApp().globalData.domain+"/getOapiByName.php";
         dd.httpRequest({
             url: url,
             method: 'post',

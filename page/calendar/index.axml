@@ -20,11 +20,54 @@
 		<template is="Grid" data={{...grid,date,todayDate}} >
 	</view>
 	<view class="schedule" style="flex:1">
-		<text class="schedule-content">日程 {{month+1}} - {{date}}</text>
+		<text class="schedule-content" >日程 {{month+1}} - {{date}}</text>
 		<button class="schedule-button" type="primary"  onTap="attendanceSign" disabled="{{(todayDate===date)&&(attendance!=='已收工')?false:true}}">{{attendance}}</button>
 		<button class="schedule-button" type="wran" style="background-color:orange;border-color:orange;color:white" onTap="editSchedule">日程</button>
 	</view>
 	<view  style="flex-basis:400rpx;background-color:rgb(189, 189, 189)">
- 		 <template is="List" data={{...listData,year,month,date,hasSchedule}} >
+ 		 <!--<template is="List" data={{...listData,year,month,date,hasSchedule}} >-->
+		<scroll-view scroll-y="{{true}}" style="height:400rpx" >
+		<view >
+			<view class="text-view" a:if="{{hasSchedule==false}}">
+				<text>当天无日程</text>
+			</view >
+			<view a:else>
+				<view class="a-list">
+					<view a:if={{listData.data}} class="a-list-items">
+					<block a:for={{listData.data}}>
+					<!-- <view a:if="{{year==item.year&&month==item.month&&date==item.day}}"  -->
+					<!-- <view a:if="{{year==item.year&&month==item.month&&date==item.day}}" -->
+					<!--<view hidden="{{!(year==item.year&&month==item.month&&date==item.day)}}"-->
+					<view style="display:{{!(year==item.year&&month==item.month&&date==item.day)?'none':'block'}}"
+						  class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} a-list-item-{{item.align || 'middle'}}"
+						  hover-class="a-list-item-hover"
+						  onTap="{{listData.onItemTap}}"
+						  data-eventID ={{item.eventID}}
+					data-year={{item.year}}
+					data-month={{item.month}}
+					data-day ={{item.day}}
+					data-lat ={{item.lat}}
+					data-long = {{item.long}}
+					data-title = {{item.title}}
+					data-address = {{item.address}}
+					>
+					<view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+						<text class="a-list-item-content">{{item.title}}</text>
+						<view a:if={{item.date}} class="a-list-item-extra" >{{item.date.substring(item.date.indexOf(" ")+1)}}</view>
+					<!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
+					<text class="a-list-item-address-content">{{item.address}}</text>
+				</view>
+				<view class="a-list-item-img">
+					<!--<image style="width:100%;height:100%" a:if={{item.long && item.lat}}  src="{{item.thumb}}" mode="scaleToFill" />-->
+					<text a:if={{item.long&&item.lat}} class="iconfont icon-daohang" style="color:blue"/>
+
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+		</view>
+		</view>
+		</scroll-view>
 	</view>
 </view>

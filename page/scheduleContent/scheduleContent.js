@@ -13,7 +13,9 @@ Page({
       });
     const scheduleId = query.scheduleId;
     const  t =this;
-      const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+      // const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+      const url = getApp().globalData.domain+'/getSchdule.php';
+
       dd.httpRequest({
           url: url,
           method: 'POST',
@@ -62,7 +64,9 @@ Page({
             content: '加载中...',
             delay: 1000,
         });
-        const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+        // const url = 'http://liuzheng750417.imwork.net:8088/corp_php-master/getSchdule.php'
+         const url =  getApp().globalData.domain+'/getSchdule.php';
+;
         dd.httpRequest({
             url: url,
             method: 'POST',

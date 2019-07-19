@@ -3,7 +3,7 @@
         <view >
 						<view class="text-view" a:if="{{hasSchedule==false}}">
   											<text>当天无日程</text>
-											</view >
+						</view >
 						<view a:else>
 								<view class="a-list">
                 <view a:if={{data}} class="a-list-items">		
@@ -15,7 +15,7 @@
                             onTap="{{onItemTap}}"
                             data-eventID ={{item.eventID}}
                             data-year={{item.year}}
-                            data-month={{item.month}}
+                            data-month={{item.month}} 
                             data-day ={{item.day}}
                             data-lat ={{item.lat}}
                             data-long = {{item.long}}

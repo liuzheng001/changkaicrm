@@ -1,6 +1,6 @@
-<template  name = "templateTest">
+<!--<template  name = "templateTest">
         <view >first {{first}} sec {{second}}</view>
-</template>
+</template>-->
      
 <view class='whole' >
 	<view class="goldText">
@@ -16,6 +16,7 @@
 					<span>汇聚：</span>不断迭代，持续进步</text>
 		</view>
     </view>
+
 </view>
 
 

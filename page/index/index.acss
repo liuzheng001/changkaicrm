@@ -2,7 +2,7 @@
 .whole{
 		width: 100vw;
     height: 100vh;
-    background-image: url(http://r1w8478651.imwork.net:9998/corp_demo_php-master/background.jpg);
+    background-image: url(http://liuzheng750417.imwork.net:8088/corp_php-master/upload/background.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position-x: center;

@@ -1,0 +1,17 @@
+<view class="grid" key="grid">
+  <block a:for="{{list}}">
+    <view
+          style="width:{{100/(columnNum || 3)}}%;padding-top:{{100/(columnNum || 3)}}%;"
+          class="grid-item" hover-class = "grid-hover" onTap="workflowFlagTap"
+          data-templateID={{item.templateId}}
+          data-progressCode={{item.progressCode}}>
+          <view class="grid-item-wrapper" >
+            <!--<image src="{{item.icon}}" class="grid-icon" mode="aspectFit" />-->
+            <view>
+              <text  class="iconfont icon-daohang" style="color:blue;font-size:64rpx"/>
+            </view>
+            <text class="grid-text">{{item.title}}</text>
+          </view>
+    </view>
+  </block>
+</view>

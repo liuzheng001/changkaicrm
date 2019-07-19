@@ -51,7 +51,7 @@ Page({
 
         let that = this;
         let form = e.detail.value;
-        const url = getApp().gloablData.domain+"/operateWorkflow.php"
+        const url = getApp().globalData.domain+"/operateWorkflow.php"
         console.log('form发生了submit事件，携带数据为：', e.detail.value);
         dd.httpRequest({
             url: url,
@@ -75,7 +75,18 @@ Page({
                         },
                          {name:"图片",value:[
                             form.picture
-                         ]}
+                         ]},
+                        {name:"附件",value:[
+                                    {
+																			// {"data":[{"spaceId":848072798,"fileId":"6602947770","fileName":"some.mp4","fileSize":4342303,"fileType":"file"}]}
+                                        "spaceId":"1562091972",
+                                        "fileName":"some.pdf",
+                                        "fileSize":"97467",
+                                        "fileType":"pdf",
+                                        "fileId":"6603245738"
+                                    }
+
+                            ]}
                      ],
                 })
             },
@@ -101,7 +112,7 @@ Page({
     choosePicture(){
        const t = this;
        let imageUrl;
-			 const app = getApp()
+        const app = getApp()
         dd.chooseImage({
             // count: 2,
             success: (res) => {
@@ -142,19 +153,53 @@ Page({
             },
         });
     },
-    downloadContainerFile(){
+    uploadToDingding(){
+        const t = this;
+        const app = getApp();
+
+        dd.chooseImage({
+             count: 1,
+            success: (res) => {
+                // imgPath = res.filePaths[0];
+                const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
+                dd.uploadFile({
+                    url:app.globalData.domain+"/getOapiByName.php?event=uploadimg" ,
+                    // url:'https://oapi.dingtalk.com/media/upload?access_token=&type=image',
+                    fileType: 'image',
+                    fileName: 'media',
+                    filePath: path,
+                     success: (res) => {
+                        console.log("上传成功:"+ JSON.stringify(res));
+                        t.imageUrl =JSON.parse(res.data).media_id;
+                        t.setData({
+                            picturePath:t.imageUrl
+                        })
+                },
+                    fail:(res)=>{
+                        dd.alert({
+                            content: '上传失败:'+JSON.stringify(res)
+                        });
+                    },
+             });
+         },
+        });
+
+    },
+    downloadFile(){
        const t = this;
-        dd.downloadFile({
-            url: 'http://liuzheng750417.imwork.net:8088/corp_php-master/upload/wechatsight170.mp4' ,
+        /*dd.downloadFile({
+            // url: 'http://liuzheng750417.imwork.net:8088/corp_php-master/upload/wechatsight170.mp4' ,
+            url: 'http://@lADPDeC2uJx8urDNAtDNBDg' ,
             success({ filePath }) {
                 dd.alert({content:filePath});
-               /* dd.previewImage({
+               /!* dd.previewImage({
                     urls: [filePath,],
-                });*/
+                });*!/
                 console.log("下载成功");
                 // t.imageUrl =getApp().globalData.domain+"/upload/"+JSON.parse(res.data).fileName;
                 t.setData({
-                    videoPath : filePath
+                    // videoPath : filePath
+                    picturePath : filePath
                 })
             },
             fail(res) {
@@ -162,11 +207,112 @@ Page({
                     content: res.errorMessage || res.error,
                 });
             },
-        });
+        });*/
+        /*dd.saveFileToDingTalk({
+            // url:this.data.picturePath,  // 文件在第三方服务器地址
+            url: 'http://liuzheng750417.imwork.net:8088/corp_php-master/upload/wechatsight170.mp4',
+            name:"some.mp4",
+            success: (res) => {
+                dd.alert({content:JSON.stringify(res)});
+                console.log(JSON.stringify(res));
+
+                /!* data结构
+                 {"data":
+                    [
+                    {
+                    "spaceId": "" //空间id
+                    "fileId": "", //文件id
+                    "fileName": "", //文件名
+                    "fileSize": 111111, //文件大小
+                    "fileType": "", //文件类型
+                    }
+                    ]
+                 }
+                 *!/
+            },
+            fail: (err) =>{
+                dd.alert({
+                    content:JSON.stringify(err)
+                })
+            }
+        })*/
+        dd.uploadAttachmentToDingTalk({
+            image:{multiple:true,compress:false,max:9,spaceId: "12345"},
+            space:{spaceId:"1562091972",isCopy:1 , max:9},
+            file: {spaceId:"1562091972",max:1},
+            types:["photo","camera","file","space"],//PC端仅支持["photo","file","space"]
+            success: (res) => {
+
+                console.log(JSON.stringify(res));
+
+                /*
+                {
+                   type:'', // 用户选择了哪种文件类型 ，image（图片）、file（手机文件）、space（钉盘文件）
+                   data: [
+                      {
+                        spaceId: "232323",
+                        fileId: "DzzzzzzNqZY",
+                        fileName: "审批流程.docx",
+                        fileSize: 1024,
+                        fileType: "docx"
+                     },
+                     {
+                        spaceId: "232323",
+                        fileId: "DzzzzzzNqZY",
+                        fileName: "审批流程1.pdf",
+                        fileSize: 1024,
+                        fileType: "pdf"
+                     },
+                     {
+                        spaceId: "232323",
+                        fileId: "DzzzzzzNqZY",
+                        fileName: "审批流程3.pptx",
+                        fileSize: 1024,
+                        fileType: "pptx"
+                      }
+                   ]
+
+                }
+                 */
+            },
+            fail: (err) =>{
+                dd.alert({
+                    content:JSON.stringify(err)
+                })
+            }
+        })
+    },
+    openDingTalk() {
+        dd.chooseDingTalkDir({
+            success: (res) => {
+                /* data结构
+                 {"data":
+                    [
+                        {
+                            "spaceId": "" //被选中的空间id
+                            "path": "", // 被选中的文件夹路径
+                            "dirId": "", //被选中的文件夹id
+                        }
+                    ]
+                 }
+               */
+                dd.alert({content:"ok,console 钉盘信息"});
+                console.log(JSON.stringify(res));
+            },
+            fail: (err) =>{
+                dd.alert({
+                    content:JSON.stringify(err)
+                })
+            }
+        })
     },
     //vacation组件向page传值
     onReturnDetailed(data){
       console.log("父组件得到"+JSON.stringify(data));
       detailed = data;
+    },
+    openDingFlow(){  //打开钉钉待我审批
+      const app = getApp();
+        dd.navigateTo({url: '/page/logs/logs'});
     }
 });
