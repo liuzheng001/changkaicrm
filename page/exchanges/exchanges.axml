@@ -1,0 +1,85 @@
+<view>
+  <form onSubmit="formSubmit" >
+    <view class="page-section">
+     <!-- <picker onChange="customChange" value="-1" range="{{customList}}" range-key="name">
+        <view class="row">
+          <view class="row-title"><text style="color:red">*</text>退换货单位</view>
+          <view class="row-extra">{{customList[customIndex].name}}</view>
+          &lt;!&ndash; <text class="iconfont icon-zuofangxiangjian"></text> &ndash;&gt;
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+
+        </view>
+      </picker>-->
+      <view class="row">
+        <view class="row-title"><text style="color:red">*</text>退换货单位</view>
+        <view class="row-extra" >
+          <view class="search-outer">
+            <input
+                    type="search"
+                    class="search-input"
+                    value="{{inputVal}}"
+                    onConfirm="doneSearch"
+                    onInput="onInput"
+                    onFocus="showCancel"
+            />
+            <text class="search-cancel" style="margin-right:{{inputStatus.marginRight}};opacity:{{inputStatus.opacity}}" onTap="clearSearch">取消</text>
+          </view>
+        <view class=" searchResult" a:if="{{inputVal.length > 0}}">
+          <!-- 搜索列表 -->
+          <!--<view class="weui-cell__bd" a:for="{{list}}" a:key="key">
+            &lt;!&ndash; 列表名称 &ndash;&gt;
+            <view class='list_name'  data-index='{{index}}' data-name='{{item.name}}' bindtap='btn_name'>
+              &lt;!&ndash; 昵称 &ndash;&gt;
+              <label class='lab_name'>{{item.name}}</label>
+            </view>
+          </view>-->
+          <view >下拉结果</view>
+          <view >下拉结果</view>
+        </view>
+        </view>
+      </view>
+
+
+
+
+        <!--<view class="a-list-arrow a-list-arrow-horizontal" />-->
+    </view>
+    <view class="page-section">
+      <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row-title"><text style="color:red">*</text>退换货名称</view>
+        <view class="row-extra"><input name="productName"  placeholder="请输入"  /></view>
+      </view>
+
+      <picker onChange="categorySelect" value="{{categoryIndex}}" range="{{categoryList}}"  >
+        <view class="row" style="border-bottom: 1px solid #ddd">
+          <view class="row-title"><text style="color:red">*</text>类别</view>
+          <view class="row-extra" ><input name="costIndex" value={{categoryList[categoryIndex]}} disabled="true"  /></view>
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+      </picker>
+
+      <view class="row" style="border-bottom: 1px solid #ddd"  onTap="changeDate" data-index={{index}}>
+        <view class="row-title">申请退换时间</view>
+        <view class="row-extra" ><input name="getDate" value={{exchangeDate}} disabled="true"  /></view>
+        <view class="a-list-arrow a-list-arrow-horizontal" />
+      </view>
+      <view class="row" >
+        <view class="row-title"><text style="color:red">*</text>退货货数量(kg)</view>
+        <view class="row-extra"><input name="exchangeNumber" type="number" placeholder="请输入"  /></view>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="input-title"><text style="color:red">*</text>退换货原因</view>
+      <textarea class="multilineInput" name="reason" value="" />
+    </view>
+
+    <!--<view class="page-section">
+      <view class="input-title"><text style="color:red">*</text>销售部意见</view>
+      <textarea class="multilineInput" name="commentsOfSales" value="" />
+    </view>-->
+    <view class="btn-area">
+    <button type="primary" formType="submit">发起审批</button>
+    </view>
+  </form>
+</view>

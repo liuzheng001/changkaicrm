@@ -1,8 +1,8 @@
 <view>
 
-	<view><button>  <navigator url="/page/workflow/workflow?title=workflow" hover-class="navigator-hover">转到workflow</navigator></button></view>
+	<!--<view><button>  <navigator url="/page/workflow/workflow?title=workflow" hover-class="navigator-hover">转到workflow</navigator></button></view>
     <view><button>  <navigator url="/page/calendar/index" hover-class="navigator-hover">转到日历</navigator></button></view>
-    <view><button>  <navigator url="/page/qingjia/qingjia" hover-class="navigator-hover">转到示例</navigator></button></view>
+    <view><button>  <navigator url="/page/qingjia/qingjia" hover-class="navigator-hover">转到示例</navigator></button></view>-->
 
 	<form onSubmit="formSubmit" >
 

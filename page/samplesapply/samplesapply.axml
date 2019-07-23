@@ -4,7 +4,7 @@
   <view class="page-section">
   <picker onChange="customChange" value="-1" range="{{customList}}" range-key="name">
     <view class="row">
-      <view class="row-title">申请单位</view>
+      <view class="row-title"><text style="color:red">*</text>申请单位</view>
       <view class="row-extra">{{customList[customIndex].name}}</view>
       <text class="iconfont icon-zuofangxiangjian"></text>
     </view>
@@ -12,7 +12,7 @@
   </view>
 
   <view class="page-section">
-    <view class="input-title">现场描述</view>
+    <view class="input-title"><text style="color:red">*</text>现场描述</view>
     <textarea class="multilineInput" name="description" value="" />
   </view>
 
@@ -35,16 +35,16 @@
 
 <view class="page-section">
   <view class="row" style="border-bottom: 1px solid #ddd">
-      <view class="row-title">需求数量(kg)</view>
+      <view class="row-title"><text style="color:red">*</text>需求数量(kg)</view>
       <view class="row-extra"><input name="demandNumber" type="number" placeholder="请输入"  /></view>
     </view>
     <view class="row" style="border-bottom: 1px solid #ddd">
       <view class="row-title">预估样品费用(元)</view>
-      <view class="row-extra"><input name="sampleCost" type="number"  value="0"/></view>
+      <view class="row-extra"><input name="sampleCost" type="number"  placeholder="请输入"/></view>
     </view>
     <picker onChange="costSelect" value="{{costIndex}}" range="{{costList}}"  >
       <view class="row">
-        <view class="row-title">是否收费</view>
+        <view class="row-title"><text style="color:red">*</text>是否收费</view>
         <view class="row-extra" ><input name="costIndex" value={{costList[costIndex]}} disabled="true"  /></view>
         <view class="a-list-arrow a-list-arrow-horizontal" />
       </view>

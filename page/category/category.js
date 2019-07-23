@@ -64,8 +64,11 @@ Page({
               url = "/page/leave/leave";
               break;
           case "PROC-EF196C0C-1EE8-4BDB-8D5E-6F2BB2A5B21C": //请假
-          url = "/page/samplesapply/samplesapply";
-          break;
+              url = "/page/samplesapply/samplesapply";
+              break;
+          case "PROC-BCFBCCA9-4A92-46EF-AFE7-C4C70745ED31": //退换货申请
+              url = "/page/exchanges/exchanges";
+              break;
           default:
               dd.alert({content:"该流程尚不能通过钉钉发起,请联系管理员."})
 							return;
