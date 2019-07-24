@@ -8,7 +8,10 @@
           <view class="grid-item-wrapper" >
             <!--<image src="{{item.icon}}" class="grid-icon" mode="aspectFit" />-->
             <view>
-              <text  class="iconfont icon-daohang" style="color:blue;font-size:64rpx"/>
+                <image  a:if="{{item.title=='请假'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/qingjia.png"/>
+                <image  a:elif="{{item.title=='样品领用'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/yangpin.png"/>
+                <image  a:elif="{{item.title=='退换货申请'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tui.png"/>
+                 <text a:else  class="iconfont icon-daohang" style="color:grey;font-size:64rpx"/>
             </view>
             <text class="grid-text">{{item.title}}</text>
           </view>

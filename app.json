@@ -1,7 +1,7 @@
 {
   "pages": [
-    "page/exchanges/exchanges",
     "page/index/index",
+    "page/exchanges/exchanges",
     "page/category/category",
     "page/qingjia/qingjia",
     "page/leave/leave",
@@ -13,7 +13,8 @@
     "page/schedule/schedule",
     "page/calendar/index",
     "page/scheduleContent/scheduleContent",
-    "page/category/workflowlist/workflowlist"
+    "page/category/workflowlist/workflowlist",
+    "page/samplesapply/samplesapply"
   ],
   "window": {
     "defaultTitle": "长凯CRM",
@@ -40,7 +41,7 @@
       },
       {
         "pagePath": "page/category/category",
-        "icon": "resources/yemian-copy-copy.png",
+        "icon": "resources/liucheng.png",
         "name": "流程"
       }
     ]

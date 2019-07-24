@@ -12,30 +12,29 @@
       </picker>-->
       <view class="row">
         <view class="row-title"><text style="color:red">*</text>退换货单位</view>
-        <view class="row-extra" >
+        <view class="search-container" >
           <view class="search-outer">
             <input
+                    name = "customName"
                     type="search"
                     class="search-input"
                     value="{{inputVal}}"
-                    onConfirm="doneSearch"
                     onInput="onInput"
                     onFocus="showCancel"
+                    onBlur = "onBlur"
             />
             <text class="search-cancel" style="margin-right:{{inputStatus.marginRight}};opacity:{{inputStatus.opacity}}" onTap="clearSearch">取消</text>
           </view>
-        <view class=" searchResult" a:if="{{inputVal.length > 0}}">
+          <scroll-view scroll-y="true" class="searchResult" a:if="{{inputVal.length > 0&&lostFocus==false}}" style="height: 400rpx;" >
           <!-- 搜索列表 -->
-          <!--<view class="weui-cell__bd" a:for="{{list}}" a:key="key">
-            &lt;!&ndash; 列表名称 &ndash;&gt;
-            <view class='list_name'  data-index='{{index}}' data-name='{{item.name}}' bindtap='btn_name'>
-              &lt;!&ndash; 昵称 &ndash;&gt;
-              <label class='lab_name'>{{item.name}}</label>
+          <block a:for="{{searchList}}" a:key="key">
+            <view class='searchCell'  data-index='{{index}}' data-name='{{item.name}}' onTap='getSearchCell'>
+              {{item.name}}
             </view>
-          </view>-->
-          <view >下拉结果</view>
-          <view >下拉结果</view>
-        </view>
+          </block>
+          <!--  <view >下拉结果</view>
+            <view >下拉结果</view>-->
+          </scroll-view>
         </view>
       </view>
 

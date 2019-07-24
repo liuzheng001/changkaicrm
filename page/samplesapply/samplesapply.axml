@@ -23,12 +23,12 @@
 				<view class="img-thumb"  >
 					<image  style = "width:120rpx;height:120rpx" src="{{item}}" onTap="onPicturePreview" data-src="{{item}}" mode="scaleToFill" />
 					<view class="imgdelete">
-						<text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"  data-index="{{index}}" class="iconfont icon-del2"/>
+						<text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"  data-index="{{index}}" class="iconfont icon-delete"/>
 					</view>
 				</view>
 			</block>
 			<view a:if={{thumbs.length<9}} class="img-thumb"  >
-				<text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add"/>
+				<text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add-fill"/>
 			</view>
 		</view>
 	</view>
