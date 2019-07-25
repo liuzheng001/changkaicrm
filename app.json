@@ -1,5 +1,7 @@
 {
   "pages": [
+    "page/maintenance/maintenance",
+
     "page/emergencyFood/emergencyFood",
     "page/leave/leave",
     "page/index/index",

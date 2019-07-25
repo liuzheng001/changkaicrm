@@ -69,6 +69,12 @@ Page({
           case "PROC-BCFBCCA9-4A92-46EF-AFE7-C4C70745ED31": //退换货申请
               url = "/page/exchanges/exchanges";
               break;
+          case "PROC-7E4C2322-CAAF-4FF9-9D76-F8ECE35BDF8A": //急件申请
+              url = "/page/emergencyFood/emergencyFood";
+              break;
+          case "PROC-77CFA8D4-6F7D-4D31-AA93-65DCC3088448": //急件申请
+              url = "/page/emergencyFood/emergencyFood";
+              break;
           default:
               dd.alert({content:"该流程尚不能通过钉钉发起,请联系管理员."})
 							return;

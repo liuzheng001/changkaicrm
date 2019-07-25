@@ -247,6 +247,13 @@
     opacity: 1;
 }
 
+.search-container {
+    flex-basis: initial;
+    font-size: 32rpx;
+    color: grey;
+    position: relative;
+}
+
 .search-cancel {
     margin-right:-40px;
     display: inline-block;
@@ -260,20 +267,24 @@
     transition: margin-right .3s,opacity .3s;
     transition-delay: .1s;
 }
-.serach-container{
-  flex-basis: initial;
-    font-size: 0.32rem;
-    /* display: inline-block; */
-    position: relative;
-    
-}
+
 .searchResult{
     width:100%;
     height:48px;
     position:absolute;
+    background-color: blanchedalmond;
     z-index: 1;
-    background: rgba(128, 128, 128, 0.28);
-    color: black;
-  
+    /* top: -20px;
+     right: -20px;*/
+}
+
+.searchCell{
+    overflow: hidden;
+    margin-top: 10rpx;
+}
+
+.multilineInput{
+    height: 200rpx;
+    padding-left: 30rpx;
 }
 

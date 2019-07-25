@@ -75,9 +75,9 @@ App({
                        /*dd.switchTab({ //日历
                             url: '/page/calendar/index'
                         })*/
-                        dd.switchTab({ //流程模版分类
+                        /*dd.switchTab({ //流程模版分类
                             url: '/page/category/category'
-                        })
+                        })*/
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)
