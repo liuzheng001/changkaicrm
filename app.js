@@ -6,7 +6,7 @@ let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
 //test git,回复
 let url = domain + '/login.php'; */
 
-let development = false; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
+let development = true; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
 let domain;
 if (development===true){
     domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
@@ -72,12 +72,12 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         //调试时关闭
-                       dd.switchTab({ //日历
+                       /*dd.switchTab({ //日历
                             url: '/page/calendar/index'
-                        })
-                       /* dd.switchTab({ //流程模版分类
-                            url: '/page/category/category'
                         })*/
+                        dd.switchTab({ //流程模版分类
+                            url: '/page/category/category'
+                        })
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

@@ -1,10 +1,11 @@
 {
   "pages": [
+    "page/emergencyFood/emergencyFood",
+    "page/leave/leave",
     "page/index/index",
     "page/exchanges/exchanges",
     "page/category/category",
     "page/qingjia/qingjia",
-    "page/leave/leave",
     "page/pull-down-refresh/pull-down-refresh",
     "page/logs/logs",
     "page/test/test",

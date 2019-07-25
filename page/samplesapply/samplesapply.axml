@@ -1,6 +1,5 @@
 <view>
-<form onSubmit="formSubmit" >
-
+<form onSubmit="formSubmit">
   <view class="page-section">
   <picker onChange="customChange" value="-1" range="{{customList}}" range-key="name">
     <view class="row">
@@ -92,7 +91,7 @@
 	</block>
 	<button onTap="onAdd">+增加明细</button>
 	</view>
-       
+
 
   <view class="page-section">
     <view class="input-title">样品使用要点</view>
