@@ -1,33 +1,20 @@
-function timeLength(beginDate,beginSection,endDate,endSection){
-    /*Let ( [天数差 = 请假结束日期 - 请假开始日期;
-    开始阶段 = Case ( 请假开始阶段 = "上午";0;请假开始阶段 = "中午";1;请假开始阶段 = "下午";1    );
-    结束阶段 = Case ( 请假结束阶段 = "上午";1;请假结束阶段 = "中午";1;请假结束阶段 = "下午";2    );
-    阶段差 =  If (  结束阶段 - 开始阶段  ≥ 0;结束阶段 - 开始阶段;结束阶段 -开始阶段 +2) ;
-    最小请假单位 =4 ];
-
-    天数差 * 8 + 阶段差 *最小请假单位)*/
-    let  stageDif,DateDif;
-    const minUnit = 4;
-    DateDif = new Date(endDate).getTime() - new Date(beginDate).getTime();
-    DateDif = parseInt(DateDif / (1000 * 60 * 60 * 24));
 
 
-    if(endSection===0){
-        endSection = 1;
-    }
-    if(endSection - beginSection>=0){
-        stageDif = endSection - beginSection;
-    }else{
-        stageDif = endSection - beginSection + 2;
-    }
-
-    return (DateDif-weekEnds) * 8 + minUnit * stageDif;
-
-}
 Page({
     data: {
-        leaveArray: ['事假', '病假', '婚假', '丧假','产假'],
-        leaveStyleIndex:-1, //请假类型序号
+
+        //选择配方号,两级picker
+        originData:{
+        },
+        value:[0,0],
+        firstKey:'',
+        isShowPicker : false,
+
+
+        categoryList: ['自检不合格','客户退换','呆滞品'],
+        categoryIndex:-1, //类别序号
+
+       
         timeSection:['上午','中午','下午'],
         beginDate:-1,
         endDate:-1,
@@ -39,18 +26,60 @@ Page({
         picturePath:"",
         videoPath:"",
 
+
+
     },
-    onLoad() { //从fm中读取custom值列表
-        //初始化
-        const initDate = new Date().format('yyyy-MM-dd');
-        this.setData({
-            beginDate:initDate,
-            endDate:initDate,
-            beginSection:0,
-            endSection:2,
-            timeLength:8,//timeLength(initDate,0,initDate,1)
+    onLoad() { //从fm中读取formulationList值列表,二维数组,赋值给picker-view
+        const url = getApp().globalData.domain+"/getFmMessage.php";
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action:'getFormulationList',
+            },
+            dataType: 'json',
+            success: (res) => {
+                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                if (res.data.success === true) {
+
+                    this.setData({
+                    originData:res.data.content.data
+                });}else{
+                    dd.alert({'content':JSON.stringify(res)})
+                }
+            },
+            fail: (res) => {
+                dd.alert({'content':JSON.stringify(res)})
+            },
+            complete: (res) => {
+            }
+
         })
 
+    },
+    //配方号picker选择
+    onChange(e) {
+        console.log(e.detail.value);
+        const keys = Object.keys(this.data.originData);
+        const firstKey = keys[e.detail.value[0]];
+
+        let secondNum ;
+        if (this.data.firstKey == firstKey){  //picker的第一键值没变
+            secondNum = e.detail.value[1];
+        }else{
+            secondNum = 0;
+        }
+
+
+        this.setData({
+            firstKey: firstKey,
+            value:[e.detail.value[0],secondNum],
+        });
+    },
+    isShow(){
+        this.setData({
+            isShowPicker: !this.data.isShowPicker
+        });
     },
 
     formSubmit(e) { //发起审批
@@ -100,18 +129,18 @@ Page({
                         success: (res) => {
                             if (res.data.errcode == 0){
                                 dd.alert({content: "审批已发起,id:" + res.data.process_instance_id,
-                                            success: () => {
-                                                dd.navigateBack();
-                                    },
-                                });
-                               /* dd.showToast({
-                                    type: 'success',
-                                    content: '审批已发起',
-                                    duration: 3000,
                                     success: () => {
                                         dd.navigateBack();
                                     },
-                                });*/
+                                });
+                                /* dd.showToast({
+                                     type: 'success',
+                                     content: '审批已发起',
+                                     duration: 3000,
+                                     success: () => {
+                                         dd.navigateBack();
+                                     },
+                                 });*/
                             }else{
                                 dd.alert({content: JSON.stringify(res)});
                             }
@@ -129,18 +158,18 @@ Page({
         })
 
     },
-    leaveStylePickerChange(e) {
+    categoryPickerChange(e) {
         this.setData({
-            leaveStyleIndex: e.detail.value,
+            categoryIndex: e.detail.value,
         });
     },
     timeSectionPickerChange(e){
         if(e.currentTarget.dataset.section === 'end'){
-			 this.setData({
-                 endSection : e.detail.value,
-                 timeLength:timeLength(this.data.beginDate,this.data.beginSection,this.data.endDate,e.detail.value)
-        });
-		}else{
+            this.setData({
+                endSection : e.detail.value,
+                timeLength:timeLength(this.data.beginDate,this.data.beginSection,this.data.endDate,e.detail.value)
+            });
+        }else{
             this.setData({
                 beginSection : e.detail.value,
                 timeLength:timeLength(this.data.beginDate,e.detail.value,this.data.endDate,this.data.endSection)
@@ -156,44 +185,45 @@ Page({
         }else{
             currentDate = this.data.endDate;
         }
-            dd.datePicker({
-                format: 'yyyy-MM-dd',
-                currentDate: currentDate,
-                success: (res) => {
-                    /* dd.alert({
-                         content: res.date,
-                     });*/
-                    if (typeof res.date !== 'undefined') {
-                        //检验日期,开始日期必须小于等于结束日期
-                        if (e.currentTarget.dataset.status === 'beginDate') {
-                            if(new Date(res.date)>new Date(this.data.endDate)){
-                                dd.alert({content:"开始日期不能大于结束日期"})
-                                return;
-                            }
-                        }else{
-                            if(new Date(res.date)<new Date(this.data.beginDate)){
-                                dd.alert({content:"结束日期不能小于开始日期"})
-                                return;
-                            }
+        dd.datePicker({
+            format: 'yyyy-MM-dd',
+            currentDate: currentDate,
+            success: (res) => {
+                /* dd.alert({
+                     content: res.date,
+                 });*/
+                if (typeof res.date !== 'undefined') {
+                    //检验日期,开始日期必须小于等于结束日期
+                    if (e.currentTarget.dataset.status === 'beginDate') {
+                        if(new Date(res.date)>new Date(this.data.endDate)){
+                            dd.alert({content:"开始日期不能大于结束日期"})
+                            return;
                         }
-
-
-                        if (e.currentTarget.dataset.status === 'beginDate') {
-                            this.setData({
-                                beginDate: res.date,
-                                timeLength: timeLength(res.date, this.data.beginSection, this.data.endDate, this.data.endSection)
-
-                            });
-                        } else {
-                            this.setData({
-                                endDate: res.date,
-                                timeLength: timeLength(this.data.beginDate, this.data.beginSection, res.date, this.data.endSection)
-
-                            });
+                    }else{
+                        if(new Date(res.date)<new Date(this.data.beginDate)){
+                            dd.alert({content:"结束日期不能小于开始日期"})
+                            return;
                         }
                     }
-                },
-            });
-        }
+
+
+                    if (e.currentTarget.dataset.status === 'beginDate') {
+                        this.setData({
+                            beginDate: res.date,
+                            timeLength: timeLength(res.date, this.data.beginSection, this.data.endDate, this.data.endSection)
+
+                        });
+                    } else {
+                        this.setData({
+                            endDate: res.date,
+                            timeLength: timeLength(this.data.beginDate, this.data.beginSection, res.date, this.data.endSection)
+
+                        });
+                    }
+                }
+            },
+        });
+    }
 
 });
+

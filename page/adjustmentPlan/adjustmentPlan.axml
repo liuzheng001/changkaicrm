@@ -1,0 +1,75 @@
+<view>
+  <form onSubmit="formSubmit" >
+    <view class="page-section">
+      <picker onChange="categoryPickerChange" value="{{categoryIndex}}" range="{{categoryList}}">
+        <view class="row">
+          <view class="row-title">类别</view>
+          <view class="row-extra"><input name="category" value={{categoryIndex===-1?"请选择":categoryList[categoryIndex]}} disabled="true"  /></view>
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+      </picker>
+    </view>
+
+    <view class="page-section" hidden="{{categoryIndex==1?false:true}}">
+      <picker onChange="leaveStylePickerChange" value="{{leaveStyleIndex}}" range="{{leaveArray}} ">
+        <view class="row">
+          <view class="row-title">退换货审批单</view>
+          <view class="row-extra"><input name="leaveStyle" value={{leaveStyleIndex===-1?"请选择":leaveArray[leaveStyleIndex]}} disabled="true"  /></view>
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+      </picker>
+    </view>
+
+    <view class="page-section">
+        <view class="row" onTap="isShow" >
+          <view class="row-title">产品配方号</view>
+          <view class="row-extra"><input name="formulationNumber" value="{{originData[firstKey][value[1]]}}"   /></view>
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+      <view a:if="{{isShowPicker}}">
+        <picker-view value="{{value}}" onChange="onChange" class="my-picker" style="height:'100%'">
+          <picker-view-column>
+            <!--<view>2011</view>
+            <view>2022</view>
+            <view>2033</view>-->
+            <view a:for="{{originData}}">
+              {{index}}
+            </view>
+          </picker-view-column>
+          <picker-view-column>
+            <view a:for="{{originData[firstKey]}}">
+              {{originData[firstKey][index]}}
+            </view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+
+
+
+    <view class="page-section">
+      <view class="row" >
+        <view class="row-title"><text style="color:red">*</text>批号</view>
+        <view class="row-extra"><input name="exchangeNumber" type="number" placeholder="请输入"  /></view>
+      </view>
+   </view>
+
+    <view class="page-section">
+      <view class="row" >
+        <view class="row-title"><text style="color:red">*</text>数量(kg)</view>
+        <view class="row-extra"><input name="exchangeNumber" type="number" placeholder="请输入"  /></view>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="input-title"><text style="color:red">*</text>调整产品描述</view>
+      <textarea class="multilineInput" name="description" value="" />
+    </view>
+
+
+    <view class="btn-area">
+      <button type="primary" formType="submit">发起审批</button>
+    </view>
+  </form>
+
+</view>

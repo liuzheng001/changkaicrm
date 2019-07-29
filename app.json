@@ -1,10 +1,13 @@
 {
   "pages": [
-    "page/maintenance/maintenance",
+    "page/adjustmentPlan/adjustmentPlan",
 
+    "page/index/index",
+    "page/dispatchedWorker/dispatchedWorker",
+    "page/pay/pay",
+    "page/maintenance/maintenance",
     "page/emergencyFood/emergencyFood",
     "page/leave/leave",
-    "page/index/index",
     "page/exchanges/exchanges",
     "page/category/category",
     "page/qingjia/qingjia",

@@ -75,6 +75,12 @@ Page({
           case "PROC-77CFA8D4-6F7D-4D31-AA93-65DCC3088448": //急件申请
               url = "/page/emergencyFood/emergencyFood";
               break;
+          case "PROC-62CE76C7-7187-4AFE-8B67-F87C738BCA0B": //派工申请
+              url = "/page/dispatchedWorker/dispatchedWorker";
+              break;
+          case "PROC-38F20E0E-72C5-4838-8BDC-BAA6F91DBBB7": //付款流程
+              url = "/page/pay/pay";
+              break;
           default:
               dd.alert({content:"该流程尚不能通过钉钉发起,请联系管理员."})
 							return;

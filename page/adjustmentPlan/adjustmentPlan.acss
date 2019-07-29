@@ -116,6 +116,19 @@
     visibility: hidden;
     transition: transform 0.3s;
 }
+
+/*.a-list-arrow-reverse {
+    display: block;
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 16rpx;
+    background-image: url('data:image/svg+xml;charset=utf-8,<svg width="16" height="26" viewBox="0 0 16 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="UI-KIT_基础元件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="9.9基础元件" transform="translate(-5809.000000, -8482.000000)" fill="#C7C7CC"><polygon id="Disclosure-Indicator" points="5811 8482 5809 8484 5820.5 8495 5809 8506 5811 8508 5825 8495"></polygon></g></g></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    visibility: hidden;
+    transition: transform 0.3s;
+}*/
 .a-list-arrow.a-list-arrow-horizontal {
     visibility: visible;
 }
@@ -144,7 +157,6 @@
     align-items: center;
     padding: 0 30rpx;
 }
-
 
 .row-title {
     flex: 1;
@@ -178,109 +190,3 @@
     height: 200rpx;
     padding-left: 30rpx;
 }
-
-.imgdelete{
-    width:40rpx;
-    height:40rpx;
-    border-radius:60%;
-    position:absolute;
-    top: -20rpx;
-    right: -20rpx;
-
-}
-
-.img-content{
-    display: flex;
-    flex-flow: wrap;
-    align-items: center;
-    padding: 0 30rpx;
-    align-items: center;
-}
-.img-thumb {
-    width: 120rpx;
-    height: 120rpx;
-    margin-right: 30rpx;
-    margin-bottom: 30rpx;
-    position: relative;
-}
-
-.detailed-header{
-    background-color: rgba(0,0,0,0.07);
-    padding: 30rpx 30rpx 18rpx;
-    font-size: 28rpx;
-    color: #888;
-    display:flex;
-    align-items:center;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: right
-}
-
-
-
-.search-outer {
-    box-sizing: border-box;
-    display:flex;
-    height:40px;
-    overflow:hidden;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    background-color: #efeff4;
-}
-
-.search-outer * {
-    box-sizing: border-box;
-}
-
-.search-input {
-    flex:1;
-    text-align: left;
-    display: block;
-    color: #000;
-    height: 24px;
-    font-size: 15px;
-    background-color: #fff;
-    border-color: transparent;
-}
-
-.search-input:focus + .search-cancel {
-    margin-right:0;
-    opacity: 1;
-}
-
-.search-container {
-    flex-basis: initial;
-    font-size: 32rpx;
-    color: grey;
-    position: relative;
-}
-
-.search-cancel {
-    margin-right:-40px;
-    display: inline-block;
-    opacity: 0;
-    padding-left: 8px;
-    height: 24px;
-    line-height: 24px;
-    font-size: 16px;
-    color: #108ee9;
-    text-align: right;
-    transition: margin-right .3s,opacity .3s;
-    transition-delay: .1s;
-}
-
-.searchResult{
-    width:100%;
-    height:48px;
-    position:absolute;
-    background-color: blanchedalmond;
-    z-index: 1;
-    /* top: -20px;
-     right: -20px;*/
-}
-
-.searchCell{
-    overflow: hidden;
-    margin-top: 10rpx;
-}
-

@@ -1,67 +1,62 @@
 <view>
-
-	<!--<view><button>  <navigator url="/page/workflow/workflow?title=workflow" hover-class="navigator-hover">转到workflow</navigator></button></view>
-    <view><button>  <navigator url="/page/calendar/index" hover-class="navigator-hover">转到日历</navigator></button></view>
-    <view><button>  <navigator url="/page/qingjia/qingjia" hover-class="navigator-hover">转到示例</navigator></button></view>-->
-
     <form onSubmit="formSubmit" >
-  <view class="page-section">
-    <picker onChange="leaveStylePickerChange" value="{{leaveStyleIndex}}" range="{{leaveArray}}">
-      <view class="row">
-        <view class="row-title">请假类型</view>
-        <view class="row-extra"><input name="leaveStyle" value={{leaveStyleIndex===-1?"请选择":leaveArray[leaveStyleIndex]}} disabled="true"  /></view>
-        <view class="a-list-arrow a-list-arrow-horizontal" />
-      </view>
-    </picker>
-  </view>
+        <view class="page-section">
+            <picker onChange="leaveStylePickerChange" value="{{leaveStyleIndex}}" range="{{leaveArray}}">
+                <view class="row">
+                    <view class="row-title">请假类型</view>
+                    <view class="row-extra"><input name="leaveStyle" value={{leaveStyleIndex===-1?"请选择":leaveArray[leaveStyleIndex]}} disabled="true"  /></view>
+                    <view class="a-list-arrow a-list-arrow-horizontal" />
+                </view>
+            </picker>
+        </view>
 
 
-	<view class="page-section">
-			<view class="row"  onTap="changeDate" data-status="beginDate">
-				<view class="row-title">开始日期</view>
-				<view class="row-extra" ><input name="beginDate" value="{{beginDate}}" disabled="true"  /></view>
-				<view class="a-list-arrow a-list-arrow-horizontal" />
-			</view>
-	</view>
-		<view class="page-section">
-    <picker onChange="timeSectionPickerChange" value="{{beginSection}}" range="{{timeSection}}"  data-section="begin">
-      <view class="row">
-        <view class="row-title">开始段</view>
-        <view class="row-extra"><input name="beginSection" value={{beginSection===-1?"请选择":timeSection[beginSection]}} disabled="true"  /></view>
-        <view class="a-list-arrow a-list-arrow-horizontal" />
-      </view>
-    </picker>
-  </view>
-	<view class="page-section">
-		<view class="row"  onTap="changeDate" data-status="endDate">
-			<view class="row-title">结束日期</view>
-			<view class="row-extra"><input name="endDate" value="{{endDate}}" disabled="true"  /></view>
-			<view class="a-list-arrow a-list-arrow-horizontal" />
-		</view>
-	</view>
-		<view class="page-section">
-    <picker onChange="timeSectionPickerChange" value="{{endSection}}" range="{{timeSection}}" data-section="end">
-      <view class="row">
-        <view class="row-title">结束段</view>
-        <view class="row-extra"><input name="endSection" value={{endSection===-1?"请选择":timeSection[endSection]}} disabled="true"  /></view>
-        <view class="a-list-arrow a-list-arrow-horizontal" />
-      </view>
-    </picker>
-  </view>
-	<view class="page-section">
-		<view class="row" >
-			<view class="row-title">时长(小时)</view>
-			<view class="row-extra"><input name="timeLength" value={{timeLength}} disabled="true"  /></view>
-		</view>
-	</view>
-		<view class="page-section">
-    <view class="page-section-title">事由</view>
-    <view class="page-section-demo">
-      <textarea onBlur="bindTextAreaBlur" auto-height placeholder="请假内容" name="reason"/>
-    </view>
-  <view class="btn-area">
-    <button type="primary" formType="submit">发起审批</button>
-  </view>
-</form>
+        <view class="page-section">
+            <view class="row"  onTap="changeDate" data-status="beginDate">
+                <view class="row-title">开始日期</view>
+                <view class="row-extra" ><input name="beginDate" value="{{beginDate}}" disabled="true"  /></view>
+                <view class="a-list-arrow a-list-arrow-horizontal" />
+            </view>
+        </view>
+        <view class="page-section">
+            <picker onChange="timeSectionPickerChange" value="{{beginSection}}" range="{{timeSection}}"  data-section="begin">
+                <view class="row">
+                    <view class="row-title">开始段</view>
+                    <view class="row-extra"><input name="beginSection" value={{beginSection===-1?"请选择":timeSection[beginSection]}} disabled="true"  /></view>
+                    <view class="a-list-arrow a-list-arrow-horizontal" />
+                </view>
+            </picker>
+        </view>
+        <view class="page-section">
+            <view class="row"  onTap="changeDate" data-status="endDate">
+                <view class="row-title">结束日期</view>
+                <view class="row-extra"><input name="endDate" value="{{endDate}}" disabled="true"  /></view>
+                <view class="a-list-arrow a-list-arrow-horizontal" />
+            </view>
+        </view>
+        <view class="page-section">
+            <picker onChange="timeSectionPickerChange" value="{{endSection}}" range="{{timeSection}}" data-section="end">
+                <view class="row">
+                    <view class="row-title">结束段</view>
+                    <view class="row-extra"><input name="endSection" value={{endSection===-1?"请选择":timeSection[endSection]}} disabled="true"  /></view>
+                    <view class="a-list-arrow a-list-arrow-horizontal" />
+                </view>
+            </picker>
+        </view>
+        <view class="page-section">
+            <view class="row" >
+                <view class="row-title">时长(小时)</view>
+                <view class="row-extra"><input name="timeLength" value={{timeLength}} disabled="true"  /></view>
+            </view>
+        </view>
+        <view class="page-section">
+        <view class="page-section-title">事由</view>
+        <view class="page-section-demo">
+            <textarea onBlur="bindTextAreaBlur" auto-height placeholder="请假内容" name="reason"/>
+        </view>
+        <view class="btn-area">
+            <button type="primary" formType="submit">发起审批</button>
+        </view>
+    </form>
 
 </view>

@@ -229,10 +229,10 @@ Page({
             customID = this.data.customList[index].id;
         }
         //数据校验
-       /* if (this.data.customIndex<0 || form.description=="" || form.demandNumber=="" || this.data.costIndex<0  ) {
+        if ( form.description=="" || form.demandNumber==""   ) {
             dd.alert({content: "提交数据有误,请检查!"});
             return;
-        }*/
+        }
 
         dd.confirm({
             title: '提示',

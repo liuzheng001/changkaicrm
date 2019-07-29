@@ -11,6 +11,10 @@
                 <image  a:if="{{item.title=='请假'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/qingjia.png"/>
                 <image  a:elif="{{item.title=='样品领用'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/yangpin.png"/>
                 <image  a:elif="{{item.title=='退换货申请'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tui.png"/>
+                <image  a:elif="{{item.title=='维护品领用流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/weifu.png"/>
+                <image  a:elif="{{item.title=='急件考核'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/ji.png"/>
+                <image  a:elif="{{item.title=='派工申请流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/pai.png"/>
+                <image  a:elif="{{item.title=='付款流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/fukuan.png"/>
                  <text a:else  class="iconfont icon-daohang" style="color:grey;font-size:64rpx"/>
             </view>
             <text class="grid-text">{{item.title}}</text>

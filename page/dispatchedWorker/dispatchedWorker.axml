@@ -1,0 +1,41 @@
+<view>
+
+  <form onSubmit="formSubmit" >
+
+      <view class="page-section">
+        <view class="row" style="border-bottom: 1px solid #ddd">
+          <view class="row-title"><text style="color:red">*</text>申请派工人数</view>
+          <view class="row-extra"><input name="numberOfPeople" type="number" placeholder="请输入"  /></view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="row"  onTap="changeDate" data-status="beginDate">
+          <view class="row-title"><text style="color:red">*</text>派工开始时间</view>
+          <view class="row-extra" ><input name="beginDate" value="{{beginDate}}" disabled="true"  /></view>
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+      </view>
+
+      <view class="page-section">
+      <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row-title"><text style="color:red">*</text>派工时长(小时)</view>
+        <view class="row-extra"><input name="timeLength" type="number" placeholder="请输入"  /></view>
+      </view>
+    </view>
+
+      <view class="page-section">
+        <view class="input-title"><text style="color:red">*</text>派工事件</view>
+        <textarea class="multilineInput" name="reason" value="" />
+      </view>
+
+    <view class="page-section">
+      <view class="input-title">备注说明</view>
+      <textarea class="multilineInput" name="remakes" value="" />
+    </view>
+
+    <view class="btn-area">
+      <button type="primary" formType="submit">发起审批</button>
+    </view>
+  </form>
+
+</view>

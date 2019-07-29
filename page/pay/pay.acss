@@ -174,10 +174,6 @@
     padding: 0 30rpx;
     padding-top: 20rpx;
 }
-.multilineInput{
-    height: 200rpx;
-    padding-left: 30rpx;
-}
 
 .imgdelete{
     width:40rpx;
@@ -216,7 +212,10 @@
     text-align: right
 }
 
-
+.multilineInput{
+    height: 200rpx;
+    padding-left: 30rpx;
+}
 
 .search-outer {
     box-sizing: border-box;
@@ -282,5 +281,10 @@
 .searchCell{
     overflow: hidden;
     margin-top: 10rpx;
+}
+
+.multilineInput{
+    height: 200rpx;
+    padding-left: 30rpx;
 }
 

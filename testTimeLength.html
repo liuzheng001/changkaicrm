@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function timeLength(beginDate,beginSection,endDate,endSection){
+        /*Let ( [天数差 = 请假结束日期 - 请假开始日期;
+        开始阶段 = Case ( 请假开始阶段 = "上午";0;请假开始阶段 = "中午";1;请假开始阶段 = "下午";1    );
+        结束阶段 = Case ( 请假结束阶段 = "上午";1;请假结束阶段 = "中午";1;请假结束阶段 = "下午";2    );
+        阶段差 =  If (  结束阶段 - 开始阶段  ≥ 0;结束阶段 - 开始阶段;结束阶段 -开始阶段 +2) ;
+        最小请假单位 =4 ];
+
+        天数差 * 8 + 阶段差 *最小请假单位)*/
+        let  stageDif,DateDif;
+        const minUnit = 4;
+        DateDif =endDate.getTime() - beginDate.getTime()  ;
+        DateDif = parseInt(DateDif / (1000 * 60 * 60 * 24));
+
+        var weekEnds = 0;
+        for(var i = 0; i <= DateDif; i++)
+        {
+            if(beginDate.getDay() == 0 || beginDate.getDay() == 6)
+                weekEnds ++;
+            beginDate = beginDate.valueOf();
+            beginDate += 1000 * 60 * 60 * 24;
+            beginDate = new Date(beginDate);
+        }
+
+        if(endSection===0){
+            endSection = 1;
+        }
+        if(endSection - beginSection>=0){
+            stageDif = endSection - beginSection;
+        }else{
+            stageDif = endSection - beginSection + 2;
+        }
+
+        return (DateDif-weekEnds) * 8 + minUnit * stageDif;
+
+    }
+
+    function calc(){
+        const  begin =new Date( document.getElementById("begin").value);
+        const  beginSection =document.getElementById("beginSection").value;
+
+        const  end = new Date(document.getElementById("end").value);
+        const  endSection =document.getElementById("endSection").value;
+
+        const dayDiff = timeLength(begin,beginSection,end,endSection);
+        alert(dayDiff)
+
+    }
+
+</script>
+<div>
+    <div>
+        <label for="">开始时间</label><input type="text" name="beginData" id="begin" value="5/12/2019"><input type="text" name="beginData" id="beginSection" value="0">
+    </div>
+    <div >
+        <label for="">结束时间</label><input type="text" name="endData" id="end" value="6/12/2019"><input type="text" name="beginData" id="endSection" value="0">
+    </div>
+    <div >
+       <button id="Calculation" onclick="calc()" >计算</button> <label for="">结果</label><input type="text" name="result" value="">
+    </div>
+
+</div>
+</body>
+</html>

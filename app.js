@@ -72,7 +72,7 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         //调试时关闭
-                       /*dd.switchTab({ //日历
+                      /* dd.switchTab({ //日历
                             url: '/page/calendar/index'
                         })*/
                         /*dd.switchTab({ //流程模版分类

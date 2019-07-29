@@ -1,6 +1,6 @@
 Page({
   data: {
-      detailed: [
+     /* detailed: [
         
 							// [ {"name":produceName,"value":"HJ-35清洗剂"},
 							//  {"name":number,"value":20},
@@ -26,7 +26,8 @@ Page({
               getDate:"2019-05-12",
               getwayIndex:0,
           },
-      ],
+      ],*/
+
       // thumbs:['http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg',
       //     'http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg',
       //     'http://47.103.63.213/eapp-corp/upload/1557635457409-2019-05-12.jpg',
@@ -36,13 +37,14 @@ Page({
       //用户列表
       customList:[//客户清单
           /*{
-              name: '美国',
-          },
-          {
-              name: '中国',
-          },*/
+                name: '美国',id:"123213afasd",  //fm 客户id
+            },
+            {
+                name: '中国',id:"12321qw3afasd",  //fm 客户id
+            },*/
       ],
-      customIndex: -1,
+      // customIndex: -1,
+
         //收费列表
       costList:[
           '收费','不收费','合格后,收费'
@@ -52,6 +54,19 @@ Page({
       getwayList:[
           '技术部领取','生产部领取'
       ],
+
+      //搜索框相关
+      // 搜索框状态
+      lostFocus:true,
+      inputStatus:{  marginRight:"-80rpx",
+          opacity:0
+      },
+      //显示结果view的状态
+      viewShowed: false,
+      // 搜索框值
+      inputVal: "",
+      //搜索渲染推荐数据
+      searchList: [],
 
 
   },
@@ -78,11 +93,63 @@ Page({
 
       })
   },
-  customChange(e) {
+
+    // 显示搜索框取消,得到焦点
+    showCancel: function () {
+        this.setData({
+            lostFocus:false,
+            inputStatus: {
+                marginRight: "0",
+                opacity: 1
+            }
+        });
+    },
+    //失去搜索框焦点
+    onBlur: function () {
+        this.setData({
+            lostFocus:true,
+            inputStatus: {
+                marginRight: "-80rpx",
+                opacity: 0,
+            }
+        });
+    },
+    // 点击搜索框取消
+    clearSearch: function () {
+        this.setData({
+            inputVal: "",
+            inputStatus: {
+                marginRight: "-80rpx",
+                opacity: 0,
+            }
+        });
+    },
+    // 搜索框输入值更新
+    onInput: function (e) {
+        const searchList = showSearchList(this.data.customList,e.detail.value);
+        // debugger;
+        this.setData({
+            inputVal: e.detail.value,
+            searchList:searchList
+        });
+    },
+    //将搜索cell,更新到搜索框
+    getSearchCell(e){
+        const cellValue = e.currentTarget.dataset.name;
+        this.setData({
+            lostFocus:true,
+            inputStatus: {
+                marginRight: "-80rpx",
+                opacity: 0,
+            },
+            inputVal:cellValue,
+        });
+    },
+   /* customChange(e) {
         this.setData({
             customIndex: e.detail.value,
         });
-    },
+    },*/
     costSelect(e){
         this.setData({
             costIndex: e.detail.value,
@@ -95,7 +162,6 @@ Page({
             [target]: e.detail.value,
         });
     },
-
     onPicturePreview(e){
         const imageUrl = e.currentTarget.dataset.src;
         dd.previewImage({
@@ -184,7 +250,7 @@ Page({
             detailed:list
         })
     },
-    onEntryChange(e){//明细入口数据变化,既input内容变化时,在datailed中记录
+    /*onEntryChange(e){//明细入口数据变化,既input内容变化时,在datailed中记录
         const row = e.currentTarget.dataset.index;
         const fieldName = e.currentTarget.dataset.name;
         let list = this.data.detailed;
@@ -193,13 +259,27 @@ Page({
             "detailed":list
         })
 
-    },
+    },*/
     formSubmit(e) { //发起审批
 
      // const detailedArr = convertDetailed(this.data.detailed,this)
     let that = this;
     let form = e.detail.value;
 
+        //用户单位是否在列表中
+        // if(this.data.customListform.customName))
+        function findFn(item, objIndex, objs){
+            return item.name === form.customName;
+        }
+
+        const index = this.data.customList.findIndex(findFn);
+        let customID;
+        if(index==-1){
+            dd.alert({content: "客户名称,请检查!"});
+            return;   }
+        else {  //通过index找到客户ID
+            customID = this.data.customList[index].id;
+        }
 
     //数据校验
     if (this.data.customIndex<0 || form.description=="" || form.demandNumber=="" || this.data.costIndex<0  ) {
@@ -262,16 +342,13 @@ Page({
                                          originatorUserId: userId,
                                          dept_id: departments[departments.length - 1],
                                          form_values: [
-                                             {name: "申请单位", value:this.data.customList[this.data.customIndex].name},
+                                             {name: "申请单位", value:form.customName},
                                              {name: "现场描述", value:form.description},
                                              {name:"媒体容器",value:results},
                                              {name: "需求数量", value:form.demandNumber},
                                              {name: "预估样品费用", value:form.sampleCost},
                                              {name: "是否收费",value:this.data.costList[this.data.costIndex] },
-                                             /*        {name: "销售部长意见", value:form.salesSuggestion},
-                                                     {name: "样品明细", value: detailedArr},
-                                                     {name: "样品使用要点", value: form.keyPoints},
-                                                     {name: "总经理意见", value: form.managerSuggestion},*/
+                                             {name:"客户ID",value:customID}
                                          ],
                                      })
                                  },
@@ -414,4 +491,17 @@ function updatePicture(imgPath) {
 
 
 }
+
+function showSearchList(allList,query) { //原始数据
+
+
+    var searchList=allList.filter(function (item) {//利用filter具有筛选和截取的作用，筛选出数组中name值与文本框输入内容是否有相同的字
+
+        return item.name.indexOf(query)>-1;//索引name
+
+    });
+
+    return searchList;
+}
+
 

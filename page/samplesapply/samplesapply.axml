@@ -1,14 +1,35 @@
 <view>
 <form onSubmit="formSubmit">
-  <view class="page-section">
-  <picker onChange="customChange" value="-1" range="{{customList}}" range-key="name">
-    <view class="row">
-      <view class="row-title"><text style="color:red">*</text>申请单位</view>
-      <view class="row-extra">{{customList[customIndex].name}}</view>
-      <text class="iconfont icon-zuofangxiangjian"></text>
+
+    <view class="page-section">
+        <view class="row">
+            <view class="row-title"><text style="color:red">*</text>申请单位</view>
+            <view class="search-container" >
+                <view class="search-outer">
+                    <input
+                            name = "customName"
+                            type="search"
+                            class="search-input"
+                            value="{{inputVal}}"
+                            onInput="onInput"
+                            onFocus="showCancel"
+                            onBlur = "onBlur"
+                    />
+                    <text class="search-cancel" style="margin-right:{{inputStatus.marginRight}};opacity:{{inputStatus.opacity}}" onTap="clearSearch">取消</text>
+                </view>
+                <scroll-view scroll-y="true" class="searchResult" a:if="{{inputVal.length > 0&&lostFocus==false}}" style="height: 400rpx;" >
+                    <!-- 搜索列表 -->
+                    <block a:for="{{searchList}}" a:key="key">
+                        <view class='searchCell'  data-index='{{index}}' data-name='{{item.name}}' onTap='getSearchCell'>
+                            {{item.name}}
+                        </view>
+                    </block>
+                    <!--  <view >下拉结果</view>
+                      <view >下拉结果</view>-->
+                </scroll-view>
+            </view>
+        </view>
     </view>
-  </picker>
-  </view>
 
   <view class="page-section">
     <view class="input-title"><text style="color:red">*</text>现场描述</view>
