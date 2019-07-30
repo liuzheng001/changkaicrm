@@ -172,9 +172,9 @@
     color: grey;
     text-align:right;
 }
-.row-extra input{
+/*.row-extra input{
     color: grey;
-}
+}*/
 .row-arrow {
     width: 32rpx;
     height: 32rpx;

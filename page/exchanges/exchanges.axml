@@ -63,7 +63,7 @@
         <view class="a-list-arrow a-list-arrow-horizontal" />
       </view>
       <view class="row" >
-        <view class="row-title"><text style="color:red">*</text>退货货数量(kg)</view>
+        <view class="row-title"><text style="color:red">*</text>退换货数量(kg)</view>
         <view class="row-extra"><input name="exchangeNumber" type="number" placeholder="请输入"  /></view>
       </view>
     </view>

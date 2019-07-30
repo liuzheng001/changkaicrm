@@ -59,7 +59,7 @@
       <view class="row-extra"><input name="demandNumber" type="number" placeholder="请输入"  /></view>
     </view>
     <view class="row" style="border-bottom: 1px solid #ddd">
-      <view class="row-title">预估样品费用(元)</view>
+      <view class="row-title"><text style="color:red">*</text>预估样品费用(元)</view>
       <view class="row-extra"><input name="sampleCost" type="number"  placeholder="请输入"/></view>
     </view>
     <picker onChange="costSelect" value="{{costIndex}}" range="{{costList}}"  >

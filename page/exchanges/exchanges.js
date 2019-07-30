@@ -4,11 +4,11 @@ Page({
         //用户列表
         customList:[//客户清单
             /*{
-                name: '美国',
-            },
-            {
-                name: '中国',
-            },*/
+               name: '美国',id:"123213afasd",  //fm 客户id
+           },
+           {
+               name: '中国',id:"12321qw3afasd",  //fm 客户id
+           },*/
         ],
         customIndex: -1,
         //类别
@@ -155,16 +155,20 @@ Page({
         //数据校验
         //用户单位是否在列表中
         // if(this.data.customListform.customName))
-
         function findFn(item, objIndex, objs){
             return item.name === form.customName;
         }
 
-        if(this.data.customList.findIndex(findFn)==-1){
+        const index = this.data.customList.findIndex(findFn)
+        let customID;
+        if(index==-1){
             dd.alert({content: "客户名称,请检查!"});
-            return;        }
+            return;   }
+        else {  //通过index找到客户ID
+            customID = this.data.customList[index].id;
+        }
 
-        if (this.data.customIndex<0 || form.productName=="" || form.exchangeNumber=="" || form.reason=="" ||this.data.cateporyIndex<0 || this.data.exchangeDate =="" ) {
+        if ( form.productName=="" || form.exchangeNumber=="" || form.reason=="" || this.data.exchangeDate =="" ) {
             dd.alert({content: "提交数据有误,请检查!"});
             return;
         }
@@ -189,12 +193,13 @@ Page({
                                 originatorUserId: userId,
                                 dept_id: departments[departments.length - 1],
                                 form_values: [
-                                    {name: "退换货单位", value:this.data.customList[this.data.customIndex].name},
+                                    {name: "退换货单位", value:form.customName},
                                     {name: "退换货名称", value:form.productName},
                                     {name:"类别",value:this.data.categoryList[this.data.categoryIndex]},
                                     {name: "申请退换时间", value:this.data.exchangeDate},
                                     {name: "退换货数量", value:form.exchangeNumber},
                                     {name: "退换货原因",value:form.reason },
+                                    {name:"客户ID",value:customID}
                                 ],
                             })
                         },

@@ -1,8 +1,10 @@
 {
   "pages": [
+    "page/index/index",
+
+    "page/adjustmentPlan/relevantList/relevantList",
     "page/adjustmentPlan/adjustmentPlan",
 
-    "page/index/index",
     "page/dispatchedWorker/dispatchedWorker",
     "page/pay/pay",
     "page/maintenance/maintenance",

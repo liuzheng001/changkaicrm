@@ -21,7 +21,7 @@ function timeLength(beginDate,beginSection,endDate,endSection){
         stageDif = endSection - beginSection + 2;
     }
 
-    return (DateDif-weekEnds) * 8 + minUnit * stageDif;
+    return DateDif * 8 + minUnit * stageDif;
 
 }
 Page({
@@ -54,6 +54,11 @@ Page({
     },
 
     formSubmit(e) { //发起审批
+        let form = e.detail.value;
+        if(form.leaveStyle==="请选择" || form.timeLength === 0 || form.reason===""){
+            dd.alert({content: "提交数据有误,请检查!"});
+            return;
+        }
         dd.confirm({
             title: '提示',
             content: '提交后不能撤销,审批意见在钉钉审批应用中查看.',
@@ -63,15 +68,8 @@ Page({
                     const app = getApp();
                     const userId = app.globalData.userId;
                     const departments = app.globalData.departments;
-
-                    let that = this;
-                    let form = e.detail.value;
                     const url = getApp().globalData.domain+"/operateWorkflow.php"
-                    console.log('form发生了submit事件，携带数据为：', e.detail.value);
-                    if(form.leaveStyle==="请选择" || form.timeLength === 0 || form.reason===""){
-                        dd.alert({content: "提交数据有误,请检查!"});
-                        return;
-                    }
+
                     dd.httpRequest({
                         url: url,
                         method: 'POST',
