@@ -63,6 +63,7 @@ Page({
         searchList: [],
     },
     onLoad() {
+        dd.showLoading({content: '加载中...'})
         const url = getApp().globalData.domain+"/getFmMessage.php";
         dd.httpRequest({
             url: url,
@@ -73,6 +74,7 @@ Page({
             dataType: 'json',
             success: (res) => {
                 // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                // console.log("供应商列表ok");
                 this.setData({
                     customList:res.data.content.data
                 });
@@ -81,8 +83,8 @@ Page({
                 dd.alert({'content':JSON.stringify(res)})
             },
             complete: (res) => {
+                dd.hideLoading();
             }
-
         })
     },
 

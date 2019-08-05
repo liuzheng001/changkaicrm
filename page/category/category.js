@@ -71,8 +71,8 @@ Page({
           case "PROC-7E4C2322-CAAF-4FF9-9D76-F8ECE35BDF8A": //急件申请
               url = "/page/emergencyFood/emergencyFood";
               break;
-          case "PROC-77CFA8D4-6F7D-4D31-AA93-65DCC3088448": //急件申请
-              url = "/page/emergencyFood/emergencyFood";
+          case "PROC-77CFA8D4-6F7D-4D31-AA93-65DCC3088448": //维护品申请
+              url = "/page/maintenance/maintenance";
               break;
           case "PROC-62CE76C7-7187-4AFE-8B67-F87C738BCA0B": //派工申请
               url = "/page/dispatchedWorker/dispatchedWorker";
