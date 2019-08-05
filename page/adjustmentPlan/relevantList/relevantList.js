@@ -3,79 +3,65 @@
  */
 Page({
   data: {
-      templateID:0,//模版ID
-      page:1,//初始页,每页15个
-      pagesize: 15, //每页行数
-      //用于标识是否还有更多的状态,0代表没有流程了,1代表后面还有
-      state: 1,
+
+      templateID: "",
+      start_time:1496678400000,
+      cursor:1,
+      /*//用于标识是否还有更多的状态,0代表没有流程了,1代表后面还有
+      state: 1,*/
 
 
     //用于数组的追加和暂存
       allProject:[],
 
+
+
     //用于渲染页面的数组
 
       listData:[//日程表
-              {
-                  // thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
-                  title: "内容1基莾术有专攻奈斯运营成本求其友声春树暮云东奔西走艺术硕士艺术硕士东奔西走春树暮云ad",
-                  address: "地址1",
-                  date : "04/09/2019 13:35:23",
-                  long:'经度',
-                  lat:'纬度',
-                  day:19,
-                  month:4,
-                  year:2019,
-                  eventID:'日程ID',
+         /* {
+              "instanceID": "d6f0436a-6392-47ec-853e-e89ee3f19088",
+              "退换货单位": "湖北荆州带钢厂",
+              "退换货名称": "12",
+              "退换货数量": 12,
+              "申请退换时间": "07/21/2019",
+              "checked":false
+          },
+          {
+              "instanceID": "ff0124ca-f160-432a-bc4f-2e6ea818c64d",
+              "退换货单位": "湖北荆州带钢厂",
+              "退换货名称": "12",
+              "退换货数量": 12,
+              "申请退换时间": "07/21/2019",
+                "checked":false
 
-              },
-              {
-                  // thumb: 'https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png',
-                  title: "内容1基莾术有专攻奈斯运营成本求其友声春树暮云东奔西走艺术硕士艺术硕士东奔西走春树暮云ad",
-                  address: "地址1",
-                  date : "04/09/2019 13:35:23",
-                  long:'经度',
-                  lat:'纬度',
-                  day:19,
-                  month:4,
-                  year:2019,
-                  eventID:'日程ID',
+          },*/
 
-              },
-
-              /*"instanceID": 3103,
-             "start": "李孝桂",
-            "startDate": "05/20/2019 12:51:46",
-            "checkList": "叶明贵\r李孝桂\r叶明贵\r刘正",
-             "aduitingList": "",
-            "duration": 0,
-            "currentStep": ""*/
-
-          ]
+          ],
+      //选择的关联单
+      relevantList:[]
 
   },
-  onLoad(query) {
+  onLoad() {
       const mythis = this;
       this.data.allProject = [];
-      this.data.page =1;
-      this.data.templateID = query.templateID;
-      // getproinfo( this.data.templateID,this.data.pagesize, this.data.page,mythis)
+      this.data.templateID = "PROC-BCFBCCA9-4A92-46EF-AFE7-C4C70745ED31";
+      getDDInstance( this.data.templateID,this.data.cursor, this.data.start_time,mythis)
   },
-    onPullDownRefresh() { //下拉刷新
+   /* onPullDownRefresh() { //下拉刷新
         console.log('onPullDownRefresh', new Date())
         const mythis = this;
-        mythis.data.page =  1;
-        mythis.data.state = 1;
+        mythis.data.cursor =  1;
         mythis.data.allProject = [];
-        getproinfo(this.data.templateID, this.data.pagesize, this.data.page, mythis);
+        getDDInstance( this.data.templateID,this.data.cursor, this.data.start_time,mythis)
         dd.stopPullDownRefresh()
 
-    },
+    },*/
     /**
      * 页面上拉触底事件的处理函数，与点击加载更多做同样的操作
      */
   onReachBottom: function () {
-        if (this.data.state == 1) {
+        if (this.data.cursor != null ) {
             console.log("上拉加载");
             var mythis = this;
             dd.showToast({
@@ -83,10 +69,42 @@ Page({
                 content: '加载中...',
                 duration: 300,
             });
-            mythis.data.page = mythis.data.page + 1;
-            getproinfo(this.data.templateID, this.data.pagesize, this.data.page, mythis);
+            getDDInstance( this.data.templateID,this.data.cursor, this.data.start_time,mythis)
         }
 
+    },
+    changeChecked(e){   //check 列表项
+        const index = e.currentTarget.dataset.index;
+        const  target = `listData[${index}].checked`;
+        this.setData({
+            [target]:e.detail.value,
+        });
+    },
+    getRelevantList(){  //将关联的审核单钉钉ID号记录
+         this.data.relevantList =[];
+        this.data.listData.forEach(item => {
+            if (item.checked == true) {
+                this.data.relevantList.push(item.instanceID) ;
+            }
+        })
+        console.log(this.data.relevantList);
+        dd.navigateBack(); //返回将执行onUnload,将relevantList返回上一页面
+
+    },
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+        const that = this
+        const pages = getCurrentPages();
+        // const currPage = pages[pages.length - 1];   //当前页面
+        const prevPage = pages[pages.length - 2];  //上一个页面
+
+        prevPage.setData({
+            relevantList: that.data.relevantList
+
+        });
     },
 
 });
@@ -94,90 +112,44 @@ Page({
 /**
  * 获取项目列表
  */
-function getproinfo(templateID,pagesize, page, mythis){
-    const url = getApp().globalData.domain+'/getworkflow.php';
+function getDDInstance(DDID,cursor,start_time, mythis){
+    const url = getApp().globalData.domain+'/getOapiByName.php';
 
     dd.httpRequest({
         url: url,
         method: 'post',
         data: {
-            action:"get_instance_list",
-            templateID: templateID,
-            currentPage:page,
-            pageSize:pagesize,
+            event:"get_DD_instance_list",
+            process_code: DDID,
+            start_time:start_time,
+            cursor:cursor,
         },
+
         success: function (res) {
             if(res.data.success == true) {
+                //如果搜出来的结果cursor为空, 就说明后面已经没数据可加载了，所以将state设为0
 
-                //如果搜出来的结果<1 就说明后面已经没数据可加载了，所以将state设为0
-                if (res.data.content.data == null)
-                    mythis.setData({
-                        state: 0
-                    });
-                else {
-                    var state = 1;
-                    //如果有数据，但小于每次期望加载的数据量（pagesize）,将state设为0，表示后面已没有数据可加载
-                    if (res.data.content.data.length < mythis.data.pagesize)
-                        state = 0;
-                    //循环将结果集追加到数组后面
-                    for (var i = 0; i < res.data.content.data.length; i++) {
+                //循环将结果集追加到数组后面
+                for (var i = 0; i < res.data.content.data.length; i++) {
                         mythis.data.allProject.push(res.data.content.data[i]);
                     }
+                if (res.data.nextCursor == null){
                     mythis.setData({
                         listData: mythis.data.allProject,
-                        state: state
+                        cursor:null,
+                    });}
+                else {
+                    mythis.setData({
+                        listData: mythis.data.allProject,
+                        cursor: mythis.data.cursor + 1,
                     });
                 }
             }else{
-                dd.alert({content:"获取流程列表失败."});
+                dd.alert({content:"获取关联审核列表失败."});
             }
         },
         fail: function (res) {
-            dd.alert({content:"获取流程列表失败."+JSON.stringify(res)});
-        }
-    });
-}
-
-function getDDInstance(DDID,pagesize, page, mythis){
-    const url = getApp().globalData.domain+'/getworkflow.php';
-
-    dd.httpRequest({
-        url: url,
-        method: 'post',
-        data: {
-            action:"get_DD_instance_list",
-            templateID: DDID,
-            currentPage:page,
-            pageSize:pagesize,
-        },
-        success: function (res) {
-            if(res.data.success == true) {
-
-                //如果搜出来的结果<1 就说明后面已经没数据可加载了，所以将state设为0
-                if (res.data.content.data == null)
-                    mythis.setData({
-                        state: 0
-                    });
-                else {
-                    var state = 1;
-                    //如果有数据，但小于每次期望加载的数据量（pagesize）,将state设为0，表示后面已没有数据可加载
-                    if (res.data.content.data.length < mythis.data.pagesize)
-                        state = 0;
-                    //循环将结果集追加到数组后面
-                    for (var i = 0; i < res.data.content.data.length; i++) {
-                        mythis.data.allProject.push(res.data.content.data[i]);
-                    }
-                    mythis.setData({
-                        listData: mythis.data.allProject,
-                        state: state
-                    });
-                }
-            }else{
-                dd.alert({content:"获取流程列表失败."});
-            }
-        },
-        fail: function (res) {
-            dd.alert({content:"获取流程列表失败."+JSON.stringify(res)});
+            dd.alert({content:"获取关联审核列表失败."+JSON.stringify(res)});
         }
     });
 }

@@ -50,7 +50,7 @@
             <textarea class="multilineInput" name="reason" value="" />
           </view>
 
-        <view class="btn-area">
+        <view class="fixed-button">
           <button type="primary" formType="submit">发起审批</button>
         </view>
   </form>

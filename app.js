@@ -71,7 +71,7 @@ App({
                         app.globalData.userId = userId;
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
-                        //调试时关闭
+                        // 调试时关闭
                         dd.switchTab({ //日历
                                 url: '/page/calendar/index'
                             })

@@ -1,24 +1,26 @@
-<view class="grid" key="grid">
   <block a:for="{{list}}">
-    <view
-          style="width:{{100/(columnNum || 3)}}%;padding-top:{{100/(columnNum || 3)}}%;"
-          class="grid-item" hover-class = "grid-hover" onTap="workflowFlagTap"
-          data-templateID={{item.templateId}}
-          data-progressCode={{item.progressCode}}>
-          <view class="grid-item-wrapper" >
-            <!--<image src="{{item.icon}}" class="grid-icon" mode="aspectFit" />-->
-            <view>
-                <image  a:if="{{item.title=='请假'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/qingjia.png"/>
-                <image  a:elif="{{item.title=='样品领用'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/yangpin.png"/>
-                <image  a:elif="{{item.title=='退换货申请'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tui.png"/>
-                <image  a:elif="{{item.title=='维护品领用流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/weifu.png"/>
-                <image  a:elif="{{item.title=='急件考核'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/ji.png"/>
-                <image  a:elif="{{item.title=='派工申请流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/pai.png"/>
-                <image  a:elif="{{item.title=='付款流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/fukuan.png"/>
-                 <text a:else  class="iconfont icon-daohang" style="color:grey;font-size:64rpx"/>
+    <view class="category-header">{{item.group}} </view>
+    <view class="grid" key="grid">
+    <view a:for={{item.data}} a:for-item = "rec"
+            style="width:{{100/(columnNum || 3)}}%;padding-top:{{100/(columnNum || 3)}}%;"
+            class="grid-item" hover-class = "grid-hover" onTap="workflowFlagTap"
+            data-templateID={{rec.templateId}}
+            data-progressCode={{rec.progressCode}}>
+            <view class="grid-item-wrapper" >
+              <!--<image src="{{item.icon}}" class="grid-icon" mode="aspectFit" />-->
+              <view>
+                  <image  a:if="{{rec.title=='请假'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/qingjia.png"/>
+                  <image  a:elif="{{rec.title=='样品领用'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/yangpin.png"/>
+                  <image  a:elif="{{rec.title=='退换货申请'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tui.png"/>
+                  <image  a:elif="{{rec.title=='维护品领用流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/weifu.png"/>
+                  <image  a:elif="{{rec.title=='急件考核'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/ji.png"/>
+                  <image  a:elif="{{rec.title=='派工申请流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/pai.png"/>
+                  <image  a:elif="{{rec.title=='付款流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/fukuan.png"/>
+                  <image  a:elif="{{rec.title=='调整品处理方案'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tiao.png"/>
+                  <text a:else  class="iconfont icon-daohang" style="color:grey;font-size:64rpx"/>
+              </view>
+              <text class="grid-text">{{rec.title}}</text>
             </view>
-            <text class="grid-text">{{item.title}}</text>
-          </view>
+        </view>
     </view>
   </block>
-</view>

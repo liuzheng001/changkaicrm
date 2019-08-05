@@ -1,18 +1,32 @@
-
-<view class="page" style="min-height:100vh">
+<view class="page" style="min-height:100vh;margin-bottom:100rpx">
       <view class="a-list">
         <view  class="a-list-items">
 					<view a:for={{listData}} class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} a-list-item-{{item.align || 'middle'}}"
 								hover-class="a-list-item-hover" >
-					<view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
-						<text class="a-list-item-content">{{item.title}}</text>
-						<view  class="a-list-item-extra" >{{item.date}}</view>
-					<!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
-					<text class="a-list-item-address-content">{{item.address}}</text>
-				</view>
+					<block a:if = {{!item['isConflict']}}>
+						<view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+							<text class="a-list-item-content">{{item['退换货单位']}}</text>
+							<view  class="a-list-item-extra" >
+								<checkbox  checked="{{item.checked}}" data-index = {{index}} onChange = "changeChecked" value ={{item.checked}}/>
+								<text class="checkbox-text">{{item.value}}</text>
+							</view>
+						<!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
+							<text class="a-list-item-address-content">{{item['退换货名称']}}-{{item['退换货数量']}}</text>
+						</view>
+					</block>
+				  <block a:else>
+					  <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+						  <view  class="a-list-item-content" >{{item['instanceID']}}</view>
+						  <!-- <view a:if={{item.arrow}} class="a-list-arrow a-list-arrow-{{item.arrow}}" /> -->
+						  <text class="a-list-item-address-content">FM系统中没有该记录</text>
+					  </view>
+				  </block>
 			</view>
+    </view>
+      <view class='remind' a:if="{{cursor==null}}">没有更多了</view>
+      <view class='remind' a:else>上拉加载...</view>
+    </view>
 </view>
-	  <view class='remind' a:if="{{state==0}}">没有更多了</view>
-	  <view class='remind' a:else>上拉加载...</view>
-</view>
-</view>
+<view class="fixed-button">
+			<button type="primary" onTap="getRelevantList" style="margin:0">确认</button>
+	</view>

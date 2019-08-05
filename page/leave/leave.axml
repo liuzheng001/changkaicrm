@@ -54,7 +54,7 @@
         <view class="page-section-demo">
             <textarea onBlur="bindTextAreaBlur" auto-height placeholder="请假内容" name="reason"/>
         </view>
-        <view class="btn-area">
+        <view class="fixed-button">
             <button type="primary" formType="submit">发起审批</button>
         </view>
     </form>

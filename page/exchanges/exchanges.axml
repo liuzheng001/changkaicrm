@@ -77,7 +77,7 @@
       <view class="input-title"><text style="color:red">*</text>销售部意见</view>
       <textarea class="multilineInput" name="commentsOfSales" value="" />
     </view>-->
-    <view class="btn-area">
+    <view class="fixed-button">
     <button type="primary" formType="submit">发起审批</button>
     </view>
   </form>

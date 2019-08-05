@@ -57,7 +57,7 @@
     </view>
   <!-- 引入自定义明细组件 -->
   <vacation  onReturnDetailed="onReturnDetailed"/>
-  <view class="btn-area">
+  <view class="fixed-button">
     <button type="primary" formType="submit">发起审批</button>
   </view>
 </form>

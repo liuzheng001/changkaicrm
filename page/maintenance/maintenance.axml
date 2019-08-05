@@ -58,7 +58,7 @@
       <view class="row-extra"><input name="demandNumber" type="number" placeholder="请输入"  /></view>
     </view>
   </view>
-      <view class="btn-area">
+      <view class="fixed-button">
       <button type="primary" formType="submit">发起审批</button>
       </view>
 </form>

@@ -120,7 +120,14 @@ button {
   margin-left: 30rpx;
 }
 
+.fixed-button{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+}
 
-
+.fixed-button button{
+  margin-bottom: 0;
+}
 /*引入阿里图标文件*/
 @import '/resources/iconfont.acss';

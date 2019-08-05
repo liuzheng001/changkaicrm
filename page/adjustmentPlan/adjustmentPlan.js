@@ -11,6 +11,7 @@ Page({
         isShowPicker : false,
 
 
+
         categoryList: ['自检不合格','客户退换','呆滞品'],
         categoryIndex:-1, //类别序号
 
@@ -26,7 +27,7 @@ Page({
         picturePath:"",
         videoPath:"",
 
-
+        relevantList:[] //关联的审批钉钉实例ID,从relevantList page返回
 
     },
     onLoad() { //从fm中读取formulationList值列表,二维数组,赋值给picker-view
@@ -83,6 +84,16 @@ Page({
     },
 
     formSubmit(e) { //发起审批
+        //数据校验
+        let form = e.detail.value;
+        if(this.data.categoryIndex<0 || form.exchange == "" || form.ov=== 0 || form.description==""){
+            dd.alert({content: "提交数据有误,请检查!"});
+            return;
+        }
+        if (this.data.categoryIndex === 1 && this.data.relevantList.length <= 0) { //退换货但没选择审批单
+            dd.alert({content: "提交数据有误,请检查!"});
+            return;
+        }
         dd.confirm({
             title: '提示',
             content: '提交后不能撤销,审批意见在钉钉审批应用中查看.',
@@ -94,33 +105,25 @@ Page({
                     const departments = app.globalData.departments;
 
                     let that = this;
-                    let form = e.detail.value;
                     const url = getApp().globalData.domain+"/operateWorkflow.php"
-                    console.log('form发生了submit事件，携带数据为：', e.detail.value);
-                    if(form.leaveStyle==="请选择" || form.timeLength === 0 || form.reason===""){
-                        dd.alert({content: "提交数据有误,请检查!"});
-                        return;
-                    }
+
                     dd.httpRequest({
                         url: url,
                         method: 'POST',
                         // headers:{'Content-Type': 'application/json'},
                         data: {
                             values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
-                                progress_code: "PROC-6AA9FF64-D13D-402A-82E8-4ED79BFA6FC8",
+                                progress_code: "PROC-DF7AEE3E-B72E-4A6F-9A5B-DA3FC879039A",
                                 originatorUserId: userId,
                                 dept_id: departments[departments.length - 1],
                                 form_values: [
-                                    {name: "请假类型", value:form.leaveStyle},
-                                    {name: "开始日期", value:form.beginDate},
-                                    {name: "开始段", value:form.beginSection},
-                                    {name: "结束日期", value:form.endDate},
-                                    {name: "结束段", value:form.endSection},
-                                    {name: "时长", value:form.timeLength},
-                                    {name: "事由", value: form.reason},
-
-                                    //test 关联审批单
-                                    // {name: "关联审批单", value: ["4ba9876a-e030-4c0f-9768-1b28795f1fc8","918bd7e8-659d-4a50-9c75-e19d49d3d294"]},
+                                    {name: "类别", value:form.category},
+                                    {name: "产品配方号", value:form.formulationNumber},
+                                    {name: "数量", value:form.ov},
+                                    {name: "批号", value:form.exchange},
+                                    {name: "调整产品描述", value:form.description},
+                                    // 关联审批单
+                                    {name: "退换货审批单", value: that.data.relevantList},
                                 ],
                             })
                         },
@@ -155,7 +158,7 @@ Page({
                     });
                 }
             },
-        })
+        });
 
     },
     categoryPickerChange(e) {
@@ -200,7 +203,7 @@ Page({
                             return;
                         }
                     }else{
-                        if(new Date(res.date)<new Date(this.data.beginDate)){
+                        if(new Date(res.date)<new vDate(this.data.beginDate)){
                             dd.alert({content:"结束日期不能小于开始日期"})
                             return;
                         }
@@ -222,6 +225,11 @@ Page({
                     }
                 }
             },
+        });
+    },
+    selectRelevantList(){ //选择关联单
+        dd.navigateTo({
+            url:"/page/adjustmentPlan/relevantList/relevantList",
         });
     }
 
