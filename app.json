@@ -1,10 +1,10 @@
 {
   "pages": [
     "page/index/index",
-
+    "page/FMCategory/FMCategory",
+    "page/fmWebView/fmWebView",
     "page/adjustmentPlan/relevantList/relevantList",
     "page/adjustmentPlan/adjustmentPlan",
-
     "page/dispatchedWorker/dispatchedWorker",
     "page/pay/pay",
     "page/maintenance/maintenance",
@@ -51,6 +51,10 @@
         "pagePath": "page/category/category",
         "icon": "resources/liucheng.png",
         "name": "流程"
+      },{
+        "pagePath": "page/FMCategory/FMCategory",
+        "icon": "resources/fm.jpg",
+        "name": "FM"
       }
     ]
   },

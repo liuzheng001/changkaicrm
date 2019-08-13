@@ -1,4 +1,4 @@
 <view>
-		<view>{{value}}</view>
+	<view>{{value}}</view>
 	  <customer extra = "external data" onShowCounter = "onShowCounter"/> 
 </view>
