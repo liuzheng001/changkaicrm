@@ -90,10 +90,10 @@ Page({
             dd.alert({content: "提交数据有误,请检查!"});
             return;
         }
-        if (this.data.categoryIndex === 1 && this.data.relevantList.length <= 0) { //退换货但没选择审批单
+        /*if (this.data.categoryIndex === 1 && this.data.relevantList.length <= 0) { //退换货但没选择审批单
             dd.alert({content: "提交数据有误,请检查!"});
             return;
-        }
+        }*/
         dd.confirm({
             title: '提示',
             content: '提交后不能撤销,审批意见在钉钉审批应用中查看.',
@@ -103,7 +103,18 @@ Page({
                     const app = getApp();
                     const userId = app.globalData.userId;
                     const departments = app.globalData.departments;
+                    let values = [
+                        {name: "类别", value:form.category},
+                        {name: "产品配方号", value:form.formulationNumber},
+                        {name: "数量", value:form.ov},
+                        {name: "批号", value:form.exchange},
+                        {name: "调整产品描述", value:form.description},
 
+                    ];
+                    if (this.data.relevantList.length !== 0 ) {
+                        // 关联审批单
+                       values.push( {name: "退换货审批单", value: that.data.relevantList});
+                    }
                     let that = this;
                     const url = getApp().globalData.domain+"/operateWorkflow.php"
 
@@ -116,15 +127,7 @@ Page({
                                 progress_code: "PROC-DF7AEE3E-B72E-4A6F-9A5B-DA3FC879039A",
                                 originatorUserId: userId,
                                 dept_id: departments[departments.length - 1],
-                                form_values: [
-                                    {name: "类别", value:form.category},
-                                    {name: "产品配方号", value:form.formulationNumber},
-                                    {name: "数量", value:form.ov},
-                                    {name: "批号", value:form.exchange},
-                                    {name: "调整产品描述", value:form.description},
-                                    // 关联审批单
-                                    {name: "退换货审批单", value: that.data.relevantList},
-                                ],
+                                form_values: values,
                             })
                         },
                         dataType: 'json',

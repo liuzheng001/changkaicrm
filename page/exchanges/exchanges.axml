@@ -54,7 +54,7 @@
           <view class="row-title"><text style="color:red">*</text>类别</view>
           <view class="row-extra" ><input name="costIndex" value={{categoryList[categoryIndex]}} disabled="true"  /></view>
           <view class="a-list-arrow a-list-arrow-horizontal" />
-        </view>
+        </view> 
       </picker>
 
       <view class="row" style="border-bottom: 1px solid #ddd"  onTap="changeDate" data-index={{index}}>
