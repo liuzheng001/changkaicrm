@@ -21,11 +21,12 @@ Page({
       }*/
 
       //不使用encodeURIComponent在iphone中不能正常显示
-      // const url = "http://r1w8478651.imwork.net:591/fmi/webd/";
+      // const url = "https://filemaker.ckkj.net.cn:442/fmi/webd/";
       // const url = "http://liuzheng750417.imwork.net:8088/ding-fm-master/openfm.html?programme=" + encodeURIComponent(query.filename) + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd;
+      // const url = "https://filemaker.ckkj.net.cn:8890/corp_php-master/getNavigatorMess.html";
+      // const url = "http://www.163.com";
 
       const url = app.globalData.domain+"/openfm.html?t=123456789&programme=" + encodeURIComponent(query.filename) + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd;
-      // const url = "https://filemaker.ckkj.net.cn:8890/corp_php-master/getNavigatorMess.html";
 
       this.setData({
           url: url,

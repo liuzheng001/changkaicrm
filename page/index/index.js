@@ -15,6 +15,12 @@ Page({
         userId:'',
         userName:'',
         hideList: true,
+        picturePaths:["http://liuzheng750417.imwork.net:8088/resources/background0.jpg",
+            "http://liuzheng750417.imwork.net:8088/resources/background1.jpg",
+            "http://liuzheng750417.imwork.net:8088/resources/background2.jpg",
+            "http://liuzheng750417.imwork.net:8088/resources/background3.jpg",
+        ],
+        pathIndex:0,//默认图片的路径
   },
     loginSystem() {
         dd.showLoading();
@@ -68,40 +74,24 @@ Page({
     onLoad(){
 
         let _this = this;
+        //产生图片随机数
+        const pathIndex =Math.round(Math.random()*(this.data.picturePaths.length-1));
         this.setData({
             corpId: app.globalData.corpId,
             userId:app.globalData.userId,
-            userName:app.globalData.username
+            userName:app.globalData.username,
+            pathIndex:pathIndex,
         })
         
         // dd.alert({content: "step1"})
     },
-    changeName(){
+   /* //每次出现index.page时更改背景图
+    onShow(){
+        //产生图片随机数
+        const pathIndex =Math.round(Math.random()*(this.data.picturePaths.length-1));
         this.setData({
-          name:'Dingtalk'
+            pathIndex:pathIndex,
         })
-    },
-    changeTar(){
-      // dd.switchTab({
-      //   url: '/page/logs/logs',
-      //   success:(res)=>{
-      //           dd.alert({content:JSON.stringify(res)}) 
-      //   } 
-      //   })
-      dd.navigateTo({
-        url: '/page/logs/logs',
-        success:(res)=>{
-                dd.alert({content:JSON.stringify(res)}) 
-        } 
-        })
-    },
-    openMap(){
-      dd.openLocation({
-        longitude: '120.126293',
-        latitude: '30.274653', 
-        name: '黄龙万科中心',
-        address: '学院路77号',
-      });
-      
-    }
+    }*/
+
 })

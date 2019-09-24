@@ -10,9 +10,9 @@ Page({
         {  fmFileName:"销售统计",
             thumb:""
         },
-       /* {  fmFileName:"样品试用记录",
+       {  fmFileName:"样品试用记录",
             thumb:""
-        },*/
+        },
     ],
       show:false,
       height:'30%',

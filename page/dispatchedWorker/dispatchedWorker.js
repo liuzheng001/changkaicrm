@@ -97,9 +97,12 @@ Page({
             format: 'yyyy-MM-dd HH:mm',
             currentDate: currentDate,
             success: (res) => {
+                // dd.alert({content:JSON.stringify(res)});
                 if (typeof res.date !== 'undefined') {
                     //检验日期,不能小于今天
-                    const selectDate = new Date(res.date);
+                    const selectDate = new Date(res.date.replace(/-/g,"/"));
+                    // dd.alert({content:"sel"+selectDate});
+
                     if (selectDate < today) { //要去掉时分秒
                         dd.alert({content: "选择的日期已过期"})
                         return;
