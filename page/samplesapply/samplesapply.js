@@ -133,7 +133,7 @@ Page({
             searchList:searchList
         });
     },
-    //将搜索cell,更新到搜索框
+    //点击搜索cell,更新到搜索框
     getSearchCell(e){
         const cellValue = e.currentTarget.dataset.name;
         this.setData({

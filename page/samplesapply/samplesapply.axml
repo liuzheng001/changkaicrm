@@ -39,7 +39,7 @@
   <view class="page-section">
 		<view class="input-title" style="padding-bottom:30rpx">媒体容器</view>
 		<view class="img-content">
-			<block a:for={{thumbs}} >
+			<block a:for="{{thumbs}}" >
 				<view class="img-thumb"  >
 					<image  style = "width:120rpx;height:120rpx" src="{{item}}" onTap="onPicturePreview" data-src="{{item}}" mode="scaleToFill" />
 					<view class="imgdelete">
@@ -47,7 +47,7 @@
 					</view>
 				</view>
 			</block>
-			<view a:if={{thumbs.length<9}} class="img-thumb"  >
+			<view a:if="{{thumbs.length<9}}" class="img-thumb"  >
 				<text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add-fill"/>
 			</view>
 		</view>
@@ -65,70 +65,11 @@
     <picker onChange="costSelect" value="{{costIndex}}" range="{{costList}}"  >
       <view class="row">
         <view class="row-title"><text style="color:red">*</text>是否收费</view>
-        <view class="row-extra" ><input name="costIndex" value={{costList[costIndex]}} disabled="true"  /></view>
+        <view class="row-extra" ><input name="costIndex" value="{{costList[costIndex]}}" disabled="true"  /></view>
         <view class="a-list-arrow a-list-arrow-horizontal" />
       </view>
     </picker>
   </view>
-  <!--<view class="page-section">
-    <view class="input-title">销售部长意见</view>
-    <textarea class="multilineInput" name="salesSuggestion" value="" />
-  </view>
-
-	<view class="page-section">
-		<view class="input-title">技术部意见</view>
-		<block a:for={{detailed}}>
-			<view class="detailed-header">
-				<view style="flex:6;text-align:left">样品明细({{index+1}})</view>
-				<button a:if={{detailed.length!=1}} class="smallbutton" catchTap="catchDelete"  size="mini" data-index={{index}} >删除</button>
-	</view>
-			<view class="detailed-line {{item.textMode ? 'detailed-line-' + item.textMode : ''}}">
-				<view class="row" style="border-bottom: 1px solid #ddd"  >
-					<view class="row-title">型号与名称</view>
-					<view class="row-extra" ><input name="produceName" value={{item.produceName}} onInput = "onEntryChange"  data-index={{index}} data-name = "produceName"/></view>
-				</view>
-				<view class="row" style="border-bottom: 1px solid #ddd" >
-					<view class="row-title">数量(kg)</view>
-					<view class="row-extra"><input name="number" value={{item.number}} onInput = "onEntryChange" data-index={{index}} data-name = "number" /></view>
-				</view>
-				&lt;!&ndash;<view class="row" style="border-bottom: 1px solid #ddd">
-					<view class="row-title">领取方式</view>
-					<view class="row-extra"><input name="getway" value={{item.getway}} onInput = "onEntryChange" data-index={{index}} data-name = "getway"/></view>
-				</view>&ndash;&gt;
-                <picker onChange="getwaySelect" value="{{item.getwayIndex}}" range="{{getwayList}}" data-index={{index}} >
-                    <view class="row">
-                        <view class="row-title">领取方式</view>
-                        <view class="row-extra" ><input name="costIndex" value={{getwayList[item.getwayIndex]}} disabled="true"  /></view>
-                        <view class="a-list-arrow a-list-arrow-horizontal" />
-                    </view>
-                </picker>
-                  <view class="row" style="border-bottom: 1px solid #ddd"  onTap="changeDate" data-index={{index}}>
-                    <view class="row-title">可领取日期</view>
-                    <view class="row-extra" ><input name="getDate" value={{item.getDate}} disabled="true"  /></view>
-                    <view class="a-list-arrow a-list-arrow-horizontal" />
-                </view>
-			</view>
-
-	</block>
-	<button onTap="onAdd">+增加明细</button>
-	</view>
-
-
-  <view class="page-section">
-    <view class="input-title">样品使用要点</view>
-    <textarea class="multilineInput" name="keyPoints" value="" />
-  </view>
-  <view class="page-section">
-    <view class="input-title">总经理意见</view>
-    <textarea class="multilineInput"  name="managerSuggestion" value="" />
-  </view>-->
-
-	<!--<view class="page-section">
-		<view class="row" >
-			<view class="row-title">时长(小时)</view>
-			<view class="row-extra"><input name="timeLength" value={{timeLength}} disabled="true"  /></view>
-		</view>
-	</view>-->
       <view class="fixed-button">
       <button type="primary" formType="submit">发起审批</button>
       </view>
