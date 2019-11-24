@@ -1,0 +1,9 @@
+<view>
+<commonModal show="{{showModal}}" height='60%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
+   <view class='modal-content'>
+    <!-- <formrow wx:for='{{goodsList}}' wx:key='{{index}}' title="{{item.name}}" placeholder='库存{{item.store}}' mviode='input' rowpadding='10rpx' currentId="{{index}}" bindinput='goodsInput'></formrow> -->
+     <view>this is text </view>
+   </view>
+</commonModal>
+</view>
+

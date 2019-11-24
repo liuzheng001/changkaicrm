@@ -72,12 +72,15 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         // 调试时关闭
-                        dd.switchTab({ //日历
+                      /*  dd.switchTab({ //日历
                                 url: '/page/calendar/index'
-                            })
+                            })*/
                         /*dd.switchTab({ //流程模版分类
                             url: '/page/category/category'
                         })*/
+                        dd.navigateTo({
+                            url: '/page/calendar/addSampleRecord/addSampleRecord'
+                        })
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

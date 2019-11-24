@@ -22,7 +22,8 @@
     "page/calendar/index",
     "page/scheduleContent/scheduleContent",
     "page/category/workflowlist/workflowlist",
-    "page/samplesapply/samplesapply"
+    "page/samplesapply/samplesapply",
+    "page/calendar/addSampleRecord/addSampleRecord"
   ],
   "window": {
     "defaultTitle": "长凯CRM",
@@ -51,7 +52,8 @@
         "pagePath": "page/category/category",
         "icon": "resources/liucheng.png",
         "name": "流程"
-      },{
+      },
+      {
         "pagePath": "page/FMCategory/FMCategory",
         "icon": "resources/fm.jpg",
         "name": "FM"
