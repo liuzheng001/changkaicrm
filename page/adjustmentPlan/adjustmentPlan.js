@@ -94,6 +94,7 @@ Page({
             dd.alert({content: "提交数据有误,请检查!"});
             return;
         }*/
+        let that = this;
         dd.confirm({
             title: '提示',
             content: '提交后不能撤销,审批意见在钉钉审批应用中查看.',
@@ -111,11 +112,10 @@ Page({
                         {name: "调整产品描述", value:form.description},
 
                     ];
-                    if (this.data.relevantList.length !== 0 ) {
+                    if (that.data.relevantList.length !== 0 ) {
                         // 关联审批单
                        values.push( {name: "退换货审批单", value: that.data.relevantList});
                     }
-                    let that = this;
                     const url = getApp().globalData.domain+"/operateWorkflow.php"
 
                     dd.httpRequest({
