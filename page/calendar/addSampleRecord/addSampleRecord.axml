@@ -1,9 +1,44 @@
 <view>
-<commonmodal show="{{showModal}}" height='60%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
-   <view class='modal-content'>
-    <!-- <formrow wx:for='{{goodsList}}' wx:key='{{index}}' title="{{item.name}}" placeholder='库存{{item.store}}' mviode='input' rowpadding='10rpx' currentId="{{index}}" bindinput='goodsInput'></formrow> -->
-     <view>this is text </view>
-   </view>
-</commonmodal>
+    <button onTap="openModal">打开modal</button>
+    <!--<commonmodal show="{{showModal}}" height='80%' cancel="modalCancel" confirm='modalConfirm'>-->
+    <commonmodal show="{{showModal}}"  onChangeShow="onChangeShow" height='65%'>
+       <view class='modal-content'>
+        <!-- <formrow wx:for='{{goodsList}}' wx:key='{{index}}' title="{{item.name}}" placeholder='库存{{item.store}}' mviode='input' rowpadding='10rpx' currentId="{{index}}" bindinput='goodsInput'></formrow> -->
+          <!--modal内容，是scrollView-->
+           <view class="page-section">
+               <view class="row" >
+                   <view class="row-title">项目类别</view>
+                   <view class="row-extra"><input name="category" value={{category}} disabled="true"  /></view>
+               </view>
+           </view>
+           <view class="page-section">
+               <picker onChange="testCategoryPickerChange" value="{{testCategoryIndex}}" range="{{testCategory}}">
+                   <view class="row">
+                       <view class="row-title">检测类别</view>
+                       <view class="row-extra"><input name="testCategory" value={{testCategoryIndex===-1?"请选择":testCategory[testCategoryIndex]}} disabled="true"  /></view>
+                       <view class="a-list-arrow a-list-arrow-horizontal" />
+                   </view>
+               </picker>
+           </view>
+               <view class="page-section">
+                   <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}">
+                       <view class="row">
+                           <view class="row-title">选择产品</view>
+                           <view class="row-extra"><input name="selectProduct" value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex]}} disabled="true"  /></view>
+                           <view class="a-list-arrow a-list-arrow-horizontal" />
+                       </view>
+                   </picker>
+               </view>
+               <view class="page-section">
+                   <picker onChange="selectMachinePickerChange" value="{{selectMachineIndex}}" range="{{selectMachine}}">
+                       <view class="row">
+                           <view class="row-title">选择设备</view>
+                           <view class="row-extra"><input name="selectMachine" value={{selectMachineIndex===-1?"请选择":selectMachine[selectMachineIndex]}} disabled="true"  /></view>
+                           <view class="a-list-arrow a-list-arrow-horizontal" />
+                       </view>
+                   </picker>
+               </view>
+       </view>
+    </commonmodal>
 </view>
 

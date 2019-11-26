@@ -4,20 +4,27 @@
   right: 0;
   top: 0;
   bottom: 0;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   background-color: rgba(0,0,0,0.4);
-  z-index: 9999;
+  z-index: 100;
 }
 
 .modal-content{
   display: flex;
   flex-direction: column;
-  width: 90%;
+  margin-top:0.5rem;
+  /* width: 90%; */
+  /* position: fixed; */
   /* height: 80%; */
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color:rgb(205, 205, 205);
   border-radius: 10rpx;
+  position:absolute;
+left:20px;
+right:20px;
+top:30px;
 }
 
 .modal-btn-wrapper{
@@ -34,6 +41,8 @@
   line-height: 100rpx;
   text-align: center;
   font-size: 32rpx;
+  background-color: #fff;
+
 }
 
 .cancel-btn{

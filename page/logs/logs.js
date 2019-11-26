@@ -6,13 +6,13 @@ Page({
       },
   onLoad(query) {
         // url:"https://filemaker.ckkj.net.cn:8890/v0.5.3/index.php?m=remotesign&a=showdistanceandtime&save=1&calendarID=4727",
-	// let url="https://filemaker.ckkj.net.cn:8890/v0.5.3/index.php?m=remotesign&a=showdistanceandtime&save=1&calendarID="+query.calendarID
+	let url="https://filemaker.ckkj.net.cn:8890/v0.5.3/index.php?m=remotesign&a=showdistanceandtime&save=1&calendarID="+query.calendarID
       const app =getApp();
       // const url= query.url;
   this.setData({
-      url:'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=false&dd_share=false&corpid='+app.globalData.corpId+'&swform=abc#/upcoming',
+      // url:'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=false&dd_share=false&corpid='+app.globalData.corpId+'&swform=abc#/upcoming',
       // url:'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=true&dd_share=false&dd_progress=false&back=native&corpid='+app.globalData.corpId+'&swform=abc#/approval?procinsld=937909d8-b20b-4e5a-9783-735f40e1ef8d',
-			// url:url,
+			url:url,
   })},
   onShowCounter(){dd.alert({"content":"this is "+this.data.extraContent});}
  

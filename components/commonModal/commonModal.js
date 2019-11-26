@@ -17,21 +17,17 @@
  */
 
 Component({
-
   /**
    * 组件的属性列表
    */
-  properties: {
+  props: {
     //是否显示modal
-    show: {
-      type: Boolean,
-      value: false
-    },
+    show: false,
     //modal的高度
-    height: {
-      type: String,
-      value: '80%'
-    }
+    height: '80%',
+      onChangeShow:(data)=>{
+           console.log(data);
+      }
   },
 
   /**
@@ -50,15 +46,24 @@ Component({
     },
 
     cancel() {
-      this.setData({ show: false })
-      this.triggerEvent('cancel')
+      //不能直接用this.setData({ show: false })方法设置props，这样可以关闭modal，但第2次再打开就不行，只有将数据传到父组件，通过父组件setData
+      this.props.onChangeShow(false);
+      // this.setData({ show: false })
+      // this.triggerEvent('cancel')
+      dd.alert({content:'取消'})
     },
 
     confirm() {
-      this.setData({ show: false })
-      this.triggerEvent('confirm')
-    }
-  }
+        //不能直接用this.setData({ ifShow: false })方法，这样可以关闭modal，但第2次再打开就不行，只有将数据传到父组件，通过父组件setData
+        this.props.onChangeShow(false);
+        // this.setData({ show: false })
+      // this.triggerEvent('confirm')
+            dd.alert({content:'确定'})
+
+    },
+
+  },
+
 })
 // ————————————————
 // 版权声明：本文为CSDN博主「solocoder222」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
