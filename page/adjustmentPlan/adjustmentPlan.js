@@ -234,7 +234,8 @@ Page({
         dd.navigateTo({
             url:"/page/adjustmentPlan/relevantList/relevantList",
         });
-    }
+    },
+
 
 });
 

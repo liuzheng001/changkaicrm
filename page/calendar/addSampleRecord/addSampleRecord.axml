@@ -1,7 +1,8 @@
 <view>
     <button onTap="openModal">打开modal</button>
+    <button onTap="onUploadMedia">上传视频</button>
     <!--<commonmodal show="{{showModal}}" height='80%' cancel="modalCancel" confirm='modalConfirm'>-->
-    <commonmodal show="{{showModal}}"  onChangeShow="onChangeShow" height='65%'>
+    <commonmodal show="{{showModal}}"  onChangeShow="onChangeShow" onCreateRecord ="onCreateRecord" height='65%'>
        <view class='modal-content'>
         <!-- <formrow wx:for='{{goodsList}}' wx:key='{{index}}' title="{{item.name}}" placeholder='库存{{item.store}}' mviode='input' rowpadding='10rpx' currentId="{{index}}" bindinput='goodsInput'></formrow> -->
           <!--modal内容，是scrollView-->
@@ -21,24 +22,95 @@
                </picker>
            </view>
                <view class="page-section">
-                   <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}">
+                   <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}" range-key="formulaNum">
                        <view class="row">
                            <view class="row-title">选择产品</view>
-                           <view class="row-extra"><input name="selectProduct" value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex]}} disabled="true"  /></view>
+                           <view class="row-extra"><input name="selectProduct" style={{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
                            <view class="a-list-arrow a-list-arrow-horizontal" />
                        </view>
                    </picker>
                </view>
                <view class="page-section">
-                   <picker onChange="selectMachinePickerChange" value="{{selectMachineIndex}}" range="{{selectMachine}}">
+                   <picker onChange="selectMachinePickerChange" value="{{selectMachineIndex}}" range="{{selectMachine}}" range-key="machineIdentification">
                        <view class="row">
                            <view class="row-title">选择设备</view>
-                           <view class="row-extra"><input name="selectMachine" value={{selectMachineIndex===-1?"请选择":selectMachine[selectMachineIndex]}} disabled="true"  /></view>
+                           <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectMachineIndex===-1?"请选择":selectMachine[selectMachineIndex].machineIdentification}} disabled="true"  /></view>
                            <view class="a-list-arrow a-list-arrow-horizontal" />
                        </view>
                    </picker>
                </view>
        </view>
     </commonmodal>
+    <view>
+        <video src="{{videoUrl}}">
+            video组件
+        </video>
+    </view>
+    <block  a:if={{!showModal}}>
+    <view class="input-title">常规</view>
+    <view class="page-section">
+        <block a:for={{subjects}} >
+        <view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
+            <view class="row-extra"><input name="productName"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}"/></view>
+        </view>
+        </block>
+    </view>
+    <view class="input-title">附加</view>
+    <view class="page-section">
+      <block a:for={{addSubjects}} >
+        <view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
+            <view class="row-extra"><input name="productName"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}"/></view>
+        </view>
+      </block>
+   </view>
+
+    <view class="page-section">
+        <view class="input-title" style="padding-bottom:30rpx">媒体容器</view>
+        <view class="img-content">
+            <block a:for="{{thumbs}}" >
+                <view class="img-thumb"  >
+                    <image  style = "width:120rpx;height:120rpx" src="{{item.category==='image'?item.url:'/resources/video.jpeg'}}" onTap="onMediaPreview" data-src="{{item.url}}" mode="scaleToFill" />
+                    <view class="imgdelete">
+                        <text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeleteMedia"  data-index="{{index}}" class="iconfont icon-delete"/>
+                    </view> 
+                </view>
+            </block>
+            <view a:if="{{thumbs.length<9}}" class="img-thumb"  >
+                <text  style ="font-size:100rpx"   onTap="onAddMedia" class="iconfont icon-add-fill"/>
+            </view>
+        </view>
+    </view>
+    <view class="page-section">
+        <view class="input-title">备注</view> 
+        <textarea class="multilineInput" name="remark" value="" />
+    </view>
+
+    <view><button type="primary" onTap="onException">记录异常</button></view>
+
+    <view class="page-section">
+        <view class="input-title">异常描述</view>
+        <textarea class="multilineInput" name="exception" value="" />
+    </view>
+    <view class="page-section">
+        <view class="input-title">异常处置办法</view>
+        <textarea class="multilineInput" name="handlingMethod" value="" />
+    </view>
+
+    <view class="page-section">
+        <view class="input-title">处理效果</view>
+        <radio-group name="effect-group" style="display:flex;margin-top:40rpx">
+            <label  style="flex:1;margin-left:0.1rem;font-size:0.34rem"><radio value="1"/>解决</label>
+            <label  style="flex:1;font-size:0.34rem"><radio value="2"/>部分解决</label>
+            <label  style="flex:1.5;font-size:0.34rem"><radio value="3"/>需要技术支持</label>
+        </radio-group>
+    </view>
+    <view class="page-section">
+        <view class="input-title">处理效果描述</view>
+        <textarea class="multilineInput" name="handlingEffect" value="" />
+    </view>
+    <view><button type="primary" onTap="onSubmit">提交</button></view>
+  </block>  
 </view>
 

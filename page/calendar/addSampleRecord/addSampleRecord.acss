@@ -159,11 +159,15 @@
 
 .row-extra {
     /*flex: 2 1 auto;*/
-    flex:2 1 auto;
+    flex:3 1 auto;
     flex-basis: initial;
     font-size: 32rpx;
     /*color: grey;*/
     text-align:right;
+}
+
+.row-extra input{
+    width: 100%
 }
 /*.row-extra input{*/
 /*color: grey;*/
@@ -179,3 +183,35 @@
     padding: 0 30rpx;
     padding-top: 20rpx;
 }
+
+.multilineInput{
+    height: 200rpx;
+    padding-left: 30rpx;
+}
+
+.imgdelete{
+    width:40rpx;
+    height:40rpx;
+    border-radius:60%;
+    position:absolute;
+    top: -20rpx;
+    right: -20rpx;
+
+}
+
+.img-content{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    padding: 0 30rpx;
+    align-items: center;
+}
+.img-thumb {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 30rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+

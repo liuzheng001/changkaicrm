@@ -27,7 +27,10 @@ Component({
     height: '80%',
       onChangeShow:(data)=>{
            console.log(data);
-      }
+      },
+      onCreateRecord:(data)=>{
+          console.log(data);
+      },
   },
 
   /**
@@ -55,10 +58,12 @@ Component({
 
     confirm() {
         //不能直接用this.setData({ ifShow: false })方法，这样可以关闭modal，但第2次再打开就不行，只有将数据传到父组件，通过父组件setData
-        this.props.onChangeShow(false);
+        // this.props.onChangeShow(false);
+        this.props.onCreateRecord();
+
         // this.setData({ show: false })
       // this.triggerEvent('confirm')
-            dd.alert({content:'确定'})
+      // dd.alert({content:'确定'})
 
     },
 

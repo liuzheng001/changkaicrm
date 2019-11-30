@@ -301,7 +301,7 @@ Page({
                      //ios不显示 dd.alert({content:results}),但this.data.imageUrls = results执行了原因不明
                      Promise.all(promiseArr)
                          .then(results => { //results为promiseArr返回的数组合集,既上传文件的服务器url集
-                             dd.alert({content: results})
+                             // dd.alert({content: results})
                              const app = getApp();
                              const userId = app.globalData.userId;
                              const departments = app.globalData.departments;
