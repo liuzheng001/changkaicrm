@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="addSampleRecord.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addSampleRecord.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="196" column="55" lean-forward="true" selection-start-line="196" selection-start-column="55" selection-end-line="196" selection-end-column="55" />
+            <state relative-caret-position="283">
+              <caret line="194" column="28" lean-forward="true" selection-start-line="194" selection-start-column="28" selection-end-line="194" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schedule.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="schedule.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/schedule/schedule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="307" column="45" lean-forward="true" selection-start-line="307" selection-start-column="45" selection-end-line="307" selection-end-column="45" />
+            <state relative-caret-position="286">
+              <caret line="324" selection-start-line="324" selection-end-line="324" />
             </state>
           </provider>
         </entry>
@@ -59,7 +59,7 @@
       <file leaf-file-name="addSampleRecord.axml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
+            <state relative-caret-position="822">
               <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
             </state>
           </provider>
@@ -117,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>modalCancel</find>
       <find>mask</find>
       <find>ra</find>
       <find>radius</find>
@@ -144,9 +143,10 @@
       <find>dd.show</find>
       <find>dd.hide</find>
       <find>Picture</find>
-      <find>review</find>
       <find>DingTalk</find>
       <find>sampleDataID</find>
+      <find>onUpload</find>
+      <find>review</find>
     </findStrings>
     <replaceStrings>
       <replace>https://liuzheng750417.imwork.net:8890</replace>
@@ -176,7 +176,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/page/leave/leave.acss" />
         <option value="$PROJECT_DIR$/page/dispatchedWorker/dispatchedWorker.acss" />
         <option value="$PROJECT_DIR$/testBlockSort.html" />
         <option value="$PROJECT_DIR$/page/category/category.acss" />
@@ -226,6 +225,7 @@
         <option value="$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.js" />
         <option value="$PROJECT_DIR$/page/samplesapply/samplesapply.js" />
         <option value="$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml" />
+        <option value="$PROJECT_DIR$/page/schedule/schedule.js" />
         <option value="$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js" />
       </list>
     </option>
@@ -251,8 +251,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="56" />
-    <option name="y" value="29" />
+    <option name="x" value="41" />
+    <option name="y" value="23" />
     <option name="width" value="2048" />
     <option name="height" value="1061" />
   </component>
@@ -410,15 +410,15 @@
       <workItem from="1569766827740" duration="3803000" />
       <workItem from="1574579934713" duration="4185000" />
       <workItem from="1574589334740" duration="14617000" />
-      <workItem from="1574680904192" duration="43702000" />
+      <workItem from="1574680904192" duration="49836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="827655000" />
+    <option name="totallyTimeSpent" value="833789000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="29" width="2048" height="1061" extended-state="0" />
+    <frame x="41" y="23" width="2048" height="1061" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -854,7 +854,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
+        <state relative-caret-position="822">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
         </state>
       </provider>
@@ -866,17 +866,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
+    <entry file="file://$PROJECT_DIR$/page/schedule/schedule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="196" column="55" lean-forward="true" selection-start-line="196" selection-start-column="55" selection-end-line="196" selection-end-column="55" />
+        <state relative-caret-position="286">
+          <caret line="324" selection-start-line="324" selection-end-line="324" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/schedule/schedule.js">
+    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="307" column="45" lean-forward="true" selection-start-line="307" selection-start-column="45" selection-end-line="307" selection-end-column="45" />
+        <state relative-caret-position="283">
+          <caret line="194" column="28" lean-forward="true" selection-start-line="194" selection-start-column="28" selection-end-line="194" selection-end-column="28" />
         </state>
       </provider>
     </entry>

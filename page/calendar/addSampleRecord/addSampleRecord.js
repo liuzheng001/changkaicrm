@@ -198,12 +198,12 @@ Page({
                         maxDuration: 60,
                         success:(res)=> {
                             // const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
-                            if(res.size>100000000) {
-                                dd.alert({content:"视频超过100M不能上传,或大于1分钟"})
+                            if(res.size>200000000) {
+                                dd.alert({content:"视频超过200M不能上传,或大于1分钟"})
                             }else{
                             const path = res.filePath;
                             console.log(res);
-                            dd.alert({content:path});
+                            dd.alert({content: path})
                             //将数据存入,但没有上传
                             thumbs.push({url:path,category:'video'})}
                             t.setData({
@@ -247,7 +247,7 @@ Page({
                         Promise.all(promiseArr)
                             .then(results => { //results为promiseArr返回的数组合集,既上传文件的服务器url集
                                 dd.hideLoading();
-                                dd.alert({content: results})
+                                dd.alert({content:"上传成功"})
                             })
                     }
                 },
@@ -262,12 +262,17 @@ Page({
 });
 
 function updateMedia(thumb) {
+    console.log('thumb:'+JSON.stringify(thumb));
     return new Promise(function (resolve,reject) {
+        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadVideoToAili.php"
+        const fileType = thumb.category==="image"?"image":"video"
         dd.uploadFile({
-            url: getApp().globalData.domain + '/upload/upload.php',
-            fileType: thumb.category==="image"?"image":"video",
+            // url: getApp().globalData.domain + '/upload/upload.php',
+            url:url,
+            fileType: fileType,
             fileName: 'file',
             filePath: thumb.url,
+            formData:{fileType:fileType},
             success: res => {
                 console.log(JSON.parse(res.data));
                 if (JSON.parse(res.data).result == "success") {
