@@ -1,4 +1,11 @@
-<view>
+<view a:if={{showVideo}} class="videoContainer">
+    <video class="video"  src="{{videoUrl}}" autoplay="true"   />
+    <button class="videoButton" onTap="onCloseVideo">关闭</button>
+    <!-- <view class="videoClose">
+        <text  style = "font-size:1rem;background-color:beige" onTap="onCloseVideo"   class="iconfont icon-delete"/>
+    </view> -->
+</view>
+<view a:else>
     <button onTap="openModal">打开modal</button>
     <button onTap="onUploadMedia">上传视频</button>
     <!--<commonmodal show="{{showModal}}" height='80%' cancel="modalCancel" confirm='modalConfirm'>-->
@@ -41,11 +48,6 @@
                </view>
        </view>
     </commonmodal>
-    <view>
-        <video src="{{videoUrl}}">
-            video组件
-        </video>
-    </view>
     <block  a:if={{!showModal}}>
     <view class="input-title">常规</view>
     <view class="page-section">
@@ -71,7 +73,7 @@
         <view class="img-content">
             <block a:for="{{thumbs}}" >
                 <view class="img-thumb"  >
-                    <image  style = "width:120rpx;height:120rpx" src="{{item.category==='image'?item.url:'/resources/video.jpeg'}}" onTap="onMediaPreview" data-src="{{item.url}}" mode="scaleToFill" />
+                    <image  style = "width:120rpx;height:120rpx" src="{{item.category==='image'?item.url:'/resources/video.jpeg'}}" onTap="onMediaPreview" data-src="{{item.url}}" data-category= "{{item.category}}" mode="scaleToFill" />
                     <view class="imgdelete">
                         <text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeleteMedia"  data-index="{{index}}" class="iconfont icon-delete"/>
                     </view> 

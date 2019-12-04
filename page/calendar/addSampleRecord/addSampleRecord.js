@@ -2,6 +2,7 @@ Page({
   data: {
       // showDetailed:false,//显示数据记录详情,与showModal相反
       showModal:false,
+      showVideo:false,
       sampleDataRecID:null,//新数据记录ID
       testCategory: ['现场检测', '取样检测'],
       testCategoryIndex:-1, //检测类型序号
@@ -24,10 +25,12 @@ Page({
           /* {name:"外观",classification:"检测项目",testMethod:"目测"},
           {name:"浓度",classification:"检测项目",testMethod:"目测"},*/
       ],
-      //媒体信息
-      thumbs:[/*{url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
-           {url:'http://r1w8478651.mp4',category:'video'},
-          {url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'}*/
+      //媒体信息,url保证视频文件唯一性,最好加上fm中的主键ID,比如样品记录数据ID
+      thumbs:[
+          /*{url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
+          {url:'http://r1w8478651.mp4',category:'video'},
+          {url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
+          {url:'http://r1w8478651.mp4',category:'video'}*/
           ],
       //显示视频预览
       showVideoPreview:false,
@@ -59,6 +62,7 @@ Page({
           }
 
       })
+
   },
   openModal(){
       this.setData({
@@ -157,11 +161,19 @@ Page({
     },
     //媒体容器相关
     onMediaPreview(e){
-        const imageUrl = e.currentTarget.dataset.src;
-       /* dd.previewImage({
-            urls:[imageUrl]
-        });*/
-       this.setData({videoUrl:imageUrl})
+      const imageUrl = e.currentTarget.dataset.src;
+      const category = e.currentTarget.dataset.category;
+       if (category==='video') {
+           this.setData({videoUrl:imageUrl,
+               showVideo:true})
+       }else{
+           dd.previewImage({
+               urls:[imageUrl]
+           })
+       }
+    },
+    onCloseVideo(){
+        this.setData({showVideo:false})
     },
     onAddMedia(e){
         const t = this;
@@ -179,16 +191,34 @@ Page({
                         count: 9-thumbs.length, //最多只能选9张图片
                         success: (res) => {
                             if(res.filePaths || res.apFilePaths) {
+                                let promiseArr = [];
+                                res.filePaths.forEach(path => {
+                                    promiseArr.push(updateImageToServer({url:path,category:'image'}))
+                                })
+                                Promise.all(promiseArr).then(results => { //results为promiseArr返回的数组合集,既上传文件的服务器url集
+                                    dd.hideLoading();
+                                    dd.alert({content:"上传成功"})
+                                    results.forEach(item => {
+                                        thumbs.push({url:item,category:'image'});
+                                    })
+                                    t.setData({
+                                            thumbs: thumbs
+                                        }
+                                    );
+                                })
+                            //将数据存入,但没有上传
+                            /*if(res.filePaths || res.apFilePaths) {
                                 res.filePaths.forEach(item => {
                                     const path = item;
-                                    //将数据存入,但没有上传
+
                                     thumbs.push({url:path,category:'image'});
                                 })
-
                                 t.setData({
                                         thumbs: thumbs
                                     }
                                 );
+                            }*/
+
                             }
                         },
                     });
@@ -200,15 +230,49 @@ Page({
                             // const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
                             if(res.size>200000000) {
                                 dd.alert({content:"视频超过200M不能上传,或大于1分钟"})
-                            }else{
-                            const path = res.filePath;
-                            console.log(res);
-                            dd.alert({content: path})
-                            //将数据存入,但没有上传
-                            thumbs.push({url:path,category:'video'})}
-                            t.setData({
-                                thumbs:thumbs
-                             });
+                            }else {
+                                const path = res.filePath;
+                                dd.showLoading();
+
+                                /* //将数据存入,但没有上传
+                                 thumbs.push({url:path,category:'video'})}
+                                 t.setData({
+                                     thumbs:thumbs
+                                  });*/
+
+                                //直接上传到应用服务器
+                                //development服务器
+                                const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediaToServer.php"
+                                dd.uploadFile({
+                                    // url: getApp().globalData.domain + '/upload/upload.php',
+                                    url:url,
+                                    fileType: 'video',
+                                    fileName: 'file',
+                                    filePath: path,
+                                    formData:{fileType:'video'},
+                                    success: res => {
+                                        console.log(JSON.parse(res.data));
+                                        const data = JSON.parse(res.data)
+                                        if (data.result == "success") {
+                                            //返回上传图片urls
+                                            dd.hideLoading();
+                                            dd.alert({content: "上传成功"})
+                                            thumbs.push({url:data.fileUrl,category:'video'})
+                                        t.setData({
+                                            thumbs:thumbs
+                                        });
+
+                                        } else {
+                                            dd.hideLoading();
+                                            dd.alert({content: `上传服务器失败：${JSON.stringify(res)}`})
+                                        }
+                                    },
+                                    fail: function (res) {
+                                        dd.hideLoading();
+                                        dd.alert({content: `上传失败：${JSON.stringify(res)}`});
+                                    },
+                                });
+                            }
                         },
                         fail: (err)=> {
                             console.log(err)
@@ -222,22 +286,59 @@ Page({
         const t = this;
         const index = e.currentTarget.dataset.index; //第几张图
         let thumbs = this.data.thumbs;
-        thumbs.splice(index,1);
-        t.setData({
-                thumbs:thumbs
-            }
-        );
+
+        //需将应用服务器中的媒体文件删除
+            dd.confirm({
+                title: '删除视频',
+                content: '确定删除视频?.',
+                confirmButtonText: '确认',
+                success: (result) => {
+                    if (result.confirm === true) {
+                        dd.showLoading();
+                        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
+                        dd.httpRequest({
+                            url: url,
+                            method: 'POST',
+                            data: {
+                                urlPath: thumbs[index].url,
+                            },
+                            dataType: 'json',
+                            success: (res) => {
+                                if (res.data.result === 'success') {
+                                    thumbs.splice(index, 1);
+                                    t.setData({
+                                            thumbs: thumbs
+                                        }
+                                    );
+                                } else {
+                                    dd.alert({content: "删除上传文件失败,稍后再试"});
+                                }
+                                dd.hideLoading();
+
+                            },
+                            fail: (res) => {
+                                console.log("httpRequestFail---", res)
+                                dd.hideLoading();
+                            },
+
+                        })
+                    }
+                }
+            })
 
     },
     onUploadMedia() {
         if (this.data.thumbs.length >= 1) {
+            const t =this;
+            const thumbs =this.data.thumbs
             dd.confirm({
                 title: '上传媒体',
                 content: '媒体上传阿里云.',
                 confirmButtonText: '提交',
                 success: (result) => {
-                    dd.showLoading();
-                    if (result.confirm === true) {
+                    //将客户端文件通过应用服务器中转,再上传阿里云
+                    /*if (result.confirm === true) {
+                        dd.showLoading();
                         const thumbs = this.data.thumbs;
                         let promiseArr = [];
                         for (let i = 0; i < thumbs.length; i++) {
@@ -249,8 +350,30 @@ Page({
                                 dd.hideLoading();
                                 dd.alert({content:"上传成功"})
                             })
-                    }
-                },
+                    }*/
+                    const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAili.php"
+                    //将应用服务器临时文件,上传阿里云
+                    dd.httpRequest({
+                        url: url,
+                        method: 'post',
+                        data: {
+                            thumbs:JSON.stringify(thumbs)
+                        },
+                        success: function (res) {
+                            if(res.data.result == 'success') {
+                                dd.alert({content:"已上传阿里云."});
+                                t.setData({
+                                        thumbs: []
+                                    }
+                                );
+                            }else{
+                                dd.alert({content:"获取流程列表失败."});
+                            }
+                        },
+                        fail: function (res) {
+                            dd.alert({content:"获取流程列表失败."+JSON.stringify(res)});
+                        }
+                    });                },
                 fail: function (res) {
                     dd.hideLoading();
                     dd.alert({content: `上传失败了：${JSON.stringify(res)}`});
@@ -258,7 +381,8 @@ Page({
                 }
             })
         }
-    }
+    },
+
 });
 
 function updateMedia(thumb) {
@@ -291,8 +415,78 @@ function updateMedia(thumb) {
             },
         });
     })
-
-
 }
+
+function updateImageToServer(thumb) {
+    // console.log('thumb:'+JSON.stringify(thumb));
+    return new Promise(function (resolve,reject) {
+        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediaToServer.php"
+        const fileType = thumb.category==="image"?"image":"video"
+        dd.uploadFile({
+            // url: getApp().globalData.domain + '/upload/upload.php',
+            url:url,
+            fileType: fileType,
+            fileName: 'file',
+            filePath: thumb.url,
+            formData:{fileType:fileType},
+            success: res => {
+                console.log(JSON.parse(res.data));
+                if (JSON.parse(res.data).result == "success") {
+                    //返回上传图片urls
+                    resolve(JSON.parse(res.data).fileUrl);
+                } else {
+                    dd.hideLoading();
+                    dd.alert({content: `上传服务器失败：${JSON.stringify(res)}`})
+                    reject('failure');
+                }
+            },
+            fail: function (res) {
+                dd.hideLoading();
+                dd.alert({content: `上传失败：${JSON.stringify(res)}`});
+                reject('failure');
+            },
+        });
+    })
+}
+// var arr=[{name:2,id:3},{name:2,id:4},{name:3,id:5},{name:3,id:6},{name:1,id:1},{name:1,id:2}];
+// sortArr( arr, 'name');
+
+// 传入一个数组
+// 按照特定方式格式化
+/*function sortArr(arr, str) {
+    var _arr = [],
+        _t = [],
+        // 临时的变量
+        _tmp;
+ 
+    // 按照特定的参数将数组排序将具有相同值得排在一起
+    arr = arr.sort(function(a, b) {
+        var s = a[str],
+            t = b[str];
+ 
+        return s < t ? -1 : 1;
+    });
+ 
+    if ( arr.length ){
+        _tmp = arr[0][str];
+    }
+    // console.log( arr );
+    // 将相同类别的对象添加到统一个数组
+    for (var i in arr) {
+        console.log( _tmp);
+        if ( arr[i][str] === _tmp ){
+            console.log(_tmp)
+            _t.push( arr[i] );
+        } else {
+            _tmp = arr[i][str];
+            _arr.push( _t );
+            _t = [arr[i]];
+        }
+    }
+    // 将最后的内容推出新数组
+    _arr.push( _t );
+    return _arr;
+}
+ */
 
 

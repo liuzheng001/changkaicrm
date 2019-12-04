@@ -213,5 +213,25 @@
     margin-bottom: 30rpx;
     position: relative;
 }
+.videoContainer{
+    width: 100%;
+    height: 100vh;
+}
 
+.video{
+   width: 100%;
+   height: 90%; 
+}
+.videoButton{
+    height:10%
+}
+
+.videoClose{
+    width:100rpx;
+    height:100rpx;
+    border-radius:60%;
+    position:absolute;
+    top: 40rpx;
+    left: 40rpx;
+}
 
