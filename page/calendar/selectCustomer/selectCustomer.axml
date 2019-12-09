@@ -1,0 +1,22 @@
+<view>
+  <view style="height:90vh">
+    <picker-view value="{{value}}" onChange="onChange" class="my-picker">
+      <picker-view-column>
+        <!--<view>2011</view>
+        <view>2022</view>
+        <view>2033</view>-->
+        <view a:for="{{originData}}">
+          {{index}}
+        </view>
+      </picker-view-column>
+      <picker-view-column>
+        <view a:for="{{originData[firstKey]}}">
+          {{originData[firstKey][index]['categoryAndTime']}}
+        </view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <view class="fixed-button">
+    <button type="primary" onTap="onCreateTrackRec">新建跟踪数据</button>
+  </view>
+</view>

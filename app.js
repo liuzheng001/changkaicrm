@@ -78,9 +78,13 @@ App({
                         /*dd.switchTab({ //流程模版分类
                             url: '/page/category/category'
                         })*/
-                        dd.navigateTo({
+                        /*dd.navigateTo({
                             url: '/page/calendar/addSampleRecord/addSampleRecord'
+                        })*/
+                        dd.navigateTo({
+                            url: '/page/calendar/selectCustomer/selectCustomer'
                         })
+
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

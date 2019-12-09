@@ -195,6 +195,7 @@ Page({
                                 res.filePaths.forEach(path => {
                                     promiseArr.push(updateImageToServer({url:path,category:'image'}))
                                 })
+                                dd.showLoading();
                                 Promise.all(promiseArr).then(results => { //results为promiseArr返回的数组合集,既上传文件的服务器url集
                                     dd.hideLoading();
                                     dd.alert({content:"上传成功"})
@@ -205,6 +206,7 @@ Page({
                                             thumbs: thumbs
                                         }
                                     );
+                                    dd.hideLoading();
                                 })
                             //将数据存入,但没有上传
                             /*if(res.filePaths || res.apFilePaths) {
@@ -367,11 +369,11 @@ Page({
                                     }
                                 );
                             }else{
-                                dd.alert({content:"获取流程列表失败."});
+                                dd.alert({content:"上传阿里云失败"});
                             }
                         },
                         fail: function (res) {
-                            dd.alert({content:"获取流程列表失败."+JSON.stringify(res)});
+                            dd.alert({content:"上传阿里云失败."+JSON.stringify(res)});
                         }
                     });                },
                 fail: function (res) {
