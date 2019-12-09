@@ -9,7 +9,7 @@
     <button onTap="openModal">打开modal</button>
     <button onTap="onUploadMedia">上传视频</button>
     <!--<commonmodal show="{{showModal}}" height='80%' cancel="modalCancel" confirm='modalConfirm'>-->
-    <commonmodal show="{{showModal}}"  onChangeShow="onChangeShow" onCreateRecord ="onCreateRecord" height='65%'>
+    <commonmodal show="{{showModal}}"  onCancelRecord="onCancelRecord" onCreateRecord ="onCreateRecord" height='65%'>
        <view class='modal-content'>
         <!-- <formrow wx:for='{{goodsList}}' wx:key='{{index}}' title="{{item.name}}" placeholder='库存{{item.store}}' mviode='input' rowpadding='10rpx' currentId="{{index}}" bindinput='goodsInput'></formrow> -->
           <!--modal内容，是scrollView-->
@@ -79,7 +79,7 @@
                     </view> 
                 </view>
             </block>
-            <view a:if="{{thumbs.length<9}}" class="img-thumb"  >
+            <view a:if="{{thumbs.length<6}}" class="img-thumb"  >
                 <text  style ="font-size:100rpx"   onTap="onAddMedia" class="iconfont icon-add-fill"/>
             </view>
         </view>
@@ -112,7 +112,7 @@
         <view class="input-title">处理效果描述</view>
         <textarea class="multilineInput" name="handlingEffect" value="" />
     </view>
-    <view><button type="primary" onTap="onSubmit">提交</button></view>
+    <view><button type="primary" onTap="onSubmit" style="position:absolute;bottom:0px;margin-bottom:0px;width:100%">提交</button></view>
   </block>  
 </view>
 

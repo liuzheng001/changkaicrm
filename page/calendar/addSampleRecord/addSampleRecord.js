@@ -1,7 +1,7 @@
 Page({
   data: {
       // showDetailed:false,//显示数据记录详情,与showModal相反
-      showModal:false,
+      showModal:true,
       showVideo:false,
       sampleDataRecID:null,//新数据记录ID
       testCategory: ['现场检测', '取样检测'],
@@ -36,7 +36,7 @@ Page({
       showVideoPreview:false,
       videoUrl:"",
   },
-  onLoad() {
+  onLoad(query) {
       //读取fm选择样品记录列表
       const url = getApp().globalData.domain+"/fmSampleRec.php";
       dd.httpRequest({
@@ -44,7 +44,7 @@ Page({
           method: 'get',
           data: {
               action:'getSampleMessage',
-              sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213'
+              sampleID:query.customerID
           },
           dataType: 'json',
           success: (res) => {
@@ -91,16 +91,29 @@ Page({
         });
     },
     //mask组件触发page(外组件)方法
-    onChangeShow(isShow){
-        this.setData({
-            showModal:isShow
+    onCancelRecord(isShow){
+        dd.confirm({
+            title: '提示',
+            content: '放弃新建样品跟踪记录?',
+            confirmButtonText: '放弃',
+            cancelButtonText:'再看看',
+            success: (result) => {
+                if(result.confirm === true){
+                    dd.navigateBack()
+                }
+            },
         })
     },
     //mask组件触发page(外组件)方法
     //建立新试样数据,通过fm脚本
     onCreateRecord(){
         const t =this;
-        dd.confirm({
+        //校验数据
+        if (t.data.testCategoryIndex<0 || t.data.selectMachineIndex<0 || t.data.selectProductIndex<0) {
+            dd.alert({content:'数据不正确,请检查'})
+            return;
+        }
+        /*dd.confirm({
             title: '提示',
             content: '确认新建试样记录?',
             confirmButtonText: '确认',
@@ -156,9 +169,56 @@ Page({
                     })
                 }
             },
-        })
+        })*/
+        const url = getApp().globalData.domain+"/fmSampleRec.php";
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action:'createSampleRecord',
 
-    },
+                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
+                testCategory:t.data.testCategory[t.data.testCategoryIndex],
+                machineID:t.data.selectMachine[t.data.selectMachineIndex]['machineID'],
+                formulaID:t.data.selectProduct[t.data.selectProductIndex]['formulaID'],
+            },
+            dataType: 'json',
+            success: (res) => {
+                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                //填充新数据记录,subjects和addSubjects
+                if (res.data.success===true) {
+                    t.data.sampleDataRecID = res.data.data.sampleDataRecID
+                    dd.httpRequest({
+                        url: url,
+                        method: 'get',
+                        data: {
+                            action: 'getSampleData',
+                            sampleDataRecID: t.data.sampleDataRecID,
+                            // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                        },
+                        dataType: 'json',
+                        success: (res) => {
+                            // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                            //将新建的记录数据内容
+                            this.setData({
+                                subjects: res.data.data.subjects,
+                                addSubjects: res.data.data.addSubjects,
+                                showModal:false,
+                            });
+                        },
+                        fail: (res) => {
+                            dd.alert({'content': JSON.stringify(res)})
+                        },
+                    })
+                }
+
+            },
+            fail: (res) => {
+                dd.alert({'content':JSON.stringify(res)})
+            },
+        })
+},
     //媒体容器相关
     onMediaPreview(e){
       const imageUrl = e.currentTarget.dataset.src;
@@ -384,6 +444,13 @@ Page({
             })
         }
     },
+    onSubmit(){ //提交到fm
+    //数据校验
+
+
+    //
+        
+    }
 
 });
 

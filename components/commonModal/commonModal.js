@@ -25,12 +25,12 @@ Component({
     show: false,
     //modal的高度
     height: '80%',
-      onChangeShow:(data)=>{
-           console.log(data);
-      },
-      onCreateRecord:(data)=>{
-          console.log(data);
-      },
+    onCancelRecord:(data)=>{
+         console.log(data);
+    },
+    onCreateRecord:(data)=>{
+        console.log(data);
+    },
   },
 
   /**
@@ -50,17 +50,15 @@ Component({
 
     cancel() {
       //不能直接用this.setData({ show: false })方法设置props，这样可以关闭modal，但第2次再打开就不行，只有将数据传到父组件，通过父组件setData
-      this.props.onChangeShow(false);
+      this.props.onCancelRecord(false);
       // this.setData({ show: false })
       // this.triggerEvent('cancel')
-      dd.alert({content:'取消'})
     },
 
     confirm() {
         //不能直接用this.setData({ ifShow: false })方法，这样可以关闭modal，但第2次再打开就不行，只有将数据传到父组件，通过父组件setData
         // this.props.onChangeShow(false);
         this.props.onCreateRecord();
-
         // this.setData({ show: false })
       // this.triggerEvent('confirm')
       // dd.alert({content:'确定'})
