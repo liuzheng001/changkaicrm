@@ -119,7 +119,11 @@ Page({
 
     },
     onCreateTrackRec(){
+        const key = this.data.firstKey,num = this.data.value[1];
 
-    }
+        const customerID = this.data.originData[key][num].sampleRecID;
+        dd.navigateTo({
+            url: "/page/calendar/addSampleRecord/addSampleRecord?customerID="+customerID
+        })    }
 
 });
