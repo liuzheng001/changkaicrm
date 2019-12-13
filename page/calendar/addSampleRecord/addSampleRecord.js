@@ -3,6 +3,7 @@ Page({
       // showDetailed:false,//显示数据记录详情,与showModal相反
       showModal:true,
       showVideo:false,
+      sampleID:null,//试用记录ID
       sampleDataRecID:null,//新数据记录ID
       testCategory: ['现场检测', '取样检测'],
       testCategoryIndex:-1, //检测类型序号
@@ -37,6 +38,10 @@ Page({
       videoUrl:"",
   },
   onLoad(query) {
+      //将进入page标志设为true
+      const app = getApp();
+      app.globalData.sampleDetailPage = true;
+      this.data.sampleID = query.sampleID;
       //读取fm选择样品记录列表
       const url = getApp().globalData.domain+"/fmSampleRec.php";
       dd.httpRequest({
@@ -44,7 +49,7 @@ Page({
           method: 'get',
           data: {
               action:'getSampleMessage',
-              sampleID:query.customerID
+              sampleID:query.sampleID
           },
           dataType: 'json',
           success: (res) => {
@@ -64,6 +69,11 @@ Page({
       })
 
   },
+    onUnload(){
+      console.log("返回键按下,page销毁")
+      //真机上可调试,ide直接忽略
+    dd.alert({content:JSON.stringify(this.data.subjects)})
+    },
   openModal(){
       this.setData({
           showModal:!this.data.showModal
@@ -113,64 +123,8 @@ Page({
             dd.alert({content:'数据不正确,请检查'})
             return;
         }
-        /*dd.confirm({
-            title: '提示',
-            content: '确认新建试样记录?',
-            confirmButtonText: '确认',
-            success: (result) => {
-                if(result.confirm === true){
-                    const url = getApp().globalData.domain+"/fmSampleRec.php";
-                    dd.httpRequest({
-                        url: url,
-                        method: 'get',
-                        data: {
-                            action:'createSampleRecord',
-
-                            // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                            sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                            testCategory:t.data.testCategory[t.data.testCategoryIndex],
-                            machineID:t.data.selectMachine[t.data.selectMachineIndex]['machineID'],
-                            formulaID:t.data.selectProduct[t.data.selectProductIndex]['formulaID'],
-                        },
-                        dataType: 'json',
-                        success: (res) => {
-                            // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                            //填充新数据记录,subjects和addSubjects
-                            if (res.data.success===true) {
-                                t.data.sampleDataRecID = res.data.data.sampleDataRecID
-                                dd.httpRequest({
-                                    url: url,
-                                    method: 'get',
-                                    data: {
-                                        action: 'getSampleData',
-                                        sampleDataRecID: t.data.sampleDataRecID,
-                                        // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                                    },
-                                    dataType: 'json',
-                                    success: (res) => {
-                                        // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                                        //将新建的记录数据内容
-                                        this.setData({
-                                            subjects: res.data.data.subjects,
-                                            addSubjects: res.data.data.addSubjects,
-                                            showModal:false,
-                                        });
-                                    },
-                                    fail: (res) => {
-                                        dd.alert({'content': JSON.stringify(res)})
-                                    },
-                                })
-                            }
-
-                        },
-                        fail: (res) => {
-                            dd.alert({'content':JSON.stringify(res)})
-                        },
-                    })
-                }
-            },
-        })*/
-        const url = getApp().globalData.domain+"/fmSampleRec.php";
+        //弃用,使用事务提交,不先建立记录数据
+        /*const url = getApp().globalData.domain+"/fmSampleRec.php";
         dd.httpRequest({
             url: url,
             method: 'get',
@@ -216,6 +170,32 @@ Page({
             },
             fail: (res) => {
                 dd.alert({'content':JSON.stringify(res)})
+            },
+        })*/
+        const url = getApp().globalData.domain+"/fmSampleRec.php";
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action:'getDataRecordTemplate',
+                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
+                sampleID:this.data.sampleID,
+            },
+            dataType: 'json',
+            success: (res) => {
+                if (res.data.success===true) {
+                    // dd.alert({'content': JSON.stringify(res)})
+                    //将新建的记录数据内容
+                    this.setData({
+                        subjects: res.data.data.subjects,
+                        addSubjects: res.data.data.addSubjects,
+                        showModal:false,
+                    });
+                }
+            },
+            fail: (res) => {
+                dd.alert({'content': JSON.stringify(res)})
             },
         })
 },
@@ -449,8 +429,7 @@ Page({
 
 
     //
-        
-    }
+    },
 
 });
 

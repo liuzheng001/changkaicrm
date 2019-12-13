@@ -6,7 +6,7 @@
     </view> -->
 </view>
 <view a:else>
-    <button onTap="openModal">打开modal</button>
+    <button onTap="onNavigationBack">返回</button>
     <button onTap="onUploadMedia">上传视频</button>
     <!--<commonmodal show="{{showModal}}" height='80%' cancel="modalCancel" confirm='modalConfirm'>-->
     <commonmodal show="{{showModal}}"  onCancelRecord="onCancelRecord" onCreateRecord ="onCreateRecord" height='65%'>

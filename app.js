@@ -48,6 +48,7 @@ App({
     userId:'',
     departments:[],
     flashScheduleFlag:false,//刷新schedule标志,只有在schedule.js提交才能更改为true
+    sampleDetailPage:false, //当进入addSampleRecord page 时为true
 
   },
   loginSystem() {
