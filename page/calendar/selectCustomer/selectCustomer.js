@@ -61,17 +61,7 @@ Page({
           }
       })
   },
-    onShow(){
-
-
-        const app = getApp();
-        if (app.globalData.sampleDetailPage) {
-            app.globalData.sampleDetailPage = false;
-            // alert("从addSamleRecord page 返回")
-            //不调用
-            // dd.alert({content:"从addSamleRecord page 返回"})
-        }
-    },
+  
   //配方号picker选择
   onChange(e) {
         console.log(e.detail.value);

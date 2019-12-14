@@ -48,7 +48,6 @@ App({
     userId:'',
     departments:[],
     flashScheduleFlag:false,//刷新schedule标志,只有在schedule.js提交才能更改为true
-    sampleDetailPage:false, //当进入addSampleRecord page 时为true
 
   },
   loginSystem() {
@@ -79,12 +78,12 @@ App({
                         /*dd.switchTab({ //流程模版分类
                             url: '/page/category/category'
                         })*/
-                        /*dd.navigateTo({
-                            url: '/page/calendar/addSampleRecord/addSampleRecord'
-                        })*/
                         dd.navigateTo({
-                            url: '/page/calendar/selectCustomer/selectCustomer'
+                            url: '/page/calendar/addSampleRecord/addSampleRecord'
                         })
+                        // dd.navigateTo({
+                        //     url: '/page/calendar/selectCustomer/selectCustomer'
+                        // })
 
                     },
                     fail: (res) => {

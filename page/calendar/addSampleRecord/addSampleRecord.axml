@@ -15,7 +15,7 @@
           <!--modal内容，是scrollView-->
            <view class="page-section">
                <view class="row" >
-                   <view class="row-title">项目类别</view>
+                   <view class="row-title">项目类别</view> 
                    <view class="row-extra"><input name="category" value={{category}} disabled="true"  /></view>
                </view>
            </view>
@@ -32,7 +32,7 @@
                    <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}" range-key="formulaNum">
                        <view class="row">
                            <view class="row-title">选择产品</view>
-                           <view class="row-extra"><input name="selectProduct" style={{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
+                           <view class="row-extra"><input name="selectProduct" style="{{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}}" value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
                            <view class="a-list-arrow a-list-arrow-horizontal" />
                        </view>
                    </picker>
@@ -49,21 +49,61 @@
        </view>
     </commonmodal>
     <block  a:if={{!showModal}}>
+      <commonmodal show="{{showDetailModal}}"  onCancelRecord="onClose" onCreateRecord ="onClose" height='900rpx'>
+       <view class='modal-content'>
+           <view class="page-section">
+               <view class="row" >
+                   <view class="row-title">项目名称</view>
+                   <view class="row-extra">{{subjectCategory==="subjects"?subjects[subjectsIndex]['name']:addSubjects[subjectsIndex]['name']}}</view>
+               </view>
+           </view>
+           <view class="page-section">
+                   <picker onChange="selectMachinePickerChange" value="{{selectMachineIndex}}" range="{{selectMachine}}" range-key="machineIdentification">
+                       <view class="row">
+                           <view class="row-title">检测项目</view>
+                           <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectMachineIndex===-1?"请选择":selectMachine[selectMachineIndex].machineIdentification}} disabled="true"  /></view>
+                           <view class="a-list-arrow a-list-arrow-horizontal" />
+                       </view>
+                   </picker>
+          </view>
+           <view class="page-section">
+               <picker onChange="testCategoryPickerChange" value="{{testCategoryIndex}}" range="{{testCategory}}">
+                   <view class="row">
+                       <view class="row-title">检测方法</view>
+                       <view class="row-extra"><input name="testCategory" value={{testCategoryIndex===-1?"请选择":testCategory[testCategoryIndex]}} disabled="true"  /></view>
+                       <view class="a-list-arrow a-list-arrow-horizontal" />
+                   </view>
+               </picker>
+           </view>
+               <view class="page-section">
+                   <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}" range-key="formulaNum">
+                       <view class="row">
+                           <view class="row-title">实测数据</view>
+                           <view class="row-extra"><input name="selectProduct" style="{{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}}" value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
+                           <view class="a-list-arrow a-list-arrow-horizontal" />
+                       </view>
+                   </picker>
+               </view>
+               
+       </view>
+    </commonmodal>
     <view class="input-title">常规</view>
     <view class="page-section">
         <block a:for={{subjects}} >
-        <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name="productName"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}"/></view>
+            <view class="row-extra"><input name="testData" data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/>
         </view>
         </block>
     </view>
     <view class="input-title">附加</view>
     <view class="page-section">
       <block a:for={{addSubjects}} >
-        <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name="productName"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}"/></view>
+            <view class="row-extra"><input name="testData" data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <view class="a-list-arrow a-list-arrow-horizontal" data-index="{{index}}" data-testCategory="addSubjects" onTap="openDetailModal"/>
         </view>
       </block>
    </view>

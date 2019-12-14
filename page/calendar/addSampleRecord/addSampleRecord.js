@@ -2,6 +2,7 @@ Page({
   data: {
       // showDetailed:false,//显示数据记录详情,与showModal相反
       showModal:true,
+      showDetailModal:false,//显示检测项目详情
       showVideo:false,
       sampleID:null,//试用记录ID
       sampleDataRecID:null,//新数据记录ID
@@ -16,16 +17,19 @@ Page({
       //试样类别
       category:'',
       //检测项目
-      subjects:[
-          /*{name:"外观",classification:"检测项目",testMethod:"目测"},
-          {name:"浓度",classification:"检测项目",testMethod:"目测"},
+      subjects:[//包括实测数据
+          /*{name:"外观",classification:"检测项目",testMethod:"目测",testData:""},
+          {name:"浓度",classification:"检测项目",testMethod:"目测",testData:""},
          */
 
       ],
-      addSubjects:[
-          /* {name:"外观",classification:"检测项目",testMethod:"目测"},
-          {name:"浓度",classification:"检测项目",testMethod:"目测"},*/
+      addSubjects:[//包括实测数据
+          /* {name:"外观",classification:"检测项目",testMethod:"目测",testData:""},
+          {name:"浓度",classification:"检测项目",testMethod:"目测",testData:""},*/
       ],
+      subjectCategory:"",
+      subjectsIndex:-1,
+
       //媒体信息,url保证视频文件唯一性,最好加上fm中的主键ID,比如样品记录数据ID
       thumbs:[
           /*{url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
@@ -38,10 +42,10 @@ Page({
       videoUrl:"",
   },
   onLoad(query) {
-      //将进入page标志设为true
-      const app = getApp();
-      app.globalData.sampleDetailPage = true;
-      this.data.sampleID = query.sampleID;
+   
+      // this.data.sampleID = query.sampleID;
+     // debug
+      this.data.sampleID = "6DFC100A-56D9-43FD-BD0A-BAE9F2388213"
       //读取fm选择样品记录列表
       const url = getApp().globalData.domain+"/fmSampleRec.php";
       dd.httpRequest({
@@ -49,7 +53,7 @@ Page({
           method: 'get',
           data: {
               action:'getSampleMessage',
-              sampleID:query.sampleID
+              sampleID:this.data.sampleID
           },
           dataType: 'json',
           success: (res) => {
@@ -79,12 +83,12 @@ Page({
           showModal:!this.data.showModal
       })
     },
-    closeModal(){
+    /*closeModal(){
         this.setData({
             showModal:false
         })
     },
-
+*/
     testCategoryPickerChange(e) {
         this.setData({
             testCategoryIndex: e.detail.value,
@@ -100,6 +104,7 @@ Page({
             selectMachineIndex: e.detail.value,
         });
     },
+    
     //mask组件触发page(外组件)方法
     onCancelRecord(isShow){
         dd.confirm({
@@ -199,6 +204,32 @@ Page({
             },
         })
 },
+    //输入实测数据,写入对应subjects
+    onInput: function (e) {
+        const testData = e.detail.value;
+        const index =e.currentTarget.dataset.index;
+        const testCategory = e.currentTarget.dataset.testCategory
+        if(testCategory === "subjects") {
+            this.data.subjects[index].testData = testData
+        }else{
+            this.data.addSubjects[index].testData = testData
+
+        }
+    },
+
+    openDetailModal(e){
+        const subjectsIndex= e.currentTarget.dataset.index;
+        const subjectCategory = e.currentTarget.dataset.testCategory
+        this.setData({showDetailModal:true,
+                      subjectsIndex:subjectsIndex,
+                      subjectCategory:subjectCategory});
+
+    },
+    onClose(){
+        this.setData({
+            showDetailModal:false
+        })
+    },
     //媒体容器相关
     onMediaPreview(e){
       const imageUrl = e.currentTarget.dataset.src;
