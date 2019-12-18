@@ -32,7 +32,7 @@
                    <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}" range-key="formulaNum">
                        <view class="row">
                            <view class="row-title">选择产品</view>
-                           <view class="row-extra"><input name="selectProduct" style="{{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}}" value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
+                           <view class="row-extra"><input name="selectProduct" style={{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
                            <view class="a-list-arrow a-list-arrow-horizontal" />
                        </view>
                    </picker>
@@ -49,7 +49,7 @@
        </view>
     </commonmodal>
     <block  a:if={{!showModal}}>
-      <commonmodal show="{{showDetailModal}}"  onCancelRecord="onClose" onCreateRecord ="onClose" height='900rpx'>
+      <!-- <commonmodal show="{{showDetailModal}}"  onCancelRecord="onClose" onCreateRecord ="onClose" height='900rpx'>
        <view class='modal-content'>
            <view class="page-section">
                <view class="row" >
@@ -75,25 +75,16 @@
                    </view>
                </picker>
            </view>
-               <view class="page-section">
-                   <picker onChange="selectProductPickerChange" value="{{selectProductIndex}}" range="{{selectProduct}}" range-key="formulaNum">
-                       <view class="row">
-                           <view class="row-title">实测数据</view>
-                           <view class="row-extra"><input name="selectProduct" style="{{selectProduct[selectProductIndex].formulaNum.length>15?"font-size:16rpx":"font-size:32rpx"}}" value={{selectProductIndex===-1?"请选择":selectProduct[selectProductIndex].formulaNum}} disabled="true"  /></view>
-                           <view class="a-list-arrow a-list-arrow-horizontal" />
-                       </view>
-                   </picker>
-               </view>
                
        </view>
-    </commonmodal>
+    </commonmodal> -->
     <view class="input-title">常规</view>
     <view class="page-section">
         <block a:for={{subjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
-            <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name="testData" data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
-            <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/>
+            <view class="row-title" style="{{item.分类=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
+            <view class="row-extra"><input name={{item.testData}} value={{item.testData}} data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.分类=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/> -->
         </view>
         </block>
     </view>
@@ -102,8 +93,8 @@
       <block a:for={{addSubjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name="testData" data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
-            <view class="a-list-arrow a-list-arrow-horizontal" data-index="{{index}}" data-testCategory="addSubjects" onTap="openDetailModal"/>
+            <view class="row-extra"><input name={{item.testData}} value={{item.testData}} data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index="{{index}}" data-testCategory="addSubjects" onTap="openDetailModal"/> -->
         </view>
       </block>
    </view>
