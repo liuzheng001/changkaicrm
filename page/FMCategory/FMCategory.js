@@ -76,6 +76,12 @@ Page({
           url: '/page/fmWebView/fmWebView?filename='+e.currentTarget.dataset.fileName
       })
     },
+    openEzView() {
+        dd.redirectTo({
+            url: '/page/logs/logs'
+        })
+    },
+
     openModal(){  //显示模态框
         this.setData({
             show:true,

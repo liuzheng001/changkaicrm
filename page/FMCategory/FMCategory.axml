@@ -21,4 +21,5 @@
           <text class="grid-text">{{item.fmFileName}}</text>
         </view>
     </view>
+    <button onTap="openEzView">打开EzView</button>
 </view>

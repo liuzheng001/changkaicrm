@@ -1,13 +1,13 @@
 <view a:if={{showVideo}} class="videoContainer">
-    <video class="video"  src="{{videoUrl}}" autoplay="true"   />
-    <button class="videoButton" onTap="onCloseVideo">关闭</button>
-    <!-- <view class="videoClose">
-        <text  style = "font-size:1rem;background-color:beige" onTap="onCloseVideo"   class="iconfont icon-delete"/>
-    </view> -->
-</view>
-<view a:else>
-    <button onTap="onNavigationBack">返回</button>
-    <button onTap="onUploadMedia">上传视频</button>
+        <video class="video"  src="{{videoUrl}}" autoplay="true"   />
+        <button class="videoButton" onTap="onCloseVideo">关闭</button>
+        <!-- <view class="videoClose">
+            <text  style = "font-size:1rem;background-color:beige" onTap="onCloseVideo"   class="iconfont icon-delete"/>
+        </view> -->
+    </view>
+<view  a:else >
+    <!--<button onTap="onNavigationBack">返回</button>-->
+    <!--<button onTap="onUploadMedia">上传视频</button>-->
     <!--<commonmodal show="{{showModal}}" height='80%' cancel="modalCancel" confirm='modalConfirm'>-->
     <commonmodal show="{{showModal}}"  onCancelRecord="onCancelRecord" onCreateRecord ="onCreateRecord" height='65%'>
        <view class='modal-content'>
@@ -48,7 +48,7 @@
                </view>
        </view>
     </commonmodal>
-    <block  a:if={{!showModal}}>
+    <view  a:if={{!showModal}} style="position:relative">
       <!-- <commonmodal show="{{showDetailModal}}"  onCancelRecord="onClose" onCreateRecord ="onClose" height='900rpx'>
        <view class='modal-content'>
            <view class="page-section">
@@ -78,8 +78,8 @@
                
        </view>
     </commonmodal> -->
-    <view class="input-title">常规</view>
     <view class="page-section">
+        <view class="input-title">常规</view>
         <block a:for={{subjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.分类=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
@@ -87,9 +87,9 @@
             <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/> -->
         </view>
         </block>
-    </view>
-    <view class="input-title">附加</view>
+        </view>
     <view class="page-section">
+        <view class="input-title">附加</view>
       <block a:for={{addSubjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
@@ -98,7 +98,6 @@
         </view>
       </block>
    </view>
-
     <view class="page-section">
         <view class="input-title" style="padding-bottom:30rpx">媒体容器</view>
         <view class="img-content">
@@ -117,10 +116,10 @@
     </view>
     <view class="page-section">
         <view class="input-title">备注</view> 
-        <textarea class="multilineInput" name="remark" value="" />
+        <textarea class="multilineInput" data-name="remark" value={{remark}} onInput="onTextareaInput" />
     </view>
 
-    <view><button type="primary" onTap="onException">记录异常</button></view>
+    <!--<view><button type="primary" onTap="onException">记录异常</button></view>
 
     <view class="page-section">
         <view class="input-title">异常描述</view>
@@ -142,8 +141,8 @@
     <view class="page-section">
         <view class="input-title">处理效果描述</view>
         <textarea class="multilineInput" name="handlingEffect" value="" />
+    </view>-->
+    <button type="primary" onTap="onSubmit" style="position:absolute;margin:0px;width:100%">提交</button>
     </view>
-    <view><button type="primary" onTap="onSubmit" style="position:absolute;bottom:0px;margin-bottom:0px;width:100%">提交</button></view>
-  </block>  
 </view>
 

@@ -24,7 +24,8 @@
     "page/category/workflowlist/workflowlist",
     "page/samplesapply/samplesapply",
     "page/calendar/addSampleRecord/addSampleRecord",
-    "page/calendar/selectCustomer/selectCustomer"
+    "page/calendar/selectCustomer/selectCustomer",
+    "page/calendar/editSampleRecord/editSampleRecord"
   ],
   "window": {
     "defaultTitle": "长凯CRM",

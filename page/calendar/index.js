@@ -782,6 +782,12 @@ Page({
             }, 500)
         }
     },
+    //进入试用样品管理
+    onSampleManagement(){
+        dd.navigateTo({
+            url: '/page/calendar/selectCustomer/selectCustomer'
+        })
+    },
     handleListItemTap(e) {
             //只有当天才能签到,而且已经
         // 签到的情况下,显示修改和查看地图

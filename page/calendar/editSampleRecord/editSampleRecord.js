@@ -2,25 +2,21 @@ Page({
     data: {
         // showDetailed:false,//显示数据记录详情,与showModal相反
         showModal: true,
-        stage:0,//0是在选择机器和产品阶段,1为记录阶段
-        backMode:0,//0代表导航键默认,记录storage,1代表用户提交记录,将storage清零
+        backMode:0,//0代表导航键默认返回,记录storage,1代表用户提交记录返回,将storage清零
         showVideo: false,
         sampleID: null,//试用记录ID
         sampleDataRecID: null,//新数据记录ID
-        testCategory: ['现场检测', '取样检测'],
-        testCategoryIndex: -1, //检测类型序号
+        testCategory: "",
         //选择产品
-        selectProduct: [],
-        selectProductIndex: -1,
+        selectProduct: "",
         //选择设备
-        selectMachine: [],
-        selectMachineIndex: -1,
+        selectMachine: "",
         //试样类别
         category: '',
         //检测项目
         subjects: [//包括实测数据
-            /*{name:"外观",classification:"检测项目",testMethod:"目测",testData:""},
-            {name:"浓度",classification:"检测项目",testMethod:"目测",testData:""},
+            /*{name:"外观",classification:"检测项目",testMethod:"目测",checkData:"",checkContent:""},
+            {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:"",checkContent:""},
            */
 
         ],
@@ -40,174 +36,58 @@ Page({
             {url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
             {url:'http://r1w8478651.mp4',category:'video'}*/
         ],
+        //等待从阿里云上删除的媒体id
+        waitDeleteVideoIds : [],
+        waitDeleteImageIds :[],
         //显示视频预览
         showVideoPreview: false,
         videoUrl: "",
     },
     onLoad(query) {
+      //调试
+        const sampleDataRecID = 315;
         const t = this;
-        let sampleID, thumbs = [];
-        dd.getStorage({
-            key: 'sampleRecord',
-            success: function (res) {
-                //不存在samleRecord key时，res.data为null
-                if (res.data == null) {
-                    t.data.sampleID = query.sampleID;
-                    // debug
-                    // t.data.sampleID = "6DFC100A-56D9-43FD-BD0A-BAE9F2388213";
-                    //读取fm选择样品记录列表
-                    const url = getApp().globalData.domain + "/fmSampleRec.php";
-                    dd.httpRequest({
-                        url: url,
-                        method: 'get',
-                        data: {
-                            action: 'getSampleMessage',
-                            sampleID: t.data.sampleID
-                        },
-                        dataType: 'json',
-                        success: (res) => {
-                            // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                            t.setData({
-                                selectProduct: res.data.data.selectProduct,
-                                selectMachine: res.data.data.selectMachine,
-                                category: res.data.data.category,
-                                thumbs: [],
-                            });
-                        },
-                        fail: (res) => {
-                            dd.alert({'content': JSON.stringify(res)})
-                        },
-                        complete: (res) => {
-                        }
+        //读取fm选择样品记录列表
+        const url = getApp().globalData.domain + "/fmSampleRec.php";
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action: 'getSampleRecord',
+                sampleDataRecID: sampleDataRecID
+            },
+            dataType: 'json',
+            success: (res) => {
+                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                if (res.data.success === true) {
 
-                    })
-                    return;
-                }
-                sampleID = res.data.sampleID;
-                thumbs = res.data.thumbs;
-                if (sampleID === query.sampleID) { //有samleRecord值,且还是同一个试样记录,则将上一次数据恢复
-                    // debug
-                    //   if (sampleID === "6DFC100A-56D9-43FD-BD0A-BAE9F2388213") {
-                    t.data.stage = res.data.stage;
-                    if (res.data.stage === 0) {//还在选择产品和机器阶段
-                        t.setData({
-                            sampleID: sampleID,//试用记录ID
-                            category:res.data.category,
-                            testCategory: res.data.testCategory,
-                            testCategoryIndex: res.data.testCategoryIndex, //检测类型序号
-                            //选择产品
-                            selectProduct: res.data.selectProduct,
-                            selectProductIndex: res.data.selectProductIndex,
-                            //选择设备
-                            selectMachine: res.data.selectMachine,
-                            selectMachineIndex: res.data.selectMachineIndex,
+                    t.setData({
+                        selectProduct: res.data.data.product,
+                        selectMachine: res.data.data.machine,
+                        category: res.data.data.category,
+                        testCategory:res.data.data.testcategory,
+                        //检测项目
+                        subjects: res.data.data.subjects,
+                        addSubjects: res.data.data.addSubjects,
+                        remark:res.data.data.remark,
 
-                        })
-                    }else {
-                        t.setData({
-                            showModal: false,
-                            sampleID: sampleID,//试用记录ID
-                            testCategory: res.data.testCategory,
-                            testCategoryIndex: res.data.testCategoryIndex, //检测类型序号
-                            //选择产品
-                            selectProduct: res.data.selectProduct,
-                            selectProductIndex: res.data.selectProductIndex,
-                            //选择设备
-                            selectMachine: res.data.selectMachine,
-                            selectMachineIndex: res.data.selectMachineIndex,
-                            //试样类别
-                            category: res.data.category,
-                            //检测项目
-                            subjects: res.data.subjects,
-                            addSubjects: res.data.addSubjects,
-                            remark:res.data.remark,
-
-                            //媒体信息,url保证视频文件唯一性,最好加上fm中的主键ID,比如样品记录数据ID
-                            thumbs: thumbs,
-                        })
-                    }
-                } else {
-                    //选择不同的sampleID,则将storage消除
-                    //先将后台的视频和图片消除
-                    let promiseArr = [];
-                    thumbs.forEach(item => {
-                        promiseArr.push(deleteImageToServer(item))
-                    })
-                    Promise.all(promiseArr).then(results => { //results为promiseArr返回的数组合集,既上传文件的服务器url集
-                        console.log("后台媒体清理成功")
-                    })
-                    dd.removeStorage({
-                        key: 'sampleRecord',
-                        success: function () {
-                            t.data.sampleID = query.sampleID;
-                            // debug
-                            // t.data.sampleID = "6DFC100A-56D9-43FD-BD0A-BAE9F2388213";
-                            //读取fm选择样品记录列表
-                            const url = getApp().globalData.domain + "/fmSampleRec.php";
-                            dd.httpRequest({
-                                url: url,
-                                method: 'get',
-                                data: {
-                                    action: 'getSampleMessage',
-                                    sampleID: t.data.sampleID
-                                },
-                                dataType: 'json',
-                                success: (res) => {
-                                    // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                                    t.setData({
-                                        selectProduct: res.data.data.selectProduct,
-                                        selectMachine: res.data.data.selectMachine,
-                                        category: res.data.data.category,
-                                        thumbs: [],
-                                    });
-                                },
-                                fail: (res) => {
-                                    dd.alert({'content': JSON.stringify(res)})
-                                },
-                                complete: (res) => {
-                                }
-
-                            })
-                        }
+                        thumbs: res.data.data.thumbs,
                     });
-
+                }else{
+                    dd.alert({content:'得到样品记录失败'})
                 }
             },
-            fail: function (res) {
-                //选择不同的sampleID,则将storage消除
-                t.data.sampleID = query.sampleID;
-                // debug
-                //   t.data.sampleID = "6DFC100A-56D9-43FD-BD0A-BAE9F2388213";
-                //读取fm选择样品记录列表
-                const url = getApp().globalData.domain + "/fmSampleRec.php";
-                dd.httpRequest({
-                    url: url,
-                    method: 'get',
-                    data: {
-                        action: 'getSampleMessage',
-                        sampleID: t.data.sampleID
-                    },
-                    dataType: 'json',
-                    success: (res) => {
-                        // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                        t.setData({
-                            selectProduct: res.data.data.selectProduct,
-                            selectMachine: res.data.data.selectMachine,
-                            category: res.data.data.category
-                        });
-                    },
-                    fail: (res) => {
-                        dd.alert({'content': JSON.stringify(res)})
-                    },
-                    complete: (res) => {
-                    }
-
-                })
+            fail: (res) => {
+                dd.alert({'content': JSON.stringify(res)})
+            },
+            complete: (res) => {
             }
-        });
+
+        })
+
     },
     onUnload() {
-        console.log("返回键按下,page销毁")
+        /*console.log("返回键按下,page销毁")
         //真机上可调试,ide直接忽略
         // dd.alert({content:JSON.stringify(this.data.subjects)})
         if (this.data.backMode === 1) { //提交退出
@@ -245,138 +125,9 @@ Page({
                     // dd.alert({content: '写入成功'});
                 }
             });
-        }
+        }*/
     },
-    openModal() {
-        this.setData({
-            showModal: !this.data.showModal
-        })
-    },
-    /*closeModal(){
-        this.setData({
-            showModal:false
-        })
-    },
-*/
-    testCategoryPickerChange(e) {
-        this.setData({
-            testCategoryIndex: e.detail.value,
-        });
-    },
-    selectProductPickerChange(e) {
-        this.setData({
-            selectProductIndex: e.detail.value,
-        });
-    },
-    selectMachinePickerChange(e) {
-        this.setData({
-            selectMachineIndex: e.detail.value,
-        });
-    },
-
-    //mask组件触发page(外组件)方法
-    onCancelRecord(isShow) {
-        const t =this;
-        dd.confirm({
-            title: '提示',
-            content: '放弃新建样品跟踪记录?',
-            confirmButtonText: '放弃',
-            cancelButtonText: '再看看',
-            success: (result) => {
-                if (result.confirm === true) {
-                    dd.navigateBack()
-                    t.data.backMode =1;
-                }
-            },
-        })
-    },
-    //mask组件触发page(外组件)方法
-    //建立新试样数据,通过fm脚本
-    onCreateRecord() {
-        const t = this;
-        //校验数据
-        if (t.data.testCategoryIndex < 0 || t.data.selectMachineIndex < 0 || t.data.selectProductIndex < 0) {
-            dd.alert({content: '数据不正确,请检查'})
-            return;
-        }
-        //弃用,使用事务提交,不先建立记录数据
-        /*const url = getApp().globalData.domain+"/fmSampleRec.php";
-        dd.httpRequest({
-            url: url,
-            method: 'get',
-            data: {
-                action:'createSampleRecord',
-
-                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                testCategory:t.data.testCategory[t.data.testCategoryIndex],
-                machineID:t.data.selectMachine[t.data.selectMachineIndex]['machineID'],
-                formulaID:t.data.selectProduct[t.data.selectProductIndex]['formulaID'],
-            },
-            dataType: 'json',
-            success: (res) => {
-                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                //填充新数据记录,subjects和addSubjects
-                if (res.data.success===true) {
-                    t.data.sampleDataRecID = res.data.data.sampleDataRecID
-                    dd.httpRequest({
-                        url: url,
-                        method: 'get',
-                        data: {
-                            action: 'getSampleData',
-                            sampleDataRecID: t.data.sampleDataRecID,
-                            // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                        },
-                        dataType: 'json',
-                        success: (res) => {
-                            // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                            //将新建的记录数据内容
-                            this.setData({
-                                subjects: res.data.data.subjects,
-                                addSubjects: res.data.data.addSubjects,
-                                showModal:false,
-                            });
-                        },
-                        fail: (res) => {
-                            dd.alert({'content': JSON.stringify(res)})
-                        },
-                    })
-                }
-
-            },
-            fail: (res) => {
-                dd.alert({'content':JSON.stringify(res)})
-            },
-        })*/
-        const url = getApp().globalData.domain + "/fmSampleRec.php";
-        dd.httpRequest({
-            url: url,
-            method: 'get',
-            data: {
-                action: 'getDataRecordTemplate',
-                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                sampleID: this.data.sampleID,
-            },
-            dataType: 'json',
-            success: (res) => {
-                if (res.data.success === true) {
-                    // dd.alert({'content': JSON.stringify(res)})
-                    //进入填写记录阶段
-                    this.data.stage = 1;
-                    //将新建的记录数据内容
-                    this.setData({
-                        subjects: res.data.data.subjects,
-                        addSubjects: res.data.data.addSubjects,
-                        showModal: false,
-                    });
-                }
-            },
-            fail: (res) => {
-                dd.alert({'content': JSON.stringify(res)})
-            },
-        })
-    },
+    
     //输入实测数据,写入对应subjects
     onInput: function (e) {
         const testData = e.detail.value;
@@ -419,12 +170,39 @@ Page({
     //媒体容器相关
     onMediaPreview(e) {
         const imageUrl = e.currentTarget.dataset.src;
+        const index = e.currentTarget.dataset.index;
         const category = e.currentTarget.dataset.category;
         if (category === 'video') {
-            this.setData({
-                videoUrl: imageUrl,
-                showVideo: true
-            })
+            //通过videoId播放视频
+            if (this.data.thumbs[index].isUpload == true) { //已上传阿里云,通过videoId播放
+                const url ="http://r1w8478651.imwork.net:9998/corp_demo_php-master/PlayAiliyuVideoForVideoid.php";
+                dd.httpRequest({
+                    url: url,
+                    method: 'POST',
+                    data: {
+                        videoId:this.data.thumbs[index].videoId,
+                    },
+                    dataType: 'json',
+                    success: (res) => {
+                        if (res.data.success === true) {
+                            this.setData({
+                                videoUrl: res.data.src,
+                                showVideo: true
+                            })                        } else {
+                            alert("播放文件失败,稍后再试");
+                        }
+                    },
+                    fail: (res) => {
+                        console.log("httpRequestFail---", res)
+                    },
+                })
+            }else{ //未上传到阿里云
+                this.setData({
+                    videoUrl: imageUrl,
+                    showVideo: true
+                })
+            }
+
         } else {
             dd.previewImage({
                 urls: [imageUrl]
@@ -489,8 +267,8 @@ Page({
                         maxDuration: 60,
                         success: (res) => {
                             // const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
-                            if (res.size > 200000000) {
-                                dd.alert({content: "视频超过200M不能上传,或大于1分钟"})
+                            if (res.size > 20000000) {
+                                dd.alert({content: "视频超过20M不能上传,请使用压缩软件剪辑后再上传."})
                             } else {
                                 const path = res.filePath;
                                 dd.showLoading();
@@ -555,34 +333,50 @@ Page({
             confirmButtonText: '确认',
             success: (result) => {
                 if (result.confirm === true) {
-                    dd.showLoading();
-                    const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
-                    dd.httpRequest({
-                        url: url,
-                        method: 'POST',
-                        data: {
-                            urlPath: thumbs[index].url,
-                        },
-                        dataType: 'json',
-                        success: (res) => {
-                            if (res.data.result === 'success') {
-                                thumbs.splice(index, 1);
-                                t.setData({
-                                        thumbs: thumbs
-                                    }
-                                );
-                            } else {
-                                dd.alert({content: "删除上传文件失败,稍后再试"});
+                    if (t.data.thumbs[index].isUpload == true) { //已上传在阿里云的文件,标记待删除
+                        //删除记录
+                        if (t.data.thumbs[index]['category']==='image') {
+                            t.data.waitDeleteImageIds.push(t.data.thumbs[index]['videoId'])
+                        }else{
+                            t.data.waitDeleteVideoIds.push(t.data.thumbs[index]['videoId'])
+                        }
+                        //渲染
+                        thumbs.splice(index, 1);
+                        t.setData({
+                                thumbs: thumbs
                             }
-                            dd.hideLoading();
+                        );
+                    }else { //在应用服务器的文件,直接后台删除
+                        dd.showLoading();
+                        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
+                        dd.httpRequest({
+                            url: url,
+                            method: 'POST',
+                            data: {
+                                urlPath: thumbs[index].url,
+                            },
+                            dataType: 'json',
+                            success: (res) => {
+                                if (res.data.result === 'success') {
+                                    thumbs.splice(index, 1);
+                                    t.setData({
+                                            thumbs: thumbs
+                                        }
+                                    );
+                                } else {
+                                    dd.alert({content: "删除上传文件失败,稍后再试"});
+                                }
+                                dd.hideLoading();
 
-                        },
-                        fail: (res) => {
-                            console.log("httpRequestFail---", res)
-                            dd.hideLoading();
-                        },
+                            },
+                            fail: (res) => {
+                                console.log("httpRequestFail---", res)
+                                dd.hideLoading();
+                            },
 
-                    })
+                        })
+                    }
+
                 }
             }
         })
