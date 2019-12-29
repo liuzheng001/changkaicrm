@@ -125,6 +125,14 @@ Page({
         const sampleID = this.data.originData[key][num].sampleRecID;
         dd.navigateTo({
             url: "/page/calendar/addSampleRecord/addSampleRecord?sampleID="+sampleID
-        })    }
+        })
+  },
+    onEditTrackRec(){
+
+        dd.navigateTo({
+            url: "/page/calendar/editSampleRecord/editSampleRecord"
+        })
+    }
+
 
 });

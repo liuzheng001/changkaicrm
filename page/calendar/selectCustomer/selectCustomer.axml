@@ -18,5 +18,7 @@
   </view>
   <view class="fixed-button">
     <button type="primary" onTap="onCreateTrackRec">新建跟踪数据</button>
+    <button type="primary" onTap="onEditTrackRec">修改跟踪数据</button>
+
   </view>
 </view>

@@ -79,10 +79,8 @@ App({
                             url: '/page/category/category'
                         })*/
                         dd.navigateTo({
-                            url: '/page/calendar/editSampleRecord/editSampleRecord'
+                            url: '/page/calendar/selectCustomer/selectCustomer'
                         })
-
-
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

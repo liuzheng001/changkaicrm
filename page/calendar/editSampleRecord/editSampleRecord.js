@@ -2,10 +2,10 @@ Page({
     data: {
         // showDetailed:false,//显示数据记录详情,与showModal相反
         showModal: true,
-        backMode:0,//0代表导航键默认返回,记录storage,1代表用户提交记录返回,将storage清零
+        backMode: 0,//0代表导航键默认返回,记录storage,1代表用户提交记录返回,将storage清零
         showVideo: false,
         sampleID: null,//试用记录ID
-        sampleDataRecID: null,//新数据记录ID
+        sampleDataRecID: -1,//样品数据记录ID
         testCategory: "",
         //选择产品
         selectProduct: "",
@@ -15,13 +15,13 @@ Page({
         category: '',
         //检测项目
         subjects: [//包括实测数据
-            /*{name:"外观",classification:"检测项目",testMethod:"目测",checkData:"",checkContent:""},
+            /*{recordId:"记录标识",name:"外观",classification:"检测项目",testMethod:"目测",checkData:"",checkContent:""},
             {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:"",checkContent:""},
            */
 
         ],
         addSubjects: [//包括实测数据
-            /* {name:"外观",classification:"检测项目",testMethod:"目测",testData:""},
+            /* {recordId:"记录标识",name:"外观",classification:"检测项目",testMethod:"目测",testData:""},
             {name:"浓度",classification:"检测项目",testMethod:"目测",testData:""},*/
         ],
 
@@ -37,15 +37,15 @@ Page({
             {url:'http://r1w8478651.mp4',category:'video'}*/
         ],
         //等待从阿里云上删除的媒体id
-        waitDeleteVideoIds : [],
-        waitDeleteImageIds :[],
+        waitDeleteVideoIds: [],
+        waitDeleteImageIds: [],
         //显示视频预览
         showVideoPreview: false,
         videoUrl: "",
     },
     onLoad(query) {
-      //调试
-        const sampleDataRecID = 315;
+        //调试
+        this.data.sampleDataRecID = "315";
         const t = this;
         //读取fm选择样品记录列表
         const url = getApp().globalData.domain + "/fmSampleRec.php";
@@ -54,7 +54,7 @@ Page({
             method: 'get',
             data: {
                 action: 'getSampleRecord',
-                sampleDataRecID: sampleDataRecID
+                sampleDataRecID: this.data.sampleDataRecID
             },
             dataType: 'json',
             success: (res) => {
@@ -65,16 +65,16 @@ Page({
                         selectProduct: res.data.data.product,
                         selectMachine: res.data.data.machine,
                         category: res.data.data.category,
-                        testCategory:res.data.data.testcategory,
+                        testCategory: res.data.data.testcategory,
                         //检测项目
                         subjects: res.data.data.subjects,
                         addSubjects: res.data.data.addSubjects,
-                        remark:res.data.data.remark,
+                        remark: res.data.data.remark,
 
                         thumbs: res.data.data.thumbs,
                     });
-                }else{
-                    dd.alert({content:'得到样品记录失败'})
+                } else {
+                    dd.alert({content: '得到样品记录失败'})
                 }
             },
             fail: (res) => {
@@ -127,7 +127,7 @@ Page({
             });
         }*/
     },
-    
+
     //输入实测数据,写入对应subjects
     onInput: function (e) {
         const testData = e.detail.value;
@@ -146,10 +146,10 @@ Page({
 
         }
     },
-    onTextareaInput(e){//textarea双向绑定
+    onTextareaInput(e) {//textarea双向绑定
         const name = e.currentTarget.dataset.name;
         this.setData({
-            [name] :e.detail.value
+            [name]: e.detail.value
         });
 
     },
@@ -175,12 +175,12 @@ Page({
         if (category === 'video') {
             //通过videoId播放视频
             if (this.data.thumbs[index].isUpload == true) { //已上传阿里云,通过videoId播放
-                const url ="http://r1w8478651.imwork.net:9998/corp_demo_php-master/PlayAiliyuVideoForVideoid.php";
+                const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/PlayAiliyuVideoForVideoid.php";
                 dd.httpRequest({
                     url: url,
                     method: 'POST',
                     data: {
-                        videoId:this.data.thumbs[index].videoId,
+                        videoId: this.data.thumbs[index].videoId,
                     },
                     dataType: 'json',
                     success: (res) => {
@@ -188,7 +188,8 @@ Page({
                             this.setData({
                                 videoUrl: res.data.src,
                                 showVideo: true
-                            })                        } else {
+                            })
+                        } else {
                             alert("播放文件失败,稍后再试");
                         }
                     },
@@ -196,7 +197,7 @@ Page({
                         console.log("httpRequestFail---", res)
                     },
                 })
-            }else{ //未上传到阿里云
+            } else { //未上传到阿里云
                 this.setData({
                     videoUrl: imageUrl,
                     showVideo: true
@@ -237,7 +238,7 @@ Page({
                                     dd.hideLoading();
                                     dd.alert({content: "上传成功"})
                                     results.forEach(item => {
-                                        thumbs.push({url: item, category: 'image'});
+                                        thumbs.push({url: item, category: 'image', isUpload: false});
                                     })
                                     t.setData({
                                             thumbs: thumbs
@@ -296,7 +297,7 @@ Page({
                                             //返回上传图片urls
                                             dd.hideLoading();
                                             dd.alert({content: "上传成功"})
-                                            thumbs.push({url: data.fileUrl, category: 'video'})
+                                            thumbs.push({url: data.fileUrl, category: 'video', isUpload: false})
                                             t.setData({
                                                 thumbs: thumbs
                                             });
@@ -335,9 +336,9 @@ Page({
                 if (result.confirm === true) {
                     if (t.data.thumbs[index].isUpload == true) { //已上传在阿里云的文件,标记待删除
                         //删除记录
-                        if (t.data.thumbs[index]['category']==='image') {
+                        if (t.data.thumbs[index]['category'] === 'image') {
                             t.data.waitDeleteImageIds.push(t.data.thumbs[index]['videoId'])
-                        }else{
+                        } else {
                             t.data.waitDeleteVideoIds.push(t.data.thumbs[index]['videoId'])
                         }
                         //渲染
@@ -346,7 +347,7 @@ Page({
                                 thumbs: thumbs
                             }
                         );
-                    }else { //在应用服务器的文件,直接后台删除
+                    } else { //在应用服务器的文件,直接后台删除
                         dd.showLoading();
                         const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
                         dd.httpRequest({
@@ -413,7 +414,7 @@ Page({
                         method: 'post',
                         //测试数据
                         data: {
-                            sampleDataRecID:291,
+                            sampleDataRecID: 291,
                             thumbs: JSON.stringify(thumbs)
                         },
                         success: function (res) {
@@ -456,63 +457,65 @@ Page({
                     url: url,
                     method: 'post',
                     data: {
-                        action:"createSampleRecord",
-                        sampleID: t.data.sampleID,
-                        machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
-                        formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
-                        testCategory: t.data.testCategory,
+                        action: "editSampleRecord",
+                        sampleDataRecID: t.data.sampleDataRecID,
                         remark: t.data.remark,
                         subjects: JSON.stringify(t.data.subjects),
                         addSubjects: JSON.stringify(t.data.addSubjects),
 
                     },
                     success: function (res) {
+                       // dd.alert({content: JSON.stringify(res)});
                         if (res.data.success == true) {
-                            const thumbs = t.data.thumbs
-                            //将媒体文件上传至阿里云,并在后台将videoID与入fm
-                            const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAili.php"
-                            //将应用服务器临时文件,上传阿里云
+                            const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAiliForComponents.php"
                             dd.httpRequest({
                                 url: url,
-                                method: 'post',
+                                method: 'POST',
                                 data: {
-                                    sampleDataRecID:res.data.sampleDataRecID,
-                                    thumbs: JSON.stringify(thumbs)
+                                    thumbs: JSON.stringify(t.data.thumbs),
+                                    sampleDataRecID: t.data.sampleDataRecID,
+                                    max: 6,
+                                    waitDeleteVideoIds: t.data.waitDeleteVideoIds.join(','),
+                                    waitDeleteImageIds: t.data.waitDeleteImageIds.join(',')
                                 },
-                                success: function (res) {
-                                    if (res.data.result == 'success') {
-                                        t.data.backMode = 1;
-                                        t.data.stage = 0;
+                                dataType: 'json',
+                                success: (res) => {
+                                    // jQuery('#loading').hideLoading();//loading 消失，保存完成。
+                                    if (res.data.success === true) {
+                                        /*alert("提交成功");
+                                        waitDeleteVideoIds=[];
+                                        waitDeleteImageIds=[];*/
+                                        // t.data.backMode = 1;
                                         dd.alert({
                                             content: "提交成功.",
                                             success: () => {
-                                               dd.navigateBack();
+                                                dd.navigateBack();
                                             },
                                         });
-
-                                        // dd.alert({content: "已上传阿里云."});
                                     } else {
                                         dd.alert({content: "上传阿里云失败"});
                                     }
                                 },
-                                fail: function (res) {
+                                fail: (res) => {
+                                    // jQuery('#loading').hideLoading();//loading 消失，保存完成。
                                     dd.alert({content: "上传阿里云失败." + JSON.stringify(res)});
-                                }
-                            });
+                                },
+                            })
                         } else {
-                            dd.alert({content: "提交失败"});
+                            dd.alert({content: "修改记录失败"});
                         }
                     },
-                    fail: function (res) {
-                        dd.alert({content: "提交失败." + JSON.stringify(res)});
-                    }
+                    fail: (res) => {
+                        // jQuery('#loading').hideLoading();//loading 消失，保存完成。
+                        dd.alert({content: "修改记录失败." + JSON.stringify(res)});
+                    },
+
                 });
             },
-        });
-        //注意将storage的内容删除
-
+        })
     }
-});
+})
+
 
 function updateMedia(thumb) {
     console.log('thumb:'+JSON.stringify(thumb));
