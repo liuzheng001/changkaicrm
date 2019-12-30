@@ -1,40 +1,5 @@
-<view a:if={{showVideo}} class="videoContainer">
-        <video class="video"  src="{{videoUrl}}" autoplay="true"   />
-        <button class="videoButton" onTap="onCloseVideo">关闭</button>
-        <!-- <view class="videoClose">
-            <text  style = "font-size:1rem;background-color:beige" onTap="onCloseVideo"   class="iconfont icon-delete"/>
-        </view> -->
-    </view>
-<view  a:else  style="position:relative">
-      <!-- <commonmodal show="{{showDetailModal}}"  onCancelRecord="onClose" onCreateRecord ="onClose" height='900rpx'>
-       <view class='modal-content'>
-           <view class="page-section">
-               <view class="row" >
-                   <view class="row-title">项目名称</view>
-                   <view class="row-extra">{{subjectCategory==="subjects"?subjects[subjectsIndex]['name']:addSubjects[subjectsIndex]['name']}}</view>
-               </view>
-           </view>
-           <view class="page-section">
-                   <picker onChange="selectMachinePickerChange" value="{{selectMachineIndex}}" range="{{selectMachine}}" range-key="machineIdentification">
-                       <view class="row">
-                           <view class="row-title">检测项目</view>
-                           <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectMachineIndex===-1?"请选择":selectMachine[selectMachineIndex].machineIdentification}} disabled="true"  /></view>
-                           <view class="a-list-arrow a-list-arrow-horizontal" />
-                       </view>
-                   </picker>
-          </view>
-           <view class="page-section">
-               <picker onChange="testCategoryPickerChange" value="{{testCategoryIndex}}" range="{{testCategory}}">
-                   <view class="row">
-                       <view class="row-title">检测方法</view>
-                       <view class="row-extra"><input name="testCategory" value={{testCategoryIndex===-1?"请选择":testCategory[testCategoryIndex]}} disabled="true"  /></view>
-                       <view class="a-list-arrow a-list-arrow-horizontal" />
-                   </view>
-               </picker>
-           </view>
-               
-       </view>
-    </commonmodal> -->
+
+<view  style="position:relative">
     <view class="page-section">
       <view class="row">
         <view class="row-title">类别</view>
@@ -64,8 +29,8 @@
         <view class="input-title">常规</view>
         <block a:for={{subjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
-            <view class="row-title" style="{{item.分类=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name={{item.testData}} value={{item.checkData}} data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.分类=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
+            <view class="row-extra"><input value={{item.checkData}} data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
             <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/> -->
         </view>
         </block>
@@ -75,7 +40,7 @@
       <block a:for={{addSubjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name={{item.testData}} value={{item.checkData}} data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <view class="row-extra"><input  value={{item.checkData}} data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
             <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index="{{index}}" data-testCategory="addSubjects" onTap="openDetailModal"/> -->
         </view>
       </block>
@@ -96,6 +61,10 @@
             </view>
         </view>
     </view>
+        <view a:if={{showVideo}} class="videoContainer">
+             <video class="video"  src="{{videoUrl}}" autoplay="true"   />
+             <button class="videoButton" onTap="onCloseVideo">关闭</button>
+        </view>
     <view class="page-section">
         <view class="input-title">备注</view> 
         <textarea class="multilineInput" data-name="remark" value={{remark}} onInput="onTextareaInput" />

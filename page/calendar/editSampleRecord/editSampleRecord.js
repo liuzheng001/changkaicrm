@@ -21,8 +21,8 @@ Page({
 
         ],
         addSubjects: [//包括实测数据
-            /* {recordId:"记录标识",name:"外观",classification:"检测项目",testMethod:"目测",testData:""},
-            {name:"浓度",classification:"检测项目",testMethod:"目测",testData:""},*/
+            /* {recordId:"记录标识",name:"外观",classification:"检测项目",testMethod:"目测",checkData:""},
+            {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:""},*/
         ],
 
         /*showDetailModal:false,//显示检测项目详情
@@ -45,7 +45,7 @@ Page({
     },
     onLoad(query) {
         //调试
-        this.data.sampleDataRecID = "315";
+        this.data.sampleDataRecID = query.sampleDataRecID;
         const t = this;
         //读取fm选择样品记录列表
         const url = getApp().globalData.domain + "/fmSampleRec.php";
@@ -130,16 +130,16 @@ Page({
 
     //输入实测数据,写入对应subjects
     onInput: function (e) {
-        const testData = e.detail.value;
+        const checkData = e.detail.value;
         const index = e.currentTarget.dataset.index;
         const testCategory = e.currentTarget.dataset.testCategory
         if (testCategory === "subjects") {
-            this.data.subjects[index].testData = testData;
+            this.data.subjects[index].checkData = checkData;
             this.setData({
                 subjects: this.data.subjects
             })
         } else {
-            this.data.addSubjects[index].testData = testData
+            this.data.addSubjects[index].checkData = checkData
             this.setData({
                 addSubjects: this.data.addSubjects
             })

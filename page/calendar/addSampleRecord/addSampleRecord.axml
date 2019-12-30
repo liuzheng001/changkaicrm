@@ -83,7 +83,7 @@
         <block a:for={{subjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.分类=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name={{item.testData}} value={{item.testData}} data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.分类=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <view class="row-extra"><input name={{item.checkData}} value={{item.checkData}} data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.分类=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
             <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/> -->
         </view>
         </block>
@@ -93,7 +93,7 @@
       <block a:for={{addSubjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
-            <view class="row-extra"><input name={{item.testData}} value={{item.testData}} data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
+            <view class="row-extra"><input name={{item.checkData}} value={{item.checkData}} data-index="{{index}}" data-testCategory="addSubjects" placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput"/></view>
             <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index="{{index}}" data-testCategory="addSubjects" onTap="openDetailModal"/> -->
         </view>
       </block>

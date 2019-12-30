@@ -22,6 +22,7 @@ Page({
 
           }*/
       },
+      sampleDataRecID:0,//记录数据ID
       value:[0,0],
       firstKey:'',
   },
@@ -119,6 +120,10 @@ Page({
         });
 
     },
+    onInput(e) {
+         this.data.sampleDataRecID = e.detail.value;
+    },
+
     onCreateTrackRec(){
         const key = this.data.firstKey,num = this.data.value[1];
 
@@ -128,9 +133,8 @@ Page({
         })
   },
     onEditTrackRec(){
-
         dd.navigateTo({
-            url: "/page/calendar/editSampleRecord/editSampleRecord"
+            url: "/page/calendar/editSampleRecord/editSampleRecord?sampleDataRecID="+this.data.sampleDataRecID
         })
     }
 

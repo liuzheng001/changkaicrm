@@ -16,7 +16,15 @@
       </picker-view-column>
     </picker-view>
   </view>
+
+
   <view class="fixed-button">
+    <view class="page-section">
+      <view class="row">
+        <view class="row-title">记录数据ID</view>
+        <view class="row-extra"><input name="sampleDataRecordId" value={{sampleDataRecID}} onInput="onInput"  /></view>
+      </view>
+    </view>
     <button type="primary" onTap="onCreateTrackRec">新建跟踪数据</button>
     <button type="primary" onTap="onEditTrackRec">修改跟踪数据</button>
 
