@@ -1,6 +1,6 @@
-<view>
-  <view >
-    <picker-view value="{{value}}" onChange="onChange"  class="my-picker"  indicator-style="height:50px;" style="width: 100%; height: 450px;">
+<view class="container">
+<view class="select-title"> 选择使用方案</view>
+    <picker-view value="{{value}}" onChange="onChange"  class="my-picker"  indicator-style="height:50px;" style="width: 100%; height: 450px;padding-top 100px">
       <picker-view-column>
         <!--<view>2011</view>
         <view>2022</view>
@@ -15,18 +15,15 @@
         </view>
       </picker-view-column>
     </picker-view>
-  </view>
-
-
   <view class="fixed-button">
-    <view class="page-section">
+    <!-- <view class="page-section">
       <view class="row">
         <view class="row-title">记录数据ID</view>
         <view class="row-extra"><input name="sampleDataRecordId" value={{sampleDataRecID}} onInput="onInput"  /></view>
       </view>
-    </view>
-    <button type="primary" onTap="onCreateTrackRec">新建跟踪数据</button>
-    <button type="primary" onTap="onEditTrackRec">修改跟踪数据</button>
+    </view> -->
+    <button type="primary" onTap="onCreateTrackRec" disabled="{{disableButton}}">新建跟踪数据</button>
+    <button type="primary" onTap="onEditTrackRec" disabled="{{disableButton}}">修改跟踪数据</button>
 
   </view>
 </view>

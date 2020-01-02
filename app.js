@@ -6,12 +6,15 @@ let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
 //test git,回复
 let url = domain + '/login.php'; */
 
-let development = true; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
-let domain;
+let development = false; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
+let domain,applicationServer;
 if (development===true){
     domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
+    applicationServer = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/"
 } else{
     domain = "http://47.103.63.213/eapp-corp";
+    applicationServer = "https://filemaker.ckkj.net.cn:8890/corp_php-master/"
+
 }
 let url = domain + '/login.php';
 
@@ -42,6 +45,7 @@ App({
       console.log(msg);
   },
   globalData: {
+    applicationServer:applicationServer,
     domain:domain,
     corpId:'',
     username:'',
@@ -75,8 +79,9 @@ App({
                         /*dd.switchTab({ //日历
                                 url: '/page/calendar/index'
                             })*/
-                        /*dd.switchTab({ //流程模版分类
-                            url: '/page/category/category'
+                       /* dd.navigateTo({
+                            url: "/page/calendar/editSampleRecord/sampleList/sampleList"
+
                         })*/
                         dd.navigateTo({
                             url: '/page/calendar/selectCustomer/selectCustomer'

@@ -61,6 +61,9 @@ Page({
                 // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
                 if (res.data.success === true) {
 
+                    //清空
+                    t.data.waitDeleteVideoIds=[];
+                    t.data.waitDeleteImageIds=[];
                     t.setData({
                         selectProduct: res.data.data.product,
                         selectMachine: res.data.data.machine,
@@ -74,7 +77,7 @@ Page({
                         thumbs: res.data.data.thumbs,
                     });
                 } else {
-                    dd.alert({content: '得到样品记录失败'})
+                    dd.alert({content: '得到样品记录数据失败'})
                 }
             },
             fail: (res) => {
@@ -175,7 +178,7 @@ Page({
         if (category === 'video') {
             //通过videoId播放视频
             if (this.data.thumbs[index].isUpload == true) { //已上传阿里云,通过videoId播放
-                const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/PlayAiliyuVideoForVideoid.php";
+                const url =getApp().globalData.applicationServer+"PlayAiliyuVideoForVideoid.php";
                 dd.httpRequest({
                     url: url,
                     method: 'POST',
@@ -282,7 +285,7 @@ Page({
 
                                 //直接上传到应用服务器
                                 //development服务器
-                                const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediaToServer.php"
+                                const url =getApp().globalData.applicationServer+"uploadMediaToServer.php"
                                 dd.uploadFile({
                                     // url: getApp().globalData.domain + '/upload/upload.php',
                                     url: url,
@@ -349,7 +352,7 @@ Page({
                         );
                     } else { //在应用服务器的文件,直接后台删除
                         dd.showLoading();
-                        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
+                        const url =getApp().globalData.applicationServer+"deleteUploadMedia.php"
                         dd.httpRequest({
                             url: url,
                             method: 'POST',
@@ -407,7 +410,7 @@ Page({
                                 dd.alert({content:"上传成功"})
                             })
                     }*/
-                    const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAili.php"
+                    const url =getApp().globalData.applicationServer+"uploadMediasToAili.php"
                     //将应用服务器临时文件,上传阿里云
                     dd.httpRequest({
                         url: url,
@@ -467,7 +470,7 @@ Page({
                     success: function (res) {
                        // dd.alert({content: JSON.stringify(res)});
                         if (res.data.success == true) {
-                            const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAiliForComponents.php"
+                            const url =getApp().globalData.applicationServer+"uploadMediasToAiliForComponents.php"
                             dd.httpRequest({
                                 url: url,
                                 method: 'POST',
@@ -482,13 +485,13 @@ Page({
                                 success: (res) => {
                                     // jQuery('#loading').hideLoading();//loading 消失，保存完成。
                                     if (res.data.success === true) {
-                                        /*alert("提交成功");
-                                        waitDeleteVideoIds=[];
-                                        waitDeleteImageIds=[];*/
+                                        /*alert("提交成功");*/
                                         // t.data.backMode = 1;
+
                                         dd.alert({
                                             content: "提交成功.",
                                             success: () => {
+
                                                 dd.navigateBack();
                                             },
                                         });
@@ -520,7 +523,7 @@ Page({
 function updateMedia(thumb) {
     console.log('thumb:'+JSON.stringify(thumb));
     return new Promise(function (resolve,reject) {
-        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadVideoToAili.php"
+        const url =getApp().globalData.applicationServer+"uploadVideoToAili.php"
         const fileType = thumb.category==="image"?"image":"video"
         dd.uploadFile({
             // url: getApp().globalData.domain + '/upload/upload.php',
@@ -552,7 +555,7 @@ function updateMedia(thumb) {
 function updateImageToServer(thumb) {
     // console.log('thumb:'+JSON.stringify(thumb));
     return new Promise(function (resolve,reject) {
-        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediaToServer.php"
+        const url =getApp().globalData.applicationServer+"uploadMediaToServer.php"
         const fileType = thumb.category==="image"?"image":"video"
         dd.uploadFile({
             // url: getApp().globalData.domain + '/upload/upload.php',
@@ -583,7 +586,7 @@ function updateImageToServer(thumb) {
 
 function deleteImageToServer(thumb) {
     return new Promise(function (resolve,reject) {
-        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
+        const url =getApp().globalData.applicationServer+"deleteUploadMedia.php"
         dd.httpRequest({
             url: url,
             method: 'POST',

@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    flex-flow: column wrap;
+    height:100vh;
+}
+.select-title{
+    font-size: 0.34rem;
+    padding-top: 0.28rem;
+    padding-bottom: 0.28rem;
+    text-align: center;
+}

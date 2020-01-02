@@ -503,7 +503,7 @@ Page({
 
                                 //直接上传到应用服务器
                                 //development服务器
-                                const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediaToServer.php"
+                                const url =getApp().globalData.applicationServer+"uploadMediaToServer.php"
                                 dd.uploadFile({
                                     // url: getApp().globalData.domain + '/upload/upload.php',
                                     url: url,
@@ -556,7 +556,7 @@ Page({
             success: (result) => {
                 if (result.confirm === true) {
                     dd.showLoading();
-                    const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
+                    const url =getApp().globalData.applicationServer+"deleteUploadMedia.php"
                     dd.httpRequest({
                         url: url,
                         method: 'POST',
@@ -612,7 +612,7 @@ Page({
                                 dd.alert({content:"上传成功"})
                             })
                     }*/
-                    const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAili.php"
+                    const url =getApp().globalData.applicationServer+"uploadMediasToAili.php"
                     //将应用服务器临时文件,上传阿里云
                     dd.httpRequest({
                         url: url,
@@ -676,7 +676,7 @@ Page({
                         if (res.data.success == true) {
                             const thumbs = t.data.thumbs
                             //将媒体文件上传至阿里云,并在后台将videoID与入fm
-                            const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediasToAili.php"
+                            const url =getApp().globalData.applicationServer+"uploadMediasToAili.php"
                             //将应用服务器临时文件,上传阿里云
                             dd.httpRequest({
                                 url: url,
@@ -686,7 +686,7 @@ Page({
                                     thumbs: JSON.stringify(thumbs)
                                 },
                                 success: function (res) {
-                                    if (res.data.result == 'success') {
+                                    if (res.data.success == true) {
                                         t.data.backMode = 1;
                                         t.data.stage = 0;
                                         dd.alert({
@@ -722,7 +722,7 @@ Page({
 function updateMedia(thumb) {
     console.log('thumb:'+JSON.stringify(thumb));
     return new Promise(function (resolve,reject) {
-        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadVideoToAili.php"
+        const url =getApp().globalData.applicationServer+"uploadVideoToAili.php"
         const fileType = thumb.category==="image"?"image":"video"
         dd.uploadFile({
             // url: getApp().globalData.domain + '/upload/upload.php',
@@ -754,7 +754,7 @@ function updateMedia(thumb) {
 function updateImageToServer(thumb) {
     // console.log('thumb:'+JSON.stringify(thumb));
     return new Promise(function (resolve,reject) {
-        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/uploadMediaToServer.php"
+        const url =getApp().globalData.applicationServer+"uploadMediaToServer.php"
         const fileType = thumb.category==="image"?"image":"video"
         dd.uploadFile({
             // url: getApp().globalData.domain + '/upload/upload.php',
@@ -785,7 +785,7 @@ function updateImageToServer(thumb) {
 
 function deleteImageToServer(thumb) {
     return new Promise(function (resolve,reject) {
-        const url = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/deleteUploadMedia.php"
+        const url =getApp().globalData.applicationServer+"deleteUploadMedia.php"
         dd.httpRequest({
             url: url,
             method: 'POST',

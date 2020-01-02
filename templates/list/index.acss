@@ -20,7 +20,18 @@
     align-items: center;
     padding-left: 30rpx;
     background: #fff;
-		border-bottom: rgb(128, 124, 124) solid 1px;
+    border-bottom: rgb(128, 124, 124) solid 1px;
+}
+
+.a-list .a-list-items .active {
+    background: cornsilk;
+}
+
+.a-list .a-list-items .hover-list {
+    opacity: 0.9;
+    /*background: #f7f7f7;*/
+    background: cornsilk;
+
 }
 
 .a-list .a-list-item .a-list-item-bottom {
@@ -105,6 +116,7 @@
 }
 
 .a-list .a-list-item .a-list-item-extra {
+
     /* flex-basis: 36%; */
     color: #888;
 		width: 40%;
@@ -161,4 +173,5 @@
     margin-top: 50px;
     font-size: 0.38rem;
 }
+
 
