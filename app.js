@@ -13,6 +13,7 @@ if (development===true){
     applicationServer = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/"
 } else{
     domain = "http://47.103.63.213/eapp-corp";
+    // domain = "https://www.ckkj.net.cn/eapp-corp";//阿里云已安装ssl证书
     applicationServer = "https://filemaker.ckkj.net.cn:8890/corp_php-master/"
 
 }
@@ -76,16 +77,16 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         // 调试时关闭
-                        /*dd.switchTab({ //日历
+                        dd.switchTab({ //日历
                                 url: '/page/calendar/index'
-                            })*/
+                            })
                        /* dd.navigateTo({
                             url: "/page/calendar/editSampleRecord/sampleList/sampleList"
 
                         })*/
-                        dd.navigateTo({
+                        /*dd.navigateTo({
                             url: '/page/calendar/selectCustomer/selectCustomer'
-                        })
+                        })*/
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

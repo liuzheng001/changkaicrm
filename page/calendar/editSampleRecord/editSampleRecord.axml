@@ -26,7 +26,7 @@
     </view>
 
     <view class="page-section">
-        <view class="input-title">常规</view>
+        <view class="input-title" style="color:blueviolet">常规项目</view>
         <block a:for={{subjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
@@ -36,7 +36,7 @@
         </block>
         </view>
     <view class="page-section">
-        <view class="input-title">附加</view>
+        <view class="input-title" style="color:blueviolet">附加项目</view>
       <block a:for={{addSubjects}} >
         <view class="row" style="border-bottom: 1px solid #ddd" >
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>

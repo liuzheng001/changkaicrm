@@ -357,6 +357,7 @@ Page({
                 // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
                 // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
                 sampleID: this.data.sampleID,
+                testCategory:this.data.testCategory[this.data.testCategoryIndex]
             },
             dataType: 'json',
             success: (res) => {
@@ -666,45 +667,56 @@ Page({
                         sampleID: t.data.sampleID,
                         machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
                         formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
-                        testCategory: t.data.testCategory,
+                        testCategory: this.data.testCategory[this.data.testCategoryIndex],
                         remark: t.data.remark,
                         subjects: JSON.stringify(t.data.subjects),
                         addSubjects: JSON.stringify(t.data.addSubjects),
-
+                        submitName:getApp().globalData.username,
                     },
                     success: function (res) {
                         if (res.data.success == true) {
                             const thumbs = t.data.thumbs
-                            //将媒体文件上传至阿里云,并在后台将videoID与入fm
-                            const url =getApp().globalData.applicationServer+"uploadMediasToAili.php"
-                            //将应用服务器临时文件,上传阿里云
-                            dd.httpRequest({
-                                url: url,
-                                method: 'post',
-                                data: {
-                                    sampleDataRecID:res.data.sampleDataRecID,
-                                    thumbs: JSON.stringify(thumbs)
-                                },
-                                success: function (res) {
-                                    if (res.data.success == true) {
-                                        t.data.backMode = 1;
-                                        t.data.stage = 0;
-                                        dd.alert({
-                                            content: "提交成功.",
-                                            success: () => {
-                                               dd.navigateBack();
-                                            },
-                                        });
+                            if (thumbs.length == 0) { //无上传媒体直接退出
+                                t.data.backMode = 1;
+                                t.data.stage = 0;
+                                dd.alert({
+                                    content: "提交成功.",
+                                    success: () => {
+                                        dd.navigateBack();
+                                    },
+                                });
+                            }else {
+                                //将媒体文件上传至阿里云,并在后台将videoID与入fm
+                                const url = getApp().globalData.applicationServer + "uploadMediasToAili.php";
+                                //将应用服务器临时文件,上传阿里云
+                                dd.httpRequest({
+                                    url: url,
+                                    method: 'post',
+                                    data: {
+                                        sampleDataRecID: res.data.sampleDataRecID,
+                                        thumbs: JSON.stringify(thumbs)
+                                    },
+                                    success: function (res) {
+                                        if (res.data.success == true) {
+                                            t.data.backMode = 1;
+                                            t.data.stage = 0;
+                                            dd.alert({
+                                                content: "提交成功.",
+                                                success: () => {
+                                                    dd.navigateBack();
+                                                },
+                                            });
 
-                                        // dd.alert({content: "已上传阿里云."});
-                                    } else {
-                                        dd.alert({content: "上传阿里云失败"});
+                                            // dd.alert({content: "已上传阿里云."});
+                                        } else {
+                                            dd.alert({content: "上传阿里云失败"});
+                                        }
+                                    },
+                                    fail: function (res) {
+                                        dd.alert({content: "上传阿里云失败." + JSON.stringify(res)});
                                     }
-                                },
-                                fail: function (res) {
-                                    dd.alert({content: "上传阿里云失败." + JSON.stringify(res)});
-                                }
-                            });
+                                });
+                            }
                         } else {
                             dd.alert({content: "提交失败"});
                         }

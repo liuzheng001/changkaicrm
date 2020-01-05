@@ -21,7 +21,7 @@
 	</view>
 	<view class="schedule" style="flex:1">
 		<text class="schedule-content" >日程 {{month+1}} - {{date}}</text>
-		<button class="schedule-button" style="flex:3 1 0%;background-color:darkblue" type="default"   onTap="onSampleManagement" >试用记录</button>
+		<button class="schedule-button" style="flex:3 1 0%;background-color:darkblue" type="primary"   onTap="onSampleManagement" >试用记录</button>
 		<button class="schedule-button" type="primary"  onTap="attendanceSign" disabled="{{(todayDate===date)&&(attendance!=='已收工')?false:true}}">{{attendance}}</button>
 		<button class="schedule-button" type="wran" style="background-color:orange;border-color:orange;color:white" onTap="editSchedule">日程</button>
 	</view>
