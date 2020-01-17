@@ -3,7 +3,7 @@
     <!-- <customer extra = "external data" onShowCounter = "onShowCounter"/>
     <customer/> -->
     <!-- <web-view id="web-view-1" src="http://liuzheng750417.imwork.net:8088/ding-fm-master/openfm.html?programme=日程方案&script=转到日历详情php&param=朱祥见%202018-9-6&user=&pwd=" onMessage="test"></web-view>   -->
-    <!--<web-view id="web-view-1"  src="{{url}}" onMessage="test"></web-view>  -->
-    <web-view id="web-view-1"  src="https://filemaker.ckkj.net.cn:8890/ezview/readme.html" onMessage="test"></web-view>
+    <web-view id="web-view-1"  src="{{url}}" onMessage="test"></web-view>
+    <!--<web-view id="web-view-1"  src="https://filemaker.ckkj.net.cn:8890/ezview/readme.html" onMessage="test"></web-view>-->
   </view>
 </view>     
