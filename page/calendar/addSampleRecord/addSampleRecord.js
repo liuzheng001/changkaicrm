@@ -1,51 +1,142 @@
 Page({
     data: {
         // showDetailed:false,//显示数据记录详情,与showModal相反
-        showModal: true,
-        stage:0,//0是在选择机器和产品阶段,1为记录阶段
-        backMode:0,//0代表导航键默认,记录storage,1代表用户提交记录,将storage清零
-        showVideo: false,
-        sampleID: null,//试用记录ID
-        sampleDataRecID: null,//新数据记录ID
-        testCategory: ['现场检测', '取样检测'],
-        testCategoryIndex: -1, //检测类型序号
-        //选择产品
-        selectProduct: [],
-        selectProductIndex: -1,
-        //选择设备
-        selectMachine: [],
-        selectMachineIndex: -1,
-        //试样类别
-        category: '',
-        //检测项目
-        subjects: [//包括实测数据
-            /*{name:"外观",classification:"检测项目",testMethod:"目测",checkData:""},
-            {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:""},
-           */
 
-        ],
-        addSubjects: [//包括实测数据
-            /* {name:"外观",classification:"检测项目",testMethod:"目测",checkData:""},
-            {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:""},*/
-        ],
+        //选择配方号,两级pickerView
+        /* originData:{
+             {
+                 "重庆江达铝合金轮圈有限公司": [{
+                 "sampleRecID": "6DFC100A-56D9-43FD-BD0A-BAE9F2388213",
+                 "categoryAndTime": "切削类09/11/2019",
+                 "isProjectAudit":true,//方案是否批准
+                 },
+                  {
+                 "sampleRecID": "6DFC100A-56D9-43FD-BD0A-BAE9F2388213",
+                 "categoryAndTime": "切削类09/11/2019"
+                 "isProjectAudit":false,//方案是否批准
+                 }
+                 ]
+             },
+                 {
+                 "重庆黎宏机械制造有限公司": {
+                 "sampleRecID": "124A0676-1922-443B-8DAC-9A1E6FEAFE8F",
+                 "categoryAndTime": "清洗类11/08/2019"
+                 "isProjectAudit":false,//方案是否批准
+                 }
+             },
 
-        /*showDetailModal:false,//显示检测项目详情
-        subjectCategory:"",
-        subjectsIndex:-1,*/
+             }
+        },*/
+        //选择生产线号,两级pickerView
+        ProgressLine:
+        [
+           /* {
+                "PLineName": "铝轮2线",
+                "PLineId": "8BF88712-9CC8-435D-871D-A6F83551B4DA",
+                "machines": [
+                    {
+                        "machineIdentification": "201#-全铝加工-铝轮粗加工",
+                        "machineID": "6BADCDDD-0FA0-405C-9F83-BC20C4B2FDAE"
+                    }
+                ]
+            },
+        {
+            "PLineName": "铝轮19线",
+            "PLineId": "946C93C7-8DD0-4160-959B-14636AF30981",
+            "machines": [
+            {
+                "machineIdentification": "1901--2",
+                "machineID": "2B9779E7-A105-4087-88B2-06C6B5A59C5F"
+            },
+            {
+                "machineIdentification": "1902-铝轮加工-切削",
+                "machineID": "DF2D72F7-9952-41BD-BA2C-FD14D8D54D1D"
+            }
+             ]
+        }*/
+    ]
+,
+        value:[0,0],
+        firstKey:'',
 
-        //媒体信息,url保证视频文件唯一性,最好加上fm中的主键ID,比如样品记录数据ID
-        thumbs: [
-            /*{url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
-            {url:'http://r1w8478651.mp4',category:'video'},
-            {url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
-            {url:'http://r1w8478651.mp4',category:'video'}*/
-        ],
-        //显示视频预览
-        showVideoPreview: false,
-        videoUrl: "",
+    showModal: true,
+    stage:0,//0是在选择机器和产品阶段,1为记录阶段
+    backMode:0,//0代表导航键默认,记录storage,1代表用户提交记录,将storage清零
+    showVideo: false,
+    sampleID: null,//试用记录ID
+    sampleDataRecID: null,//新数据记录ID
+    testCategory: ['现场检测', '取样检测'],
+    testCategoryIndex: -1, //检测类型序号
+    //选择产品
+    selectProduct: [],
+    selectProductIndex: -1,
+    //选择生产线
+    selectProgressLine: [],
+    selectProgressLineIndex: -1,
+    //选择设备
+    selectMachine: [],
+    selectMachineIndex: -1,
+    //类别,维护-切削液-2019/10/10,代表跟踪类别为维护,项目类别为切削液,建立项目日期为2019/10/10,应确保为唯一,以及projectId
+    projects: [],
+    //检测项目
+    projectsIndex: -1, //检测项目序号
+
+    subjects: [//包括实测数据
+        /*{name:"外观",classification:"检测项目",testMethod:"目测",checkData:""},
+        {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:""},
+       */
+
+            ],
+            addSubjects: [//包括实测数据
+                /* {name:"外观",classification:"检测项目",testMethod:"目测",checkData:""},
+                {name:"浓度",classification:"检测项目",testMethod:"目测",checkData:""},*/
+            ],
+
+            /*showDetailModal:false,//显示检测项目详情
+            subjectCategory:"",
+            subjectsIndex:-1,*/
+
+            //媒体信息,url保证视频文件唯一性,最好加上fm中的主键ID,比如样品记录数据ID
+            thumbs: [
+                /*{url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
+                {url:'http://r1w8478651.mp4',category:'video'},
+                {url:'http://r1w8478651.imwork.net:9998/upload/1557572616747-2019-05-11.jpg',category:'image'},
+                {url:'http://r1w8478651.mp4',category:'video'}*/
+            ],
+            //显示视频预览
+            showVideoPreview: false,
+            videoUrl: "",
     },
     onLoad(query) {
         const t = this;
+        t.data.sampleID = query.sampleID;
+        // debug
+        // t.data.sampleID = "6DFC100A-56D9-43FD-BD0A-BAE9F2388213";
+        //读取fm选择样品记录列表
+        const url = getApp().globalData.domain + "/fmSampleRec.php";
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action: 'getCustomProjectsList',
+                // customerId: 782//渝江
+                customerId: 35//江达
+            },
+            dataType: 'json',
+            success: (res) => {
+                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                t.setData({
+                    projects: res.data.projects,
+                });
+            },
+            fail: (res) => {
+                dd.alert({'content': JSON.stringify(res)})
+            },
+            complete: (res) => {
+            }
+
+        })
+        /*
         let sampleID, thumbs = [];
         dd.getStorage({
             key: 'sampleRecord',
@@ -61,17 +152,14 @@ Page({
                         url: url,
                         method: 'get',
                         data: {
-                            action: 'getSampleMessage',
-                            sampleID: t.data.sampleID
+                            action: 'getCustomProjectsList',
+                            customerId: 782//渝江
                         },
                         dataType: 'json',
                         success: (res) => {
                             // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
                             t.setData({
-                                selectProduct: res.data.data.selectProduct,
-                                selectMachine: res.data.data.selectMachine,
-                                category: res.data.data.category,
-                                thumbs: [],
+                                projects: res.data.projects,
                             });
                         },
                         fail: (res) => {
@@ -204,7 +292,7 @@ Page({
 
                 })
             }
-        });
+        });*/
     },
     onUnload() {
         console.log("返回键按下,page销毁")
@@ -258,6 +346,46 @@ Page({
         })
     },
 */
+    projectPickerChange(e){
+        const t =this;
+        // debug
+        // t.data.sampleID = "6DFC100A-56D9-43FD-BD0A-BAE9F2388213";
+        //读取fm选择样品记录列表
+        const url = getApp().globalData.domain + "/fmSampleRec.php";
+        dd.showLoading();
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action: 'getSampleMessage',
+                sampleID: t.data.projects[e.detail.value].projectId
+            },
+            dataType: 'json',
+            success: (res) => {
+                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                if (e.detail.value !== t.data.projectsIndex) {
+                    t.setData({
+                        selectProduct: res.data.data.selectProduct,
+                        // selectMachine: res.data.data.selectMachine,
+                        selectProgressLine: res.data.data.selectProgressLine,
+                        selectProgressLineIndex:-1,
+                        selectProductIndex:-1,
+                        testCategoryIndex:-1,
+                        projectsIndex:e.detail.value,
+                        // category: res.data.data.category,
+                        // thumbs: [],
+                    });
+                }
+        },
+        fail: (res) => {
+            dd.alert({'content': JSON.stringify(res)})
+        },
+        complete: (res) => {
+            dd.hideLoading();
+        }
+})
+
+    },
     testCategoryPickerChange(e) {
         this.setData({
             testCategoryIndex: e.detail.value,
@@ -273,7 +401,90 @@ Page({
             selectMachineIndex: e.detail.value,
         });
     },
+    selectPLine(e) {
+        const t = this;
+        if (!this.data.showModal && this.data.selectProgressLineIndex !== e.detail.value) {
+        //得到progressId对应的设备清单
+        const url = getApp().globalData.domain + "/fmSampleRec.php";
+        dd.httpRequest({
+            url: url,
+            method: 'get',
+            data: {
+                action: 'getMachines',
+                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
+                progressLineId: (t.data.selectProgressLine[e.detail.value]).progressLineId,
+            },
+            dataType: 'json',
+            success: (values) => {
+                if (values.data.success === true) {
+                    //进入填写记录阶段
+                    t.data.stage = 1;
+                    //将新建的记录数据内容
+                    t.setData({
+                        selectMachine: values.data.data.selectMachine,
+                        selectProgressLineIndex: e.detail.value,
+                        selectMachineIndex:-1
+                    });
+                }
+            },
+            fail: (res) => {
+                dd.alert({'content': JSON.stringify(res)})
+            }
+        })
+    }else{
+        t.setData({selectProgressLineIndex: e.detail.value});
+        }
+    },
+    //生产线,设备picker选择
+    onChange(e) {
+        console.log(e.detail.value);
+        const firstKey = e.detail.value[0];
 
+        let secondNum ;
+
+        if (this.data.value[0] === firstKey){  //picker的第一键值没变
+            secondNum = e.detail.value[1];
+        }else{
+            secondNum = 0;
+        }
+
+        this.setData({
+            value:[e.detail.value[0],secondNum],
+        })
+
+
+    },
+    onGetPLine(){//显示生产线
+        const t = this;
+            //得到progressId对应的设备清单
+            const url = getApp().globalData.domain + "/fmSampleRec.php";
+            dd.httpRequest({
+                url: url,
+                method: 'get',
+                data: {
+                    action: 'getProgressLines',
+                    // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                    // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
+                    customerId:35,
+                },
+                dataType: 'json',
+                success: (values) => {
+                    if (values.data.success === true) {
+                        //进入填写记录阶段
+                        //将新建的记录数据内容
+                        t.setData({
+                            ProgressLine:values.data.data.progressLines
+                        });
+                    }
+                },
+                fail: (res) => {
+                    dd.alert({'content': JSON.stringify(res)})
+                }
+            })
+
+
+    },
     //mask组件触发page(外组件)方法
     onCancelRecord(isShow) {
         const t =this;
@@ -295,59 +506,11 @@ Page({
     onCreateRecord() {
         const t = this;
         //校验数据
-        if (t.data.testCategoryIndex < 0 || t.data.selectMachineIndex < 0 || t.data.selectProductIndex < 0) {
+        if (t.data.testCategoryIndex < 0 || t.data.selectProgressLineIndex < 0 || t.data.selectProductIndex < 0) {
             dd.alert({content: '数据不正确,请检查'})
             return;
         }
-        //弃用,使用事务提交,不先建立记录数据
-        /*const url = getApp().globalData.domain+"/fmSampleRec.php";
-        dd.httpRequest({
-            url: url,
-            method: 'get',
-            data: {
-                action:'createSampleRecord',
 
-                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                testCategory:t.data.testCategory[t.data.testCategoryIndex],
-                machineID:t.data.selectMachine[t.data.selectMachineIndex]['machineID'],
-                formulaID:t.data.selectProduct[t.data.selectProductIndex]['formulaID'],
-            },
-            dataType: 'json',
-            success: (res) => {
-                // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                //填充新数据记录,subjects和addSubjects
-                if (res.data.success===true) {
-                    t.data.sampleDataRecID = res.data.data.sampleDataRecID
-                    dd.httpRequest({
-                        url: url,
-                        method: 'get',
-                        data: {
-                            action: 'getSampleData',
-                            sampleDataRecID: t.data.sampleDataRecID,
-                            // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                        },
-                        dataType: 'json',
-                        success: (res) => {
-                            // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                            //将新建的记录数据内容
-                            this.setData({
-                                subjects: res.data.data.subjects,
-                                addSubjects: res.data.data.addSubjects,
-                                showModal:false,
-                            });
-                        },
-                        fail: (res) => {
-                            dd.alert({'content': JSON.stringify(res)})
-                        },
-                    })
-                }
-
-            },
-            fail: (res) => {
-                dd.alert({'content':JSON.stringify(res)})
-            },
-        })*/
         const url = getApp().globalData.domain + "/fmSampleRec.php";
         dd.httpRequest({
             url: url,
@@ -362,15 +525,36 @@ Page({
             dataType: 'json',
             success: (res) => {
                 if (res.data.success === true) {
-                    // dd.alert({'content': JSON.stringify(res)})
-                    //进入填写记录阶段
-                    this.data.stage = 1;
-                    //将新建的记录数据内容
-                    this.setData({
-                        subjects: res.data.data.subjects,
-                        addSubjects: res.data.data.addSubjects,
-                        showModal: false,
-                    });
+                    // dd.alert({'content': JSON.stringify(res)}
+                    //得到progressId对应的设备清单
+                    dd.httpRequest({
+                        url: url,
+                        method: 'get',
+                        data: {
+                            action: 'getMachines',
+                            // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                            // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
+                            progressLineId: (t.data.selectProgressLine[t.data.selectProgressLineIndex]).progressLineId,
+                        },
+                        dataType: 'json',
+                        success: (values) => {
+                            if (values.data.success === true) {
+                                //进入填写记录阶段
+                                this.data.stage = 1;
+                                //将新建的记录数据内容
+                                this.setData({
+                                    subjects: res.data.data.subjects,
+                                    addSubjects: res.data.data.addSubjects,
+                                    showModal: false,
+                                    selectMachine: values.data.data.selectMachine
+
+                                });
+                            }
+                        },
+                        fail: (res) => {
+                            dd.alert({'content': JSON.stringify(res)})
+                        }
+                    })
                 }
             },
             fail: (res) => {
@@ -765,16 +949,16 @@ function updateMedia(thumb) {
 
 function updateImageToServer(thumb) {
     // console.log('thumb:'+JSON.stringify(thumb));
-    return new Promise(function (resolve,reject) {
-        const url =getApp().globalData.applicationServer+"uploadMediaToServer.php"
-        const fileType = thumb.category==="image"?"image":"video"
+    return new Promise(function (resolve, reject) {
+        const url = getApp().globalData.applicationServer + "uploadMediaToServer.php"
+        const fileType = thumb.category === "image" ? "image" : "video"
         dd.uploadFile({
             // url: getApp().globalData.domain + '/upload/upload.php',
-            url:url,
+            url: url,
             fileType: fileType,
             fileName: 'file',
             filePath: thumb.url,
-            formData:{fileType:fileType},
+            formData: {fileType: fileType},
             success: res => {
                 console.log(JSON.parse(res.data));
                 if (JSON.parse(res.data).result == "success") {
@@ -794,6 +978,7 @@ function updateImageToServer(thumb) {
         });
     })
 }
+
 
 function deleteImageToServer(thumb) {
     return new Promise(function (resolve,reject) {
@@ -822,7 +1007,5 @@ function deleteImageToServer(thumb) {
         })
 
     })
-
-
 }
 

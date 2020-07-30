@@ -1,6 +1,6 @@
 <view>
   <form onSubmit="formSubmit" >
-    <view class="page-section">
+  <view class="page-section">
       <picker onChange="categoryPickerChange" value="{{categoryIndex}}" range="{{categoryList}}">
         <view class="row">
           <view class="row-title"><text style="color:red">*</text>类别</view>
@@ -10,21 +10,34 @@
       </picker>
     </view>
 
+
     <view class="page-section" hidden="{{categoryIndex==1?false:true}}" >
       <view class="row" onTap="selectRelevantList" >
         <view class="row-title">退换货审批单</view>
-            <view class="row-extra"><input    disabled="true" value="{{relevantList.length}}个"  /></view>
+            <view class="row-extra"><input    disabled="disabled" value="{{relevantList.length}}个"  /></view>
         <view class="a-list-arrow a-list-arrow-horizontal" />
       </view>
     </view>
 
     <view class="page-section">
-        <view class="row" style="position:relative" onTap="isShow" >
+      <radio-group class="radio-group" onChange="radioChange">
+        <label class="radio" >
+          <radio value="true" />配方号不确定
+        </label>
+        <label class="radio" >
+          <radio value="false" checked = "true"  />配方号
+        </label>
+      </radio-group>
+         <view a:if={{!isInputFormulationNumber}} class="row" style="position:relative" onTap="isShow" >
           <view class="row-title"><text style="color:red">*</text>产品配方号</view>
-          <view class="row-extra" style="flex:2 1 0%;text-align:left" ><input name="formulationNumber" value="{{originData[firstKey][value[1]]}}" disabled="true"  /></view>
-          <view class="{{isShowPicker ? 'a-collapse-title-arrow a-collapse-title-arrow-up' : 'a-collapse-title-arrow'}}"  />
+          <view class="row-extra" style="flex:2 1 0%;text-align:left" ><input name="formulationNumber" value="{{originData[firstKey][value[1]]}}" disabled="disabled"  /></view>
+          <view a:if="{{!isInputFormulationNumber}}" class="{{isShowPicker ? 'a-collapse-title-arrow a-collapse-title-arrow-up' : 'a-collapse-title-arrow'}}"  />
         </view>
-      <view a:if="{{isShowPicker}}">
+        <view a:else class="row" style="position:relative"  >
+          <view class="row-title"><text style="color:red">*</text>产品型号</view>
+          <view class="row-extra" style="flex:2 1 0%;text-align:left" ><input name="formulationNumber" focus="{{focus}}" onFocus="onFocus" onBlur = "onBlur" placeholder="输入产品型号" style="text-align:right"}}  /></view>
+        </view>
+    <view a:if="{{isShowPicker  && !isInputFormulationNumber}}" >
         <picker-view value="{{value}}" onChange="onChange" class="my-picker" style="height:'100%'">
           <picker-view-column>
             <!--<view>2011</view>

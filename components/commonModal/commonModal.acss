@@ -21,10 +21,11 @@
   /* background-color: #fff; */
   background-color:rgb(205, 205, 205);
   border-radius: 10rpx;
-  position:absolute;
-left:20px;
-right:20px;
-top:30px;
+ /* position:absolute;
+  left:20px;
+  right:20px;
+  top:30px;*/
+  padding: 20rpx;
 }
 
 .modal-btn-wrapper{

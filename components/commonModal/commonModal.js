@@ -24,7 +24,7 @@ Component({
     //是否显示modal
     show: false,
     //modal的高度
-    height: '80%',
+    // height: '100%',
     onCancelRecord:(data)=>{
          console.log(data);
     },

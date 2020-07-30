@@ -6,7 +6,7 @@ let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
 //test git,回复
 let url = domain + '/login.php'; */
 
-let development = false; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
+let development = true; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
 let domain,applicationServer;
 if (development===true){
     domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
@@ -15,6 +15,7 @@ if (development===true){
     domain = "http://47.103.63.213/eapp-corp";
     // domain = "https://www.ckkj.net.cn/eapp-corp";//阿里云已安装ssl证书
     applicationServer = "https://filemaker.ckkj.net.cn:8890/corp_php-master/"
+
 
 }
 let url = domain + '/login.php';
@@ -76,17 +77,19 @@ App({
                         app.globalData.userId = userId;
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
-                        // 调试时关闭
-                        dd.switchTab({ //日历
-                                url: '/page/calendar/index'
-                            })
+                        // 调试时关闭getworkflow
+                        // dd.switchTab({ //日历
+                        //         url: '/page/calendar/index'
+                        //     })
                        /* dd.navigateTo({
                             url: "/page/calendar/editSampleRecord/sampleList/sampleList"
 
                         })*/
-                        /*dd.navigateTo({
-                            url: '/page/calendar/selectCustomer/selectCustomer'
-                        })*/
+                        dd.navigateTo({
+                            // url: '/page/calendar/selectCustomer/selectCustomer'
+                            url:"/page/calendar/addSampleRecord/addSampleRecord",
+
+                        })
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

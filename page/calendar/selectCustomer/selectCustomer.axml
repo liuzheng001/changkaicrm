@@ -1,29 +1,39 @@
 <view class="container">
-<view class="select-title"> 选择使用方案</view>
-    <picker-view value="{{value}}" onChange="onChange"  class="my-picker"  indicator-style="height:50px;" style="width: 100%; height: 450px;padding-top 100px">
-      <picker-view-column>
-        <!--<view>2011</view>
-        <view>2022</view>
-        <view>2033</view>-->
-        <view a:for="{{originData}}" style="line-height: 50px;height:50px;">
-          {{index}}
-        </view>
-      </picker-view-column>
-      <picker-view-column>
-        <view a:for="{{originData[firstKey]}}" style="line-height: 50px;height:50px;">
-          {{originData[firstKey][index]['categoryAndTime']}}
-        </view>
-      </picker-view-column>
-    </picker-view>
-  <view class="fixed-button">
-    <!-- <view class="page-section">
-      <view class="row">
-        <view class="row-title">记录数据ID</view>
-        <view class="row-extra"><input name="sampleDataRecordId" value={{sampleDataRecID}} onInput="onInput"  /></view>
-      </view>
-    </view> -->
-    <button type="primary" onTap="onCreateTrackRec" disabled="{{disableButton}}">新建跟踪数据</button>
-    <button type="primary" onTap="onEditTrackRec" disabled="{{disableButton}}">修改跟踪数据</button>
+<!-- <view class="select-title"> 选择客户</view> -->
+  
+     <view class="searchLine">
+       <input
+              name = "customName"
+              type="search"
+              class="search-input"
+              value="{{inputVal}}"
+              onInput="onInputSearch"
+              onFocus="showCancel"
+              onBlur = "onBlur"
+              placeholder="搜索"
+      />
+      <button class="search-all" size="mini" onTap="clearSearch">全部</button>
+       </view> 
 
+  <view class="listCon" >
+    <scroll-view scroll-y="true" class="searchResult"  style="height: 1000rpx;">
+      <!-- 搜索列表 -->
+      <block a:for="{{searchList}}" a:key="key">
+        <view class="row" style="border-bottom: 1px solid #ddd" >
+          <view class='row-title'  data-index='{{index}}' data-id = "{{item.id}}" data-name='{{item.name}}' onTap='getSearchCell'> {{item.name}}</view>
+          <view class="row-extra"> > </view>
+        </view>
+      </block>
+      <!--  <view >下拉结果</view>
+        <view >下拉结果</view>-->
+    </scroll-view>
+  </view>
+    <view class="page-section-title">最近选择</view>
+  <view class="lastSelectCon">
+    <view a:for="{{historySearch}}" >
+      <button  class="lastSelectCell" size="mini"  data-name='{{item.name}}' data-id = "{{item.id}}" onTap='getSearchCell'>
+        {{item.name}}
+      </button>
+    </view>
   </view>
 </view>

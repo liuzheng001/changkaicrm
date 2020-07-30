@@ -236,3 +236,15 @@
     padding: 20rpx;
     font-size: 30rpx;
 }
+
+.radio-group{
+    display: flex;
+    justify-content:center;
+}
+
+.radio{
+    flex: 1 1 auto;
+    font-size: 30rpx;
+    /*margin-left: 16rpx;*/
+    padding: 24rpx 0.3rem;
+}

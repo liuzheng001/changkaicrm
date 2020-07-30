@@ -1,78 +1,202 @@
 Page({
   data: {
       //选择配方号,两级pickerView
-      originData:{
-          /*{
-              "重庆江达铝合金轮圈有限公司": [{
-              "sampleRecID": "6DFC100A-56D9-43FD-BD0A-BAE9F2388213",
-              "categoryAndTime": "切削类09/11/2019",
-              "isProjectAudit":true,//方案是否批准
-              },
-               {
-              "sampleRecID": "6DFC100A-56D9-43FD-BD0A-BAE9F2388213",
-              "categoryAndTime": "切削类09/11/2019"
-              "isProjectAudit":false,//方案是否批准
-              }
-              ]
-          },
-              {
-              "重庆黎宏机械制造有限公司": {
-              "sampleRecID": "124A0676-1922-443B-8DAC-9A1E6FEAFE8F",
-              "categoryAndTime": "清洗类11/08/2019"
-              "isProjectAudit":false,//方案是否批准
-              }
-          },
+      customList:{},//客户清单
 
-          }*/
-      },
+
+      searchList:{},//搜索的客户列表
+      inputVal:"",
+      historySearch:[],//历史搜索记录,storge存入
+
       sampleDataRecID:0,//记录数据ID
       value:[0,0],
       firstKey:'',
       disableButton:false,
+
   },
   onLoad() {
-    //从后台得到客户和试用记录列表,二级picker
-      const url = getApp().globalData.domain+"/fmSampleRec.php";
+      const t = this;
+      //从后台得到客户和试用记录列表,二级picker
+      /* const url = getApp().globalData.domain+"/fmSampleRec.php";
+       dd.httpRequest({
+           url: url,
+           method: 'get',
+           data: { //传递当前签到经纬度
+               action:'getSampleList',
+              /!* longitude:104,
+               latitude:106,*!/
+               userId:getApp().globalData.userId,//钉钉usrid
+               userName:getApp().globalData.username,//钉钉usrname,未用
+           },
+           dataType: 'json',
+           success: (res) => {
+               // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+               if (res.data.success === true) {
+                   const firstKey = Object.keys(res.data.data)[0];
+                   let originData = res.data.data;
+                   const disableButton = !originData[firstKey][0].isProjectAudit;
+                  /!* originData['所有'] =[{
+                           "sampleRecID": "-1",
+                           "categoryAndTime": "所有客户"
+                   }]*!/
+                   this.setData({
+                       disableButton:disableButton,//方案未提交,新建和进入列表按钮均不能操作
+                       originData:originData,
+                       firstKey:firstKey
+                   });
+
+
+               }else{
+                   dd.alert({'content':JSON.stringify(res)})
+               }
+           },
+           fail: (res) => {
+               dd.alert({'content':JSON.stringify(res)})
+           },
+           complete: (res) => {
+           }
+       })*/
+
+      const url = getApp().globalData.domain + "/getFmMessage.php";
       dd.httpRequest({
           url: url,
           method: 'get',
-          data: { //传递当前签到经纬度
-              action:'getSampleList',
-             /* longitude:104,
-              latitude:106,*/
-              userId:getApp().globalData.userId,//钉钉usrid
-              userName:getApp().globalData.username,//钉钉usrname,未用
+          data: {
+              action: 'getcustomlist',
           },
           dataType: 'json',
           success: (res) => {
               // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-              if (res.data.success === true) {
-                  const firstKey = Object.keys(res.data.data)[0];
-                  let originData = res.data.data;
-                  const disableButton = !originData[firstKey][0].isProjectAudit;
-                 /* originData['所有'] =[{
-                          "sampleRecID": "-1",
-                          "categoryAndTime": "所有客户"
-                  }]*/
-                  this.setData({
-                      disableButton:disableButton,//方案未提交,新建和进入列表按钮均不能操作
-                      originData:originData,
-                      firstKey:firstKey
-                  });
-
-
-              }else{
-                  dd.alert({'content':JSON.stringify(res)})
-              }
+              this.setData({
+                  customList: res.data.content.data,
+                  searchList: res.data.content.data
+              });
           },
           fail: (res) => {
-              dd.alert({'content':JSON.stringify(res)})
+              dd.alert({'content': JSON.stringify(res)})
           },
           complete: (res) => {
           }
+
+      })
+
+      dd.getStorage({
+          key: 'historySearch',
+          success: function (res) {
+              //不存在samleRecord key时，res.data为null
+              t.setData({
+                  historySearch: res.data.historySearch,
+              });
+          },
+          fail: function () {
+
+          },
       })
   },
-  
+
+    // 显示搜索框取消,得到焦点
+    showCancel: function () {
+        this.setData({
+            lostFocus:false,
+            inputStatus: {
+                marginRight: "0",
+                opacity: 1
+            }
+        });
+    },
+    //失去搜索框焦点
+    onBlur: function () {
+        this.setData({
+            lostFocus:true,
+            inputStatus: {
+                marginRight: "-80rpx",
+                opacity: 0,
+            }
+        });
+    },
+    // 点击搜索框取消
+    clearSearch: function () {
+        this.setData({
+            inputVal: "",
+            searchList: this.data.customList
+        });
+    },
+    // 搜索框输入值更新
+    onInputSearch: function (e) {
+        const searchList = showSearchList(this.data.customList,e.detail.value);
+        // debugger;
+        this.setData({
+            inputVal: e.detail.value,
+            searchList:searchList
+        });
+    },
+    //点击客户列表触发
+    getSearchCell(e){
+        let t =this;
+        let historySearch=this.data.historySearch;
+        const id = e.currentTarget.dataset.id;
+        const name = e.currentTarget.dataset.name;
+        const options = ['新增数据','查看数据']
+        dd.showActionSheet({
+            title: "确定收工?",
+            items: options,
+            //cancelButtonText: '取消好了', //android无效
+            success: (res) => {
+                const index = res.index;
+                switch (index) {
+                    case 0://新增数据
+                        // dd.showLoading(); //由于写入stoarge是异步的,通过挂起输入避免问题
+                        //记入historySearch,并记入storage
+                        let inHistory=historySearch.filter(function (item) {//利用filter具有筛选和截取的作用，筛选出数组中name值与文本框输入内容是否有相同的字
+                            return item.id === id;
+                        });
+                        if (inHistory.length == 0 ) {
+                            if (historySearch.length >= 6) {
+                                historySearch.splice(5, 8);
+                            }
+                            historySearch.splice(0, 0, {id,name});
+                        }
+                        else {
+                            //其次得到这个对象在数组中对应的索引,并删除然后在数组头追加
+                            let index = historySearch.indexOf({id,name});
+                            historySearch.splice(index,1);
+                            historySearch.splice(0, 0, {id,name});
+                        }
+                        dd.setStorage({
+                            key: 'historySearch',
+                            data: {
+                                historySearch:historySearch
+                            },
+                            success: function () {
+                                // dd.alert({content: '写入成功'+cellValue});
+                                // dd.hideLoading();
+                                t.setData({
+                                    historySearch: historySearch,
+                                });
+                            }
+                        });
+                        break
+                    case 1://查看数据
+                        break
+                    default:return
+                }
+
+            },
+        })
+
+
+
+
+        /*this.setData({
+            lostFocus:true,
+            inputStatus: {
+                marginRight: "-80rpx",
+                opacity: 0,
+            },
+            inputVal:cellValue,
+        });*/
+    },
+
   //配方号picker选择
   onChange(e) {
         console.log(e.detail.value);
@@ -164,3 +288,18 @@ Page({
 
 
 });
+
+function showSearchList(allList,query) { //原始数据
+
+
+    var searchList=allList.filter(function (item) {//利用filter具有筛选和截取的作用，筛选出数组中name值与文本框输入内容是否有相同的字
+
+        return item.name.indexOf(query)>-1;//索引name
+
+    });
+
+    return searchList;
+}
+
+
+
