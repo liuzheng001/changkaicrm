@@ -1,7 +1,7 @@
  <view class='mask' a:if="{{show}}"  onTap='clickMask'>
 <!--<view class='mask'  bindtap='clickMask'>-->
   <!-- <view class='modal-content' style='height:{{height}}'> -->
-  <view class='modal-content' >w
+  <view class='modal-content' >
     <!--<scroll-view scroll-y class='main-content'>-->
       <slot></slot>
     <!--</scroll-view>-->
@@ -11,6 +11,3 @@
     </view>
   </view>
 </view>
-<!-- ————————————————
-版权声明：本文为CSDN博主「solocoder222」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/solocoder/article/details/80696752 -->

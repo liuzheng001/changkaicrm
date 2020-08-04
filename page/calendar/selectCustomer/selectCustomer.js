@@ -2,8 +2,6 @@ Page({
   data: {
       //选择配方号,两级pickerView
       customList:{},//客户清单
-
-
       searchList:{},//搜索的客户列表
       inputVal:"",
       historySearch:[],//历史搜索记录,storge存入
@@ -138,7 +136,7 @@ Page({
         const name = e.currentTarget.dataset.name;
         const options = ['新增数据','查看数据']
         dd.showActionSheet({
-            title: "确定收工?",
+            title: "选择?",
             items: options,
             //cancelButtonText: '取消好了', //android无效
             success: (res) => {
@@ -173,6 +171,8 @@ Page({
                                 t.setData({
                                     historySearch: historySearch,
                                 });
+                                //导航到新增数据page,带参数customList的客户id
+                                dd.navigateTo({url: '/page/calendar/addSampleRecord/addSampleRecord?customerId='+id});
                             }
                         });
                         break

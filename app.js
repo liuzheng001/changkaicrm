@@ -85,11 +85,12 @@ App({
                             url: "/page/calendar/editSampleRecord/sampleList/sampleList"
 
                         })*/
-                        dd.navigateTo({
+                        /*dd.navigateTo({
                             // url: '/page/calendar/selectCustomer/selectCustomer'
                             url:"/page/calendar/addSampleRecord/addSampleRecord",
+                            // url:"/page/calendar/addMachine/addMachine"
 
-                        })
+                        })*/
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

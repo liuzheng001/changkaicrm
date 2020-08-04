@@ -8,7 +8,7 @@
 
   属性说明：
   show： 控制modal显示与隐藏
-  height：modal的高度
+  height：modal的高度 
   bindcancel：点击取消按钮的回调函数
   bindconfirm：点击确定按钮的回调函数
 
@@ -25,7 +25,8 @@ Component({
     show: false,
     //modal的高度
     // height: '100%',
-    onCancelRecord:(data)=>{
+    onCancelRecord:(data)=>{ 
+      
          console.log(data);
     },
     onCreateRecord:(data)=>{

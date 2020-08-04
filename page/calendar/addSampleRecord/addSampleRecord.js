@@ -56,8 +56,9 @@ Page({
         }*/
     ]
 ,
-        value:[0,0],
-        firstKey:'',
+        ProgressLineIndex:-1,
+        value:[0,0],//第一个代表生产线,第二个代表设备
+        // firstKey:'',
 
     showModal: true,
     stage:0,//0是在选择机器和产品阶段,1为记录阶段
@@ -119,15 +120,39 @@ Page({
             method: 'get',
             data: {
                 action: 'getCustomProjectsList',
-                // customerId: 782//渝江
-                customerId: 35//江达
+                customerId: query.customerId//渝江
+                // customerId: 35//江达
             },
             dataType: 'json',
             success: (res) => {
                 // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                t.setData({
-                    projects: res.data.projects,
-                });
+
+                //得到progressId对应的设备清单
+                const url = getApp().globalData.domain + "/fmSampleRec.php";
+                dd.httpRequest({
+                    url: url,
+                    method: 'get',
+                    data: {
+                        action: 'getProgressLines',
+                        // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
+                        // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
+                        customerId:query.customerId,
+                    },
+                    dataType: 'json',
+                    success: (values) => {
+                        if (values.data.success === true) {
+                            //进入填写记录阶段
+                            //将新建的记录数据内容
+                            t.setData({
+                                projects: res.data.projects,
+                                ProgressLine:values.data.data.progressLines
+                            });
+                        }
+                    },
+                    fail: (res) => {
+                        dd.alert({'content': JSON.stringify(res)})
+                    }
+                })
             },
             fail: (res) => {
                 dd.alert({'content': JSON.stringify(res)})
@@ -295,7 +320,7 @@ Page({
         });*/
     },
     onUnload() {
-        console.log("返回键按下,page销毁")
+        /*console.log("返回键按下,page销毁")
         //真机上可调试,ide直接忽略
         // dd.alert({content:JSON.stringify(this.data.subjects)})
         if (this.data.backMode === 1) { //提交退出
@@ -333,7 +358,7 @@ Page({
                     // dd.alert({content: '写入成功'});
                 }
             });
-        }
+        }*/
     },
     openModal() {
         this.setData({
@@ -403,37 +428,15 @@ Page({
     },
     selectPLine(e) {
         const t = this;
-        if (!this.data.showModal && this.data.selectProgressLineIndex !== e.detail.value) {
-        //得到progressId对应的设备清单
-        const url = getApp().globalData.domain + "/fmSampleRec.php";
-        dd.httpRequest({
-            url: url,
-            method: 'get',
-            data: {
-                action: 'getMachines',
-                // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                progressLineId: (t.data.selectProgressLine[e.detail.value]).progressLineId,
-            },
-            dataType: 'json',
-            success: (values) => {
-                if (values.data.success === true) {
-                    //进入填写记录阶段
-                    t.data.stage = 1;
-                    //将新建的记录数据内容
-                    t.setData({
-                        selectMachine: values.data.data.selectMachine,
-                        selectProgressLineIndex: e.detail.value,
-                        selectMachineIndex:-1
-                    });
-                }
-            },
-            fail: (res) => {
-                dd.alert({'content': JSON.stringify(res)})
-            }
-        })
-    }else{
-        t.setData({selectProgressLineIndex: e.detail.value});
+        if (!this.data.showModal && this.data.ProgressLineIndex !== e.detail.value) {
+            const selectMachine = this.data.ProgressLine[e.detail.value].machines
+
+            t.setData({
+                ProgressLineIndex: e.detail.value,
+                selectMachine:selectMachine,
+                selectMachineIndex:-1
+            });
+        }else{
         }
     },
     //生产线,设备picker选择
@@ -452,36 +455,6 @@ Page({
         this.setData({
             value:[e.detail.value[0],secondNum],
         })
-
-
-    },
-    onGetPLine(){//显示生产线
-        const t = this;
-            //得到progressId对应的设备清单
-            const url = getApp().globalData.domain + "/fmSampleRec.php";
-            dd.httpRequest({
-                url: url,
-                method: 'get',
-                data: {
-                    action: 'getProgressLines',
-                    // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                    // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                    customerId:35,
-                },
-                dataType: 'json',
-                success: (values) => {
-                    if (values.data.success === true) {
-                        //进入填写记录阶段
-                        //将新建的记录数据内容
-                        t.setData({
-                            ProgressLine:values.data.data.progressLines
-                        });
-                    }
-                },
-                fail: (res) => {
-                    dd.alert({'content': JSON.stringify(res)})
-                }
-            })
 
 
     },
@@ -506,7 +479,8 @@ Page({
     onCreateRecord() {
         const t = this;
         //校验数据
-        if (t.data.testCategoryIndex < 0 || t.data.selectProgressLineIndex < 0 || t.data.selectProductIndex < 0) {
+        // if (t.data.testCategoryIndex < 0 || t.data.selectProgressLineIndex < 0 || t.data.selectProductIndex < 0) {
+            if (t.data.testCategoryIndex < 0  || t.data.selectProductIndex < 0)  {
             dd.alert({content: '数据不正确,请检查'})
             return;
         }
@@ -524,21 +498,7 @@ Page({
             },
             dataType: 'json',
             success: (res) => {
-                if (res.data.success === true) {
-                    // dd.alert({'content': JSON.stringify(res)}
-                    //得到progressId对应的设备清单
-                    dd.httpRequest({
-                        url: url,
-                        method: 'get',
-                        data: {
-                            action: 'getMachines',
-                            // $_REQUEST['sampleID'].'|'.$_REQUEST['testCategory'].'|'.$_REQUEST['machineID'].'|'.$_REQUEST['formulaID']
-                            // sampleID:'6DFC100A-56D9-43FD-BD0A-BAE9F2388213',
-                            progressLineId: (t.data.selectProgressLine[t.data.selectProgressLineIndex]).progressLineId,
-                        },
-                        dataType: 'json',
-                        success: (values) => {
-                            if (values.data.success === true) {
+
                                 //进入填写记录阶段
                                 this.data.stage = 1;
                                 //将新建的记录数据内容
@@ -546,21 +506,14 @@ Page({
                                     subjects: res.data.data.subjects,
                                     addSubjects: res.data.data.addSubjects,
                                     showModal: false,
-                                    selectMachine: values.data.data.selectMachine
-
                                 });
-                            }
+
                         },
-                        fail: (res) => {
-                            dd.alert({'content': JSON.stringify(res)})
-                        }
-                    })
-                }
-            },
             fail: (res) => {
                 dd.alert({'content': JSON.stringify(res)})
-            },
-        })
+            }
+            })
+
     },
     //输入实测数据,写入对应subjects
     onInput: function (e) {
@@ -841,74 +794,128 @@ Page({
             content: '提交记录,确认?',
             confirmButtonText: '确认',
             success: (result) => {
-                const url = getApp().globalData.domain + "/fmSampleRec.php";
-                //将应用服务器临时文件,上传阿里云
-                dd.httpRequest({
-                    url: url,
-                    method: 'post',
-                    data: {
-                        action:"createSampleRecord",
-                        sampleID: t.data.sampleID,
-                        machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
-                        formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
-                        testCategory: this.data.testCategory[this.data.testCategoryIndex],
-                        remark: t.data.remark,
-                        subjects: JSON.stringify(t.data.subjects),
-                        addSubjects: JSON.stringify(t.data.addSubjects),
-                        submitName:getApp().globalData.username,
-                    },
-                    success: function (res) {
-                        if (res.data.success == true) {
-                            const thumbs = t.data.thumbs
-                            if (thumbs.length == 0) { //无上传媒体直接退出
-                                t.data.backMode = 1;
-                                t.data.stage = 0;
-                                dd.alert({
-                                    content: "提交成功.",
-                                    success: () => {
-                                        dd.navigateBack();
-                                    },
-                                });
-                            }else {
-                                //将媒体文件上传至阿里云,并在后台将videoID与入fm
-                                const url = getApp().globalData.applicationServer + "uploadMediasToAili.php";
-                                //将应用服务器临时文件,上传阿里云
-                                dd.httpRequest({
-                                    url: url,
-                                    method: 'post',
-                                    data: {
-                                        sampleDataRecID: res.data.sampleDataRecID,
-                                        thumbs: JSON.stringify(thumbs)
-                                    },
-                                    success: function (res) {
-                                        if (res.data.success == true) {
-                                            t.data.backMode = 1;
-                                            t.data.stage = 0;
-                                            dd.alert({
-                                                content: "提交成功.",
-                                                success: () => {
-                                                    dd.navigateBack();
-                                                },
-                                            });
+                if (result.confirm == true) {
+                    const url = getApp().globalData.domain + "/fmSampleRec.php";
+                    //将应用服务器临时文件,上传阿里云
+                    dd.httpRequest({
+                        url: url,
+                        method: 'post',
+                        data: {
+                            action: "createSampleRecord",
+                            //调试
+                            // sampleID: "6DFC100A-56D9-43FD-BD0A-BAE9F2388213",//江达
+                            sampleID: t.data.projects[t.data.projectsIndex].projectId,
 
-                                            // dd.alert({content: "已上传阿里云."});
-                                        } else {
-                                            dd.alert({content: "上传阿里云失败"});
+                            machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
+                            formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
+                            testCategory: this.data.testCategory[this.data.testCategoryIndex],
+                            remark: t.data.remark,
+                            subjects: JSON.stringify(t.data.subjects),
+                            addSubjects: JSON.stringify(t.data.addSubjects),
+                            submitName: getApp().globalData.username,
+                        },
+                        success: function (res) {
+                            if (res.data.success == true) {
+                                const thumbs = t.data.thumbs
+                                if (thumbs.length == 0) { //无上传媒体直接退出
+                                    t.data.backMode = 1;
+                                    t.data.stage = 0;
+                                    dd.confirm({
+                                        title: '再建一条',
+                                        content: '确认?',
+                                        confirmButtonText: '确认',
+                                        success: (result) => {
+                                            if (result.confirm == true) {
+                                                /* machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
+                                                     formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
+                                                     testCategory: this.data.testCategory[this.data.testCategoryIndex],
+                                                     remark: t.data.remark,
+                                                     subjects: JSON.stringify(t.data.subjects),
+                                                     addSubjects: JSON.stringify(t.data.addSubjects),
+                                                     submitName: getApp().globalData.username,*/
+                                                arrayElementDel(t.data.subjects),
+                                                arrayElementDel(t.data.addSubjects);
+                                                t.setData({
+                                                    showModal: true,
+                                                    selectMachineIndex: -1,
+                                                    selectProductIndex: -1,
+                                                    remark: "",
+                                                    subjects:t.data.subjects,
+                                                    addSubjects:t.data.addSubjects,
+                                                });
+                                            } else {
+                                                dd.navigateBack();
+                                            }
+                                        },
+                                    })
+                                } else {
+                                    //将媒体文件上传至阿里云,并在后台将videoID与入fm
+                                    const url = getApp().globalData.applicationServer + "uploadMediasToAili.php";
+                                    //将应用服务器临时文件,上传阿里云
+                                    dd.httpRequest({
+                                        url: url,
+                                        method: 'post',
+                                        data: {
+                                            sampleDataRecID: res.data.sampleDataRecID,
+                                            thumbs: JSON.stringify(thumbs)
+                                        },
+                                        success: function (res) {
+                                            if (res.data.success == true) {
+                                                t.data.backMode = 1;
+                                                t.data.stage = 0;
+                                                /*dd.alert({
+                                                    content: "提交成功.",
+                                                    success: () => {
+                                                        dd.navigateBack();
+                                                    },
+                                                });*/
+                                                dd.confirm({
+                                                    title: '再建一条',
+                                                    content: '确认?',
+                                                    confirmButtonText: '确认',
+                                                    success: (result) => {
+                                                        if (result.confirm == true) {
+                                                            /* machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
+                                                                 formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
+                                                                 testCategory: this.data.testCategory[this.data.testCategoryIndex],
+                                                                 remark: t.data.remark,
+                                                                 subjects: JSON.stringify(t.data.subjects),
+                                                                 addSubjects: JSON.stringify(t.data.addSubjects),
+                                                                 submitName: getApp().globalData.username,*/
+                                                            arrayElementDel(t.data.subjects),
+                                                            arrayElementDel(t.data.addSubjects);
+                                                            t.setData({
+                                                                showModal: true,
+                                                                selectMachineIndex: -1,
+                                                                remark: "",
+                                                                subjects:t.data.subjects,
+                                                                addSubjects:t.data.addSubjects,
+                                                                thumbs:[],
+                                                            });
+                                                        } else {
+                                                            dd.navigateBack();
+                                                        }
+                                                    },
+                                                })
+                                                // dd.alert({content: "已上传阿里云."});
+                                            } else {
+                                                dd.alert({content: "上传阿里云失败"});
+                                            }
+                                        },
+                                        fail: function (res) {
+                                            dd.alert({content: "上传阿里云失败." + JSON.stringify(res)});
                                         }
-                                    },
-                                    fail: function (res) {
-                                        dd.alert({content: "上传阿里云失败." + JSON.stringify(res)});
-                                    }
-                                });
+                                    });
+                                }
+                            } else {
+                                dd.alert({content: "提交失败"});
                             }
-                        } else {
-                            dd.alert({content: "提交失败"});
+                        },
+                        fail: function (res) {
+                            dd.alert({content: "提交失败." + JSON.stringify(res)});
                         }
-                    },
-                    fail: function (res) {
-                        dd.alert({content: "提交失败." + JSON.stringify(res)});
-                    }
-                });
+                    });
+                }
             },
         });
         //注意将storage的内容删除
@@ -1007,5 +1014,14 @@ function deleteImageToServer(thumb) {
         })
 
     })
+}
+
+function arrayElementDel(arrayList) {
+
+    for (let i = 0; i < arrayList.length; i++) {
+        if (arrayList[i].checkData) {
+            delete arrayList[i].checkData;
+        }
+    }
 }
 

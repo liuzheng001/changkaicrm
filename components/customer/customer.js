@@ -18,9 +18,9 @@ Component({
     showAlert(){
       this.props.onShowCounter("compoent's value")
     },
-		showPropsValue(){
-			alert(this.props.extra);
-		}
+    showPropsValue(){
+        alert(this.props.extra);
+    }
 
   },
 });

@@ -5,7 +5,7 @@
         <view class="row-title">类别</view>
         <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{category}} disabled="true"  /></view>
       </view>
-    </view>
+    </view> 
     <view class="page-section">
       <view class="row">
         <view class="row-title">检测类别</view>
