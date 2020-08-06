@@ -491,7 +491,6 @@ Page({
                                         dd.alert({
                                             content: "提交成功.",
                                             success: () => {
-
                                                 dd.navigateBack();
                                             },
                                         });

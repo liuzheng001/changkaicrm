@@ -31,10 +31,10 @@
     </commonmodal>
   <form onSubmit="formSubmit">
   <view class="page-section">
-    <picker onChange="allPLinesPickerChange" value="{{allPLinesIndex}}" range="{{allPLines}}" range-key="progressLineName">
+    <picker onChange="PLinesChange" value="{{PLinesIndex}}" range="{{PLines}}" range-key="PLineName">
       <view class="row">
         <view class="row-title">生产线</view>
-        <view class="row-extra"><input name="allPLines" disabled="true" value={{allPLinesIndex===-1?"请选择":allPLines[allPLinesIndex].progressLineName}}   /></view>
+        <view class="row-extra"><input name="PLines" disabled="true" value={{PLinesIndex===-1?"请选择":PLines[PLinesIndex].PLineName}}   /></view>
         <view class="a-list-arrow a-list-arrow-horizontal" />
       </view>
     </picker>

@@ -7,36 +7,33 @@ Page({
 
       PLines:[
 
-          /*{
-              "progressLineName": "铝轮19线",
-              "progressLineId": "946C93C7-8DD0-4160-959B-14636AF30981"
-                            "recordId":123
+          /* {
+                  "PLineName": "铝轮2线",
+                  "PLineId": "8BF88712-9CC8-435D-871D-A6F83551B4DA",
+                  "machines": [
+                      {
+                          "machineIdentification": "201#-全铝加工-铝轮粗加工",
+                          "machineID": "6BADCDDD-0FA0-405C-9F83-BC20C4B2FDAE"
+                      },
 
-          },
+                  ]
+              },
           {
-              "progressLineName": "铝轮2线",
-              "progressLineId": "8BF88712-9CC8-435D-871D-A6F83551B4DA",
-              "recordId":123
-          },
-
-          */
-],
+              "PLineName": "铝轮19线",
+              "PLineId": "946C93C7-8DD0-4160-959B-14636AF30981",
+              "machines": [
+              {
+                  "machineIdentification": "1901--2",
+                  "machineID": "2B9779E7-A105-4087-88B2-06C6B5A59C5F"
+              },
+              {
+                  "machineIdentification": "1902-铝轮加工-切削",
+                  "machineID": "DF2D72F7-9952-41BD-BA2C-FD14D8D54D1D"
+              }
+               ]
+          },*/
+  ],
       PLinesIndex:-1,
-
-      allPLines:[ //包括新增和编辑
-         /* {
-              "progressLineName": "新增",
-              "progressLineId": "-1",
-              "recordId":-1
-
-          },
-          {
-              "progressLineName": "编辑",
-              "progressLineId": "-2",
-              "recordId":-2
-          }*/
-      ],
-    allPLinesIndex:-1,
       PLineName:"",
       PLineMachine:"",
       PLineProduct:"",
@@ -51,24 +48,28 @@ Page({
     position:"",
 
   },
-  onLoad() {//得到生产线数据
-      updataPLines(this);
+  onLoad(query) {//query包括customerId,PLines,PLinesIndex,showModal
+      // updataPLines(this,query.customerId);
+      if (query.PLinesIndex) { //建立新设备
+          this.setData({
+              PLines:JSON.parse(query.PLines),
+              PLinesIndex:query.PLinesIndex,
+              customerId:query.customerId
+
+          });
+      }else if (query.showModal==="true") { //建立新生产线
+          this.setData({
+              showModal:true,
+              PLines:JSON.parse(query.PLines),
+              customerId:query.customerId
+          })
+      }
   },
-    allPLinesPickerChange(e) {
-      const index = e.detail.value
-        if (this.data.allPLines[index].progressLineId === "-1") {//代表新增产品线
-            this.setData({showModal:true,addPline:true});
-        }else if (this.data.allPLines[index].progressLineId === "-2") {//代表编辑产品线
-            //得到生产线信息
-            this.setData({showModal:true,addPline:false,
-            });
-
-        }else {
-            this.setData({
-                allPLinesIndex: e.detail.value,
-            });
-        }
-
+    PLinesChange(e) {//改变当前生产线
+        const index = e.detail.value
+        this.setData({
+            PLinesIndex:index,
+        });
     },
     PLinesPickerChange(e) {
         const index = e.detail.value
@@ -120,7 +121,7 @@ Page({
 
     },
     onCancelRecord() {
-      this.setData({
+      /*this.setData({
           showModal:false,
           PLineName:"",
           PLineMachine:"",
@@ -128,9 +129,10 @@ Page({
           PLinePosition:"",
           PLinesIndex:-1
 
-      })
+      })*/
+      dd.navigateBack();
     },
-    onCreateRecord(){
+    onCreateRecord(){  //建立生产线
       const t =this;
         dd.confirm({
             title: '提示',
@@ -147,15 +149,15 @@ Page({
                                 action: 'editPLine',//既是新增也是修改
                                 values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
                                     form_values: {
-                                        PLineName: this.data.PLineName,
-                                        PLineMachine: this.data.PLineMachine,
-                                        PLineProduct: this.data.PLineProduct,
-                                        PLinePosition: this.data.PLinePosition,
+                                        PLineName: t.data.PLineName,
+                                        PLineMachine: t.data.PLineMachine,
+                                        PLineProduct: t.data.PLineProduct,
+                                        PLinePosition: t.data.PLinePosition,
                                     },
 
                                 }),
-                                // customerId: this.data.customerId
-                                customerId: 35
+                                customerId: t.data.customerId
+                                // customerId: 35
 
                             },
                             dataType: 'json',
@@ -165,7 +167,7 @@ Page({
                                     dd.alert({
                                         content: "建立生产线成功",
                                         success:(result)=>{
-                                            updataPLines(t)
+                                            dd.navigateBack();
                                         }
                                     });
 
@@ -189,15 +191,15 @@ Page({
                                     action: 'editPLine',
                                     values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
                                         form_values: {
-                                            PLineName: this.data.PLineName,
-                                            PLineMachine: this.data.PLineMachine,
-                                            PLineProduct: this.data.PLineProduct,
-                                            PLinePosition: this.data.PLinePosition,
+                                            PLineName: t.data.PLineName,
+                                            PLineMachine: t.data.PLineMachine,
+                                            PLineProduct: t.data.PLineProduct,
+                                            PLinePosition: t.data.PLinePosition,
                                         },
 
                                     }),
                                     // progressLineId: this.data.PLines[this.data.PLinesIndex]
-                                     progressLineId: this.data.PLines[this.data.PLinesIndex].recordId
+                                     progressLineId: t.data.PLines[t.data.PLinesIndex].recordId
                                 },
                                 dataType: 'json',
                                 traditional: true,//这里设置为true
@@ -206,7 +208,9 @@ Page({
                                         dd.alert({
                                             content: "编辑生产线成功",
                                             success:(result)=>{
-                                                updataPLines(t)
+                                                // updataPLines(t,t.data.customerId)
+                                                dd.navigateBack();
+
                                             }
                                         });
 
@@ -289,7 +293,7 @@ Page({
                                     remark:form.remark,
                                     position:form.position,
                                     volume:form.volume,
-                                    PLinesId:that.data.allPLines[that.data.allPLinesIndex].progressLineId
+                                    PLinesId:that.data.PLines[that.data.PLinesIndex].PLineId
                                 },
                             }),
 
@@ -302,7 +306,11 @@ Page({
                                 if (this.data.picture !== "") {
                                     updatePicture(this.data.picture,'设备','设备图片',res.data.machineRecordId);
                                 }else{
-                                    dd.alert({content: '提交成功'});
+                                    dd.alert({content: '提交成功',
+                                    success: ()=>{  dd.navigateBack();
+                                    },
+
+                                });
 
                                 }
 
@@ -336,9 +344,7 @@ Page({
 
     },
 });
-/*$layoutName = $_REQUEST['layoutName'];
-$recordID = $_REQUEST['recordID'];
-$fieldName = $_REQUEST['fieldName'];*/
+
 function updatePicture(imgPath,layoutName,fieldName,recordID) {
         dd.uploadFile({
             url: getApp().globalData.domain + '/upload/uploadContainer.php',
@@ -354,8 +360,13 @@ function updatePicture(imgPath,layoutName,fieldName,recordID) {
                 console.log(JSON.parse(res.data));
                 if (JSON.parse(res.data).result!== "success") {
                     dd.alert({content: `上传服务器失败：${JSON.stringify(res)}`})
-                }else{
-                    dd.alert({content: '提交成功'});
+                }else {
+                    dd.alert({
+                        content: '提交成功',
+                        success: () => {
+                            dd.navigateBack
+                        },
+                    })
                 }
             },
             fail: function (res) {
@@ -373,14 +384,14 @@ function updataPLines(t) {
         method: 'get',
         data: {
             action: 'getPLines',
-            customerId: 35//江达
+            customerId:query.customerId//江达
 
         },
         dataType: 'json',
         success: (res) => {
             // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
             if (res.data.success) {
-                const allplines =  [...res.data.data.progressLines,...[{
+                /*const allplines =  [...res.data.data.progressLines,...[{
                     "progressLineName": "新增",
                     "progressLineId": "-1",
                     "recordId":-1
@@ -390,9 +401,9 @@ function updataPLines(t) {
                         "progressLineName": "编辑",
                         "progressLineId": "-2",
                         "recordId":-2
-                    }]]
+                    }]]*/
                 t.setData({
-                    allPLines: allplines,
+                    // allPLines: allplines,
                     PLines:res.data.data.progressLines,
                     showModal:false,
                     PLineName:"",

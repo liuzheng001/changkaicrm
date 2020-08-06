@@ -49,8 +49,8 @@
                </picker>
            </view>
        </view>-->
-        <!--<button onTap="onGetPLine">显示生产线</button>
-        <view class="page-section">
+        <!--<button onTap="onGetPLine">显示生产线</button>-->
+       <!-- <view class="page-section">
         &lt;!&ndash;<picker-view value="{{value}}" onChange="onChange"   indicator-style="height:50px;" style="width: 100%; height: 450px;padding-top 100px">&ndash;&gt;
         <picker-view value="{{value}}" onChange="onChange" indicator-style="height:50px;"  style="width: 100%; height: 250px;padding-top 50px" >
             <picker-view-column>
@@ -66,8 +66,8 @@
                     {{item['machineIdentification']}}
                 </view>
             </picker-view-column>
-        </picker-view>-->
-        <!-- </view> -->
+        </picker-view>
+         </view>-->
     </commonmodal>
     <view  a:if={{!showModal}} style="position:relative">
       <!-- <commonmodal show="{{showDetailModal}}"  onCancelRecord="onClose" onCreateRecord ="onClose" height='900rpx'>
@@ -99,7 +99,7 @@
     <view class="page-section">
         <picker onChange="selectPLine" value="{{ProgressLineIndex}}" range="{{ProgressLine}}" range-key="PLineName">
             <view class="row">
-                <view class="row-title">生产线</view>
+                <view class="row-title"> <button size="mini" catchTap="addProgressLine">生产线+</button></view>
                 <view class="row-extra"><input name="selectProgressLine" style={{selectProgressLine[selectProgressLineIndex].progressLineName.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{ProgressLineIndex===-1?"请选择":ProgressLine[ProgressLineIndex].PLineName}} disabled="true"  /></view>
                 <view class="a-list-arrow a-list-arrow-horizontal" />
             </view>
@@ -109,7 +109,7 @@
     <view class="page-section">
         <picker onChange="selectMachinePickerChange" value="{{selectMachineIndex}}" range="{{selectMachine}}" range-key="machineIdentification">
             <view class="row">
-                <view class="row-title">选择设备</view>
+                <view class="row-title"> <button size="mini" catchTap="addMachine">设备+</button></view>
                 <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectMachineIndex===-1?"请选择":selectMachine[selectMachineIndex].machineIdentification}} disabled="true"  /></view>
                 <view class="a-list-arrow a-list-arrow-horizontal" />
             </view>

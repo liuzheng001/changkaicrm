@@ -5,6 +5,7 @@ Page({
     data: {
 
         sampleID: "",
+
         cursor:1,
         //用于数组的追加和暂存
         allProject:[],
@@ -31,6 +32,9 @@ Page({
         ],
         //当前列表row号
         row:0,
+
+        customerId:"",
+
     },
     onLoad(query) {
         const t = this;
@@ -38,8 +42,9 @@ Page({
         this.data.allProject = [];
         this.data.cursor = 1;
 
-        this.data.sampleID = query.sampleID;
-        getList(this.data.sampleID,this.data.cursor,t)
+        // this.data.sampleID = query.sampleID;
+        this.data.customerId = query.customerId;
+        getList(this.data.customerId,this.data.cursor,t)
 
     },
     /* onPullDownRefresh() { //下拉刷新
@@ -63,7 +68,7 @@ Page({
                 content: '加载中...',
                 duration: 300,
             });
-            getList( this.data.sampleID,this.data.cursor, mythis)
+            getList( this.data.customerId,this.data.cursor, mythis)
         }else {
           this.setData({
               cursor:null
@@ -104,15 +109,15 @@ Page({
 /**
  * 获取项目列表
  */
-function getList(sampleID,cursor, mythis){
+function getList(customerId,cursor, mythis){
     const url = getApp().globalData.domain+'/fmSampleRec.php';
     dd.httpRequest({
         url: url,
         method: 'post',
         dataType: 'json',
         data: {
-            action:"getSampleDataRecList",
-            sampleID: sampleID,
+            action:"getCustomerDataRecList",
+            customerId: customerId,
             size:10,
             cursor:cursor,
         },

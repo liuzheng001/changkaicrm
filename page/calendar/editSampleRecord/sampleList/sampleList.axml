@@ -6,7 +6,7 @@
       <view class="a-list-item-line" style="width:95%">
         <text class="a-list-item-content">{{item['product']}}</text>
         <view  class="a-list-item-extra" >
-          <text class="checkbox-text">{{item['testCategory']}}/{{item['recorder']}}</text>
+          <text class="checkbox-text">{{item['projectName']}}/{{item['recorder']}}</text>
         </view>
         <text class="a-list-item-content">{{item['machine']}}</text>
         <view  class="a-list-item-extra" >

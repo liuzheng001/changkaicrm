@@ -145,19 +145,24 @@ Page({
                     case 0://新增数据
                         // dd.showLoading(); //由于写入stoarge是异步的,通过挂起输入避免问题
                         //记入historySearch,并记入storage
-                        let inHistory=historySearch.filter(function (item) {//利用filter具有筛选和截取的作用，筛选出数组中name值与文本框输入内容是否有相同的字
+                        /*let inHistory=historySearch.filter(function (item) {//利用filter具有筛选和截取的作用，筛选出数组中name值与文本框输入内容是否有相同的字段
                             return item.id === id;
                         });
-                        if (inHistory.length == 0 ) {
+                        if (inHistory.length === 0 ) {
                             if (historySearch.length >= 6) {
                                 historySearch.splice(5, 8);
                             }
                             historySearch.splice(0, 0, {id,name});
-                        }
-                        else {
-                            //其次得到这个对象在数组中对应的索引,并删除然后在数组头追加
-                            let index = historySearch.indexOf({id,name});
-                            historySearch.splice(index,1);
+                        }*/
+                        //其次得到这个对象在数组中对应的索引,并删除然后在数组头追加
+                        const indexValue = historySearch.findIndex(item=>item.id == id)
+                        if(indexValue===-1) { //没有该客户历史记录
+                            if (historySearch.length >= 6) {
+                                historySearch.splice(5, 8);
+                            }
+                            historySearch.splice(0, 0, {id, name});
+                        }else if (indexValue>0) {//有记录,且不是第一个
+                            historySearch.splice(indexValue,1);
                             historySearch.splice(0, 0, {id,name});
                         }
                         dd.setStorage({
@@ -177,6 +182,8 @@ Page({
                         });
                         break
                     case 1://查看数据
+                        //导航到新增数据page,带参数customList的客户id
+                        dd.navigateTo({url: '/page/calendar/editSampleRecord/sampleList/sampleList?customerId='+id});
                         break
                     default:return
                 }
