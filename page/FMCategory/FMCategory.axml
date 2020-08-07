@@ -2,7 +2,7 @@
 <button onTap="openModal" type="primary">{{passwordInput?"更改FM密码":"输入FM密码"}}</button>
 <promptmodal show="{{show}}" height={{height}} onCancel="onCancel" onConfirm="onSavePass">
   <view class='modal-content'>
-    <view class="row-title">FM密码<span>(注意是Filemaker文件的密码)</span></view>
+    <view class="row-title"><view>FM密码</view><view>(注意是 Filemaker文件 的密码)</view></view>
     <view class="row-extra"><input name="passwordInput" onInput="onInput" password="true" placeholder="请输入"   value="{{passwordInput}}"
     /></view>
   </view>

@@ -13,6 +13,9 @@ Page({
        {  fmFileName:"样品试用记录",
             thumb:""
         },
+        {  fmFileName:"试验记录",
+            thumb:""
+        },
     ],
       show:false,
       height:'30%',
