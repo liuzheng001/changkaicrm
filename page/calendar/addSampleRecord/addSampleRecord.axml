@@ -123,7 +123,7 @@
             <view class="row-title" style="{{item.classification=='统计项目'?'color:orange':'color:black'}}">{{item.name}}</view>
             <view class="row-extra"><input name={{item.checkData}} value={{item.checkData}} data-index="{{index}}" data-testCategory="subjects"  placeholder="{{item.classification=='统计项目'?'请输入数字':'请输入'}}" onInput="onInput" type="{{item.classification=='统计项目'?'number':''}}" /> </view>
             <!-- <view class="a-list-arrow a-list-arrow-horizontal" data-index={{index}}  data-testCategory="subjects" onTap="openDetailModal"/> -->
-        </view>
+        </view> 
         </block>
         </view>
     <view class="page-section">
