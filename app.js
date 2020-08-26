@@ -12,11 +12,9 @@ if (development===true){
     domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
     applicationServer = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/"
 } else{
-    // domain = "http://47.103.63.213/eapp-corp";
-    domain = "https://www.ckkj.net.cn/eapp-corp";//阿里云已安装ssl证书
+    domain = "http://47.103.63.213/eapp-corp";
+    // domain = "https://www.ckkj.net.cn/eapp-corp";//阿里云已安装ssl证书,已知错误getFMmessage时,第一次不能得到customer清单,第二次可以,原因不明
     applicationServer = "https://filemaker.ckkj.net.cn:8890/corp_php-master/"
-
-
 }
 let url = domain + '/login.php';
 

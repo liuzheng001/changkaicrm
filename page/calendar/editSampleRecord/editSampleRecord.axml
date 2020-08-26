@@ -2,28 +2,22 @@
 <view  style="position:relative">
     <view class="page-section">
       <view class="row">
-        <view class="row-title">类别</view>
-        <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{category}} disabled="true"  /></view>
-      </view>
-    </view> 
-    <view class="page-section">
-      <view class="row">
-        <view class="row-title">检测类别</view>
-        <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{testCategory}} disabled="true"  /></view>
+        <view class="row-title">类别/检测类别</view>
+        <view class="row-extra"><input   value={{category}}/{{testCategory}} disabled="true"  /></view>
       </view>
     </view>
     <view class="page-section">
       <view class="row">
-        <view class="row-title">设备名称</view>
-        <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectMachine}} disabled="true"  /></view>
+        <view class="row-title">生产线/设备名称</view>
+        <view class="row-extra"><view><input  style={{selectProgressLine.length>15?"font-size:24rpx":"font-size:32rpx"}} value={{selectProgressLine}} disabled="true"  /></view><view><input  style={{selectMachine.length>15?"font-size:24rpx":"font-size:32rpx"}} value={{selectMachine}} disabled="true"  /></view></view>
       </view>
     </view>
-    <view class="page-section">
+  <!--  <view class="page-section">
       <view class="row">
         <view class="row-title">产品型号</view>
         <view class="row-extra"><input name="selectMachine" style={{selectMachine[selectMachineIndex].machineIdentification.length>15?"font-size:16rpx":"font-size:32rpx"}} value={{selectProduct}} disabled="true"  /></view>
       </view>
-    </view>
+    </view>-->
 
     <view class="page-section">
         <view class="input-title" style="color:blueviolet">常规项目</view>

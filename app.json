@@ -44,22 +44,26 @@
     "items": [
       {
         "pagePath": "page/index/index",
-        "icon": "resources/yemian-copy-copy.png",
+        "icon": "/resources/yemian-copy-copy.png",
+        "activeIcon": "/resources/yemian-copy-copy.png",
         "name": "首页"
       },
       {
         "pagePath": "page/calendar/index",
-        "icon": "resources/markedcalendarp.png",
+        "icon": "/resources/markedcalendarp.png",
+        "activeIcon": "/resources/markedcalendarp.png",
         "name": "日历"
       },
       {
         "pagePath": "page/category/category",
-        "icon": "resources/liucheng.png",
+        "icon": "/resources/liucheng.png",
+        "activeIcon": "/resources/liucheng.png",
         "name": "流程"
       },
       {
         "pagePath": "page/FMCategory/FMCategory",
-        "icon": "resources/fm.jpg",
+        "icon": "/resources/fm.png",
+        "activeIcon": "/resources/fm.png",
         "name": "FM"
       }
     ]

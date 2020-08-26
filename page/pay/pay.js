@@ -75,9 +75,14 @@ Page({
             success: (res) => {
                 // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
                 // console.log("供应商列表ok");
-                this.setData({
-                    customList:res.data.content.data
-                });
+
+                if (res.data.success == true) {
+                    this.setData({
+                        customList:res.data.content.data
+                    });
+                } else {
+                    dd.alert({'content':JSON.stringify(res)})
+                }
             },
             fail: (res) => {
                 dd.alert({'content':JSON.stringify(res)})

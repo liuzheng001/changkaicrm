@@ -11,6 +11,8 @@ Page({
         selectProduct: "",
         //选择设备
         selectMachine: "",
+        //选择的生产线
+        selectProgressLine:"",
         //试样类别
         category: '',
         //检测项目
@@ -67,8 +69,9 @@ Page({
                     t.setData({
                         selectProduct: res.data.data.product,
                         selectMachine: res.data.data.machine,
+                        selectProgressLine: res.data.data.progressLine,
                         category: res.data.data.category,
-                        testCategory: res.data.data.testcategory,
+                        testCategory: res.data.data.testCategory,
                         //检测项目
                         subjects: res.data.data.subjects,
                         addSubjects: res.data.data.addSubjects,
@@ -446,7 +449,11 @@ Page({
     },
     onSubmit() { //提交到fm
         const t = this;
-        //数据校验
+        //数据校验,subject或addjectg不能都为0
+        if (t.data.subjects.length == 0 && t.data.addSubjects.length == 0) {
+            alert("无实测项目,不能提交");
+            return
+        }
 
         //上传数据到fm
         dd.confirm({
@@ -454,6 +461,7 @@ Page({
             content: '提交记录,确认?',
             confirmButtonText: '确认',
             success: (result) => {
+                dd.showLoading();
                 const url = getApp().globalData.domain + "/fmSampleRec.php";
                 //将应用服务器临时文件,上传阿里云
                 dd.httpRequest({
@@ -484,6 +492,7 @@ Page({
                                 dataType: 'json',
                                 success: (res) => {
                                     // jQuery('#loading').hideLoading();//loading 消失，保存完成。
+                                    dd.hideLoading();
                                     if (res.data.success === true) {
                                         /*alert("提交成功");*/
                                         // t.data.backMode = 1;
@@ -496,25 +505,32 @@ Page({
                                         });
                                     } else {
                                         dd.alert({content: "上传阿里云失败"});
+
                                     }
                                 },
                                 fail: (res) => {
                                     // jQuery('#loading').hideLoading();//loading 消失，保存完成。
                                     dd.alert({content: "上传阿里云失败." + JSON.stringify(res)});
+                                    dd.hideLoading();
+
                                 },
                             })
                         } else {
                             dd.alert({content: "修改记录失败"});
+                            dd.hideLoading();
+
                         }
                     },
                     fail: (res) => {
                         // jQuery('#loading').hideLoading();//loading 消失，保存完成。
                         dd.alert({content: "修改记录失败." + JSON.stringify(res)});
+                        dd.hideLoading();
+
                     },
 
                 });
             },
-        })
+        });
     }
 })
 

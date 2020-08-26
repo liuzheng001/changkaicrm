@@ -664,7 +664,7 @@ Page({
     onSubmit() { //提交到fm
         const t = this;
         //数据校验
-        if (t.data.ProgressLineIndex == -1 || t.data.selectMachineIndex == -1) {
+        if (t.data.ProgressLineIndex == -1 || t.data.selectMachineIndex == -1 || (t.data.subjects.length == 0 && t.data.addSubjects.length == 0)) {
             dd.alert({content: "提交数据有误,请检查!"});
             return;
         }
@@ -677,6 +677,7 @@ Page({
             success: (result) => {
                 if (result.confirm == true) {
                     const url = getApp().globalData.domain + "/fmSampleRec.php";
+                    dd.showLoading();
                     //将应用服务器临时文件,上传阿里云
                     dd.httpRequest({
                         url: url,
@@ -687,8 +688,9 @@ Page({
                             // sampleID: "6DFC100A-56D9-43FD-BD0A-BAE9F2388213",//江达
                             sampleID: t.data.projects[t.data.projectsIndex].projectId,
                             machineID: t.data.selectMachine[t.data.selectMachineIndex].machineID,
+                            // progressLineID:t.data.selectProgressLine[t.data.selectProgressLineIndex].PLineId,
                             formulaID: t.data.selectProduct[t.data.selectProductIndex].formulaID,
-                            testCategory: this.data.testCategory[this.data.testCategoryIndex],
+                            testCategory: t.data.testCategory[t.data.testCategoryIndex],
                             remark: t.data.remark,
                             subjects: JSON.stringify(t.data.subjects),
                             addSubjects: JSON.stringify(t.data.addSubjects),
@@ -698,6 +700,7 @@ Page({
                             if (res.data.success == true) {
                                 const thumbs = t.data.thumbs
                                 if (thumbs.length == 0) { //无上传媒体直接退出
+                                    dd.hideLoading();
                                     t.data.backMode = 1;
                                     t.data.stage = 0;
                                     dd.confirm({
@@ -739,6 +742,7 @@ Page({
                                             thumbs: JSON.stringify(thumbs)
                                         },
                                         success: function (res) {
+                                            dd.hideLoading();
                                             if (res.data.success == true) {
                                                 t.data.backMode = 1;
                                                 t.data.stage = 0;
@@ -788,10 +792,13 @@ Page({
                                 }
                             } else {
                                 dd.alert({content: "提交失败"});
+                                dd.hideLoading();
                             }
                         },
                         fail: function (res) {
                             dd.alert({content: "提交失败." + JSON.stringify(res)});
+                            dd.hideLoading();
+
                         }
                     });
                 }

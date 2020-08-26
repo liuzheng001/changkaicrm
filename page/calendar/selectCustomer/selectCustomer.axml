@@ -13,10 +13,10 @@
               placeholder="搜索"
       />
       <button class="search-all" size="mini" onTap="clearSearch">全部</button>
-       </view> 
+     </view>
 
   <view class="listCon" >
-    <scroll-view scroll-y="true" class="searchResult"  style="height: 1000rpx;">
+    <scroll-view scroll-y="true" class="searchResult"  style="height: 800rpx;">
       <!-- 搜索列表 -->
       <block a:for="{{searchList}}" a:key="key">
         <view class="row" style="border-bottom: 1px solid #ddd" >
@@ -28,7 +28,7 @@
         <view >下拉结果</view>-->
     </scroll-view>
   </view>
-    <view class="page-section-title">最近选择</view>
+    <view class="page-section-title" >最近选择</view>
   <view class="lastSelectCon">
     <view a:for="{{historySearch}}" >
       <button  class="lastSelectCell" size="mini"  data-name='{{item.name}}' data-id = "{{item.id}}" onTap='getSearchCell'>

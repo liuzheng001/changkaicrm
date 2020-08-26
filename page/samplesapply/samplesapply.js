@@ -74,16 +74,20 @@ Page({
       const url = getApp().globalData.domain+"/getFmMessage.php";
       dd.httpRequest({
           url: url,
-          method: 'get',
+          method: 'post',
           data: {
               action:'getcustomlist',
           },
           dataType: 'json',
           success: (res) => {
-              // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-              this.setData({
-                  customList:res.data.content.data
-              });
+              // dd.alert({'content':JSON.stringify(res)})
+              if (res.data.success == true) {
+                  this.setData({
+                      customList: res.data.content.data
+                  });
+              } else {
+                  dd.alert({'content':JSON.stringify(res)})
+              }
           },
           fail: (res) => {
               dd.alert({'content':JSON.stringify(res)})

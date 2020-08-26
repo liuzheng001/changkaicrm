@@ -93,8 +93,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-top: .14rem;
-    padding-bottom: .14rem;
+    /* padding-top: .07rem;
+    padding-bottom: .07rem; */
 }
 
 .a-list .a-list-item .a-list-item-address-content {

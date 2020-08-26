@@ -149,14 +149,14 @@ function getList(customerId,cursor, mythis){
                         },
                     });
                 }else{
-                    dd.alert({content:"获取试用数据列表失败."});
+                    dd.alert({content:"获取数据列表失败."});
 
                 }
 
             }
         },
         fail: function (res) {
-            dd.alert({content:"获取试用数据列表失败."+JSON.stringify(res)});
+            dd.alert({content:"获取数据列表失败."+JSON.stringify(res)});
         }
     });
 }
