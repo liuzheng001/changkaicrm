@@ -1,0 +1,34 @@
+<view class="page" style="min-height:100vh;margin-bottom:100rpx">
+  <view class="tabNav">
+    <view a:for="{{navTab}}" data-idx="{{index}}"  class="{{currentTabIndex==index ? 'cur' : ''}}" style="width:25%" onTap="currentTab"><text>{{item}}</text></view>
+  </view>
+  <view class="a-list" style="padding-top:80rpx">
+    <view  class="a-list-items">
+      <block a:for={{listData}} >
+      <view class="a-list-item {{index==row?'active':''}}" hover-class="hover-list" onTap="onRecDetail" data-instanceId={{item['instanceId']}} data-row={{index}} >
+
+      <view class="a-list-item-line" style="width:95%" >
+        <text class="a-list-item-content" >试用客户:{{item['customerName']}}</text>
+       <!-- <view  class="a-list-item-extra" >
+          <text class="checkbox-text">{{item['customerName']}}</text>
+        </view>-->
+        <text class="a-list-item-content"  >审核阶段:{{item['workflowStage']}}</text>
+        <button type="{{item['finish']==1?'warn':'primary'}}" size="mini">{{item['finish']==1?'已审批':'审批中'}}</button>
+        <text class="a-list-item-content"  >{{item['start']}}</text>
+
+        <!-- <view  class="a-list-item-extra" >
+           <text class="checkbox-text">{{item['workflowStage']}}</text>
+         </view>-->
+       <!-- <text class="a-list-item-content">{{item['machine']}}</text>
+        <view  class="a-list-item-extra" >
+          <text class="checkbox-text">{{item['buildTime']}}</text>
+        </view>-->
+        <!-- <text class="a-list-item-address-content">{{item['machine']}}</text> -->
+      </view>
+    </view>
+  </block>
+</view>
+    <view class='remind' a:if="{{cursor==null}}">没有更多了</view>
+    <view class='remind' a:else>上拉加载...</view>
+</view>
+</view>

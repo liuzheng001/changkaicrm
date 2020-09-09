@@ -10,7 +10,7 @@
                             type="search"
                             class="search-input"
                             value="{{inputVal}}"
-                            onInput="onInput"
+                                onInput="onInput"
                             onFocus="showCancel"
                             onBlur = "onBlur"
                     />

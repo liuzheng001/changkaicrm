@@ -1,5 +1,8 @@
 {
   "pages": [
+    "page/trialRecord/trialRecordList/trialRecordList",
+
+    "page/trialRecord/trialRecord",
     "page/index/index",
     "page/calendar/selectCustomer/selectCustomer",
     "page/calendar/addSampleRecord/addSampleRecord",
@@ -14,10 +17,7 @@
     "page/leave/leave",
     "page/exchanges/exchanges",
     "page/category/category",
-    "page/qingjia/qingjia",
     "page/pull-down-refresh/pull-down-refresh",
-    "page/logs/logs",
-    "page/test/test",
     "page/componentPage/componentPage",
     "page/workflow/workflow",
     "page/schedule/schedule",
@@ -27,7 +27,8 @@
     "page/samplesapply/samplesapply",
     "page/calendar/editSampleRecord/editSampleRecord",
     "page/calendar/addMachine/addMachine",
-    "page/calendar/editSampleRecord/sampleList/sampleList"
+    "page/calendar/editSampleRecord/sampleList/sampleList",
+    "page/trialRecord/trialRecordList/trialRecordList"
   ],
   "window": {
     "defaultTitle": "长凯CRM",

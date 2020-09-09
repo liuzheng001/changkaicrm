@@ -45,7 +45,6 @@
                         </view>
                     </block>
                     <button onTap="{{onAdd}}">+增加明细</button>
-
                 </view>
             </view>
         </view>

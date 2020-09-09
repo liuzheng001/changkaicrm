@@ -1,0 +1,153 @@
+<view>
+  <form onSubmit="formSubmit">
+    <view class="page-section">
+      <view class="row">
+        <view class="row-title"><text style="color:red">*</text>申请单位</view>
+        <view class="search-container" >
+          <view class="search-outer">
+            <input
+                    name = "customName"
+                    type="search"
+                    class="search-input"
+                    value="{{inputVal}}"
+                    onInput="onInput"
+                    onFocus="showCancel"
+                    onBlur = "onBlur"
+            />
+            <text class="search-cancel" style="margin-right:{{inputStatus.marginRight}};opacity:{{inputStatus.opacity}}" onTap="clearSearch">取消</text>
+          </view>
+          <scroll-view scroll-y="true" class="searchResult" a:if="{{inputVal.length > 0&&lostFocus==false}}" style="height: 400rpx;" >
+            <!-- 搜索列表 -->
+            <block a:for="{{searchList}}" a:key="key">
+              <view class='searchCell'  data-index='{{index}}' data-name='{{item.name}}' onTap='getSearchCell'>
+                {{item.name}}
+              </view>
+            </block>
+            <!--  <view >下拉结果</view>
+              <view >下拉结果</view>-->
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section">
+      <view class="input-title"><text style="color:red">*</text>现场描述</view>
+      <textarea class="multilineInput" name="customerDemand" value={{customerDemand}} />
+    </view>
+
+    <view class="page-section">
+      <view class="input-title" style="padding-bottom:30rpx">媒体容器</view>
+      <view class="img-content">
+        <block a:for="{{thumbs}}" >
+          <view class="img-thumb"  >
+            <image  style = "width:120rpx;height:120rpx" src="{{item}}" onTap="onPicturePreview" data-src="{{item}}" mode="scaleToFill" />
+            <view class="imgdelete">
+              <text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"  data-index="{{index}}" class="iconfont icon-delete"/>
+            </view>
+          </view>
+        </block>
+        <view a:if="{{thumbs.length<9}}" class="img-thumb"  >
+          <text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add-fill"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section">
+        <picker onChange="onSelectCategory" value="{{categoryIndex}}" range="{{category}}" >
+            <view class="row" style="border-bottom: 1px solid #ddd">
+                <view class="row-title"><text style="color:red">*</text>试用类别</view>
+                <view class="row-extra"><input name="selectCategory" value={{category[categoryIndex]}} disabled="true" placeholder={{categoryIndex===-1?"请选择":""}}  /></view>
+                <view class="a-list-arrow a-list-arrow-horizontal" />
+            </view>
+        </picker>
+      <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row-title"><text style="color:red">*</text>需求数量(kg)</view>
+        <view class="row-extra"><input name="demandNumber" type="number" placeholder="请输入"  /></view>
+      </view>
+      <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row-title"><text style="color:red">*</text>预估样品费用(元)</view>
+        <view class="row-extra"><input name="sampleCost" type="number"  placeholder="请输入"/></view>
+      </view>
+      <picker onChange="costSelect" value="{{costIndex}}" range="{{costList}}"  >
+        <view class="row">
+          <view class="row-title"><text style="color:red">*</text>是否收费</view>
+          <view class="row-extra" ><input name="costIndex" value="{{costList[costIndex]}}" disabled="true"  /></view>
+          <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+      </picker>
+    </view>
+
+
+    <!--试用产品明细-->
+    <view class="a-list" style="padding-bottom:50px">
+          <view class="a-list-items">
+          <!-- produceName: "HJ-35清洗剂",
+            number: 20,
+            getDate:"2019-05-12",
+            getFashionIndex:1, -->
+          <block a:for={{detailed}}>
+          <view class="a-list-header">明细({{index+1}}) 
+            <button a:if={{detailed.length!=1}} class="smallbutton" catchTap="{{catchDelete}}"  size="mini" data-index="{{index}}" >删除</button>
+          </view>
+          <view class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"  data-index="{{index}}">
+                <view class="form-row" data-index="{{index}}" onTap="onSelectProduct">
+                    <view class="form-row-label">产品配方号</view>
+                    <view class="form-row-content">
+                        <input class="input"  value="{{item.produceName}}" placeholder="请输入" disabled="true"/>
+                    </view>
+                </view>
+                <view class="form-row">
+                  <view class="form-row-label">数量</view>
+                  <view class="form-row-content">
+                    <input class="input" onInput="onInputNumber" value="{{item.number}}" placeholder="请输入" type="number" data-index="{{index}}" />
+                  </view>
+                </view>
+            <picker onChange="getFashionPickerChange" value="{{item.getFashionIndex}}" range="{{getFashion}}" data-index="{{index}}">
+              <view class="form-row">
+                <view class="form-row-label">领取方式</view>
+                <view class="form-row-content"><input class="input"  value="{{item.getFashion}}" placeholder="请输入"  disabled="true"  /></view>
+              </view>
+            </picker>
+                <view class="form-row" onTap="changeDate" data-index={{index}}  >
+                  <view class="form-row-label" >领取日期</view>
+                  <view class="form-row-content">
+                    <input class="input" name="date"  value="{{item.getDate}}" placeholder="请输入" disabled="true" />
+                  </view>
+                </view>
+                <view class="a-list-item-bottom" />
+            </view>
+          </block>
+            <button type="primary" onTap="onAdd">添加明细</button>
+        </view>
+    </view>
+     <view class="fixed-button">
+      <button type="primary" formType="submit">发起审批</button>
+     </view>
+  </form>
+
+<!--模态框，选择配方号-->
+<commonmodal show="{{showModal}}"
+             onCancelRecord="onCancel"
+             onCreateRecord ="onChangeFormulaSelect"
+             parameter = "{{index}}"
+>
+<view class="form-row">
+    <view class="form-row-label" >选择配方号</view>
+</view>
+<picker-view value="{{value}}" onChange="onChange" class="my-picker" style="height:'100%'">
+    <picker-view-column>
+        <!--<view>2011</view>
+        <view>2022</view>
+        <view>2033</view>-->
+        <view a:for="{{originData}}">
+            {{index}}
+        </view>
+    </picker-view-column>
+    <picker-view-column>
+        <view a:for="{{originData[firstKey]}}">
+            {{originData[firstKey][index]}}
+        </view>
+    </picker-view-column>
+</picker-view>
+</commonmodal>
+</view>

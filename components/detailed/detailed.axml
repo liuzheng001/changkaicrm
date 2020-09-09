@@ -1,0 +1,31 @@
+<view >
+  <view class="a-list">
+    <view a:if={{detailed}} class="a-list-items">
+    <block a:for={{detailed}}>
+    <view class="a-list-header">{{header}}({{index+1}})
+      <button a:if={{detailed.length!=1}} class="smallbutton" catchTap="{{catchDelete}}"  size="mini" data-index="{{index}}" >删除</button>
+  </view>
+  <view
+          class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"
+          data-index="{{index}}"
+  >
+    <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
+      <view class="form-row">
+        <view class="form-row-label">第一行</view>
+        <view class="form-row-content">
+          <input class="input" onInput="onInput" value="{{first}}" placeholder="请输入" />
+        </view>
+      </view>
+      <view class="form-row">
+        <view class="form-row-label">第二行</view>
+        <view class="form-row-content">
+          <input class="input" onInput="onInput" value="{{second}}" placeholder="请输入" />
+        </view>
+      </view>
+  <view class="a-list-item-bottom" />
+</view>
+</block>
+<button onTap="{{onAdd}}">+增加明细</button>
+        </view>
+        </view>
+        </view>
