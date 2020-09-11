@@ -76,9 +76,9 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         // 调试时关闭getworkflow
-                    //    dd.switchTab({ //日历
-                    //             url: '/page/calendar/index'
-                    //         })
+                      /* dd.switchTab({ //日历
+                                url: '/page/calendar/index'
+                            })*/
                        /* dd.navigateTo({
                             url: "/page/calendar/editSampleRecord/sampleList/sampleList"
 

@@ -10,8 +10,8 @@ Page({
         isShowPicker : false,
 
         customerId:0,
-        customerName:'',
-        customerDemand: '',
+        // customerName:'',见下面客户名称
+        description: '',//现场描述
 
         //产品明细
         catchDelete: 'catchDelete',
@@ -83,7 +83,7 @@ Page({
         //显示结果view的状态
         viewShowed: false,
         // 搜索框值
-        inputVal: "",
+        inputVal: "",//客户名称
         //搜索渲染推荐数据
         searchList: [],
 
@@ -91,8 +91,7 @@ Page({
     },
     onLoad(query) {
         const t =this;
-
-        if (query) {//有instanceId既recordId,进入编辑记录
+        if (Object.keys(query).length !== 0) {//有instanceId既recordId,进入编辑记录
             const recordId = query.instanceId;
             const url = getApp().globalData.domain+'/fmSampleRec.php';
             dd.showLoading()
@@ -110,8 +109,8 @@ Page({
 
                        t.setData({
                            customerId:res.data.trialRecordDetail.customerId,
-                           customerName:res.data.trialRecordDetail.customerName,
-                           customerDemand: res.data.trialRecordDetail.customerDemand,
+                           inputVal:res.data.trialRecordDetail.customerName,
+                           description: res.data.trialRecordDetail.customederDemand,
                            detailed:res.data.trialRecordDetail.detailed,
                        })
                     }else{
@@ -126,66 +125,66 @@ Page({
                 }
             });
         }else{//无,则进入建立记录
+            let url = getApp().globalData.domain+"/getFmMessage.php";
 
-        }
-        let url = getApp().globalData.domain+"/getFmMessage.php";
+            let approvalStage = "申请"
 
-        let approvalStage = "申请"
-
-        if(approvalStage =="申请") {
-            dd.httpRequest({
-                url: url,
-                method: 'post',
-                data: {
-                    action: 'getcustomlist',
-                },
-                dataType: 'json',
-                success: (res) => {
-                    // dd.alert({'content':JSON.stringify(res)})
-                    if (res.data.success == true) {
-                        this.setData({
-                            customList: res.data.content.data
-                        });
-                    } else {
+            if(approvalStage =="申请") {
+                dd.httpRequest({
+                    url: url,
+                    method: 'post',
+                    data: {
+                        action: 'getcustomlist',
+                    },
+                    dataType: 'json',
+                    success: (res) => {
+                        // dd.alert({'content':JSON.stringify(res)})
+                        if (res.data.success == true) {
+                            this.setData({
+                                customList: res.data.content.data
+                            });
+                        } else {
+                            dd.alert({'content': JSON.stringify(res)})
+                        }
+                    },
+                    fail: (res) => {
                         dd.alert({'content': JSON.stringify(res)})
+                    },
+                    complete: (res) => {
                     }
-                },
-                fail: (res) => {
-                    dd.alert({'content': JSON.stringify(res)})
-                },
-                complete: (res) => {
-                }
 
-            })
-        }
-        approvalStage = "技术选型"
-        if (approvalStage == "技术选型") {
-            url = getApp().globalData.domain + "/getFmMessage.php";
-            dd.httpRequest({
-                url: url,
-                method: 'get',
-                data: {
-                    action: 'getFormulationList',
-                },
-                dataType: 'json',
-                success: (res) => {
-                    // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
-                    if (res.data.success === true) {
+                })
+            }
+            approvalStage = "技术选型"
+            if (approvalStage == "技术选型") {
+                url = getApp().globalData.domain + "/getFmMessage.php";
+                dd.httpRequest({
+                    url: url,
+                    method: 'get',
+                    data: {
+                        action: 'getFormulationList',
+                    },
+                    dataType: 'json',
+                    success: (res) => {
+                        // dd.alert({'content':"custom:"+JSON.stringify(res.data.content.data)})
+                        if (res.data.success === true) {
 
-                        this.setData({
-                            originData: res.data.content.data
-                        });
-                    } else {
+                            this.setData({
+                                originData: res.data.content.data
+                            });
+                        } else {
+                            dd.alert({'content': JSON.stringify(res)})
+                        }
+                    },
+                    fail: (res) => {
                         dd.alert({'content': JSON.stringify(res)})
+                    },
+                    complete: (res) => {
                     }
-                },
-                fail: (res) => {
-                    dd.alert({'content': JSON.stringify(res)})
-                },
-                complete: (res) => {
-                }
-            })
+                })
+            }
         }
+
     },
 
     // 显示搜索框取消,得到焦点
@@ -434,7 +433,7 @@ Page({
     formSubmit(e) { //发起审批
 
         // const detailedArr = convertDetailed(this.data.detailed,this)
-        let that = this;
+        let t = this;
         let form = e.detail.value;
 
         //用户单位是否在列表中
@@ -452,11 +451,11 @@ Page({
             customID = this.data.customList[index].id;
         }
 
-        //数据校验
+        /*//数据校验
         if (this.data.customIndex<0 || form.description=="" || form.demandNumber=="" || this.data.costIndex<0 || this.data.categoryIndex<0) {
             dd.alert({content: "提交数据有误,请检查!"});
             return;
-        }
+        }*/
 
         dd.confirm({
             title: '提示',
@@ -475,59 +474,36 @@ Page({
                             // dd.alert({content: results})
                             const app = getApp();
                             const userId = app.globalData.userId;
-                            const departments = app.globalData.departments;
-                            const url = getApp().globalData.domain+"/operateWorkflow.php"
+                            const username = app.globalData.username;
+                            const url = getApp().globalData.domain+"/TrialRecordWorkflowForSelfUse.php"
 
-                            /* form_values: [
-                                 {name: '["开始时间","结束时间"]', value: JSON.stringify([form.begin_time,form.finish_time])},
-                                 {name: "事由", value: form.reason},
-                                 {name: "明细表", value: [
-                                         [{"name": "第一行", "value": "要"},
-                                             {"name": "第二行", "value": "人"}],
-                                         [{"name": "第一行", "value": "sdg"},
-                                             {"name": "第二行", "value": "dfadf"}]
-                                     ]
-                                 },
-                                 {name:"图片",value:[
-                                         form.picture
-                                     ]},
-                                 {name:"附件",value:[
-                                         {
-                                             // {"data":[{"spaceId":848072798,"fileId":"6602947770","fileName":"some.mp4","fileSize":4342303,"fileType":"file"}]}
-                                             "spaceId":"1562091972",
-                                             "fileName":"some.pdf",
-                                             "fileSize":"97467",
-                                             "fileType":"pdf",
-                                             "fileId":"6603245738"
-                                         }
-
-                                     ]}
-                             ],*/
                             dd.httpRequest({
                                 url: url,
                                 method: 'POST',
                                 // headers:{'Content-Type': 'application/json'},
                                 data: {
+                                    action:'createInstance',
                                     values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
-                                        progress_code: "PROC-EF196C0C-1EE8-4BDB-8D5E-6F2BB2A5B21C",
-                                        originatorUserId: userId,
-                                        dept_id: departments[departments.length - 1],
-                                        form_values: [
-                                            {name: "申请单位", value:form.customName},
-                                            {name: "现场描述", value:form.description},
-                                            {name:"媒体容器",value:results},
+                                        templateId: "161",//流程集合中样品试用记录模板
+                                        originatorId: userId,
+                                        originatorName:username,
+                                        form_values: {
+                                            customerName:t.data.inputVal,
+                                            description: form.description,
+                                            customerId:customID
+
+                                          /*  {name:"媒体容器",value:results},
                                             {name: "需求数量", value:form.demandNumber},
                                             {name: "预估样品费用", value:form.sampleCost},
-                                            {name: "是否收费",value:this.data.costList[this.data.costIndex] },
-                                            {name:"客户ID",value:customID}
-                                        ],
+                                            {name: "是否收费",value:this.data.costList[this.data.costIndex] },*/
+                                        },
                                     })
                                 },
                                 dataType: 'json',
                                 traditional: true,//这里设置为true
                                 success: (res) => {
-                                    if (res.data.errcode == 0){
-                                        dd.alert({content: "审批已发起,id:" + res.data.process_instance_id,
+                                    if (res.data.success == true){
+                                        dd.alert({content: "审批已发起,id:" + res.data.instanceRecordId,
                                             success: () => {
                                                 dd.navigateBack();
                                             },

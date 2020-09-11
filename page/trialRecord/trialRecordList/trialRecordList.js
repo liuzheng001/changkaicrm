@@ -39,6 +39,7 @@ Page({
 
     },
     onLoad(query) {
+
         const t = this;
         //还原,否则会被记忆,但this.setData的渲染数据不会被记忆
         this.data.allProject = [];
@@ -117,6 +118,11 @@ Page({
         this.setData({
             currentTabIndex: e.currentTarget.dataset.idx
         })
+    },
+    gotoSampleApply(){
+        dd.navigateTo({
+            url: "/page/trialRecord/trialRecord"
+        })
     }
 });
 
@@ -143,11 +149,15 @@ function getList(select,cursor, mythis){//select为'已发起','待处理','已�
             if(res.data.success == true) {
                 //如果搜出来的结果cursor为空, 就说明后面已经没数据可加载了，所以将state设为0
                 if (res.data.nextCursor == null){
-                    mythis.data.cursor = null;
-                }else{
-                    mythis.data.cursor = res.data.nextCursor;
+                    // mythis.data.cursor = null;
                     mythis.setData({
-                        listData:mythis.data.listData.concat(res.data.instances)
+                        cursor:null
+                    })
+                }else{
+                    // mythis.data.cursor = res.data.nextCursor;
+                    mythis.setData({
+                        listData:mythis.data.listData.concat(res.data.instances),
+                        cursor:res.data.nextCursor
                     })
                 }
             }else{

@@ -32,7 +32,7 @@
 
     <view class="page-section">
       <view class="input-title"><text style="color:red">*</text>现场描述</view>
-      <textarea class="multilineInput" name="customerDemand" value={{customerDemand}} />
+      <textarea class="multilineInput" name="description" value={{description}} />
     </view>
 
     <view class="page-section">
@@ -123,6 +123,10 @@
      <view class="fixed-button">
       <button type="primary" formType="submit">发起审批</button>
      </view>
+   <!-- <view class="fixed-button">
+        <button type="warn" formType="submit">驳回</button>
+        <button type="primary" formType="submit">同意</button>
+    </view>-->
   </form>
 
 <!--模态框，选择配方号-->

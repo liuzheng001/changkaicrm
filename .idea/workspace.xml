@@ -17,11 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="addSampleRecord.axml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="150" column="68" selection-start-line="150" selection-start-column="58" selection-end-line="150" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="trialRecordList.axml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="648">
+              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -44,20 +53,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trialRecordList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trialRecordList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360">
-              <caret line="103" column="23" lean-forward="true" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+            <state relative-caret-position="1446">
+              <caret line="121" column="19" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trialRecordList.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.json">
+      <file leaf-file-name="addSampleRecord.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="408">
+              <caret line="743" column="65" lean-forward="true" selection-start-line="743" selection-start-column="65" selection-end-line="743" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -65,8 +74,8 @@
       <file leaf-file-name="trialRecord.axml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="357">
+              <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -74,8 +83,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="86" column="82" selection-start-line="86" selection-start-column="82" selection-end-line="86" selection-end-column="82" />
+            <state relative-caret-position="415">
+              <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -83,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trialRecord.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="trialRecord.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2124">
-              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+            <state relative-caret-position="584">
+              <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -97,15 +106,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
               <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sampleList.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="2" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -121,14 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>navigateBac</find>
-      <find>size</find>
-      <find>thumbs</find>
-      <find>onUploadMedia</find>
-      <find>index ==</find>
-      <find>hist</find>
-      <find>.forEach</find>
-      <find>selectProgressLine</find>
       <find>submi</find>
       <find>dd.alert({content: &quot;提交数据有误,请检查!&quot;});</find>
       <find>searchResult</find>
@@ -151,6 +143,14 @@
       <find>loading</find>
       <find>showLoading</find>
       <find>hideLoading</find>
+      <find>setRight</find>
+      <find>onAddMedia</find>
+      <find>dd.config</find>
+      <find>inputV</find>
+      <find>客户ID</find>
+      <find>form.</find>
+      <find>description</find>
+      <find>demand</find>
     </findStrings>
     <replaceStrings>
       <replace>https://liuzheng750417.imwork.net:8890</replace>
@@ -218,7 +218,6 @@
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.axml" />
         <option value="$PROJECT_DIR$/page/samplesapply/samplesapply.axml" />
         <option value="$PROJECT_DIR$/page/samplesapply/samplesapply.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/components/detailed/detailed.acss" />
         <option value="$PROJECT_DIR$/components/vacation/vacation.axml" />
         <option value="$PROJECT_DIR$/components/detailed/detailed.axml" />
@@ -231,9 +230,10 @@
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.acss" />
         <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.axml" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.js" />
         <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.axml" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.js" />
       </list>
     </option>
   </component>
@@ -534,15 +534,16 @@
       <workItem from="1598078536053" duration="7250000" />
       <workItem from="1598718754269" duration="25444000" />
       <workItem from="1599397828404" duration="1200000" />
-      <workItem from="1599469504577" duration="13950000" />
+      <workItem from="1599469504577" duration="26375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1231744000" />
+    <option name="totallyTimeSpent" value="1244169000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2048" height="1052" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
@@ -554,7 +555,7 @@
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
-      <window_info id="Structure" order="1" sideWeight="0.44539616" side_tool="true" visible="true" weight="0.21743487" />
+      <window_info id="Structure" order="1" sideWeight="0.44539616" side_tool="true" weight="0.21743487" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
       <window_info id="Favorites" order="2" sideWeight="0.6889128" side_tool="true" weight="0.20240481" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -669,13 +670,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js</url>
-          <line>136</line>
+          <line>142</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js</url>
-          <line>132</line>
+          <line>138</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
@@ -685,7 +686,7 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="44" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="upload.php">
@@ -908,13 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1908">
-          <caret line="106" column="11" selection-start-line="98" selection-start-column="4" selection-end-line="106" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/commonmodal/commonmodal.axml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -929,13 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1134">
           <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6318">
-          <caret line="351" column="10" selection-start-line="351" selection-start-column="10" selection-end-line="351" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -988,6 +975,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="150" column="68" selection-start-line="150" selection-start-column="58" selection-end-line="150" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="743" column="65" lean-forward="true" selection-start-line="743" selection-start-column="65" selection-end-line="743" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1446">
+          <caret line="121" column="19" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -997,39 +1019,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="86" column="82" selection-start-line="86" selection-start-column="82" selection-end-line="86" selection-end-column="82" />
+        <state relative-caret-position="415">
+          <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2124">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="103" column="23" lean-forward="true" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+        <state relative-caret-position="584">
+          <caret line="142" column="42" lean-forward="true" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
         </state>
       </provider>
     </entry>

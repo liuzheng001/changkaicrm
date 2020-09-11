@@ -31,4 +31,7 @@
     <view class='remind' a:if="{{cursor==null}}">没有更多了</view>
     <view class='remind' a:else>上拉加载...</view>
 </view>
+<view class="fixed-button">
+      <button type="primary" onTap="gotoSampleApply">新样品申请</button>
+     </view>
 </view>
