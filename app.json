@@ -2,8 +2,8 @@
   "pages": [
     "page/trialRecord/trialRecordList/trialRecordList",
 
-    "page/trialRecord/trialRecord",
     "page/index/index",
+    "page/trialRecord/trialRecord",
     "page/calendar/selectCustomer/selectCustomer",
     "page/calendar/addSampleRecord/addSampleRecord",
     "page/FMCategory/FMCategory",

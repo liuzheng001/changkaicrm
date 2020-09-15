@@ -1,5 +1,7 @@
 Page({
     data: {
+        //流程阶段
+        submitAction:"",//发起,审批
 
         //显示模态框，配方号选择
         showModal:false,
@@ -9,6 +11,7 @@ Page({
         firstKey:'',
         isShowPicker : false,
 
+        recordId:-1,
         customerId:0,
         // customerName:'',见下面客户名称
         description: '',//现场描述
@@ -91,8 +94,10 @@ Page({
     },
     onLoad(query) {
         const t =this;
-        if (Object.keys(query).length !== 0) {//有instanceId既recordId,进入编辑记录
-            const recordId = query.instanceId;
+        if (Object.keys(query).length !== 0) {//有recordId,进入编辑记录
+            // this.data.submitAction = "审批";
+            const recordId = query.recordId;
+            t.data.recordId = recordId;
             const url = getApp().globalData.domain+'/fmSampleRec.php';
             dd.showLoading()
             dd.httpRequest({
@@ -110,8 +115,10 @@ Page({
                        t.setData({
                            customerId:res.data.trialRecordDetail.customerId,
                            inputVal:res.data.trialRecordDetail.customerName,
-                           description: res.data.trialRecordDetail.customederDemand,
+                           description: res.data.trialRecordDetail.customerDemand,
                            detailed:res.data.trialRecordDetail.detailed,
+                           submitAction: "审批"
+
                        })
                     }else{
                         dd.alert({content:JSON.stringify(res)});
@@ -125,6 +132,8 @@ Page({
                 }
             });
         }else{//无,则进入建立记录
+            // this.data.submitAction = "发起";
+
             let url = getApp().globalData.domain+"/getFmMessage.php";
 
             let approvalStage = "申请"
@@ -141,7 +150,8 @@ Page({
                         // dd.alert({'content':JSON.stringify(res)})
                         if (res.data.success == true) {
                             this.setData({
-                                customList: res.data.content.data
+                                customList: res.data.content.data,
+                                submitAction: "发起"
                             });
                         } else {
                             dd.alert({'content': JSON.stringify(res)})
@@ -430,26 +440,27 @@ Page({
         })
 
     },*/
-    formSubmit(e) { //发起审批
-
+    formSubmit(e) { //发起,同意或驳回审批
         // const detailedArr = convertDetailed(this.data.detailed,this)
         let t = this;
         let form = e.detail.value;
 
         //用户单位是否在列表中
-        // if(this.data.customListform.customName))
         function findFn(item, objIndex, objs){
             return item.name === form.customName;
         }
 
-        const index = this.data.customList.findIndex(findFn);
         let customID;
-        if(index==-1){
-            dd.alert({content: "客户名称,请检查!"});
-            return;   }
-        else {  //通过index找到客户ID
-            customID = this.data.customList[index].id;
+        if (this.data.submitAction === "发起") {
+            const index = this.data.customList.findIndex(findFn);
+            if(index==-1){
+                dd.alert({content: "客户名称,请检查!"});
+                return;   }
+            else {  //通过index找到客户ID
+                customID = this.data.customList[index].id;
+            }
         }
+
 
         /*//数据校验
         if (this.data.customIndex<0 || form.description=="" || form.demandNumber=="" || this.data.costIndex<0 || this.data.categoryIndex<0) {
@@ -472,54 +483,102 @@ Page({
                     Promise.all(promiseArr)
                         .then(results => { //results为promiseArr返回的数组合集,既上传文件的服务器url集
                             // dd.alert({content: results})
+
                             const app = getApp();
                             const userId = app.globalData.userId;
                             const username = app.globalData.username;
                             const url = getApp().globalData.domain+"/TrialRecordWorkflowForSelfUse.php"
+                            if(this.data.submitAction === '发起') { //发起流程
+                                dd.httpRequest({
+                                    url: url,
+                                    method: 'POST',
+                                    // headers:{'Content-Type': 'application/json'},
+                                    data: {
+                                        action: 'createInstance',
+                                        values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
+                                            templateId: "161",//流程集合中样品试用记录模板
+                                            originatorId: userId,
+                                            originatorName: username,
+                                            form_values: {
+                                                customerName: t.data.inputVal,
+                                                description: form.description,
+                                                customerId: customID
 
-                            dd.httpRequest({
-                                url: url,
-                                method: 'POST',
-                                // headers:{'Content-Type': 'application/json'},
-                                data: {
-                                    action:'createInstance',
-                                    values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
-                                        templateId: "161",//流程集合中样品试用记录模板
-                                        originatorId: userId,
-                                        originatorName:username,
-                                        form_values: {
-                                            customerName:t.data.inputVal,
-                                            description: form.description,
-                                            customerId:customID
-
-                                          /*  {name:"媒体容器",value:results},
-                                            {name: "需求数量", value:form.demandNumber},
-                                            {name: "预估样品费用", value:form.sampleCost},
-                                            {name: "是否收费",value:this.data.costList[this.data.costIndex] },*/
-                                        },
-                                    })
-                                },
-                                dataType: 'json',
-                                traditional: true,//这里设置为true
-                                success: (res) => {
-                                    if (res.data.success == true){
-                                        dd.alert({content: "审批已发起,id:" + res.data.instanceRecordId,
-                                            success: () => {
-                                                dd.navigateBack();
+                                                /*  {name:"媒体容器",value:results},
+                                                  {name: "需求数量", value:form.demandNumber},
+                                                  {name: "预估样品费用", value:form.sampleCost},
+                                                  {name: "是否收费",value:this.data.costList[this.data.costIndex] },*/
                                             },
-                                        });
-                                    }else{
+                                        })
+                                    },
+                                    dataType: 'json',
+                                    traditional: true,//这里设置为true
+                                    success: (res) => {
+                                        if (res.data.success == true) {
+                                            dd.alert({
+                                                content: "审批已发起,id:" + res.data.instanceRecordId,
+                                                success: () => {
+                                                    dd.navigateBack();
+                                                },
+                                            });
+                                        } else {
+                                            dd.alert({content: JSON.stringify(res)});
+                                        }
+                                    },
+                                    fail: (res) => {
+                                        console.log("httpRequestFail---", res)
                                         dd.alert({content: JSON.stringify(res)});
+                                    },
+                                    complete: (res) => {
+                                        dd.hideLoading();
                                     }
-                                },
-                                fail: (res) => {
-                                    console.log("httpRequestFail---", res)
-                                    dd.alert({content: JSON.stringify(res)});
-                                },
-                                complete: (res) => {
-                                    dd.hideLoading();
-                                }
-                            });
+                                });
+                            }else {  //修改流程
+                                dd.httpRequest({
+                                    url: url,
+                                    method: 'POST',
+                                    // headers:{'Content-Type': 'application/json'},
+                                    data: {
+                                        action: 'updateInstance',
+                                        values: JSON.stringify({  //由于有数组,需要用这种方法向后端传,同时后端将字符串通过json_decode转为数组
+                                            recordId:t.data.recordId ,//样品使用记录
+                                            approvalId: userId,
+                                            workflowCondition:e.buttonTarget.dataset.workflowCondition ,
+                                            form_values: {
+                                                customerName: t.data.inputVal,
+                                                description: form.description,
+                                                customerId: t.data.customerId
+
+                                                /*  {name:"媒体容器",value:results},
+                                                  {name: "需求数量", value:form.demandNumber},
+                                                  {name: "预估样品费用", value:form.sampleCost},
+                                                  {name: "是否收费",value:this.data.costList[this.data.costIndex] },*/
+                                            },
+                                        })
+                                    },
+                                    dataType: 'json',
+                                    traditional: true,//这里设置为true
+                                    success: (res) => {
+                                        if (res.data.success == true) {
+                                            dd.alert({
+                                                content: "审批已提交,id:" + res.data.instanceRecordId,
+                                                success: () => {
+                                                    dd.navigateBack();
+                                                },
+                                            });
+                                        } else {
+                                            dd.alert({content: JSON.stringify(res)});
+                                        }
+                                    },
+                                    fail: (res) => {
+                                        console.log("httpRequestFail---", res)
+                                        dd.alert({content: JSON.stringify(res)});
+                                    },
+                                    complete: (res) => {
+                                        dd.hideLoading();
+                                    }
+                                });
+                            }
                         })
                         .catch(result => {
                             dd.alert({content: "上传失败" + result})
@@ -529,8 +588,8 @@ Page({
                 }
             },
         });
-
     },
+
 });
 
 /*

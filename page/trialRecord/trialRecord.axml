@@ -120,13 +120,16 @@
             <button type="primary" onTap="onAdd">添加明细</button>
         </view>
     </view>
-     <view class="fixed-button">
+     <view a:if={{submitAction=="发起"}} class="fixed-button">
       <button type="primary" formType="submit">发起审批</button>
      </view>
-   <!-- <view class="fixed-button">
-        <button type="warn" formType="submit">驳回</button>
-        <button type="primary" formType="submit">同意</button>
-    </view>-->
+    <view a:elif={{submitAction=="审批"}} class="fixed-button">
+        <button type="warn" formType="submit" data-workflowCondition="-1">驳回</button>
+        <button type="primary" formType="submit" data-workflowCondition="1">同意</button>
+    </view>
+    <view a:else class="fixed-button">
+        <button type="warn" onTap="closeWorkflow" >关闭</button>
+    </view>
   </form>
 
 <!--模态框，选择配方号-->

@@ -9,7 +9,7 @@ Page({
 
         cursor:1,
         //用于数组的追加和暂存
-        allProject:[],
+        // allProject:[],
         //用于渲染页面的数组
         listData:[//日程表
             /* {
@@ -38,15 +38,14 @@ Page({
         customerId:"",
 
     },
-    onLoad(query) {
+    onLoad() {
 
         const t = this;
         //还原,否则会被记忆,但this.setData的渲染数据不会被记忆
-        this.data.allProject = [];
+        // this.data.allProject = [];
         this.data.cursor = 1;
-
         // this.data.sampleID = query.sampleID;
-        getList(this.data.navTab[this.data.currentTabIndex],this.data.cursor,t)
+        getList(this.data.navTab[1],1,t)
 
     },
     /* onPullDownRefresh() { //下拉刷新
@@ -96,15 +95,52 @@ Page({
         });
     },*/
 
-    //进入sample数据详情
+    //进入sample数据详情,如果查阅标志为更改,则设置fm,查阅标志为1,且钉钉任务update,即移出待办
     onRecDetail(e){
+        const row =e.currentTarget.dataset.row
         this.setData({
-            row:e.currentTarget.dataset.row
+            row,
         })
         const instanceId =e.currentTarget.dataset.instanceId;
+        const recordId =e.currentTarget.dataset.recordId;
+        const url = getApp().globalData.domain+'/fmSampleRec.php';
+        if (this.data.listData[row]['consultFlag'].length>0 && this.data.listData[row]['consultFlag'][0] === 0) { //更新
+            dd.httpRequest({
+                url: url,
+                method: 'get',
+                dataType: 'json',
+                data: {
+                    action:"consulted",
+                    userId: getApp().globalData.userId,
+                    instanceId,
+                    // userId:"0968625005675565",//调试
+                },
+                success: function (res) {
+                    if (res.data.success === true) {
+                        const url = getApp().globalData.applicationServer + "customizeWorkflow.php"
+                        dd.httpRequest({
+                            url: url,
+                            method: 'get',
+                            dataType: 'json',
+                            data: {
+                                action: "updateConsult",
+                                userId: getApp().globalData.userId,
+                                taskId: res.data.taskId,
+                                // userId:"0968625005675565",//调试
+                            },
+                            success: function (res) {
+                                if (res.data.success === true) {
+
+                                }
+                            }
+                        })
+                    }
+                },
+                })
+        }
         dd.navigateTo({
-            url: "/page/trialRecord/trialRecord?instanceId="+instanceId
-        })
+            url: "/page/trialRecord/trialRecord?recordId="+recordId
+        });
     },
 
     currentTab: function (e) {
@@ -138,20 +174,20 @@ function getList(select,cursor, mythis){//select为'已发起','待处理','已�
         dataType: 'json',
         data: {
             action:"getTrialList",
-            // userId: getApp().globalData.userId,
-            userId:"0968625005675565",//调试
+            userId: getApp().globalData.userId,
+            // userId:"0968625005675565",//调试
             size:10,
             cursor,
             select
         },
-
         success: function (res) {
             if(res.data.success == true) {
                 //如果搜出来的结果cursor为空, 就说明后面已经没数据可加载了，所以将state设为0
                 if (res.data.nextCursor == null){
-                    // mythis.data.cursor = null;
-                    mythis.setData({
-                        cursor:null
+                    // mythis.data.cursor =
+                        mythis.setData({
+                            listData:mythis.data.listData.concat(res.data.instances),
+                            cursor:null
                     })
                 }else{
                     // mythis.data.cursor = res.data.nextCursor;
@@ -163,14 +199,21 @@ function getList(select,cursor, mythis){//select为'已发起','待处理','已�
             }else{
                 if (res.data.error.errorCode == 401) { //无记录
                     // dd.alert({content: '尚无跟踪记录.'})
-                    dd.showToast({
+                    /*dd.showToast({
                         type: 'fail',
                         content: '无记录',
                         duration: 500,
                         success: () => {
-
+                            mythis.setData({
+                                listData:[],
+                                cursor:null
+                            })
                         },
-                    });
+                    });*/
+                    mythis.setData({
+                        listData:[],
+                        cursor:null
+                    })
                 }else{
                     dd.alert({content:"获取数据列表失败."});
 

@@ -79,8 +79,8 @@ App({
                       /* dd.switchTab({ //日历
                                 url: '/page/calendar/index'
                             })*/
-                       /* dd.navigateTo({
-                            url: "/page/calendar/editSampleRecord/sampleList/sampleList"
+                        /*dd.navigateTo({
+                            url: "/page/trialRecord/trialRecordList/trialRecordList"
 
                         })*/
                         /*dd.navigateTo({
