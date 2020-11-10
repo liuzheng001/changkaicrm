@@ -8,3 +8,47 @@
 .tabNav> view:last-child{ margin-right: 0;}
 .tabNav> view text{padding:0 15rpx; height:75rpx; display:inline-block;}
 .tabNav .cur text{ border-bottom:5rpx solid #36ccf9; color:#000;}
+
+
+
+.line {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+.content {
+
+    color: #000;
+    font-size: .34rem;
+    text-align: left;
+    line-height: 1.5;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 10;
+    /* padding-top: .07rem;
+    padding-bottom: .07rem; */
+}
+
+.extra {
+
+    /* flex-basis: 36%; */
+    flex: 4;
+    color: darkgray;
+    width: 40%;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 1.5;
+    width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: .14rem;
+    padding-bottom: .14rem;
+}

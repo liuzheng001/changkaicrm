@@ -1,7 +1,8 @@
 {
   "pages": [
-  
     "page/index/index",
+    "page/calendar/selectCustomer/selectCustomer",
+    "page/calendar/addSampleRecord/addSampleRecord",
     "page/FMCategory/FMCategory",
     "page/fmWebView/fmWebView",
     "page/adjustmentPlan/relevantList/relevantList",
@@ -21,7 +22,10 @@
     "page/scheduleContent/scheduleContent",
     "page/category/workflowlist/workflowlist",
     "page/samplesapply/samplesapply",
-    "page/logs/logs"
+    "page/calendar/editSampleRecord/editSampleRecord",
+    "page/calendar/addMachine/addMachine",
+    "page/calendar/editSampleRecord/sampleList/sampleList",
+    "page/trialRecord/trialRecordList/trialRecordList"
   ],
   "window": {
     "defaultTitle": "长凯CRM",

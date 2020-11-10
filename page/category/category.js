@@ -62,9 +62,9 @@ Page({
           case "PROC-6AA9FF64-D13D-402A-82E8-4ED79BFA6FC8": //请假
               url = "/page/leave/leave";
               break;
-          case "PROC-EF196C0C-1EE8-4BDB-8D5E-6F2BB2A5B21C": //样品领用
+         /* case "PROC-EF196C0C-1EE8-4BDB-8D5E-6F2BB2A5B21C": //样品领用
               url = "/page/samplesapply/samplesapply";
-              break;
+              break;*/
           case "PROC-BCFBCCA9-4A92-46EF-AFE7-C4C70745ED31": //退换货申请
               url = "/page/exchanges/exchanges";
               break;

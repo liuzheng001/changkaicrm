@@ -1,3 +1,9 @@
+<view a:if={{showVideo}} class="videoContainer">
+        <video class="video"  src="{{videoUrl}}" autoplay="true"   />
+            <button class="videoButton" onTap="onCloseVideo">关闭</button>
+        </view>
+<view>
+<!--<view a:else>-->
 <view>
   <form onSubmit="formSubmit">
     <view class="page-section">
@@ -9,14 +15,15 @@
                     name = "customName"
                     type="search"
                     class="search-input"
-                    value="{{inputVal}}"
+                    value="{{customerName}}"
                     onInput="onInput"
                     onFocus="showCancel"
                     onBlur = "onBlur"
+                    disabled = {{authority[approvalStage].customerName[0]===1 && mode==="待处理"?false:true}}
             />
             <text class="search-cancel" style="margin-right:{{inputStatus.marginRight}};opacity:{{inputStatus.opacity}}" onTap="clearSearch">取消</text>
           </view>
-          <scroll-view scroll-y="true" class="searchResult" a:if="{{inputVal.length > 0&&lostFocus==false}}" style="height: 400rpx;" >
+          <scroll-view scroll-y="true" class="searchResult" a:if="{{customerName.length > 0&&lostFocus==false}}" style="height: 400rpx;" >
             <!-- 搜索列表 -->
             <block a:for="{{searchList}}" a:key="key">
               <view class='searchCell'  data-index='{{index}}' data-name='{{item.name}}' onTap='getSearchCell'>
@@ -32,7 +39,8 @@
 
     <view class="page-section">
       <view class="input-title"><text style="color:red">*</text>现场描述</view>
-      <textarea class="multilineInput" name="description" value={{description}} />
+      <textarea class="multilineInput" name="description" value={{description }}    disabled = {{authority[approvalStage].description[0]===1 && mode==="待处理"?false:true}}
+ />
     </view>
 
     <view class="page-section">
@@ -40,38 +48,39 @@
       <view class="img-content">
         <block a:for="{{thumbs}}" >
           <view class="img-thumb"  >
-            <image  style = "width:120rpx;height:120rpx" src="{{item}}" onTap="onPicturePreview" data-src="{{item}}" mode="scaleToFill" />
+            <!--<image  style = "width:120rpx;height:120rpx" src="{{item}}" onTap="onMediaPreview" data-src="{{item}}" mode="scaleToFill" />-->
+              <image  style = "width:120rpx;height:120rpx" src="{{item.category==='image'?item.url:'/resources/video.jpeg'}}" onTap="onMediaPreview" data-src="{{item.url}}" data-category= "{{item.category}}" data-index={{index}} mode="scaleToFill" />
             <view class="imgdelete">
-              <text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeletePicture"  data-index="{{index}}" class="iconfont icon-delete"/>
+              <text  style = "width:60rpx;height:60rpx;background-color:beige" onTap="onDeleteMedia"  data-index="{{index}}" class="iconfont icon-delete"/>
             </view>
           </view>
         </block>
-        <view a:if="{{thumbs.length<9}}" class="img-thumb"  >
-          <text  style ="font-size:100rpx"   onTap="onAddPicture" class="iconfont icon-add-fill"/>
+        <view a:if={{thumbs.length<9 && mode==="待处理"}} class="img-thumb"  >
+          <text  style ="font-size:100rpx"   onTap="onAddMedia" class="iconfont icon-add-fill"/>
         </view>
       </view>
     </view>
 
-    <view class="page-section">
-        <picker onChange="onSelectCategory" value="{{categoryIndex}}" range="{{category}}" >
+    <view class="page-section" >
+        <picker onChange="onSelectCategory" value="{{categoryIndex}}" range="{{category}}" disabled = {{authority[approvalStage].selectCategory[0]===1&& mode==="待处理"?false:true}} >
             <view class="row" style="border-bottom: 1px solid #ddd">
                 <view class="row-title"><text style="color:red">*</text>试用类别</view>
-                <view class="row-extra"><input name="selectCategory" value={{category[categoryIndex]}} disabled="true" placeholder={{categoryIndex===-1?"请选择":""}}  /></view>
+                <view class="row-extra"><input name="selectCategory" value={{category[categoryIndex]}} disabled="true" placeholder={{categoryIndex===-1?"请选择":""}} disabled = {{authority[approvalStage].selectCategory[0]===1&& mode==="待处理"?false:true}}  /></view>
                 <view class="a-list-arrow a-list-arrow-horizontal" />
             </view>
         </picker>
       <view class="row" style="border-bottom: 1px solid #ddd">
         <view class="row-title"><text style="color:red">*</text>需求数量(kg)</view>
-        <view class="row-extra"><input name="demandNumber" type="number" placeholder="请输入"  /></view>
+        <view class="row-extra"><input name="demandNumber" value={{demandNumber}} type="number" placeholder="请输入" disabled = {{authority[approvalStage].demandNumber[0]===1&& mode==="待处理"?false:true}} /></view>
       </view>
       <view class="row" style="border-bottom: 1px solid #ddd">
         <view class="row-title"><text style="color:red">*</text>预估样品费用(元)</view>
-        <view class="row-extra"><input name="sampleCost" type="number"  placeholder="请输入"/></view>
+        <view class="row-extra"><input name="sampleCost" type="number"  value="{{sampleCost}}" placeholder="请输入" disabled = {{authority[approvalStage].sampleCost[0]===1 && mode==="待处理"?false:true}} /></view>
       </view>
-      <picker onChange="costSelect" value="{{costIndex}}" range="{{costList}}"  >
+      <picker onChange="costSelect" value="{{costIndex}}" range="{{costList}}"  disabled = {{authority[approvalStage].costIndex[0]===1&& mode==="待处理"?false:true}} >
         <view class="row">
           <view class="row-title"><text style="color:red">*</text>是否收费</view>
-          <view class="row-extra" ><input name="costIndex" value="{{costList[costIndex]}}" disabled="true"  /></view>
+          <view class="row-extra" ><input name="costIndex" value="{{costList[costIndex]}}" disabled = {{authority[approvalStage].costIndex[0]===1&& mode==="待处理"?false:true}}  /></view>
           <view class="a-list-arrow a-list-arrow-horizontal" />
         </view>
       </picker>
@@ -79,58 +88,66 @@
 
 
     <!--试用产品明细-->
-    <view class="a-list" style="padding-bottom:50px">
+    <view  class="a-list" style="padding-bottom:50px" >
           <view class="a-list-items">
           <!-- produceName: "HJ-35清洗剂",
             number: 20,
             getDate:"2019-05-12",
             getFashionIndex:1, -->
-          <block a:for={{detailed}}>
+          <block a:for={{detailed}} ">
           <view class="a-list-header">明细({{index+1}}) 
-            <button a:if={{detailed.length!=1}} class="smallbutton" catchTap="{{catchDelete}}"  size="mini" data-index="{{index}}" >删除</button>
+            <button a:if={{detailed.length!=1 && authority[approvalStage].detailButton[1]===0 && mode==="待处理"}} class="smallbutton" catchTap="{{catchDelete}}"  size="mini" data-index="{{index}}" >删除</button>
           </view>
           <view class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"  data-index="{{index}}">
                 <view class="form-row" data-index="{{index}}" onTap="onSelectProduct">
                     <view class="form-row-label">产品配方号</view>
                     <view class="form-row-content">
-                        <input class="input"  value="{{item.produceName}}" placeholder="请输入" disabled="true"/>
+                        <input class="input"  name="formulaNum" value="{{item.produceName}}" placeholder="请输入" disabled="true"/>
                     </view>
                 </view>
                 <view class="form-row">
                   <view class="form-row-label">数量</view>
                   <view class="form-row-content">
-                    <input class="input" onInput="onInputNumber" value="{{item.number}}" placeholder="请输入" type="number" data-index="{{index}}" />
+                    <input class="input" onInput="onInputNumber" name="sampleQuantity" value="{{item.number}}" placeholder="请输入" type="number" data-index="{{index}}" />
                   </view>
                 </view>
             <picker onChange="getFashionPickerChange" value="{{item.getFashionIndex}}" range="{{getFashion}}" data-index="{{index}}">
               <view class="form-row">
                 <view class="form-row-label">领取方式</view>
-                <view class="form-row-content"><input class="input"  value="{{item.getFashion}}" placeholder="请输入"  disabled="true"  /></view>
+                <view class="form-row-content"><input class="input" name="getFashion" value="{{item.getFashion}}" placeholder="请输入"  disabled="true"  /></view>
               </view>
             </picker>
                 <view class="form-row" onTap="changeDate" data-index={{index}}  >
                   <view class="form-row-label" >领取日期</view>
                   <view class="form-row-content">
-                    <input class="input" name="date"  value="{{item.getDate}}" placeholder="请输入" disabled="true" />
+                    <input class="input" name="date"  value="{{item.getDate}}" name="getDate" placeholder="请输入" disabled="true" />
                   </view>
                 </view>
                 <view class="a-list-item-bottom" />
             </view>
           </block>
-            <button type="primary" onTap="onAdd">添加明细</button>
+            <button a:if={{authority[approvalStage].detailButton[1]===0 && mode==="待处理"}} type="primary" onTap="onAdd">添加明细</button>
         </view>
     </view>
      <view a:if={{submitAction=="发起"}} class="fixed-button">
       <button type="primary" formType="submit">发起审批</button>
      </view>
-    <view a:elif={{submitAction=="审批"}} class="fixed-button">
-        <button type="warn" formType="submit" data-workflowCondition="-1">驳回</button>
-        <button type="primary" formType="submit" data-workflowCondition="1">同意</button>
+    <view a:elif={{mode=="待处理" && submitAction=="审批"}} class="fixed-button">
+        <view class="inLineContainer">
+          <button class="inLineButton" style="opacity:1" type="warn" formType="submit" data-workflowCondition="-1">驳回</button>
+          <button class="inLineButton"  type="primary" formType="submit" data-workflowCondition="1">同意</button>
+        </view>
+        
     </view>
     <view a:else class="fixed-button">
         <button type="warn" onTap="closeWorkflow" >关闭</button>
     </view>
   </form>
+
+<view>
+<!--<steps className="demo-steps-class" direction="vertical" failIndex="{{failIndex}}" activeIndex="{{activeIndex}}" items="{{items}}" size="{{size}}"></steps>-->
+
+</view>
 
 <!--模态框，选择配方号-->
 <commonmodal show="{{showModal}}"

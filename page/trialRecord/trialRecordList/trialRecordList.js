@@ -139,7 +139,7 @@ Page({
                 })
         }
         dd.navigateTo({
-            url: "/page/trialRecord/trialRecord?recordId="+recordId
+            url: "/page/trialRecord/trialRecord?recordId="+recordId+"&mode="+this.data.navTab[this.data.currentTabIndex]+"&workflowStage="+e.currentTarget.dataset.workflowStage
         });
     },
 

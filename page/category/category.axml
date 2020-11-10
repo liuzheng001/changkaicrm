@@ -10,7 +10,7 @@
               <!--<image src="{{item.icon}}" class="grid-icon" mode="aspectFit" />-->
               <view>
                   <image  a:if="{{rec.title=='请假'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/qingjia.png"/>
-                  <image  a:elif="{{rec.title=='样品领用'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/yangpin.png"/>
+                  <!--<image  a:elif="{{rec.title=='样品领用'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/yangpin.png"/>-->
                   <image  a:elif="{{rec.title=='退换货申请'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tui.png"/>
                   <image  a:elif="{{rec.title=='维护品领用流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/weifu.png"/>
                   <image  a:elif="{{rec.title=='急件考核'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/ji.png"/>

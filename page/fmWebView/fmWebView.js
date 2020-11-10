@@ -27,22 +27,22 @@ Page({
       // const url = "http://www.163.com";
 
       const url = app.globalData.domain+"/openfm.html?t=123456789&programme=" + encodeURIComponent(query.filename) + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd;
-
+ 5
       this.setData({
           url: url,
       })
   },
     //closepage向小程序发出信息
-    onMessage(e){
-        dd.alert({
-            content:JSON.stringify(e.detail),
-            success:()=>{
-                dd.switchTab({
-                    url: '/page/FMCategory/FMCategory'
-                })
-            }
-        });
-    }
+    // onMessage(e){
+    //     dd.alert({
+    //         content:JSON.stringify(e.detail),
+    //         success:()=>{
+    //             dd.switchTab({
+    //                 url: '/page/FMCategory/FMCategory'
+    //             })
+    //         }
+    //     });
+    // }
 
 });
 

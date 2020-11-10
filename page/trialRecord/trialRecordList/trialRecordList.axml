@@ -5,17 +5,19 @@
   <view class="a-list" style="padding-top:80rpx">
     <view  class="a-list-items">
       <block a:for={{listData}} >
-      <view class="a-list-item {{index==row?'active':''}}" hover-class="hover-list" onTap="onRecDetail" data-instanceId={{item['instanceId']}} data-recordId={{item['recordId']}} data-row={{index}} >
+      <view class="a-list-item {{index==row?'active':''}}" hover-class="hover-list" onTap="onRecDetail" data-instanceId={{item['instanceId']}} data-recordId={{item['recordId']}} data-workflowStage={{item['workflowStage']}} data-row={{index}} >
 
-      <view class="a-list-item-line" style="width:95%" >
-          <text a:if={{item['consultFlag'][0]==0}}  style="color:red">*{{item['instanceId']}}</text>
-        <text class="a-list-item-content" >试用客户:{{item['customerName']}}</text>
-       <!-- <view  class="a-list-item-extra" >
-          <text class="checkbox-text">{{item['customerName']}}</text>
-        </view>-->
-        <text class="a-list-item-content"  >审核阶段:{{item['workflowStage']}}</text>
-        <button type="{{item['finish']==1?'warn':'primary'}}" size="mini">{{item['finish']==1?'已审批':'审批中'}}</button>
-        <text class="a-list-item-content"  >{{item['start']}}</text>
+      <view class="line" style="width:95%" >
+          <icon a:if={{item['consultFlag'][0]==0}} type="success" size="20" color="red"/>
+        <text class="content" >{{item['customerName']}}</text>
+        <!-- <button class="extra" type="{{item['finish']==1?'warn':'primary'}}" size="mini">{{item['finish']==1?'已审批':'审批中'}}</button> -->
+        <text class="extra" style="background-color:{{item['finish']==1?'green':'orange'}};color:black" >{{item['finish']==1?'已审批':'审批中'}}</button>
+      </view>
+      <view class="line" style="width:95%" >
+          <text class="content"  >审核阶段:{{item['workflowStage']}}</text>
+          <text class="extra"  >{{item['start']}} </text>
+      </view>
+        
 
         <!-- <view  class="a-list-item-extra" >
            <text class="checkbox-text">{{item['workflowStage']}}</text>

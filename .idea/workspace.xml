@@ -17,95 +17,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="trialRecordList.axml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml">
+      <file leaf-file-name="index.axml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/index.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
+            <state relative-caret-position="504">
+              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trialRecordList.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.json">
+      <file leaf-file-name="category.axml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/category/category.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="450">
+              <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trialRecordList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js">
+      <file leaf-file-name="category.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/page/category/category.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="104" column="57" lean-forward="true" selection-start-line="104" selection-start-column="57" selection-end-line="104" selection-end-column="57" />
+            <state relative-caret-position="330">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="relevantList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/relevantList/relevantList.js">
+      <file leaf-file-name="background00.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/background00.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="background01.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/background01.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="background02.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/background02.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="background03.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/background03.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="background04.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/background04.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-151">
-              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="342">
+              <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addSampleRecord.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
+      <file leaf-file-name="fmWebView.axml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="520" column="65" lean-forward="true" selection-start-line="520" selection-end-line="521" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="21" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trialRecord.axml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="127" column="75" selection-start-line="127" selection-start-column="75" selection-end-line="127" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trialRecord.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="533" column="37" lean-forward="true" selection-start-line="533" selection-start-column="37" selection-end-line="533" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trialRecord.acss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.acss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="462" column="1" selection-start-line="462" selection-start-column="1" selection-end-line="462" selection-end-column="1" />
+            <state relative-caret-position="72">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -121,36 +98,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sub</find>
-      <find>checkbox-text</find>
-      <find>明细</find>
-      <find>vacation</find>
-      <find>e.detail.</find>
-      <find>data-index</find>
-      <find>changeDate</find>
-      <find>配方号不确定</find>
+      <find>inputVal</find>
+      <find>formulaNum</find>
+      <find>category</find>
+      <find>fi</find>
+      <find>filter</find>
+      <find>inputval</find>
       <find>value</find>
-      <find>dataSet</find>
-      <find>const t =this;         const index = e.currentTarget.dataset.index;         const value = e.detail.value;          const  target = `detailed[${index}].getFashion`;         t.setData({                 [target]:t.data.getFashion[value]             }         );</find>
-      <find>testCategoryPickerChange</find>
-      <find>onInput</find>
-      <find>picker</find>
-      <find>remind</find>
-      <find>loading</find>
-      <find>showLoading</find>
-      <find>hideLoading</find>
-      <find>setRight</find>
-      <find>onAddMedia</find>
-      <find>dd.config</find>
-      <find>inputV</find>
-      <find>客户ID</find>
-      <find>form.</find>
-      <find>description</find>
-      <find>demand</find>
+      <find>categoryI</find>
+      <find>demandNumber</find>
+      <find>categoryIndex</find>
+      <find>selectCategory</find>
+      <find>fixed-button</find>
+      <find>fix</find>
+      <find>sampleDataRecID</find>
+      <find>submit</find>
+      <find>sampleCost</find>
+      <find>提交失败</find>
+      <find>selectProduct</find>
+      <find>onAdd</find>
+      <find>blue</find>
+      <find>GetQueryString</find>
+      <find>Storage</find>
+      <find>onSavePass</find>
+      <find>getStorage</find>
+      <find>setStorage</find>
+      <find>.then</find>
       <find>applicationServer</find>
-      <find>length</find>
-      <find>recordId</find>
-      <find>dataset</find>
+      <find>v0.5.3</find>
+      <find>navigateTo</find>
+      <find>onCalculationmil</find>
     </findStrings>
     <replaceStrings>
       <replace>https://liuzheng750417.imwork.net:8890</replace>
@@ -170,6 +147,9 @@
       <replace>getApp().globalData.applicationServer+&quot;</replace>
       <replace>checkData</replace>
       <replace>historySearch</replace>
+      <replace>&amp;&amp; mode</replace>
+      <replace>approvalStage</replace>
+      <replace>customerName</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/resources</dir>
@@ -183,15 +163,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/page/selectCustomer/selectCustomer.axml" />
-        <option value="&lt;181af7b9-f45f-489c-be2b-519313aac222&gt;/PhpstormProjects/corp_demo_php-master/uploadMediasToAiliForComponents.php" />
-        <option value="&lt;181af7b9-f45f-489c-be2b-519313aac222&gt;/PhpstormProjects/ezview/index.html" />
-        <option value="&lt;181af7b9-f45f-489c-be2b-519313aac222&gt;/PhpstormProjects/eapp-corp/fmSampleRec.php" />
-        <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.acss" />
-        <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.json" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.acss" />
-        <option value="$PROJECT_DIR$/templates/list/index.acss" />
-        <option value="$PROJECT_DIR$/page/calendar/index.axml" />
         <option value="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" />
         <option value="$PROJECT_DIR$/page/logs/logs.axml" />
         <option value="$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.axml" />
@@ -201,7 +173,6 @@
         <option value="$PROJECT_DIR$/components/commonmodal/commonmodal.axml" />
         <option value="$PROJECT_DIR$/page/calendar/addMachine/addMachine.acss" />
         <option value="$PROJECT_DIR$/page/calendar/ProgressLines/ProgressLines.axml" />
-        <option value="$PROJECT_DIR$/app.acss" />
         <option value="$PROJECT_DIR$/components/customer/customer.js" />
         <option value="$PROJECT_DIR$/page/calendar/addMachine/addMachine.axml" />
         <option value="$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml" />
@@ -212,8 +183,6 @@
         <option value="$PROJECT_DIR$/page/calendar/selectCustomer/selectCustomer.acss" />
         <option value="$PROJECT_DIR$/page/calendar/selectCustomer/selectCustomer.axml" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.axml" />
-        <option value="$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js" />
-        <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.js" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.js" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.axml" />
         <option value="$PROJECT_DIR$/page/samplesapply/samplesapply.axml" />
@@ -222,18 +191,29 @@
         <option value="$PROJECT_DIR$/components/vacation/vacation.axml" />
         <option value="$PROJECT_DIR$/components/detailed/detailed.axml" />
         <option value="$PROJECT_DIR$/components/detailed/detailed.js" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.acss" />
         <option value="$PROJECT_DIR$/page/exchanges/exchanges.axml" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.json" />
         <option value="$PROJECT_DIR$/components/commonmodal/commonmodal.js" />
         <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.json" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.json" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.acss" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.axml" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js" />
+        <option value="$PROJECT_DIR$/app.acss" />
         <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.acss" />
+        <option value="$PROJECT_DIR$/templates/list/index.acss" />
+        <option value="$PROJECT_DIR$/app1.json" />
+        <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.js" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.js" />
+        <option value="$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js" />
+        <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml" />
+        <option value="$PROJECT_DIR$/page/calendar/index.axml" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.axml" />
-        <option value="$PROJECT_DIR$/page/trialRecord/trialRecord.js" />
+        <option value="$PROJECT_DIR$/page/logs/logs.js" />
+        <option value="$PROJECT_DIR$/page/index/index.js" />
+        <option value="$PROJECT_DIR$/page/index/index.axml" />
+        <option value="$PROJECT_DIR$/page/category/category.axml" />
+        <option value="$PROJECT_DIR$/page/category/category.js" />
       </list>
     </option>
   </component>
@@ -257,10 +237,10 @@
       <path value="$PROJECT_DIR$/vendor/nategood/httpful" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="2048" />
-    <option name="height" value="1047" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -268,6 +248,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -284,91 +265,23 @@
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="adjustmentPlan" type="462c0819:PsiDirectoryNode" />
+              <item name="category" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="addSampleRecord" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="editSampleRecord" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="editSampleRecord" type="462c0819:PsiDirectoryNode" />
-              <item name="sampleList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="selectCustomer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="emergencyFood" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="exchanges" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="leave" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="maintenance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="qingjia" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="trialRecord" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
-              <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="trialRecord" type="462c0819:PsiDirectoryNode" />
-              <item name="trialRecordList" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,17 +298,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/page/index" />
       <recent name="$PROJECT_DIR$/page/calendar" />
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/page" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/page/index" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/components" />
+      <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/page" />
-      <recent name="$PROJECT_DIR$/page/adjustmentPlan" />
-      <recent name="$PROJECT_DIR$/page/category/workflowlist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -535,30 +449,43 @@
       <workItem from="1598718754269" duration="25444000" />
       <workItem from="1599397828404" duration="1200000" />
       <workItem from="1599469504577" duration="26863000" />
-      <workItem from="1599903383478" duration="29550000" />
+      <workItem from="1599903383478" duration="36224000" />
+      <workItem from="1600359367638" duration="598000" />
+      <workItem from="1600361127599" duration="17700000" />
+      <workItem from="1600651007311" duration="29658000" />
+      <workItem from="1601123153982" duration="11024000" />
+      <workItem from="1601372600366" duration="1789000" />
+      <workItem from="1601392133808" duration="8607000" />
+      <workItem from="1603069301828" duration="598000" />
+      <workItem from="1603198667219" duration="1188000" />
+      <workItem from="1603295687351" duration="1808000" />
+      <workItem from="1603547412236" duration="599000" />
+      <workItem from="1603592910428" duration="598000" />
+      <workItem from="1603628200236" duration="11910000" />
+      <workItem from="1604828938499" duration="598000" />
+      <workItem from="1604925395658" duration="3078000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1274207000" />
+    <option name="totallyTimeSpent" value="1370634000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2048" height="1047" extended-state="6" />
+    <frame x="0" y="23" width="2048" height="1048" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5522067" visible="true" weight="0.25951904" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32938644" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5532831" visible="true" weight="0.21993987" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
-      <window_info id="Structure" order="1" sideWeight="0.4467169" side_tool="true" weight="0.21993987" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32938644" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
+      <window_info id="Structure" order="1" sideWeight="0.44779333" side_tool="true" weight="0.22745492" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
       <window_info id="Favorites" order="2" sideWeight="0.6889128" side_tool="true" weight="0.20240481" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -569,14 +496,15 @@
       <window_info anchor="bottom" id="Application Servers" order="12" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
       <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32938644" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
       <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.31008583" visible="true" weight="0.21242484" />
@@ -587,12 +515,12 @@
       <window_info anchor="bottom" id="PHP-CGI Server" order="9" />
       <window_info anchor="bottom" id="Changes" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
       <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
@@ -631,7 +559,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/page/logs/logs.js</url>
-          <line>9</line>
+          <line>10</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -682,7 +610,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js</url>
           <line>123</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -709,273 +636,48 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/page/workflow/workflow.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/workflow/workflow.axml">
+    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.acss" />
+    <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.axml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="288">
+          <caret line="16" column="51" lean-forward="true" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/category/category.axml">
+    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml" />
+    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.acss" />
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/category/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-953" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/samplesapply/samplesapply.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="201" lean-forward="true" selection-end-line="286" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/emergencyFood/emergencyFood.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="220" column="3" lean-forward="true" selection-start-line="220" selection-start-column="3" selection-end-line="220" selection-end-column="3" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/qingjia/qingjia.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/qingjia/qingjia.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="58" column="11" selection-start-line="58" selection-start-column="3" selection-end-line="58" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/samplesapply/samplesapply.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="65" column="69" selection-end-line="75" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/samplesapply/samplesapply.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/samplesapply/samplesapply.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="316" column="39" selection-start-line="316" selection-start-column="39" selection-end-line="316" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/detailed/detailed.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="175" column="1" selection-start-line="175" selection-start-column="1" selection-end-line="175" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/customer/customer.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/customer/customer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="5" selection-start-line="20" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/detailed/detailed.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/detailed/detailed.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/vacation/vacation.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/vacation/vacation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/vacation/vacation.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/detailed/detailed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="65" column="10" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="65" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/vacation/vacation.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="24" lean-forward="true" selection-end-line="175" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/leave/leave.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/leave/leave.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="173" column="39" lean-forward="true" selection-start-line="173" selection-start-column="39" selection-end-line="173" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/exchanges/exchanges.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="3" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/emergencyFood/emergencyFood.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-167" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2034">
-          <caret line="113" column="12" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/commonmodal/commonmodal.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/maintenance/maintenance.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/commonmodal/commonmodal.axml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/commonmodal/commonmodal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="27" column="7" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="112" column="44" lean-forward="true" selection-end-line="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="150" column="68" selection-start-line="150" selection-start-column="58" selection-end-line="150" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="1" />
+        <state relative-caret-position="374">
+          <caret line="49" column="55" lean-forward="true" selection-start-line="49" selection-end-line="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.acss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="462" column="1" selection-start-line="462" selection-start-column="1" selection-end-line="462" selection-end-column="1" />
+        <state relative-caret-position="391">
+          <caret line="479" lean-forward="true" selection-start-line="479" selection-end-line="479" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="79" column="53" selection-start-line="79" selection-start-column="53" selection-end-line="79" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -986,62 +688,210 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/relevantList/relevantList.js">
+    <entry file="file://$PROJECT_DIR$/app.acss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="520" column="65" lean-forward="true" selection-start-line="520" selection-end-line="521" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="30" column="54" lean-forward="true" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="16" column="79" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
+        <state relative-caret-position="480">
+          <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="104" column="57" lean-forward="true" selection-start-line="104" selection-start-column="57" selection-end-line="104" selection-end-column="57" />
+        <state relative-caret-position="308">
+          <caret line="110" column="33" lean-forward="true" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
+    <entry file="file://$PROJECT_DIR$/templates/list/index.acss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="127" column="75" selection-start-line="127" selection-start-column="75" selection-end-line="127" selection-end-column="75" />
+        <state relative-caret-position="270">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.acss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.axml" />
+    <entry file="file://$PROJECT_DIR$/app1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="22" selection-start-line="27" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecordList/trialRecordList.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/yangpin.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="533" column="37" lean-forward="true" selection-start-line="533" selection-start-column="37" selection-end-line="533" selection-end-column="37" />
+        <state relative-caret-position="12510">
+          <caret line="695" column="30" selection-start-line="695" selection-start-column="30" selection-end-line="695" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="818" column="14" selection-start-line="818" selection-start-column="14" selection-end-line="818" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.js" />
+    <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="88" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="102" column="21" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/selectCustomer/selectCustomer.js" />
+    <entry file="file://$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.js" />
+    <entry file="file://$PROJECT_DIR$/page/schedule/schedule.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="98" selection-start-line="3" selection-start-column="82" selection-end-line="3" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5850">
+          <caret line="325" column="14" lean-forward="true" selection-start-line="325" selection-start-column="14" selection-end-line="325" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/calendar/index.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="61" lean-forward="true" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/schedule/schedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5670">
+          <caret line="315" column="42" selection-start-line="315" selection-start-column="42" selection-end-line="315" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/logs/logs.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/logs/logs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpUHDzhg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/video.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/a8a6244aa23aeb5e92a7a31633cf125a.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background3.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/10e831ffe01b85e6705befad4b494d91.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/db0e6914d8b728d0c35febea21390ddf.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background00.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background01.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background02.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background03.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/background04.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/index/index.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/category.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="40" />
         </state>
       </provider>
     </entry>

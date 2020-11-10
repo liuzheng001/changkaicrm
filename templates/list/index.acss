@@ -12,7 +12,7 @@
 }
 
 .a-list .a-list-items .a-list-item {
-    display: flex;
+    /*display: flex;*/
     font-size: 30rpx;
     line-height: 1.5;
     color: #333333;

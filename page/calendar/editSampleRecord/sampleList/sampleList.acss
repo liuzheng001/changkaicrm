@@ -1,8 +1,0 @@
-@import '../../../../templates/list/index.acss';
-.remind{
-    text-align: center;
-}
-
-
-
-
