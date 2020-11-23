@@ -20,6 +20,16 @@
           </view>
           <text class="grid-text">{{item.fmFileName}}</text>
         </view>
-    </view>
-    <!--<button onTap="openEzView">打开EzView</button>-->
-</view>
+     </view>
+     <navigator  url="/page/uploadMedia/uploadMedia" style="width:{{100/(columnNum || 3)}}%;padding-top:{{100/(columnNum || 3)}}%;"
+        class="grid-item" hover-class = "grid-hover" >
+       <!--<navigator url="/page/navigate/navigate?title=navigate" hover-class="navigator-hover">跳转到新页面</navigator>-->
+       <view class="grid-item-wrapper" >
+          <view>
+              <image   style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/fm.jpg"/>
+          </view>
+          <text class="grid-text">上传媒体</text>
+      </view>
+      <!--<button onTap="openEzView">打开EzView</button>-->
+  </navigator>
+  </view>

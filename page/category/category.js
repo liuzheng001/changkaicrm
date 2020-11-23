@@ -16,6 +16,15 @@ Page({
   ]
   },
   onLoad() {  //载入流程类别category
+      //打开tabbar记录index,下次默认打开
+      dd.setStorage({
+          key: 'tabbarIndex',
+          data: {
+              tabbarIndex:2
+          },
+          success: function () {
+          }
+      });
       dd.showLoading();
       const url = getApp().globalData.domain+'/getworkflow.php';
 

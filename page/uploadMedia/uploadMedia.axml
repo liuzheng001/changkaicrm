@@ -1,0 +1,89 @@
+<view a:if={{showVideo}} class="videoContainer">
+<!--<video class="video"  src="{{videoUrl}}" autoplay="true"   />-->
+    <video
+        id="v"
+        class="video"
+        src="{{videoUrl}}"
+        onTimeUpdate="onTimeUpdate"
+        objectFit="contain"
+        autoplay="true"
+        enableNative="true"
+    />
+    <button class="videoButton" onTap="onCloseVideo">关闭</button>
+</view>
+<view>
+    <button onTap="qrScan">扫描二维码</button>
+  <view class="page-section">
+      <view class="row" style="border-bottom: 1px solid #ddd">
+          <view class="row-title">
+            <view class="line">项目:{{projectName}}</view>
+            <view class="line">试验记录:{{recordNum}}</view>
+          </view>
+          <view  class="row-extra" style="flex:1 1 0%">
+             <text a:if="{{recordId!==-1}}" style ="font-size:240rpx;color:orange"   onTap="onAddMedia" class="iconfont icon-add-fill"/>
+              <text a:else style ="font-size:240rpx;color:gray"    class="iconfont icon-add-fill"/>
+        </view>
+
+      </view>
+  </view>
+
+  <view> <!--media列表-->
+  <block a:for="{{thumbs}}" >
+      <view class="row" style="border-bottom: 1px solid #ddd">
+
+      <view class="row-title">
+          <view class="img-thumb"  >
+              <image  style = "width:240rpx;height:240rpx" src="{{item.category==='image'?item.nativeUrl:'/resources/video.jpeg'}}" onTap="onMediaPreview" data-src="{{item.nativeUrl}}" data-category= "{{item.category}}" mode="scaleToFill" />
+          </view>
+      </view>
+      <view class="row-extra" style="flex:1 1 0%;text-align:left">
+          <view class="line"><text>名称:{{item['name']}}</text></view>
+          <view class="line"><text>大小:{{item['size']}}M</text></view>
+          <view class="line"><text>备注:{{item['remark']}}</text></view>
+          <!--<view><button size="mini" type="warn">删除</button></view>-->
+      </view>
+      </view>
+  </block>
+  </view>
+   <!-- <view  class="fixed-button">
+        <button  onTap="updateMediaToFm" >上传媒体</button>
+        <button class="videoButton" onTap="onUploadMedia">上传测试</button>
+   </view> -->
+ </view>
+
+<view>
+    <!--模态框，选择配方号-->
+    <commonmodal show="{{showModal}}"
+                 onCancelRecord="onCancel"
+                 onCreateRecord ="onUploadMediaToFmContainer"
+                 parameter = "{{index}}"
+    >
+        <view class="page-section">
+                <view class="row">
+                    <view class="row-title">媒体类型</view>
+                    <view class="row-extra"><input name="mediaType"  value={{mediaType}} disabled="true"  /></view>
+                    <view class="a-list-arrow a-list-arrow-horizontal" />
+                </view>
+        </view>
+        <view class="page-section">
+            <view class="row">
+                <view class="row-title">文件名</view>
+                <view class="row-extra"><input name="mediaName"  value={{fileName}} disabled="true" /></view>
+                <view class="a-list-arrow a-list-arrow-horizontal" />
+            </view>
+        </view>
+        <view class="page-section">
+            <view class="row">
+                <view class="row-title">媒体信息</view>
+                <view class="row-extra"><input   value={{mediaMessage}} onInput="onMediaMessage" /></view>
+                <view class="a-list-arrow a-list-arrow-horizontal" />
+            </view>
+        </view>
+
+        <view class="page-section">
+            <view class="input-title">备注</view>
+            <textarea class="multilineInput"  value={{mediaRemark}} onInput="onMediaRemark"/>
+        </view>
+
+    </commonmodal>
+</view>

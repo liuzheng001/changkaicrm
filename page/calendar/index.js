@@ -634,6 +634,15 @@ Page({
         })
     },
     onLoad(){ //页面加载时,计算有效日期
+        //打开tabbar记录index,下次默认打开
+        dd.setStorage({
+            key: 'tabbarIndex',
+            data: {
+                tabbarIndex:1
+            },
+            success: function () {
+            }
+        });
         const app = getApp();
         let year,month,date,todayDate;
         const today = new Date();

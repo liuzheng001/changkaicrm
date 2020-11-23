@@ -6,7 +6,7 @@ let domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
 //test git,回复
 let url = domain + '/login.php'; */
 
-let development = false; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
+let development = true; //开发环境为true,工厂环境为false,工厂环境服务器是47.103.63.213
 let domain,applicationServer;
 if (development===true){
     domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
@@ -76,19 +76,33 @@ App({
                         app.globalData.username = userName;
                         app.globalData.departments = res.data.result.departments;
                         // 调试时关闭getworkflow
-                       dd.switchTab({ //日历
+                      /* dd.switchTab({ //日历
                                 url: '/page/calendar/index'
-                            })
-                        /*dd.navigateTo({
-                            url: "/page/trialRecord/trialRecordList/trialRecordList"
+                            })*/
+                        dd.getStorage({
+                            key: 'tabbarIndex',
+                            success: function (res) {
+                                //不存在samleRecord key时，res.data为null
+                                if (res.data == null || res.data.tabbarIndex === 1) {
+                                    dd.switchTab({
+                                        url: '/page/calendar/index'
+                                    })
+                                } else if(res.data.tabbarIndex === 2){
+                                    dd.switchTab({
+                                        url: '/page/category/category'
+                                    })
 
-                        })*/
-                        /*dd.navigateTo({
-                            // url: '/page/calendar/selectCustomer/selectCustomer'
-                            url:"/page/calendar/addSampleRecord/addSampleRecord",
-                            // url:"/page/calendar/addMachine/addMachine"
+                                }else if(res.data.tabbarIndex === 3){
+                                    dd.switchTab({
+                                        url: '/page/FMCategory/FMCategory'
+                                    })
+                                }
+                            },
+                            fail: function () {
 
-                        })*/
+                            },
+                        })
+
                     },
                     fail: (res) => {
                         console.log("httpRequestFail---", res)

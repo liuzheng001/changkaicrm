@@ -1,0 +1,7 @@
+{
+  "usingComponents":{
+    "commonmodal":"/components/commonmodal/commonmodal"
+  },
+  "defaultTitle": "上传媒体"
+
+}

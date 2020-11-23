@@ -1,6 +1,6 @@
 {
   "pages": [
-  
+
     "page/index/index",
     "page/FMCategory/FMCategory",
     "page/fmWebView/fmWebView",
@@ -21,7 +21,9 @@
     "page/scheduleContent/scheduleContent",
     "page/category/workflowlist/workflowlist",
     "page/samplesapply/samplesapply",
-    "page/logs/logs"
+    "page/logs/logs",
+    "page/uploadMedia/uploadMedia"
+
   ],
   "window": {
     "defaultTitle": "长凯CRM",

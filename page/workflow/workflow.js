@@ -1,6 +1,8 @@
 Page({
   data: {},
-  onLoad() {},
+  onLoad() {
+
+  },
     getDepartmentList() { //从服务器得到部门信息
         const app = getApp();
         const url = getApp().gloablData.domain+"/getOapiByName.php";

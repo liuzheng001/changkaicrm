@@ -22,6 +22,15 @@ Page({
       passwordInput:"",
   },
   onLoad() {
+      //打开tabbar记录index,下次默认打开
+      dd.setStorage({
+          key: 'tabbarIndex',
+          data: {
+              tabbarIndex:3
+          },
+          success: function () {
+          }
+      });
       //检查当前user与storage中的user是否一致;
       const app = getApp();
       const username = app.globalData.username;
