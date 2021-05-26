@@ -12,8 +12,8 @@ if (development===true){
     domain = "http://r1w8478651.imwork.net:9998/eapp-corp";
     applicationServer = "http://r1w8478651.imwork.net:9998/corp_demo_php-master/"
 } else{
-    domain = "http://47.103.63.213/eapp-corp";
-    // domain = "https://www.ckkj.net.cn/eapp-corp";//阿里云已安装ssl证书,已知错误getFMmessage时,第一次不能得到customer清单,第二次可以,原因不明
+    // domain = "http://47.103.63.213/eapp-corp";
+    domain = "https://www.ckkj.net.cn/eapp-corp";//阿里云已安装ssl证书,已知错误getFMmessage时,第一次不能得到customer清单,第二次可以,原因不明；问题似乎已解决
     applicationServer = "https://filemaker.ckkj.net.cn:8890/corp_php-master/"
 }
 let url = domain + '/login.php';
@@ -79,7 +79,7 @@ App({
                       /* dd.switchTab({ //日历
                                 url: '/page/calendar/index'
                             })*/
-                        dd.getStorage({
+                        /*dd.getStorage({
                             key: 'tabbarIndex',
                             success: function (res) {
                                 //不存在samleRecord key时，res.data为null
@@ -101,7 +101,7 @@ App({
                             fail: function () {
 
                             },
-                        })
+                        })*/
 
                     },
                     fail: (res) => {

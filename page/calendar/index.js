@@ -106,7 +106,6 @@ function daysInMonth(year,month,date,listData){
         // const hasSchedule = (listData.findIndex(FindFn)!==-1);//值为正数(即第1个当天日程的下标),-1为无
         const item = listData.find(FindFn);//有值既是找到的元素,undefind则是该日无日程
         let hasSchedule,attendance, scheduleId ;
-        ;
         if (item) {
             hasSchedule = true;
             scheduleId = item.scheduleId;

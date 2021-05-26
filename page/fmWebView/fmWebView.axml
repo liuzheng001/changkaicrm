@@ -1,4 +1,10 @@
 <view>
     <!-- <web-view id="web-view-1"  src="{{url}}" onMessage="onMessage"></web-view> -->
     <web-view id="web-view-1"  src="{{url}}" ></web-view>
+    <!--测试open钉钉审批单-->
+    <!--<web-view id="web-view-1"  src="https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=true&dd_share=false&dd_progress=false&back=native&corpid=ding1fdec36666e1349d35c2f4657eb6378f&swform=abc#/approval?procinsld=6be0410a-b51c-44e0-9434-d1f5e9cdb80b" ></web-view>-->
+    <!--'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=true&dd_share=false&dd_progress=false&back=native&corpid='+app.globalData.corpId+'&swform=abc#/approval?procinsld=937909d8-b20b-4e5a-9783-735f40e1ef8d'-->
+    <!--<web-view id="web-view-1"  src="https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=false&dd_progress=false&dd_share=false&corpid=ding1fdec36666e1349d35c2f4657eb6378f" ></web-view>-->
+   <!-- https:/aflow.dingtalk.com/dingtalk/mobile/homepage.htm? dd_share=f alse&showmenu=true&dd_progress=f alse&back=native&swfrom=测试&corpid=ding1fdec36666e1349d35c2f4657eb6378f#/custom?processCode=PROC-DADF0BC1-B847-4DFA-9756-CE5175BA6545-->
+
 </view>

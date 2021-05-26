@@ -68,9 +68,9 @@ Page({
       })*/
       let url;
       switch (e.currentTarget.dataset.progressCode) { //progressCode
-          case "PROC-6AA9FF64-D13D-402A-82E8-4ED79BFA6FC8": //请假
-              url = "/page/leave/leave";
-              break;
+        //   case "PROC-6AA9FF64-D13D-402A-82E8-4ED79BFA6FC8,PROC-DADF0BC1-B847-4DFA-9756-CE5175BA6545": //请假,包括钉钉里的长凯请假
+        //       url = "/page/leave/leave";
+        //       break;
          /* case "PROC-EF196C0C-1EE8-4BDB-8D5E-6F2BB2A5B21C": //样品领用
               url = "/page/samplesapply/samplesapply";
               break;*/
@@ -104,7 +104,25 @@ Page({
         dd.navigateTo({
             url:"/page/adjustmentPlan/adjustmentPlan",
         });
-    }
+    },
+    /*openScheme(){
+
+        //由于小程序内暂不支持打开对于的审批详情页和待办页面,所以暂不使用
+        /!* const templateID = e.currentTarget.dataset.templateID;
+        dd.navigateTo({
+            url: '/page/category/workflowlist/workflowlist?templateID='+templateID
+        })*!/
+        let processCode =   'PROC-DADF0BC1-B847-4DFA-9756-CE5175BA6545';
+        let corpid = 'ding1fdec36666e1349d35c2f4657eb6378f'
+        let swfrom = "测试";
+        let url = `https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?dd_share=false&showmenu=true&dd_progress=false&back=native&swfrom=${swfrom}&corpid=${corpid}#/custom?processCode=${processCode}`;
+        dd.redirectTo({
+            url: '/page/fmWebView/fmWebView?filename='+e.currentTarget.dataset.fileName
+        })
+
+    },*/
+
+
 
 });
 

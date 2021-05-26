@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "page/itemTrailApplication/itemTrailApplication",
     "page/index/index",
     "page/FMCategory/FMCategory",
     "page/fmWebView/fmWebView",
@@ -23,7 +23,6 @@
     "page/samplesapply/samplesapply",
     "page/logs/logs",
     "page/uploadMedia/uploadMedia"
-
   ],
   "window": {
     "defaultTitle": "长凯CRM",

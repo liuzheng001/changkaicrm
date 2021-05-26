@@ -5,7 +5,8 @@ Page({
   data: {
 
       templateID: "",
-      start_time:1496678400000,
+      // start_time:1496678400000,
+      start_time:((new Date()).getTime()-120 * 60 * 60 * 24)*1000,//当前时间120天前
       cursor:1,
       /*//用于标识是否还有更多的状态,0代表没有流程了,1代表后面还有
       state: 1,*/

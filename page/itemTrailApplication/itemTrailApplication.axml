@@ -1,0 +1,91 @@
+<view>
+  <form onSubmit="formSubmit">
+
+  <view class="page-section">
+    <picker onChange="selectItemPickerChange" value="{{selectItemIndex}}" range="{{selectItems}}" range-key="specialName">
+      <view class="row">
+        <view class="row-title"> 物品品牌 </view>
+        <view class="row-extra"><input name="selectItem"  value={{selectItemIndex===-1?"请选择":selectItems[selectItemIndex].specialName}} disabled="true"  /></view>
+        <view class="a-list-arrow a-list-arrow-horizontal" />
+      </view>
+    </picker>
+    <view class="row">
+      <view class="row-title"> 生产厂家 </view>
+      <view class="row-extra"><input name="manufacturer"  value={{selectItems[selectItemIndex].manufacturer}} disabled="true"  /></view>
+      <view class="a-list-arrow a-list-arrow-horizontal" />
+    </view>
+  <view class="row">
+      <view class="row-title"><text style="color:red">*</text>供应商</view>
+      <view class="search-container" >
+        <view class="search-outer">
+          <input
+                  name = "customName"
+                  type="search"
+                  class="search-input"
+                  value="{{inputVal}}"
+                  onInput="onInput"
+                  onFocus="showCancel"
+                  onBlur = "onBlur"
+          />
+          <text class="search-cancel" style="margin-right:{{inputStatus.marginRight}};opacity:{{inputStatus.opacity}}" onTap="clearSearch">取消</text>
+        </view>
+        <scroll-view scroll-y="true" class="searchResult" a:if="{{inputVal.length > 0&&lostFocus==false}}" style="height: 400rpx;" >
+          <!-- 搜索列表 -->
+          <block a:for="{{searchList}}" a:key="key">
+            <view class='searchCell'  data-index='{{index}}' data-name='{{item.name}}' data-id="{{item.id}}" onTap='getSearchCell'>
+              {{item.name}}
+            </view>
+          </block>
+          <!--  <view >下拉结果</view>
+            <view >下拉结果</view>-->
+        </scroll-view>
+      </view>
+    </view>
+    </view>
+
+  <view class="page-section" >
+    <picker onChange="onSelectStage" value="{{stageIndex}}" range="{{trailStage}}" >
+    <view class="row" style="border-bottom: 1px solid #ddd">
+      <view class="row-title"><text style="color:red">*</text>试用阶段</view>
+      <view class="row-extra"><input name="selectStage" value={{trailStage[stageIndex]}} disabled="true" placeholder={{stageIndex===-1?"请选择":""}}  /></view>
+      <view class="a-list-arrow a-list-arrow-horizontal" />
+    </view>
+  </picker>
+
+    <view class="row" style="border-bottom: 1px solid #ddd">
+      <view class="row-title"><text style="color:red">*</text>物品报价</view>
+      <view class="row-extra"><input name="price" type="number" placeholder="请输入"  /></view>
+    </view>
+    <view class="row" style="border-bottom: 1px solid #ddd">
+      <view class="row-title"><text style="color:red">*</text>试用数量(kg)</view>
+      <view class="row-extra"><input name="number" type="number" placeholder="请输入"  /></view>
+    </view>
+    <view class="row" style="border-bottom: 1px solid #ddd"  onTap="changeDate" data-index={{index}}>
+      <view class="row-title"><text style="color:red">*</text>试用开始日期</view>
+      <view class="row-extra" ><input name="beginDate" value={{beginDate}} disabled="true"  /></view>
+      <view class="a-list-arrow a-list-arrow-horizontal" />
+      </view>
+    <view class="row" style="border-bottom: 1px solid #ddd">
+      <view class="row-title"><text style="color:red">*</text>试用周期</view>
+      <view class="row-extra"><input name="cycle" type="number" placeholder="请输入"  /></view>
+    </view>
+
+  </view>
+
+  <view class="page-section" >
+    <picker onChange="onSelectObjective" value="{{objectiveIndex}}" range="{{objectiveCategory}}" >
+      <view class="row" style="border-bottom: 1px solid #ddd">
+        <view class="row-title"><text style="color:red">*</text>目的类别</view>
+        <view class="row-extra"><input name="selectObjectCategory" value={{objectiveCategory[objectiveIndex]}} disabled="true" placeholder={{objectiveIndex===-1?"请选择":""}}  /></view>
+        <view class="a-list-arrow a-list-arrow-horizontal" />
+      </view>
+    </picker>
+    <view class="input-title"><text style="color:red">*</text>试用目的</view>
+    <textarea class="multilineInput" name="trialObjective" value="" />
+  </view>
+
+  <view class="fixed-button">
+  <button type="primary" formType="submit">发起审批</button>
+  </view>
+        </form>
+        </view>

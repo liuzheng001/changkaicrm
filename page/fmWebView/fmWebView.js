@@ -11,23 +11,21 @@ Page({
 
       const res = dd.getStorageSync({ key: 'userAndPwd' })
       const pwd = res.data.pass;
-      // const user = res.data.user;
-
-      // dd.alert({content:JSON.stringify(res)})
-
-     /* if (user !== username) {
-          dd.alert({content:'登录用户已经改变,请重新输入FM密码'})
-          dd.navigateBack();
-      }*/
 
       //不使用encodeURIComponent在iphone中不能正常显示
       // const url = "https://filemaker.ckkj.net.cn:442/fmi/webd/";
-      // const url = "http://liuzheng750417.imwork.net:8088/ding-fm-master/openfm.html?programme=" + encodeURIComponent(query.filename) + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd;
+      //测试
+      // const url = "https://filemaker.ckkj.net.cn:8890/corp_php-master/openfm.html?programme=" + encodeURIComponent("费用报销") + "&script=&param=&user=" + encodeURIComponent("刘正") + "&pwd=" + "030528";
       // const url = "https://filemaker.ckkj.net.cn:8890/corp_php-master/getNavigatorMess.html";
       // const url = "http://www.163.com";
 
-      const url = app.globalData.domain+"/openfm.html?t=123456789&programme=" + encodeURIComponent(query.filename) + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd;
- 5
+      // dd.alert({content:app.globalData.domain+"/openfm.html?t=0123456789&programme=" + query.filename + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd})
+
+
+      const url = app.globalData.domain+"/openfm.html?t=0123456789&programme=" + encodeURIComponent(query.filename) + "&script=&param=&user=" + encodeURIComponent(username) + "&pwd=" + pwd;
+
+            // const url = app.globalData.domain+"/openfm.html?t=012&programme=" + query.filename + "&script=&param=&user=" + username + "&pwd=" + pwd;
+      console.log(url);
       this.setData({
           url: url,
       })
