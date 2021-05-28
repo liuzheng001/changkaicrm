@@ -1,6 +1,8 @@
 <view>
+     <web-view id="web-view-1"  src="{{url}}" ></web-view>
     <!-- <web-view id="web-view-1"  src="{{url}}" onMessage="onMessage"></web-view> -->
-    <web-view id="web-view-1"  src="{{url}}" ></web-view>
+
+    <!--<web-view id="web-view-1"  src="dingtalk://dingtalkclient/action/openapp?corpid=ding1fdec36666e1349d35c2f4657eb6378f&container_type=work_platform&app_id=-4&redirect_type=jump&redirect_url=https%3A%2F%2Faflow.dingtalk.com%2Fdingtalk%2Fmobile%2Fhomepage.htm%3Fshowmenu%3Dfalse%26dd_progress%3Dfalse%26dd_share%3Dfalse%26corpid%3Dding1fdec36666e1349d35c2f4657eb6378f%26swfrom%3Dtest" >跳转审批页</web-view>-->
     <!--测试open钉钉审批单-->
     <!--<web-view id="web-view-1"  src="https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=true&dd_share=false&dd_progress=false&back=native&corpid=ding1fdec36666e1349d35c2f4657eb6378f&swform=abc#/approval?procinsld=6be0410a-b51c-44e0-9434-d1f5e9cdb80b" ></web-view>-->
     <!--'https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?showmenu=true&dd_share=false&dd_progress=false&back=native&corpid='+app.globalData.corpId+'&swform=abc#/approval?procinsld=937909d8-b20b-4e5a-9783-735f40e1ef8d'-->

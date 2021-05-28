@@ -17,20 +17,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="trialRecord.axml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.axml">
+      <file leaf-file-name="fmWebView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="64" column="42" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="42" />
+            <state relative-caret-position="450">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trialRecord.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/trialRecord/trialRecord.js">
+      <file leaf-file-name="fmWebView.axml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+            <state relative-caret-position="36">
+              <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -38,17 +47,8 @@
       <file leaf-file-name="leave.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/leave/leave.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
+            <state relative-caret-position="1242">
               <caret line="69" column="65" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adjustmentPlan.axml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/adjustmentPlan.axml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="68" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -56,7 +56,7 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
+            <state relative-caret-position="900">
               <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
             </state>
           </provider>
@@ -65,7 +65,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
+            <state relative-caret-position="12240">
               <caret line="680" column="9" lean-forward="true" selection-start-line="663" selection-start-column="7" selection-end-line="680" selection-end-column="9" />
             </state>
           </provider>
@@ -74,17 +74,17 @@
       <file leaf-file-name="itemTrailApplication.axml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="69" column="48" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="48" />
+            <state relative-caret-position="36">
+              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="itemTrailApplication.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="itemTrailApplication.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="285" column="45" lean-forward="true" selection-start-line="285" selection-start-column="45" selection-end-line="285" selection-end-column="45" />
+            <state relative-caret-position="4842">
+              <caret line="269" column="6" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -92,8 +92,8 @@
       <file leaf-file-name="itemTrailApplication.acss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1602">
-              <caret line="160" column="16" lean-forward="true" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
+            <state relative-caret-position="2880">
+              <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -101,7 +101,7 @@
       <file leaf-file-name="maintenance.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page/maintenance/maintenance.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
+            <state relative-caret-position="5436">
               <caret line="302" column="26" lean-forward="true" selection-start-line="300" selection-start-column="24" selection-end-line="302" selection-end-column="26" />
             </state>
           </provider>
@@ -118,7 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GetQueryString</find>
       <find>Storage</find>
       <find>onSavePass</find>
       <find>getStorage</find>
@@ -148,6 +147,7 @@
       <find>promise</find>
       <find>results</find>
       <find>changeDate</find>
+      <find>button</find>
     </findStrings>
     <replaceStrings>
       <replace>https://liuzheng750417.imwork.net:8890</replace>
@@ -223,17 +223,17 @@
         <option value="$PROJECT_DIR$/page/uploadMedia/uploadMedia.axml" />
         <option value="$PROJECT_DIR$/page/uploadMedia/uploadMedia.js" />
         <option value="$PROJECT_DIR$/page/category/category.axml" />
-        <option value="$PROJECT_DIR$/page/fmWebView/fmWebView.axml" />
         <option value="$PROJECT_DIR$/resources/iconfont.acss" />
         <option value="$PROJECT_DIR$/page/fmWebView/fmWebView.js" />
         <option value="$PROJECT_DIR$/page/category/category.js" />
         <option value="$PROJECT_DIR$/page/adjustmentPlan/relevantList/relevantList.js" />
-        <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/page/calendar/index.js" />
         <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" />
+        <option value="$PROJECT_DIR$/page/fmWebView/fmWebView.axml" />
+        <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" />
         <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js" />
+        <option value="$PROJECT_DIR$/app.json" />
       </list>
     </option>
   </component>
@@ -286,6 +286,12 @@
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="calendar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="fmWebView" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
@@ -509,69 +515,70 @@
       <workItem from="1615558997482" duration="2300000" />
       <workItem from="1617524961224" duration="406000" />
       <workItem from="1620566204345" duration="2723000" />
-      <workItem from="1621088732230" duration="23429000" />
+      <workItem from="1621088732230" duration="27723000" />
+      <workItem from="1622091127546" duration="793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1456838000" />
+    <option name="totallyTimeSpent" value="1461925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="2048" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55131006" visible="true" weight="0.22595191" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55131006" visible="true" weight="0.22344689" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
       <window_info id="Structure" order="1" sideWeight="0.44868997" side_tool="true" weight="0.3261523" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
       <window_info id="Favorites" order="2" sideWeight="0.44868997" side_tool="true" weight="0.3261523" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="9" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
       <window_info anchor="bottom" id="Application Servers" order="12" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
+      <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32938644" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
       <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
-      <window_info anchor="bottom" id="PHP-CGI Server" order="9" />
+      <window_info id="Favorites" order="2" sideWeight="0.6889128" side_tool="true" weight="0.20240481" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.31008583" visible="true" weight="0.21242484" />
       <window_info id="Structure" order="1" sideWeight="0.68991417" side_tool="true" weight="0.21242484" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="PHP-CGI Server" order="9" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32938644" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
       <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" sideWeight="0.6889128" side_tool="true" weight="0.20240481" />
+      <window_info anchor="bottom" id="Application Servers" order="12" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,8 +667,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js</url>
-          <line>337</line>
-          <properties lambdaOrdinal="-1" />
+          <line>336</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -807,24 +813,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="280" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="280" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1404">
           <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -884,20 +876,7 @@
     <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/relevantList/relevantList.axml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/pay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="40" lean-forward="true" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/pay.js" />
     <entry file="file://$PROJECT_DIR$/page/adjustmentPlan/relevantList/relevantList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -940,52 +919,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
+        <state relative-caret-position="12240">
           <caret line="680" column="9" lean-forward="true" selection-start-line="663" selection-start-column="7" selection-end-line="680" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/maintenance/maintenance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
+        <state relative-caret-position="5436">
           <caret line="302" column="26" lean-forward="true" selection-start-line="300" selection-start-column="24" selection-end-line="302" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1602">
-          <caret line="160" column="16" lean-forward="true" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
+        <state relative-caret-position="2880">
+          <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/leave/leave.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
+        <state relative-caret-position="1242">
           <caret line="69" column="65" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml">
+    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.axml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="69" column="48" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="48" />
+        <state relative-caret-position="36">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="285" column="45" lean-forward="true" selection-start-line="285" selection-start-column="45" selection-end-line="285" selection-end-column="45" />
+        <state relative-caret-position="4842">
+          <caret line="269" column="6" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
         </state>
       </provider>
     </entry>

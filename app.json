@@ -1,9 +1,9 @@
 {
   "pages": [
     "page/itemTrailApplication/itemTrailApplication",
+    "page/fmWebView/fmWebView",
     "page/index/index",
     "page/FMCategory/FMCategory",
-    "page/fmWebView/fmWebView",
     "page/adjustmentPlan/relevantList/relevantList",
     "page/adjustmentPlan/adjustmentPlan",
     "page/dispatchedWorker/dispatchedWorker",

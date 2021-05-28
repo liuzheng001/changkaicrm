@@ -268,7 +268,6 @@ Page({
             selectItemIndex: e.detail.value,
         });
     },
-
     formSubmit(e) { //发起审批
         // const detailedArr = convertDetailed(this.data.detailed,this)
         let that = this;
