@@ -288,7 +288,7 @@ Page({
             customID = this.data.customList[index].id;
         }
         //数据校验
-         if ( form.payMoney<=0 ) {
+         if ( that.data.selectItemIndex=== -1 || form.stageIndex===-1 || form.price=="" || form.price<0 || form.number=="" || form.number<=0 || form.beginDate=="" ||  form.cycle==""|| form.objectiveIndex==-1 || form.trialObjective=="") {
              dd.alert({content: "提交数据有误,请检查!"});
              return;
          }

@@ -17,7 +17,10 @@
                   <image  a:elif="{{rec.title=='派工申请流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/pai.png"/>
                   <image  a:elif="{{rec.title=='付款流程'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/fukuan.png"/>
                   <image  a:elif="{{rec.title=='调整品处理方案'}}"  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/tiao.png"/>
-                  <text a:else  class="iconfont icon-daohang" style="color:grey;font-size:64rpx"/>
+
+                  <!--<text a:else  class="iconfont icon-daohang" style="color:grey;font-size:64rpx"/>-->
+                  <image a:else  style="color:blue;font-size:64rpx;width:64rpx;height:64rpx;" src="/resources/liucheng.png"/>
+
               </view>
               <text class="grid-text">{{rec.title}}</text>
             </view>

@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8333f5df-564a-4f61-9cb4-81debe581924" name="Default" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="8333f5df-564a-4f61-9cb4-81debe581924" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/FMCategory/FMCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/FMCategory/FMCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/category/category.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/category/category.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/category/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/category/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" beforeDir="false" afterPath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/maintenance/maintenance.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/maintenance/maintenance.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,103 +25,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="changkaicrm" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="fmWebView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fmWebView.axml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.axml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leave.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/leave/leave.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="69" column="65" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12240">
-              <caret line="680" column="9" lean-forward="true" selection-start-line="663" selection-start-column="7" selection-end-line="680" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="itemTrailApplication.axml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="itemTrailApplication.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4842">
-              <caret line="269" column="6" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="itemTrailApplication.acss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2880">
-              <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="maintenance.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/page/maintenance/maintenance.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5436">
-              <caret line="302" column="26" lean-forward="true" selection-start-line="300" selection-start-column="24" selection-end-line="302" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,27 +36,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Storage</find>
-      <find>onSavePass</find>
-      <find>getStorage</find>
-      <find>setStorage</find>
-      <find>.then</find>
-      <find>applicationServer</find>
-      <find>v0.5.3</find>
-      <find>navigateTo</find>
-      <find>onCalculationmil</find>
-      <find>mediaSize</find>
-      <find>https://aflow.dingtalk.com/dingtalk/</find>
-      <find>datepicker</find>
-      <find>form</find>
-      <find>icon</find>
-      <find>uploadC</find>
-      <find>register_call_back</find>
-      <find>钉钉</find>
-      <find>showSearchList</find>
-      <find>search</find>
-      <find>customID</find>
-      <find>start_time</find>
       <find>relevantList</find>
       <find>picker</find>
       <find>onSelectCategory</find>
@@ -148,6 +45,27 @@
       <find>results</find>
       <find>changeDate</find>
       <find>button</find>
+      <find>管理员</find>
+      <find>qr</find>
+      <find>qrScan</find>
+      <find>钉钉</find>
+      <find>dd.</find>
+      <find>ajax</find>
+      <find>domain</find>
+      <find>httpReq</find>
+      <find>httpRequest</find>
+      <find>dd.error</find>
+      <find>res</find>
+      <find>httpRe</find>
+      <find>batchNumber</find>
+      <find>onUploadMediaToFmContainer</find>
+      <find>uploadMedia</find>
+      <find>class=&quot;row&quot;</find>
+      <find>a:if</find>
+      <find>primary</find>
+      <find>disable</find>
+      <find>doeditorsave</find>
+      <find>建立FM</find>
     </findStrings>
     <replaceStrings>
       <replace>https://liuzheng750417.imwork.net:8890</replace>
@@ -178,17 +96,11 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/eapp-corp-quick-start-fe" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/page/calendar/addSampleRecord/addSampleRecord.axml" />
-        <option value="$PROJECT_DIR$/page/calendar/addMachine/addMachine.js" />
-        <option value="$PROJECT_DIR$/page/calendar/selectCustomer/selectCustomer.js" />
-        <option value="$PROJECT_DIR$/page/pay/pay.js" />
-        <option value="$PROJECT_DIR$/page/calendar/selectCustomer/selectCustomer.acss" />
-        <option value="$PROJECT_DIR$/page/calendar/selectCustomer/selectCustomer.axml" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/editSampleRecord.axml" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.js" />
         <option value="$PROJECT_DIR$/page/calendar/editSampleRecord/sampleList/sampleList.axml" />
@@ -217,23 +129,29 @@
         <option value="$PROJECT_DIR$/page/logs/logs.js" />
         <option value="$PROJECT_DIR$/page/index/index.js" />
         <option value="$PROJECT_DIR$/page/index/index.axml" />
-        <option value="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" />
-        <option value="$PROJECT_DIR$/page/FMCategory/FMCategory.js" />
         <option value="$PROJECT_DIR$/page/workflow/workflow.js" />
         <option value="$PROJECT_DIR$/page/uploadMedia/uploadMedia.axml" />
         <option value="$PROJECT_DIR$/page/uploadMedia/uploadMedia.js" />
-        <option value="$PROJECT_DIR$/page/category/category.axml" />
         <option value="$PROJECT_DIR$/resources/iconfont.acss" />
         <option value="$PROJECT_DIR$/page/fmWebView/fmWebView.js" />
-        <option value="$PROJECT_DIR$/page/category/category.js" />
         <option value="$PROJECT_DIR$/page/adjustmentPlan/relevantList/relevantList.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/page/calendar/index.js" />
-        <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" />
         <option value="$PROJECT_DIR$/page/fmWebView/fmWebView.axml" />
-        <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" />
+        <option value="$PROJECT_DIR$/page/FMCategory/FMCategory.js" />
+        <option value="$PROJECT_DIR$/page/category/category.axml" />
+        <option value="$PROJECT_DIR$/page/category/category.js" />
+        <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" />
         <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js" />
+        <option value="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" />
+        <option value="$PROJECT_DIR$/page/maintenance/maintenance.js" />
+        <option value="$PROJECT_DIR$/page/materialInspection/materialInspection.json" />
+        <option value="$PROJECT_DIR$/page/materialInspection/materialInspection.js" />
+        <option value="$PROJECT_DIR$/page/materialInspection/materialInspection.axml" />
+        <option value="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" />
+        <option value="$PROJECT_DIR$/page/inspection/inspection.axml" />
+        <option value="$PROJECT_DIR$/page/inspection/inspection.js" />
         <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -242,6 +160,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
@@ -262,13 +183,13 @@
     <option name="width" value="2048" />
     <option name="height" value="1040" />
   </component>
+  <component name="ProjectId" id="2E3Xdbf0WdCPyOiZo2wR8TjtcG4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,13 +206,13 @@
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
+              <item name="FMCategory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="fmWebView" type="462c0819:PsiDirectoryNode" />
+              <item name="inspection" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
@@ -309,26 +230,41 @@
               <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
               <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
-              <item name="trialRecord" type="462c0819:PsiDirectoryNode" />
+              <item name="maintenance" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="changkaicrm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="changkaicrm" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="uploadMedia" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/page/index" />
@@ -345,34 +281,34 @@
       <recent name="$PROJECT_DIR$/resources" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Node.js.editSampleRecord.js">
-    <configuration name="addMachine.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="addMachine.js" working-dir="$PROJECT_DIR$/page/calendar/addMachine" />
-    <configuration name="editSampleRecord.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="editSampleRecord.js" working-dir="$PROJECT_DIR$/page/calendar/editSampleRecord" />
-    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/page/grid" />
+  <component name="RunManager" selected="Node.js.app.js">
+    <configuration name="addMachine.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="addMachine.js" working-dir="$PROJECT_DIR$/page/calendar/addMachine">
+      <method v="2" />
+    </configuration>
+    <configuration name="app.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="editSampleRecord.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="editSampleRecord.js" working-dir="$PROJECT_DIR$/page/calendar/editSampleRecord">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/page/grid">
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.index.js" />
       <item itemvalue="Node.js.addMachine.js" />
       <item itemvalue="Node.js.editSampleRecord.js" />
+      <item itemvalue="Node.js.app.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.app.js" />
         <item itemvalue="Node.js.editSampleRecord.js" />
         <item itemvalue="Node.js.addMachine.js" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",SHOW_CLASSES" />
   </component>
@@ -516,29 +452,83 @@
       <workItem from="1617524961224" duration="406000" />
       <workItem from="1620566204345" duration="2723000" />
       <workItem from="1621088732230" duration="27723000" />
-      <workItem from="1622091127546" duration="793000" />
+      <workItem from="1622091127546" duration="2687000" />
+      <workItem from="1622250556267" duration="2468000" />
+      <workItem from="1622292415566" duration="6688000" />
+      <workItem from="1623594980980" duration="479000" />
+      <workItem from="1624773520137" duration="598000" />
+      <workItem from="1625990473933" duration="598000" />
+      <workItem from="1626270166163" duration="598000" />
+      <workItem from="1628859322022" duration="3957000" />
+      <workItem from="1629357054845" duration="598000" />
+      <workItem from="1629542697895" duration="3242000" />
+      <workItem from="1630071342503" duration="596000" />
+      <workItem from="1630332421871" duration="1301000" />
+      <workItem from="1631360955892" duration="2079000" />
+      <workItem from="1631636660822" duration="598000" />
+      <workItem from="1631791561619" duration="597000" />
+      <workItem from="1632376283647" duration="598000" />
+      <workItem from="1635254405248" duration="8000" />
+      <workItem from="1635678482731" duration="596000" />
+      <workItem from="1635693243521" duration="598000" />
+      <workItem from="1635741796361" duration="7000" />
+      <workItem from="1636176074967" duration="20000" />
+      <workItem from="1636593287463" duration="597000" />
+      <workItem from="1639353834612" duration="11000" />
+      <workItem from="1651224571438" duration="12639000" />
+      <workItem from="1651662785576" duration="10058000" />
+      <workItem from="1652800057811" duration="1240000" />
+      <workItem from="1652876946113" duration="320000" />
+      <workItem from="1653128295746" duration="6000" />
+      <workItem from="1654341694224" duration="276000" />
+      <workItem from="1655164381995" duration="681000" />
+      <workItem from="1656857177025" duration="1219000" />
+      <workItem from="1657465079652" duration="4000" />
+      <workItem from="1657881923467" duration="576000" />
+      <workItem from="1657886490444" duration="595000" />
+      <workItem from="1658145338850" duration="502000" />
+      <workItem from="1660269603767" duration="593000" />
+      <workItem from="1660793143688" duration="1430000" />
+      <workItem from="1660820939913" duration="787000" />
+      <workItem from="1660918308606" duration="598000" />
+      <workItem from="1661825333788" duration="641000" />
+      <workItem from="1661948376821" duration="407000" />
+      <workItem from="1662292601000" duration="596000" />
+      <workItem from="1662337558235" duration="598000" />
+      <workItem from="1662425179623" duration="269000" />
+      <workItem from="1662975557771" duration="179000" />
+      <workItem from="1663163306525" duration="12000" />
+      <workItem from="1663164413861" duration="595000" />
+      <workItem from="1663468305971" duration="542000" />
+      <workItem from="1663504771267" duration="542000" />
+      <workItem from="1663546243300" duration="653000" />
+      <workItem from="1664457172657" duration="585000" />
+      <workItem from="1664575909396" duration="81000" />
+      <workItem from="1664676678911" duration="22000" />
+      <workItem from="1664676771186" duration="566000" />
+      <workItem from="1666657445399" duration="2949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1461925000" />
+    <option name="totallyTimeSpent" value="1522175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="2048" height="1040" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55131006" visible="true" weight="0.22595191" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
-      <window_info id="Structure" order="1" sideWeight="0.44868997" side_tool="true" weight="0.3261523" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32903227" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
+      <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.55131006" visible="true" weight="0.24560547" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" sideWeight="0.44868997" side_tool="true" weight="0.3261523" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.3005291" />
       <window_info id="Favorites" order="2" sideWeight="0.44868997" side_tool="true" weight="0.3261523" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -548,44 +538,13 @@
       <window_info anchor="bottom" id="Changes" order="7" />
       <window_info anchor="bottom" id="Application Servers" order="12" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
       <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32938644" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32911393" />
-      <window_info anchor="right" id="Remote Host" order="4" weight="0.32815632" />
-      <window_info id="Favorites" order="2" sideWeight="0.6889128" side_tool="true" weight="0.20240481" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.31008583" visible="true" weight="0.21242484" />
-      <window_info id="Structure" order="1" sideWeight="0.68991417" side_tool="true" weight="0.21242484" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="PHP-CGI Server" order="9" />
-      <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="14" weight="0.32863188" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32979852" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50080085" side_tool="true" weight="0.1961824" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919915" weight="0.45493108" />
-      <window_info anchor="bottom" id="File Transfer" order="16" sideWeight="0.49973306" visible="true" weight="0.18479532" />
-      <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -632,7 +591,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/page/FMCategory/FMCategory.js</url>
-          <line>78</line>
+          <line>79</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -670,19 +629,27 @@
           <line>336</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js</url>
+          <line>292</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$USER_HOME$/PhpstormProjects/eapp-corp/upload/upload.php</url>
           <line>26</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="upload.php">
         <watch expression="$_FILES" language="PHP" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -694,173 +661,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/page/index/background00.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/background01.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/background02.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/background03.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/background04.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/index/index.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/index.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/uploadMedia/uploadMedia.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/uploadMedia/uploadMedia.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/uploadMedia/uploadMedia.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="306" column="14" lean-forward="true" selection-start-line="306" selection-start-column="14" selection-end-line="306" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/logs/logs.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/logs/logs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="230" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="230" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/pay/pay.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="61" column="42" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/pay/pay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3636">
-          <caret line="202" column="4" selection-start-line="202" selection-start-column="4" selection-end-line="202" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/iconfont2.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/iconfont.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/calendar/index.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/schedule/schedule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6498">
-          <caret line="361" column="22" selection-start-line="361" selection-start-column="22" selection-end-line="361" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/leave/leave.axml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/workflow/workflow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/workflow/workflow.axml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/category/category.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/category/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/samplesapply/samplesapply.axml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="38" selection-start-line="14" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/samplesapply/samplesapply.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="117" column="10" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/page/exchanges/exchanges.axml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -922,28 +722,7 @@
     <entry file="file://$PROJECT_DIR$/page/calendar/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12240">
-          <caret line="680" column="9" lean-forward="true" selection-start-line="663" selection-start-column="7" selection-end-line="680" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/maintenance/maintenance.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5436">
-          <caret line="302" column="26" lean-forward="true" selection-start-line="300" selection-start-column="24" selection-end-line="302" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="160" column="16" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page/leave/leave.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="69" column="65" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
+          <caret line="680" column="9" selection-start-line="663" selection-start-column="7" selection-end-line="680" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -954,38 +733,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
+    <entry file="file://$PROJECT_DIR$/page/category/category.acss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/10e831ffe01b85e6705befad4b494d91.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fm.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fukuan.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/liucheng.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app1.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/category.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="2088">
+          <caret line="116" column="13" lean-forward="true" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2484">
+          <caret line="138" column="1" selection-start-line="138" selection-start-column="1" selection-end-line="138" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4842">
-          <caret line="269" column="6" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
+        <state relative-caret-position="5274">
+          <caret line="293" column="10" lean-forward="true" selection-start-line="293" selection-start-column="10" selection-end-line="293" selection-end-column="10" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/fmWebView/fmWebView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/workflow/workflow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/workflow/workflow.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/workflowlist/workflowlist.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/workflowlist/workflowlist.acss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/workflowlist/workflowlist.axml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/workflowlist/workflowlist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/category/category.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/materialInspection/uploadMedia.js" />
+    <entry file="file://$PROJECT_DIR$/page/uploadMedia/uploadMedia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="280" column="29" lean-forward="true" selection-start-line="280" selection-start-column="29" selection-end-line="280" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/pay/pay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/materialInspection/materialInspection.json" />
+    <entry file="file://$PROJECT_DIR$/page/maintenance/maintenance.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4518">
+          <caret line="251" column="49" selection-start-line="251" selection-start-column="49" selection-end-line="251" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/uploadMedia/uploadMedia.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="57" column="60" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/materialInspection/materialInspection.js" />
+    <entry file="file://$PROJECT_DIR$/page/materialInspection/materialInspection.axml" />
+    <entry file="file://$PROJECT_DIR$/page/leave/leave.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="66" column="44" lean-forward="true" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/FMCategory/FMCategory.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/leave/leave.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/inspection/inspection.acss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/inspection/inspection.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
+        <state relative-caret-position="144">
+          <caret line="8" column="151" lean-forward="true" selection-start-line="8" selection-start-column="136" selection-end-line="8" selection-end-column="151" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        <state relative-caret-position="468">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PhpstormProjects/MetInfo7/config/config_db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/inspection/inspection.axml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="41" column="50" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page/inspection/inspection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
         </state>
       </provider>
     </entry>

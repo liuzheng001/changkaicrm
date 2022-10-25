@@ -85,7 +85,6 @@ Page({
             customIndex: e.detail.value,
         });
     },*/
-
     onPicturePreview(e){
         const imageUrl = e.currentTarget.dataset.src;
         dd.previewImage({
@@ -222,7 +221,7 @@ Page({
 
         const index = this.data.customList.findIndex(findFn)
         let customID;
-        if(index==-1){
+        if(index==-1){fi
             dd.alert({content: "客户名称,请检查!"});
             return;   }
         else {  //通过index找到客户ID

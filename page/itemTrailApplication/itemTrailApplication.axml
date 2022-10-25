@@ -62,7 +62,7 @@
       <view class="row-extra"><input name="number" type="number" placeholder="请输入"  /></view>
     </view>
     <view class="row" style="border-bottom: 1px solid #ddd"  onTap="changeDate" data-index={{index}}>
-      <view class="row-title"><text style="color:red">*</text>试用开始日期</view>
+      <view class="row-title"><text style="color:red">*</text>试用开始日期(天)</view>
       <view class="row-extra" ><input name="beginDate" value={{beginDate}} disabled="true"  /></view>
       <view class="a-list-arrow a-list-arrow-horizontal" />
       </view>

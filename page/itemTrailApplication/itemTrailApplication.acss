@@ -147,7 +147,7 @@
 
 
 .row-title {
-    flex: 1;
+    flex: 1 0 auto;
     padding-top: 28rpx;
     padding-bottom: 28rpx;
     font-size: 34rpx;
@@ -155,7 +155,7 @@
 }
 
 .row-extra {
-    flex: 3;
+    flex: 2;
     flex-basis: initial;
     font-size: 32rpx;
     color: grey;

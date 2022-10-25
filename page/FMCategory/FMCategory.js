@@ -16,6 +16,7 @@ Page({
         {  fmFileName:"试验记录",
             thumb:""
         },
+
     ],
       show:false,
       height:'30%',

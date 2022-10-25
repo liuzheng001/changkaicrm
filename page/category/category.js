@@ -92,6 +92,9 @@ Page({
           case "PROC-DF7AEE3E-B72E-4A6F-9A5B-DA3FC879039A": //调整方案
               url = "/page/adjustmentPlan/adjustmentPlan";
               break;
+          case "PROC-ED8853FC-7CFE-428C-8A49-CD4D45ACEE0F": //试用申请流程
+              url = "/page/itemTrailApplication/itemTrailApplication";
+              break;
           default:
               dd.alert({content:"该流程尚不能通过钉钉发起,请联系管理员."})
 							return;
