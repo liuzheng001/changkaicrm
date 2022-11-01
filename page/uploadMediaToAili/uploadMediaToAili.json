@@ -1,0 +1,6 @@
+{
+  "usingComponents":{
+    "commonmodal":"/components/commonmodal/commonmodal"
+  },
+  "defaultTitle": "上传媒体到阿里云"
+}

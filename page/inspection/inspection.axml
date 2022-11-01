@@ -1,0 +1,45 @@
+
+<view>
+    <button onTap="qrScan">原材料批次二维码</button>
+  <view class="page-section">
+      <view class="row" style="border-bottom: 1px solid #ddd">
+          <view class="row-title">
+            <text style="color:orange">原材料批次二维码,请在取样瓶上查找,或找原材料库管获取.</text>
+          </view>
+      </view>
+  </view>
+
+    <view class="page-section"  a:if = {{inventoryId !="" }} >
+        <view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="row-title">原材料名称或代号</view>
+            <view class="row-extra">{{name}}</view>
+            <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+        <view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="row-title">库存Id</view>
+            <view class="row-extra">{{inventoryId}}</view>
+            <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+        <view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="row-title">批号</view>
+            <view class="row-extra">{{batchNumber}}</view>
+            <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+        <view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="row-title">数量</view>
+            <view class="row-extra">{{quantity}}</view>
+            <view class="a-list-arrow a-list-arrow-horizontal" />
+        </view>
+
+        <!--<view class="row" style="border-bottom: 1px solid #ddd">
+            <view class="line"><text>原材料名称或代号:{{name}}</text></view>
+            <view class="line"><text>库存Id:{{inventoryId}}</text></view>
+            <view class="line"><text>批号:{{batchNumber}}</text></view>
+            <view class="line"><text>数量:{{quantity}}</text></view>
+        </view>-->
+    </view>
+
+    <button  type="primary" onTap="createInspction" disabled = "{{inventoryId==''?true:false}}" >建立FM检验记录</button>
+
+</view>
+

@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8333f5df-564a-4f61-9cb4-81debe581924" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/FMCategory/FMCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/FMCategory/FMCategory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/category/category.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/category/category.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/category/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/category/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" beforeDir="false" afterPath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.acss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/itemTrailApplication/itemTrailApplication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/maintenance/maintenance.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/maintenance/maintenance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/uploadMedia/uploadMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/uploadMedia/uploadMedia.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +250,7 @@
     "WebServerToolWindowPanel.toolwindow.show.date": "false",
     "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "last_opened_file_path": "/Users/liuzheng/Documents/changkaicrm/page",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -266,19 +260,19 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/page/index" />
-      <recent name="$PROJECT_DIR$/page/calendar" />
-      <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/page" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/page" />
       <recent name="$PROJECT_DIR$/page/index" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/page/index" />
+      <recent name="$PROJECT_DIR$/page/calendar" />
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/page" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.app.js">
@@ -506,8 +500,16 @@
       <workItem from="1664575909396" duration="81000" />
       <workItem from="1664676678911" duration="22000" />
       <workItem from="1664676771186" duration="566000" />
-      <workItem from="1666657445399" duration="2949000" />
+      <workItem from="1666657445399" duration="16515000" />
     </task>
+    <task id="LOCAL-00001" summary="upload accessorise to aili">
+      <created>1666666562027</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666666562027</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -545,6 +547,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="upload accessorise to aili" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload accessorise to aili" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

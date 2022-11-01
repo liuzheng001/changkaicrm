@@ -1,0 +1,39 @@
+<view a:if={{showVideo}} class="videoContainer">
+<!--<video class="video"  src="{{videoUrl}}" autoplay="true"   />-->
+    <video
+        id="v"
+        class="video"
+        src="{{videoUrl}}"
+        onTimeUpdate="onTimeUpdate"
+        objectFit="contain"
+        autoplay="true"
+        enableNative="true"
+    />
+    <button class="videoButton" onTap="onCloseVideo">关闭</button>
+</view>
+<view>
+    <button onTap="qrScan">扫描二维码</button>
+  <view class="page-section">
+      <view class="row" style="border-bottom: 1px solid #ddd">
+          <view class="row-title">
+            <view class="line">数据库:{{database}}</view>
+              <view class="line">布局:{{layout}}</view>
+              <view  a:if={{recordId!==-1}} class="line"> 记录号:{{recordId}}</view>
+          </view>
+          <view  class="row-extra" style="flex:1 1 0%">
+             <text a:if="{{recordId!==-1}}" style ="font-size:240rpx;color:orange"   onTap="onUploadMedia" class="iconfont icon-add-fill"/>
+              <text a:else style ="font-size:240rpx;color:gray"    class="iconfont icon-add-fill"/>
+        </view>
+      </view>
+      <view>
+          <view class="row-title">
+              <view class="line" a:if={{filename}}>{{filename}}已上传</view>
+          </view>
+      </view>
+  </view>
+
+
+
+
+
+

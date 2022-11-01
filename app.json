@@ -24,8 +24,8 @@
     "page/samplesapply/samplesapply",
     "page/logs/logs",
     "page/uploadMedia/uploadMedia",
-    "page/inspection/inspection"
-
+    "page/inspection/inspection",
+    "page/uploadMediaToAili/uploadMediaToAili"
   ],
   "window": {
     "defaultTitle": "长凯CRM",

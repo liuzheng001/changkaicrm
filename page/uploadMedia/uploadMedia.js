@@ -219,7 +219,6 @@ Page({
                             } else {
                                 const path = res.filePath;
                                const mediaSize = res.size/1000000
-
                                     /* // dd.showLoading();
                                      thumbs.push({nativeUrl: path, category: 'video'});
                                      //将数据存入,但没有上传
