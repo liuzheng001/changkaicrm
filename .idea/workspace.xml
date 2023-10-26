@@ -7,9 +7,7 @@
     <list default="true" id="8333f5df-564a-4f61-9cb4-81debe581924" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" beforeDir="false" afterPath="$PROJECT_DIR$/page/FMCategory/FMCategory.axml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/uploadMedia/uploadMedia.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/uploadMedia/uploadMedia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/uploadMediaToAili/uploadMediaToAili.js" beforeDir="false" afterPath="$PROJECT_DIR$/page/uploadMediaToAili/uploadMediaToAili.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,23 +240,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "last_opened_file_path": "/Users/liuzheng/Documents/changkaicrm/page",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/liuzheng/Documents/changkaicrm/page&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/page" />
@@ -500,7 +498,23 @@
       <workItem from="1664575909396" duration="81000" />
       <workItem from="1664676678911" duration="22000" />
       <workItem from="1664676771186" duration="566000" />
-      <workItem from="1666657445399" duration="16515000" />
+      <workItem from="1666657445399" duration="20139000" />
+      <workItem from="1667607440097" duration="598000" />
+      <workItem from="1667912645382" duration="598000" />
+      <workItem from="1668261088229" duration="1195000" />
+      <workItem from="1668509294992" duration="1125000" />
+      <workItem from="1669388421848" duration="439000" />
+      <workItem from="1670161984947" duration="596000" />
+      <workItem from="1670648735437" duration="597000" />
+      <workItem from="1670762202720" duration="1587000" />
+      <workItem from="1674905876016" duration="1792000" />
+      <workItem from="1677506725912" duration="593000" />
+      <workItem from="1677682920860" duration="649000" />
+      <workItem from="1682818129911" duration="629000" />
+      <workItem from="1684931541188" duration="5152000" />
+      <workItem from="1687133065928" duration="1719000" />
+      <workItem from="1692803124111" duration="776000" />
+      <workItem from="1693131944020" duration="6365000" />
     </task>
     <task id="LOCAL-00001" summary="upload accessorise to aili">
       <created>1666666562027</created>
@@ -509,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666666562027</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="upload accessorise to aili">
+      <created>1667263317050</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667263317050</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">

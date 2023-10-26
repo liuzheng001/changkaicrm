@@ -42,13 +42,10 @@ Page({
                 if (index === 0) { //选择图片
                     dd.chooseImage({
                         count: 1, //最多只能选1张图片
-                        success: (res) => {
-                             const filename = res.filePaths[0];
-                             t.setData({
-                                filename
-                             })
+                        success:  (res) => {
                             //上传
-                            uploadMediaToAili(t,res.filePaths[0],"image");
+                             uploadMediaToAili(t, res.filePaths[0], "image");
+
                         },
                         fail: (err) => {
                             console.log(err);
@@ -58,18 +55,14 @@ Page({
                     dd.chooseVideo({
                         sourceType: ['album', 'camera'],
                         maxDuration: 60,
-                        success: (res) => {
+                        success: async (res) => {
                             // dd.alert({content:JSON.stringify(res)});
                             // const path = (res.filePaths && res.filePaths[0]) || (res.apFilePaths && res.apFilePaths[0]);
                             if (res.duration > 60) {
                                 dd.alert({content: "视频时长不能超过1分钟."})
                             } else {
-                                const filename = res.filePath;
-                                t.setData({
-                                    filename
-                                })
                                 //上传
-                                uploadMediaToAili(t,res.filePath,"video");
+                                 uploadMediaToAili(t, res.filePath, "video");
                             }
                         },
                         fail: (err) => {
@@ -89,7 +82,7 @@ function uploadMediaToAili(t,path,mediaType) {
     const recordId = t.data.recordId;
     const url = getApp().globalData.applicationServer + 'uploadMediasToAiliAndVideoIdToFM.php'
     // alert(path);
-    // dd.showLoading();
+    dd.showLoading();
     dd.uploadFile({
         // url: getApp().globalData.domain + '/upload/upload.php',
         url: url,
@@ -108,6 +101,10 @@ function uploadMediaToAili(t,path,mediaType) {
                 //返回上传图片urls
                 dd.hideLoading();
                 dd.alert({content: "上传成功"})
+                const filename = path;
+                t.setData({
+                    filename
+                })
             } else {
                 dd.alert({content: `上传服务器失败：${JSON.stringify(res)}`})
             }
